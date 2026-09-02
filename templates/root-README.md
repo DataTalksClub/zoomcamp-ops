@@ -81,13 +81,16 @@ Self-paced steps:
 
 ## Syllabus
 
-### [Module 1: {{MODULE_1_TITLE}}](01-intro/)
+The materials below are the {{CURRENT_YEAR}} cohort. Earlier cohorts are frozen
+archives in sibling year directories under [`cohorts/`](cohorts/).
+
+### [Module 1: {{MODULE_1_TITLE}}](cohorts/{{CURRENT_YEAR}}/01-intro/)
 
 - {{TOPIC}}
 - {{TOPIC}}
 - Homework
 
-### [Module 2: {{MODULE_2_TITLE}}](02-.../)
+### [Module 2: {{MODULE_2_TITLE}}](cohorts/{{CURRENT_YEAR}}/02-{{slug}}/)
 
 - {{TOPIC}}
 - {{TOPIC}}
@@ -124,6 +127,14 @@ Join the [#course-{{COURSE_SLUG}}]({{SLACK_CHANNEL_URL}}) channel on [DataTalks.
 ### Learning in Public
 
 Share your progress as you go — see the [learning in public guide](learning-in-public.md).
+
+### Contributing
+
+Found a typo or a broken command? Edit the file under
+[`cohorts/{{CURRENT_YEAR}}/`](cohorts/{{CURRENT_YEAR}}/) — the path in the URL
+where you read it is the path in this repo — and open a pull request. A check
+runs on every PR and says exactly what is wrong before a reviewer has to.
+Earlier cohorts are frozen archives; we only backport factual or breaking fixes.
 
 ## Sponsors
 
