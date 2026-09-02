@@ -32,11 +32,15 @@ sys.modules["check_zoomcamp"] = check
 spec.loader.exec_module(check)
 
 
-def findings(path: Path, phase: int = 1) -> list:
+def raw_findings(path: Path, phase: int = 1) -> list:
     repo = check.Repo(root=path, files=check.collect_files(path))
     checker = check.Checker(repo=repo, phase=phase)
     checker.run()
-    return [(checker.severity(f), f.rule) for f in checker.findings]
+    return [(checker.severity(f), f.rule, f.path) for f in checker.findings]
+
+
+def findings(path: Path, phase: int = 1) -> list:
+    return [(severity, rule) for severity, rule, _path in raw_findings(path, phase)]
 
 
 def counts(path: Path, phase: int = 1) -> dict[tuple[str, str], int]:
@@ -100,15 +104,46 @@ expect(
         ("warning", "U006"): 1,  # one per cohort, not one per unit
         ("warning", "U008"): 1,  # navigation furniture
         ("warning", "U009"): 1,  # homework.md opens with an H2
-        ("warning", "U011"): 1,  # one per cohort: ordinal H1s, an open decision
+        ("warning", "U011"): 1,  # 02-kept-ordinal.md: title still numbered
     },
 )
 
-# The three rules that describe an end state the website cannot serve yet are
-# never errors, at any phase. A checker that tells a contributor to strip an
-# ordinal, move a video to frontmatter or promote a homework heading TODAY is
-# telling them to break a published page -- see the PENDING note in
-# check_zoomcamp.py. This assertion is the guard on that.
+# U011's fix edits two files, and doing half of it puts the title on the page
+# twice. 02-kept-ordinal.md is the un-migrated unit (U011, both sides agree);
+# 03-stripped-ordinal.md is the half-migrated one (M012, and NOT U011, because
+# its H1 is already clean). Exactly one finding each, and the half-migrated
+# state is the one that names the duplicate-title hazard.
+expect(
+    "un-migrated unit is U011, half-migrated unit is M012",
+    sorted(
+        (rule, path.rsplit("/", 1)[-1])
+        for _severity, rule, path in raw_findings(HERE / "fixtures" / "violations")
+        if rule in {"U011", "M012"}
+    ),
+    [
+        ("M012", "01-drift.md"),
+        ("M012", "03-stripped-ordinal.md"),
+        ("U011", "02-kept-ordinal.md"),
+    ],
+)
+
+# Rules that describe an end state the website cannot serve yet are never
+# errors, at any phase. A checker that tells a contributor to move a video to
+# frontmatter or promote a homework heading TODAY is telling them to break a
+# published page -- see the PENDING note in check_zoomcamp.py. This assertion
+# is the guard on that.
+#
+# Membership is asserted explicitly so a rule cannot drift into or out of the
+# class by accident. U011 left it when the owner settled the ordinal question --
+# what it was waiting on was a decision, not code. U006 and U009 are still
+# blocked on website code that has not shipped (the importer drops frontmatter
+# video_url; the homework page has no leading-heading strip), so they stay.
+expect(
+    "pending class is exactly the rules still blocked on the website",
+    sorted(rule for rule, (rule_class, _) in check.RULES.items() if rule_class == check.PENDING),
+    ["U006", "U009"],
+)
+
 for _phase in (1, 2, 3):
     expect(
         f"pending rules never become errors at phase {_phase}",
@@ -136,7 +171,22 @@ expect(
     "violations fixture, phase 2 turns content warnings into errors",
     sum(n for (severity, _), n in counts(HERE / "fixtures" / "violations", phase=2).items()
         if severity == "error"),
-    23,
+    24,
+)
+
+# U011 is a real convention now, so the phase model gates it like any other unit
+# shape rule: a warning at phase 1 while a repo is being normalized, an error
+# once it declares phase 2. Stripping an ordinal is safe against the deployed
+# site -- M012 is what keeps the two sides moving together.
+expect(
+    "U011 is a warning at phase 1 and an error from phase 2",
+    [
+        severity
+        for phase in (1, 2, 3)
+        for (severity, rule) in counts(HERE / "fixtures" / "violations", phase=phase)
+        if rule == "U011"
+    ],
+    ["warning", "error", "error"],
 )
 
 # An allowance in .zoomcamp-check.yaml suppresses exactly one rule at exactly

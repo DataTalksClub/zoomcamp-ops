@@ -84,11 +84,17 @@ makes it a convention rather than a preference.
 ## Rules that must never fail a build
 
 Some rules describe the convention's end state but depend on a website change
-that has not shipped. `U006` (video to frontmatter), `U009` (homework H1) and
-`U011` (H1 ordinal prefixes) are all in that state: acting on any of them today
-makes a published page worse. They are class `pending`, they are warnings at
-every phase, the self-test asserts they can never become errors, and their
-messages say what has to ship first.
+that has not shipped. `U006` (video to frontmatter) and `U009` (homework H1) are
+in that state: acting on either today makes a published page worse. They are
+class `pending`, they are warnings at every phase, the self-test asserts they can
+never become errors, and their messages say what has to ship first.
+
+`U011` (title ordinal prefixes) used to be the third. It left the class when the
+owner settled the question — ordering lives in the filename prefix and titles
+carry no ordinal — because what it was blocked on was a decision, not code. It is
+class `content` now: warning at phase 1, error from phase 2. `U006` and `U009`
+are still blocked on real code, and the self-test asserts the `pending` class is
+exactly those two so neither is promoted by accident.
 
 This class exists because the first version of this checker reported 205
 findings against machine-learning-zoomcamp that were all of this kind, on a repo
@@ -97,8 +103,11 @@ production is one people learn to ignore. If you add a rule, ask what happens to
 a contributor who does exactly what it says, today, and put it in `pending` if
 the answer is "a worse page".
 
-The two bulk pending rules report **once per cohort** with a count and an
-example, not once per file, for the same reason.
+`U006`, the one bulk pending rule left, reports **once per cohort** with a count
+and an example, not once per file, for the same reason: a hundred identical
+warnings about one blocked migration teaches people to ignore the report. A rule
+with an actionable per-file fix — `U011` now — reports per file, with the line,
+so the annotation lands where the edit goes.
 
 Note that `fixtures/conformant/` still produces *warnings* at phase 1. Those are
 the retired knobs — `cohort.yaml` identity, `units`, `instructions_path`,

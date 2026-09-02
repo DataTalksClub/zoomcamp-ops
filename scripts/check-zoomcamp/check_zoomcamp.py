@@ -71,6 +71,13 @@ except ModuleNotFoundError:  # pragma: no cover - environment guard
 #               its message must say what has to ship first. See the note
 #               below -- this class exists because the checker got it wrong
 #               once and would have told three repos to break themselves.
+#               A rule leaves this class only when the thing it waits for
+#               actually lands. U011 left it: what it waited on turned out to
+#               be an owner decision, and the decision was made. U006 and U009
+#               have NOT: the importer still drops frontmatter video_url, and
+#               the homework page still renders the declared title as its own
+#               h1 with no strip for a leading heading. Moving either out of
+#               `pending` re-creates the bug this class was invented for.
 #   advisory -- always a warning; a human decision, never a gate.
 
 LAYOUT = "layout"
@@ -125,7 +132,7 @@ RULES: dict[str, tuple[str, str]] = {
     "U008": (CONTENT, "no hand-maintained navigation furniture"),
     "U009": (PENDING, "homework.md opens with a single H1 (needs the homework-page strip)"),
     "U010": (KNOB, "unit content_id lives in the unit's frontmatter (Phase 3)"),
-    "U011": (PENDING, "unit H1 ordinal prefixes are an open owner decision"),
+    "U011": (CONTENT, "a unit title carries no 'N.M ' ordinal; order comes from the filename"),
     "C001": (ADVISORY, ".zoomcamp-check.yaml is well formed"),
     "C002": (ADVISORY, "every declared allowance is still needed"),
 }
@@ -300,7 +307,6 @@ class Checker:
     allowances: list[Allowance] = field(default_factory=list)
     content_ids: dict[str, str] = field(default_factory=dict)
     course_slug: str = ""
-    ordinal_titles: dict[str, list[str]] = field(default_factory=dict)
     body_videos: dict[str, list[str]] = field(default_factory=dict)
 
     # -- reporting ---------------------------------------------------------
@@ -600,28 +606,16 @@ class Checker:
         self.report_pending(cohort)
 
     def report_pending(self, cohort: str) -> None:
-        """One finding per cohort for the two bulk items that are NOT yet safe.
+        """One finding per cohort for the bulk item that is NOT yet safe.
 
-        Both of these describe the convention's end state and both need a
-        website change that has not shipped. Reported once, with a count and an
-        example, because a hundred identical warnings about one open decision
-        is how a checker teaches people to ignore it.
+        `U006` describes the convention's end state and needs a website change
+        that has not shipped. Reported once, with a count and an example,
+        because a hundred identical warnings about one blocked migration is how
+        a checker teaches people to ignore it. `U011` used to be reported here
+        too; the owner settled the ordinal question, so it is now an ordinary
+        per-file content rule with an actionable fix (see check_unit).
         """
 
-        ordinals = self.ordinal_titles.get(cohort, [])
-        if ordinals:
-            self.report(
-                "U011",
-                f"cohorts/{cohort}",
-                1,
-                f"{len(ordinals)} unit H1s carry an 'N.M ' ordinal prefix (e.g. "
-                f"{ordinals[0]}). Do NOT strip them yet. Whether the unit page h1 keeps "
-                "the ordinal is an open owner decision; the site normalizes ordinals away "
-                "in the rail, module list and prev/next labels, but not in the h1. The "
-                "deployed page removes a leading H1 only when it matches the declared "
-                "title exactly, so stripping the prefix from the H1 alone brings back the "
-                "duplicate-title bug on every one of these pages.",
-            )
         videos = self.body_videos.get(cohort, [])
         if videos:
             self.report(
@@ -905,6 +899,8 @@ class Checker:
         # Deliberately NOT ordinal-insensitive -- the page strips the leading H1
         # only on an exact match, so an H1 whose ordinal was stripped while the
         # declared title kept its own is the state that prints the title twice.
+        # This is the half-migrated state U011's fix can create, and catching it
+        # is the whole reason both sides must move in one commit.
         if _collapse(heading) == _collapse(declared):
             return
         if NUMERIC_TITLE_PREFIX.sub("", heading).strip().casefold() == (
@@ -915,9 +911,10 @@ class Checker:
                 unit_rel,
                 first[0],
                 f"H1 {heading!r} and units[{index}].title {declared!r} in {manifest_rel} "
-                "differ only in their 'N.M ' ordinal prefix. The published page removes the "
-                "leading H1 only on an exact match, so this renders the title twice. Make "
-                "the two identical -- change both or neither (see U011).",
+                "differ only in their 'N.M ' ordinal prefix: one side dropped the ordinal "
+                "and the other kept it. The published page removes the leading H1 only on "
+                "an exact match, so this renders the title twice. Finish the edit in one "
+                "commit -- the ordinal comes off both sides (U011).",
             )
             return
         self.report(
@@ -1075,9 +1072,23 @@ class Checker:
         else:
             title = line[2:].strip()
             if NUMERIC_TITLE_PREFIX.match(title):
-                # Counted per cohort and reported once (see check_cohort). One
-                # advisory about an open owner decision, not 102 identical ones.
-                self.ordinal_titles.setdefault(cohort, []).append(rel)
+                # The un-migrated unit. A unit whose H1 is already clean while
+                # the declared title still carries the ordinal is the
+                # half-migrated state, and that one is M012's (compare_title).
+                match = UNIT_FILENAME.match(posixpath.basename(unit))
+                where = (
+                    f"the filename prefix ({match.group(1)})" if match else "the filename prefix"
+                )
+                self.report(
+                    "U011",
+                    rel,
+                    line_number,
+                    f"unit title {title!r} carries an 'N.M ' ordinal prefix. Ordering comes "
+                    f"from {where} and the title carries no number. Strip it here AND in "
+                    "this unit's module.yaml title, in the same commit: the published page "
+                    "removes the leading H1 only when it matches the declared title exactly, "
+                    "so stripping one side alone prints the title twice (M012).",
+                )
         for number, text_line in iter_prose_lines(body):
             absolute = number + offset - 1
             if absolute == line_number:

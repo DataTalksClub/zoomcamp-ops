@@ -252,7 +252,7 @@ by filename (`[the next unit](02-rules-vs-ml.md)`), to the homework as
 |---|------|---------|
 | U1 | Optional YAML frontmatter with **only** `video_url` and `code` keys (and, from Phase 3, `content_id`). `video_url` must be an `https` YouTube URL; each `code` entry is exactly `{label, path}` and the path must resolve inside the module directory. This is parser law today: any other key is rejected outright. | `U001` |
 | U2 | The first content line is exactly one `#` H1, and it is the unit's title. No `##`-as-title: the published page removes a leading **H1** that matches the declared title, and leaves an H2 alone, so an H2 title is printed twice. The H1 and any `module.yaml` title must match **exactly** — whitespace and case aside — or the strip misses and the title is printed twice again. | `U002`, `M012` |
-| U2a | Whether the H1 keeps an `N.M ` ordinal prefix is an **open owner decision**, not a rule, and today's answer is "leave it alone". The site normalizes ordinals away in the rail, the module lesson list and the prev/next labels — but not in the h1 — and stripping the prefix from an H1 whose declared title keeps one re-breaks U2's exact match. If it is ever settled, both sides change in the same commit. The checker reports the count once per cohort and never fails on it. | `U011` |
+| U2a | **A unit's title carries no `N.M ` ordinal prefix** — not in the H1, not in the `module.yaml` title. Ordering comes from the filename prefix (`05-slug` is the fifth unit) and the site derives display order from it; hand-written `N.M ` numbering belongs in the module README index and nowhere else (§3). Stripping is a **two-file edit in one commit**: the H1 and the declared title change together, because the page removes the leading H1 only on an exact match, so moving one side alone prints the title twice (`M012`). Published repos that still carry ordinals are a warning at Phase 1 and an error from Phase 2 — the fix is safe against the deployed site today, so normalize a repo before you raise its phase. | `U011`, `M012` |
 | U3 | No other H1 in the body; sections are `##`. | `U003` |
 | U4 | Every image reference is a relative path inside the module directory (`images/...`). No `../`, no absolute GitHub URLs to this repo, no external image hosts for curriculum figures, and no URL-encoded separators (`images%2Ffoo.png` — generic rewriting tools produce these and silently miss them later). | `U004` |
 | U5 | Every relative link stays inside the module directory, with one exception: a link to another module's material in the same cohort climbs exactly one level (`../02-regression/05-linear-regression.md`). Nothing relative climbs past the cohort directory; targets outside it (past cohorts, other repos) are written as absolute GitHub URLs. Every relative target must exist. | `U005` |
@@ -348,17 +348,25 @@ default lives in the repo's `.zoomcamp-check.yaml`:
 
 | Phase | What is an error | What is a warning |
 |-------|------------------|-------------------|
-| 1 — layout | layout and manifest rules (`L*`, `M001`–`M006`, `U001`) | unit shape (`U002`–`U005`, `U008`, `M012`), retired knobs, pending rules |
+| 1 — layout | layout and manifest rules (`L*`, `M001`–`M006`, `U001`) | unit shape (`U002`–`U005`, `U008`, `U011`, `M012`), retired knobs, pending rules |
 | 2 — unit shape | the above plus unit shape | retired knobs, pending rules |
 | 3 — derived contract | everything except pending rules | pending rules and advisories |
 
-**Pending rules are never errors, at any phase.** `U006`, `U009` and `U011`
-describe the convention's end state but need a website change that has not
-shipped; acting on one today makes a published page worse, and the checker's
-own test asserts they can never fail a build. Their messages say what has to
-ship first. This class exists because the first draft of this checker reported
-205 findings against ml-zoomcamp telling contributors to do three things that
-would each have broken live pages.
+**Pending rules are never errors, at any phase.** `U006` and `U009` describe the
+convention's end state but need a website change that has not shipped; acting on
+one today makes a published page worse, and the checker's own test asserts they
+can never fail a build. Their messages say what has to ship first. This class
+exists because the first draft of this checker reported 205 findings against
+ml-zoomcamp telling contributors to do three things that would each have broken
+live pages.
+
+`U011` was the third of those and has **left** the class: what it was waiting on
+turned out to be an owner decision rather than website code, and the decision was
+made (§5 U2a). It is an ordinary unit-shape rule now. `U006` and `U009` are still
+blocked on code — the importer parses frontmatter `video_url` and drops it, and
+the homework page still renders the declared title as its own `h1` with no strip
+for a leading heading — so neither moves until that ships. The self-test asserts
+the class membership is exactly `U006` and `U009`.
 
 Phase 3 rules describe the end state and **will fail against the deployed parser
 until it catches up** — it still requires `cohort.yaml` identity fields, the
@@ -416,7 +424,7 @@ Run `uv run check_zoomcamp.py --rules` for the same list from the checker.
 | `M009` | §1.8 | the course description comes from `SITE.md` (retired `description_path`) |
 | `M010` | §1.1 | new-cohort homework slugs are `hwNN`; existing slugs are frozen |
 | `M011` | §5 U10 | `module.yaml` declares a `units` list (derived from Phase 3 on) |
-| `M012` | §5 U2 | a declared unit title matches the unit file's H1 exactly |
+| `M012` | §5 U2, U2a | a declared unit title matches the unit file's H1 exactly |
 | `U001` | §5 U1, U7 | unit frontmatter carries only allowed keys with valid values |
 | `U002` | §5 U2 | a unit opens with exactly one `# Title` (not an H2) |
 | `U003` | §5 U3 | a unit body has no second H1 |
@@ -426,7 +434,7 @@ Run `uv run check_zoomcamp.py --rules` for the same list from the checker.
 | `U008` | §5 U8 | no hand-maintained navigation furniture |
 | `U009` | §5 U9 | `homework.md` opens with a single H1 (pending) |
 | `U010` | §5 U10 | the unit's `content_id` lives in its frontmatter (Phase 3) |
-| `U011` | §5 U2a | unit H1 ordinal prefixes: an open owner decision, reported once per cohort (pending) |
+| `U011` | §5 U2a | a unit title carries no `N.M ` ordinal prefix; ordering comes from the filename |
 | `C001` | §7 | `.zoomcamp-check.yaml` is well formed |
 | `C002` | §7 | every declared allowance is still needed |
 

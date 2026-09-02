@@ -6,7 +6,14 @@
   a live URL.
 
   The H1 is the unit's title everywhere, on GitHub and on the website. Do not
-  number it: the number comes from the filename prefix.
+  number it — no "3.3 " in front: ordering comes from the filename prefix, and
+  the hand-written N.M numbering lives in the module README index only.
+
+  If the module.yaml `units:` list declares a title for this unit, it must be
+  this exact string. The website hides the leading H1 only when it matches the
+  declared title exactly, so any difference — an ordinal on one side, a reworded
+  word — prints the title twice on the published page. Change both or neither,
+  in the same commit.
 
   Delete this comment and the frontmatter keys you do not need. Full rules:
   STRUCTURE.md §5 in DataTalksClub/zoomcamp-template.
