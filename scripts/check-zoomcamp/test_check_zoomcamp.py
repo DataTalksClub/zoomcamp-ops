@@ -92,16 +92,35 @@ expect(
         ("warning", "M009"): 1,  # inline description instead of SITE.md
         ("warning", "M010"): 1,  # homework-01 instead of the derived hw01
         ("warning", "M011"): 2,
-        ("warning", "M012"): 1,  # declared title disagrees with the H1
-        ("warning", "U002"): 1,  # H2-as-title, with its own numbering
+        ("warning", "M012"): 2,  # title drift, and the ordinal-only drift
+        ("warning", "U002"): 1,  # H2 instead of an H1 title
         ("warning", "U003"): 1,  # second H1 in the body
         ("warning", "U004"): 1,  # images%2F URL-encoded separator
         ("warning", "U005"): 4,  # escapes the cohort, and three dead links
-        ("warning", "U006"): 1,  # YouTube URL in the body
+        ("warning", "U006"): 1,  # one per cohort, not one per unit
         ("warning", "U008"): 1,  # navigation furniture
         ("warning", "U009"): 1,  # homework.md opens with an H2
+        ("warning", "U011"): 1,  # one per cohort: ordinal H1s, an open decision
     },
 )
+
+# The three rules that describe an end state the website cannot serve yet are
+# never errors, at any phase. A checker that tells a contributor to strip an
+# ordinal, move a video to frontmatter or promote a homework heading TODAY is
+# telling them to break a published page -- see the PENDING note in
+# check_zoomcamp.py. This assertion is the guard on that.
+for _phase in (1, 2, 3):
+    expect(
+        f"pending rules never become errors at phase {_phase}",
+        sorted(
+            {
+                rule
+                for (severity, rule) in counts(HERE / "fixtures" / "violations", phase=_phase)
+                if severity == "error" and check.RULES[rule][0] == check.PENDING
+            }
+        ),
+        [],
+    )
 
 # Phase 2 turns the unit-shape warnings into errors; phase 3 does the same for
 # the retired knobs. The conformant fixture therefore fails at phase 3 until
@@ -117,7 +136,7 @@ expect(
     "violations fixture, phase 2 turns content warnings into errors",
     sum(n for (severity, _), n in counts(HERE / "fixtures" / "violations", phase=2).items()
         if severity == "error"),
-    24,
+    23,
 )
 
 # An allowance in .zoomcamp-check.yaml suppresses exactly one rule at exactly

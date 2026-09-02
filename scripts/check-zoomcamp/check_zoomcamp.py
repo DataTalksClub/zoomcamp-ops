@@ -60,15 +60,23 @@ except ModuleNotFoundError:  # pragma: no cover - environment guard
 #
 #   layout   -- where files live and what they are called. Always an error;
 #               these are the rules the whole convention rests on.
-#   content  -- unit page shape (U1-U9). Warning during Phase 1 while the
+#   content  -- unit page shape that is safe to fix TODAY, against the
+#               currently deployed site. Warning during Phase 1 while the
 #               repos are still being normalized, error from Phase 2.
 #   knob     -- configuration the convention deletes. Warning until Phase 3,
 #               when the website parser starts rejecting it outright.
+#   pending  -- the convention's end state, blocked on a website change that
+#               has NOT shipped. Acting on one of these today makes a
+#               published page worse, so it is never an error at any phase and
+#               its message must say what has to ship first. See the note
+#               below -- this class exists because the checker got it wrong
+#               once and would have told three repos to break themselves.
 #   advisory -- always a warning; a human decision, never a gate.
 
 LAYOUT = "layout"
 CONTENT = "content"
 KNOB = "knob"
+PENDING = "pending"
 ADVISORY = "advisory"
 
 ERROR = "error"
@@ -78,6 +86,7 @@ PHASE_SEVERITY: dict[str, dict[int, str]] = {
     LAYOUT: {1: ERROR, 2: ERROR, 3: ERROR},
     CONTENT: {1: WARNING, 2: ERROR, 3: ERROR},
     KNOB: {1: WARNING, 2: WARNING, 3: ERROR},
+    PENDING: {1: WARNING, 2: WARNING, 3: WARNING},
     ADVISORY: {1: WARNING, 2: WARNING, 3: WARNING},
 }
 
@@ -106,16 +115,17 @@ RULES: dict[str, tuple[str, str]] = {
     "M009": (KNOB, "course description comes from SITE.md"),
     "M010": (ADVISORY, "new-cohort homework slugs are hwNN (existing slugs are frozen)"),
     "M011": (KNOB, "module.yaml declares a units list (derived from Phase 3 on)"),
-    "M012": (CONTENT, "a declared unit title agrees with the unit file's H1"),
+    "M012": (CONTENT, "a declared unit title matches the unit file's H1 exactly"),
     "U001": (LAYOUT, "unit frontmatter carries only the allowed keys with valid values"),
-    "U002": (CONTENT, "a unit opens with exactly one unnumbered '# Title' H1"),
+    "U002": (CONTENT, "a unit opens with exactly one '# Title' H1"),
     "U003": (CONTENT, "a unit body has no second H1"),
     "U004": (CONTENT, "images resolve inside the module directory"),
     "U005": (CONTENT, "relative links resolve and stay inside the cohort"),
-    "U006": (CONTENT, "videos live in frontmatter video_url, never in the body"),
+    "U006": (PENDING, "videos move to frontmatter video_url when the site can render it"),
     "U008": (CONTENT, "no hand-maintained navigation furniture"),
-    "U009": (CONTENT, "homework.md opens with a single H1"),
+    "U009": (PENDING, "homework.md opens with a single H1 (needs the homework-page strip)"),
     "U010": (KNOB, "unit content_id lives in the unit's frontmatter (Phase 3)"),
+    "U011": (PENDING, "unit H1 ordinal prefixes are an open owner decision"),
     "C001": (ADVISORY, ".zoomcamp-check.yaml is well formed"),
     "C002": (ADVISORY, "every declared allowance is still needed"),
 }
@@ -267,6 +277,12 @@ def iter_targets(text: str) -> Iterator[tuple[int, bool, str]]:
             yield number, match.group(1).lower() == "img", match.group(3).strip()
 
 
+def _collapse(value: str) -> str:
+    """Whitespace-and-case normalization, matching the site's title comparison."""
+
+    return re.sub(r"\s+", " ", value).strip().casefold()
+
+
 def is_external(target: str) -> bool:
     return bool(re.match(r"[A-Za-z][A-Za-z0-9+.-]*:", target)) or target.startswith("//")
 
@@ -284,6 +300,8 @@ class Checker:
     allowances: list[Allowance] = field(default_factory=list)
     content_ids: dict[str, str] = field(default_factory=dict)
     course_slug: str = ""
+    ordinal_titles: dict[str, list[str]] = field(default_factory=dict)
+    body_videos: dict[str, list[str]] = field(default_factory=dict)
 
     # -- reporting ---------------------------------------------------------
 
@@ -579,6 +597,45 @@ class Checker:
             self.check_module(cohort, module)
         self.check_flow(rel, mapping, cohort, modules)
         self.check_cohort_extras(cohort, modules)
+        self.report_pending(cohort)
+
+    def report_pending(self, cohort: str) -> None:
+        """One finding per cohort for the two bulk items that are NOT yet safe.
+
+        Both of these describe the convention's end state and both need a
+        website change that has not shipped. Reported once, with a count and an
+        example, because a hundred identical warnings about one open decision
+        is how a checker teaches people to ignore it.
+        """
+
+        ordinals = self.ordinal_titles.get(cohort, [])
+        if ordinals:
+            self.report(
+                "U011",
+                f"cohorts/{cohort}",
+                1,
+                f"{len(ordinals)} unit H1s carry an 'N.M ' ordinal prefix (e.g. "
+                f"{ordinals[0]}). Do NOT strip them yet. Whether the unit page h1 keeps "
+                "the ordinal is an open owner decision; the site normalizes ordinals away "
+                "in the rail, module list and prev/next labels, but not in the h1. The "
+                "deployed page removes a leading H1 only when it matches the declared "
+                "title exactly, so stripping the prefix from the H1 alone brings back the "
+                "duplicate-title bug on every one of these pages.",
+            )
+        videos = self.body_videos.get(cohort, [])
+        if videos:
+            self.report(
+                "U006",
+                f"cohorts/{cohort}",
+                1,
+                f"{len(videos)} units carry the video in the body (e.g. {videos[0]}). The "
+                "convention moves it to frontmatter video_url -- but not yet: the deployed "
+                "importer parses that key and then drops it, there is no column to store it "
+                "and no player fed by it, and the live page renders the video from a body "
+                "'video: [Label](url)' line. Moving these today deletes the video from the "
+                "published page. This becomes actionable when frontmatter video is "
+                "persisted and rendered.",
+            )
 
     def discover_modules(self, cohort: str) -> list[str]:
         base = self.repo.root / "cohorts" / cohort
@@ -844,16 +901,33 @@ class Checker:
         if first is None or not first[1].startswith("# "):
             return
         heading = first[1][2:].strip()
-        normalized_heading = NUMERIC_TITLE_PREFIX.sub("", heading).strip()
-        normalized_declared = NUMERIC_TITLE_PREFIX.sub("", declared).strip()
-        if normalized_heading.casefold() != normalized_declared.casefold():
+        # Mirrors the deployed view's _same_title: whitespace and case only.
+        # Deliberately NOT ordinal-insensitive -- the page strips the leading H1
+        # only on an exact match, so an H1 whose ordinal was stripped while the
+        # declared title kept its own is the state that prints the title twice.
+        if _collapse(heading) == _collapse(declared):
+            return
+        if NUMERIC_TITLE_PREFIX.sub("", heading).strip().casefold() == (
+            NUMERIC_TITLE_PREFIX.sub("", declared).strip().casefold()
+        ):
             self.report(
                 "M012",
                 unit_rel,
                 first[0],
-                f"H1 {heading!r} disagrees with units[{index}].title {declared!r} in "
-                f"{manifest_rel}; the H1 is the title, so fix the YAML",
+                f"H1 {heading!r} and units[{index}].title {declared!r} in {manifest_rel} "
+                "differ only in their 'N.M ' ordinal prefix. The published page removes the "
+                "leading H1 only on an exact match, so this renders the title twice. Make "
+                "the two identical -- change both or neither (see U011).",
             )
+            return
+        self.report(
+            "M012",
+            unit_rel,
+            first[0],
+            f"H1 {heading!r} disagrees with units[{index}].title {declared!r} in "
+            f"{manifest_rel}; the H1 is the title, so fix the YAML. While they differ the "
+            "published page prints the title twice.",
+        )
 
     def check_module_contents(self, cohort: str, module: str, units: set[str]) -> None:
         base = self.repo.root / "cohorts" / cohort / module
@@ -962,7 +1036,12 @@ class Checker:
                 "U009",
                 rel,
                 first[0],
-                f"homework.md must open with a single '# Title' H1, found {first[1][:60]!r}",
+                f"homework.md opens with {first[1][:50]!r}; the convention is a single "
+                "'# Title' H1 equal to the homework's title. Not yet, though: the homework "
+                "page already renders the declared title as its h1 and has no strip for a "
+                "leading heading in the instructions, so an H1 equal to the title would "
+                "print it twice. Leave this until the homework page gains the strip the "
+                "unit page has.",
             )
         self.check_references(rel, cohort, module, text, kind="homework")
 
@@ -996,13 +1075,9 @@ class Checker:
         else:
             title = line[2:].strip()
             if NUMERIC_TITLE_PREFIX.match(title):
-                self.report(
-                    "U002",
-                    rel,
-                    line_number,
-                    f"title {title!r} carries its own numbering; numbering comes from the "
-                    f"{unit.split('-')[0]}- filename prefix and the site renders it",
-                )
+                # Counted per cohort and reported once (see check_cohort). One
+                # advisory about an open owner decision, not 102 identical ones.
+                self.ordinal_titles.setdefault(cohort, []).append(rel)
         for number, text_line in iter_prose_lines(body):
             absolute = number + offset - 1
             if absolute == line_number:
@@ -1015,7 +1090,7 @@ class Checker:
                     "second H1 in the body: sections are ##, the H1 is the unit title",
                 )
         self.check_navigation(rel, body, offset)
-        self.check_video_in_body(rel, body, offset)
+        self.check_video_in_body(cohort, rel, body, offset)
         self.check_references(rel, cohort, module, text, kind="unit")
 
     def check_frontmatter(self, rel: str, cohort: str, module: str, frontmatter: str) -> None:
@@ -1089,16 +1164,11 @@ class Checker:
                 )
                 return
 
-    def check_video_in_body(self, rel: str, body: str, offset: int) -> None:
-        for number, line in iter_prose_lines(body):
+    def check_video_in_body(self, cohort: str, rel: str, body: str, offset: int) -> None:
+        for _number, line in iter_prose_lines(body):
             if YOUTUBE_IN_TEXT.search(line):
-                self.report(
-                    "U006",
-                    rel,
-                    number + offset - 1,
-                    "video link in the body: move it to frontmatter video_url so the site "
-                    "renders a player and GitHub still shows it in the frontmatter table",
-                )
+                # Counted per cohort and reported once (see check_cohort).
+                self.body_videos.setdefault(cohort, []).append(rel)
                 return
 
     def check_references(self, rel: str, cohort: str, module: str, text: str, kind: str) -> None:

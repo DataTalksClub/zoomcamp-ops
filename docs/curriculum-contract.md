@@ -244,7 +244,7 @@ code:
 
 | Key | Notes |
 |---|---|
-| `video_url` | `https`, and the host must be `youtube.com`, `www.youtube.com`, `m.youtube.com` or `youtu.be`. The site renders a player from it. |
+| `video_url` | `https`, and the host must be `youtube.com`, `www.youtube.com`, `m.youtube.com` or `youtu.be`. **Parsed but not yet used:** the importer drops it, there is no column behind it, and the deployed unit page renders the video from a body `video: [Label](url)` line instead. Correct for a new unit; do not migrate an existing unit's video into it yet, because that removes the video from the published page. |
 | `code` | list of `{label, path}`. The path is resolved relative to the unit file and must exist in the commit; the snapshot builder ships those files so the site can offer them. |
 | `content_id` | **Phase 3 only.** Adding it today is rejected by the deployed parser. |
 

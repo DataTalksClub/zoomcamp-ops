@@ -5,3 +5,9 @@ units:
   - content_id: 20000000-0000-4000-8000-000000000021
     title: The Title The YAML Believes In
     path: 01-drift.md
+  - content_id: 20000000-0000-4000-8000-000000000024
+    title: "2.2 Kept Ordinal"
+    path: 02-kept-ordinal.md
+  - content_id: 20000000-0000-4000-8000-000000000025
+    title: "2.3 Stripped Ordinal"
+    path: 03-stripped-ordinal.md

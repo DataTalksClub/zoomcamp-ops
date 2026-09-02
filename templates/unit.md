@@ -10,6 +10,13 @@
 
   Delete this comment and the frontmatter keys you do not need. Full rules:
   STRUCTURE.md §5 in DataTalksClub/zoomcamp-template.
+
+  On video_url: this is where the recording belongs and where the site will
+  read it. It is not read yet — today the deployed unit page picks the video up
+  from a body line of the form `video: [Recording](https://youtu.be/...)`. For
+  a NEW unit use the frontmatter key (and add the body line too if the video
+  must show on the site before that ships). Never convert an existing unit's
+  video to frontmatter on its own: that removes it from the published page.
 -->
 ---
 video_url: {{YOUTUBE_URL}}          # omit the key entirely if there is no video
