@@ -1,0 +1,19 @@
+schema_version: 1
+content_id: 20000000-0000-4000-8000-000000000011
+slug: homework-01
+title: "Homework 1"
+instructions_path: instructions/hw.md
+due_at: 2026-01-19T21:59:00Z
+initial_state: open
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: 20000000-0000-4000-8000-000000000012
+    id: q1
+    type: free_form
+    prompt: A question.
+    points: 1

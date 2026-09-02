@@ -1,0 +1,8 @@
+schema_version: 1
+content_id: 20000000-0000-4000-8000-000000000010
+slug: 01-intro
+title: Introduction
+units:
+  - content_id: 20000000-0000-4000-8000-000000000011
+    title: A Title The Unit Does Not Use
+    path: lessons/01-intro.md

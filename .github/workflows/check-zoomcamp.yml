@@ -1,0 +1,78 @@
+# Reusable curriculum conformance check.
+#
+# A course repository adopts it by reference, not by copy — see
+# templates/workflows/curriculum-check.yml:
+#
+#   jobs:
+#     curriculum:
+#       uses: DataTalksClub/zoomcamp-template/.github/workflows/check-zoomcamp.yml@<SHA>
+#
+# The checker script is taken from THIS repository at the same commit the caller
+# pinned (github.job_workflow_sha), so the rules and the workflow can never
+# drift apart: pinning the workflow pins the rules.
+
+name: check-zoomcamp
+
+on:
+  workflow_call:
+    inputs:
+      phase:
+        description: "Migration phase: 1 layout, 2 unit shape, 3 derived contract."
+        type: number
+        required: false
+        default: 1
+      path:
+        description: "Directory to check, relative to the repository root."
+        type: string
+        required: false
+        default: "."
+      warn-only:
+        description: "Report findings but never fail the job (adoption window)."
+        type: boolean
+        required: false
+        default: false
+      template-ref:
+        description: "Override the zoomcamp-template ref the checker is taken from."
+        type: string
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the course repository
+        uses: actions/checkout@v4
+        with:
+          path: course
+
+      - name: Check out zoomcamp-template at the pinned workflow commit
+        uses: actions/checkout@v4
+        with:
+          repository: DataTalksClub/zoomcamp-template
+          ref: ${{ inputs.template-ref != '' && inputs.template-ref || github.job_workflow_sha }}
+          path: template
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Run check-zoomcamp
+        working-directory: course
+        run: |
+          uv run ../template/scripts/check-zoomcamp/check_zoomcamp.py \
+            "${{ inputs.path }}" \
+            --phase "${{ inputs.phase }}" \
+            --format github \
+            ${{ inputs.warn-only && '--warn-only' || '' }}
+
+      - name: Where the rules live
+        if: failure()
+        run: |
+          echo "The convention is DataTalksClub/zoomcamp-template:"
+          echo "  STRUCTURE.md              layout, unit rules, rule index"
+          echo "  docs/curriculum-contract.md   the YAML contract the website parses"
+          echo "Run it locally:"
+          echo "  uv run https://raw.githubusercontent.com/DataTalksClub/zoomcamp-template/main/scripts/check-zoomcamp/check_zoomcamp.py ."

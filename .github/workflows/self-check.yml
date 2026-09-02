@@ -1,0 +1,42 @@
+# The template repository's own CI: the rules must not land broken.
+#
+# check-zoomcamp is run against two fixture repositories under
+# scripts/check-zoomcamp/fixtures/ and asserted finding by finding, and the
+# rule catalogue is asserted to be documented in STRUCTURE.md. Nothing here
+# checks the template against production — that stays the website parser's job.
+
+name: self-check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Rule catalogue
+        run: uv run scripts/check-zoomcamp/check_zoomcamp.py --rules
+
+      - name: Fixture assertions
+        working-directory: scripts/check-zoomcamp
+        run: uv run test_check_zoomcamp.py
+
+      - name: Conformant fixture must be clean
+        run: uv run scripts/check-zoomcamp/check_zoomcamp.py scripts/check-zoomcamp/fixtures/conformant
+
+      - name: Violations fixture must fail
+        run: |
+          if uv run scripts/check-zoomcamp/check_zoomcamp.py \
+               scripts/check-zoomcamp/fixtures/violations; then
+            echo "the violations fixture passed the checker; a rule stopped firing"
+            exit 1
+          fi

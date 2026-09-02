@@ -1,0 +1,11 @@
+schema_version: 1
+content_id: 10000000-0000-4000-8000-000000000001
+slug: fixture-zoomcamp
+title: Fixture Zoomcamp
+description_path: SITE.md
+outcome: Prove that the conformance checker agrees with the convention.
+repository_url: https://github.com/DataTalksClub/zoomcamp-template
+docs_url: https://datatalks.club/docs/courses/fixture-zoomcamp/
+faq_url: https://datatalks.club/faq/fixture-zoomcamp.html
+hashtag: fixturezoomcamp
+published: false

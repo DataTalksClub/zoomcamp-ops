@@ -1,0 +1,11 @@
+schema_version: 1
+content_id: 20000000-0000-4000-8000-000000000001
+slug: broken-zoomcamp
+title: Broken Zoomcamp
+description: An inline description that should live in SITE.md.
+outcome: Demonstrate every failure mode the checker is meant to catch.
+repository_url: https://github.com/DataTalksClub/zoomcamp-template
+docs_url: https://datatalks.club/docs/courses/broken-zoomcamp/
+faq_url: https://datatalks.club/faq/broken-zoomcamp.html
+hashtag: brokenzoomcamp
+published: false

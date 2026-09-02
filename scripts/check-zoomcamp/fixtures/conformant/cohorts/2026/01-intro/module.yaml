@@ -1,0 +1,10 @@
+schema_version: 1
+content_id: 10000000-0000-4000-8000-000000000010
+title: Introduction
+units:
+  - content_id: 10000000-0000-4000-8000-000000000011
+    title: What Is Machine Learning
+    path: 01-what-is-ml.md
+  - content_id: 10000000-0000-4000-8000-000000000012
+    title: Rules Versus Machine Learning
+    path: 02-rules-vs-ml.md

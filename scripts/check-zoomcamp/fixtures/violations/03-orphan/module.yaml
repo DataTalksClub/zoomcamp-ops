@@ -1,0 +1,7 @@
+schema_version: 1
+content_id: 20000000-0000-4000-8000-000000000030
+title: Orphan Module At The Repository Root
+units:
+  - content_id: 20000000-0000-4000-8000-000000000031
+    title: Only Unit
+    path: lesson.md

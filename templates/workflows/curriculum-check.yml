@@ -1,0 +1,29 @@
+# CURRICULUM CHECK — copy to <course>-zoomcamp/.github/workflows/curriculum-check.yml.
+#
+# Adopt the shared checker by reference. Pin the SHA: it pins the rules as well
+# as the workflow, so a rule change in zoomcamp-template cannot break this
+# repository's CI until someone bumps the pin on purpose.
+#
+# Find the current SHA with:
+#   gh api repos/DataTalksClub/zoomcamp-template/commits/main --jq .sha
+
+name: Curriculum check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  curriculum:
+    uses: DataTalksClub/zoomcamp-template/.github/workflows/check-zoomcamp.yml@{{PINNED_SHA}}
+    with:
+      # 1 = layout (default), 2 = unit shape, 3 = derived contract.
+      # Or drop this line and declare `phase:` in .zoomcamp-check.yaml instead.
+      phase: 1
+      # Set to true while the repository is still being migrated, so the check
+      # reports without blocking. Remove it once the repo is clean.
+      # warn-only: true

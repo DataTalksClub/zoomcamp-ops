@@ -1,0 +1,16 @@
+schema_version: 1
+content_id: 20000000-0000-4000-8000-000000000002
+course: broken-zoomcamp
+identifier: "2026"
+legacy_slug: broken-zoomcamp-2026
+year: 2026
+title: Broken Zoomcamp 2026
+description: The 2026 delivery.
+format: modules
+published: false
+start_date: 2026-01-05
+end_date: 2026-03-30
+flow:
+  - module:
+      source: cohorts/2026/01-intro/module.yaml
+      homework: cohorts/2026/01-intro/homework.yaml

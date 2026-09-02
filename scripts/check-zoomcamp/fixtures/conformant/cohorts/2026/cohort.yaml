@@ -1,0 +1,19 @@
+schema_version: 1
+content_id: 10000000-0000-4000-8000-000000000002
+course: fixture-zoomcamp
+identifier: "2026"
+legacy_slug: fixture-zoomcamp-2026
+year: 2026
+title: Fixture Zoomcamp 2026
+description: The 2026 delivery of the fixture camp.
+format: modules
+published: false
+start_date: 2026-01-05
+end_date: 2026-03-30
+flow:
+  - module:
+      source: cohorts/2026/01-intro/module.yaml
+      homework: cohorts/2026/01-intro/homework.yaml
+  - module:
+      source: cohorts/2026/02-regression/module.yaml
+      homework: cohorts/2026/02-regression/homework.yaml

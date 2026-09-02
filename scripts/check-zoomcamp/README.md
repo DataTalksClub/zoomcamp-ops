@@ -1,0 +1,88 @@
+# check-zoomcamp
+
+Conformance checker for course repositories. It reads a checkout and reports
+every place the repo disagrees with [`STRUCTURE.md`](../../STRUCTURE.md) and
+[`docs/curriculum-contract.md`](../../docs/curriculum-contract.md), with the
+rule ID, the file and the line.
+
+It is the early, friendly gate. **The website's ingestion parser is the
+authority** — it fails loudly on push and leaves the previous import serving.
+This script exists so that failure almost never happens: a contributor should
+hear "your unit has no H1" on the pull request, minutes after pushing, not from
+a rejected production import hours after merge. If the two disagree, the parser
+is right and this script has a bug.
+
+## Run it
+
+```bash
+# from a course repository checkout, without cloning this repo
+uv run https://raw.githubusercontent.com/DataTalksClub/zoomcamp-template/main/scripts/check-zoomcamp/check_zoomcamp.py .
+
+# or from a local clone of zoomcamp-template
+uv run check_zoomcamp.py ~/git/llm-zoomcamp
+```
+
+`uv` handles the one dependency (PyYAML) through the script's inline metadata;
+there is nothing to install and no lockfile to keep in sync.
+
+Useful flags:
+
+| Flag | Effect |
+|------|--------|
+| `--phase {1,2,3}` | how strict: 1 layout, 2 unit shape, 3 derived contract. Defaults to `phase:` in `.zoomcamp-check.yaml`, else 1. |
+| `--warn-only` | report everything, exit 0. For the adoption window. |
+| `--format github` | emit `::error file=…` annotations for GitHub Actions. |
+| `--json` | machine-readable findings. |
+| `--rules` | print the rule catalogue and exit. |
+
+Exit codes: `0` no errors, `1` at least one error, `2` the checker could not run.
+
+## In CI
+
+Course repositories adopt it by reference, never by copy: copy
+[`templates/workflows/curriculum-check.yml`](../../templates/workflows/curriculum-check.yml)
+into `.github/workflows/` and pin the SHA. The reusable workflow takes the
+checker from the same commit the caller pinned, so the rules and the workflow
+are always the same version.
+
+## Configuration
+
+Optional `.zoomcamp-check.yaml` at the course repository root:
+
+```yaml
+phase: 1
+allow:
+  - rule: L007
+    path: cohorts/2026/08-deep-learning/install.md
+    reason: "frozen slug: published as /modules/08-deep-learning/install"
+```
+
+`allow` is the grandfather list. Conventions bind forward and published slugs
+are frozen, so a repository will have a few files that are correct-because-live
+and wrong-because-old. Recording them here — with a reason, in review — is how
+the exception stays visible instead of being rediscovered by whoever "fixes" it
+and breaks a public URL. An entry that stops matching anything is reported
+(`C002`) so the list decays.
+
+## Working on the checker
+
+```bash
+uv run test_check_zoomcamp.py
+```
+
+`fixtures/conformant/` is a repository that follows the convention;
+`fixtures/violations/` breaks one rule at a time on purpose. The test asserts
+the exact multiset of findings from each, at each phase, so a rule that starts
+firing more or less than intended fails here rather than in a course repo's pull
+request. It also asserts that every rule ID appears in `STRUCTURE.md`: a rule
+the spec does not state is a rule that should not exist.
+
+Adding a rule means, in one commit: the rule in `check_zoomcamp.py`, the
+expectation in the fixture and test, and the sentence in `STRUCTURE.md` that
+makes it a convention rather than a preference.
+
+Note that `fixtures/conformant/` still produces *warnings* at phase 1. Those are
+the retired knobs — `cohort.yaml` identity, `units`, `instructions_path`,
+`description_path` — which the deployed parser still requires. That gap is real
+and documented in `docs/curriculum-contract.md`; it closes when the parser
+stops requiring them.
