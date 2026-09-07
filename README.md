@@ -1,4 +1,4 @@
-# Zoomcamp Template
+# Zoomcamp Operations
 
 The shared template and reference for DataTalks.Club Zoomcamps —
 [ML](https://github.com/DataTalksClub/machine-learning-zoomcamp),
@@ -6,12 +6,16 @@ The shared template and reference for DataTalks.Club Zoomcamps —
 [Data Engineering](https://github.com/DataTalksClub/data-engineering-zoomcamp),
 [LLM](https://github.com/DataTalksClub/llm-zoomcamp), and any new camp.
 
-This repo exists so every zoomcamp is organized the same way and so we stop
-re-inventing the same helper scripts in each one. Use it two ways:
+This repo collects the shared template, scripts, and skills used to build and
+maintain Zoomcamps. It exists so every Zoomcamp is organized the same way and
+so we stop re-inventing the same production workflows in each one.
 
-- Starting a new zoomcamp → copy the templates and follow the checklist.
-- Maintaining an existing zoomcamp → bring its READMEs and scripts in line
-  with the conventions here.
+Use it two ways:
+
+- Starting a new Zoomcamp - use the [template package](template/) and follow
+  the checklist.
+- Maintaining an existing Zoomcamp - use the shared scripts and skills, then
+  bring its READMEs and lessons in line with the conventions here.
 
 ## What's inside
 
@@ -20,10 +24,12 @@ re-inventing the same helper scripts in each one. Use it two ways:
 | [`STRUCTURE.md`](STRUCTURE.md) | The canonical repo layout, unit page rules, and the checker's rule index |
 | [`docs/curriculum-contract.md`](docs/curriculum-contract.md) | What the website's ingestion parser requires, field by field |
 | [`docs/conventions.md`](docs/conventions.md) | Prose and presentation: headings, banner block, section patterns |
+| [`template/`](template/) | Template-facing guidance, including the illustration rubric |
 | [`docs/new-zoomcamp-checklist.md`](docs/new-zoomcamp-checklist.md) | Step-by-step to spin up a new camp from these templates |
 | [`templates/`](templates/) | Copy-paste templates: unit, module, cohort, root README, CI workflow |
 | [`scripts/check-zoomcamp/`](scripts/check-zoomcamp/) | The conformance checker every course repo runs on pull requests |
 | [`scripts/`](scripts/) | Reusable helper scripts collected from all camps ([index](scripts/README.md)) |
+| [`skills/`](skills/) | Reusable skills for homework, video, and illustration workflows |
 | [`docs/`](docs/) | Operational guides (video pipeline, workshop best practices) |
 
 ## Quick start for a new camp
