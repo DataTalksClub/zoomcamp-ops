@@ -63,7 +63,9 @@ Partition by disjoint lesson directories. A worker owns its source files,
 generated siblings, report, and Markdown references for that batch. It must not
 edit another worker's files, rewrite shared navigation, or push. Keep batches
 small enough to review (one lesson or a related group of up to five assets),
-and make one focused commit per accepted batch.
+but make one focused commit per accepted screenshot. A commit may contain only
+that screenshot, its Markdown reference, and its report entry; a correction is
+a new focused commit.
 
 Workers with the `imagegen` skill may execute the imagegen path. Workers
 without it must follow the deterministic path or prepare an evidence report for
@@ -87,7 +89,8 @@ Before accepting a batch, verify:
   the deterministic path;
 - generated labels and relationships pass visual review on the imagegen path;
 - every Markdown reference resolves and `git diff --check` passes;
-- the commit contains only the batch's assets, report, and references.
+- each accepted screenshot has its own focused commit containing only its
+  asset, report entry, and reference.
 
 ## Rollout order
 

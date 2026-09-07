@@ -139,12 +139,13 @@ caption so it says what the learner should notice.
 
 ### 7. Commit by focused area
 
-Each accepted batch should have a focused commit scoped to one course module
-or one clearly related lesson group. Include the image and its Markdown
-reference, and keep crops, prompts, and rejected variants in `.tmp/` unless a
-review record is intentionally being preserved. Run `git diff --check` and a
-missing-image-reference scan before committing. Push only when explicitly
-requested.
+For delegated course-wide rollout, treat one accepted screenshot as one batch:
+commit immediately after that screenshot passes review. The commit should
+contain only the image, its Markdown reference, and its report entry; a
+correction gets a new focused commit. Keep crops, prompts, and rejected
+variants in `.tmp/` unless a review record is intentionally being preserved.
+Run `git diff --check` and a missing-image-reference scan before every commit.
+Push only when explicitly requested.
 
 ## Pilot results
 
