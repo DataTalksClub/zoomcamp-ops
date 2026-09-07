@@ -28,6 +28,37 @@ Do not use imagegen for:
 For those cases, use the original source, a deterministic crop, or a
 deterministically rendered replacement from the notebook or code.
 
+## Capability gate for delegated workers
+
+Before starting, check whether the worker has access to the `imagegen` skill.
+
+If you have access to the `imagegen` skill, do this:
+
+1. Read the skill instructions completely.
+2. Inspect the local source with `view_image`.
+3. Crop away webcam tiles, faces, browser/Zoom chrome, cursors, and overlays
+   with a deterministic tool before generation.
+4. Use the built-in imagegen workflow with explicit labels, values, layout,
+   and negative constraints.
+5. Inspect the generated image and reject it when any instructional invariant
+   is wrong.
+
+If you do not have access to the `imagegen` skill, do not claim to have
+regenerated the image and do not invent an image-generation command. Instead:
+
+- use a deterministic crop when it cleanly removes the unwanted frame;
+- use the original asset, a source notebook, or a code/vector rendering when
+  exact text, numbers, code, or UI controls must be preserved;
+- do not paint over a face, camera tile, or overlay when doing so could damage
+  the teaching content;
+- record the source path, crop coordinates, remaining problem, and required
+  invariants in the worker report; then hand the asset to a worker with the
+  `imagegen` skill or to the parent agent.
+
+The capability check is part of the acceptance record. A worker without the
+skill may prepare inputs and evidence, but cannot mark an imagegen replacement
+as complete.
+
 ## Workflow
 
 ### 1. Confirm the instructional target
@@ -135,6 +166,8 @@ label or invents a value.
 - [ ] Exact labels, values, row order, and arrows were checked against the source.
 - [ ] Face, webcam, Zoom/browser chrome, cursors, and watermarks are absent.
 - [ ] The output is readable at normal lesson-page size.
+- [ ] The worker had the `imagegen` skill, or the task was handed off rather
+  than falsely marked complete.
 - [ ] The Markdown reference, filename, and caption/alt text are correct.
 - [ ] No code, URL, plot value, or configuration was entrusted to a generated approximation.
 - [ ] The change has a focused commit and no disposable intermediates are staged.
