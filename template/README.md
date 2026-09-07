@@ -12,7 +12,9 @@ existing course links and reusable workflows continue to work:
 - [`../scripts/check-zoomcamp/`](../scripts/check-zoomcamp/) - curriculum checker
 
 New template guidance belongs here. The [illustration rubric](illustration-rubric.md)
-defines how to decide whether an instructional image earns a place in a unit.
+defines whether an instructional image earns a place in a unit, and the
+[image regeneration workflow](image-regeneration-workflow.md) explains how to
+clean up a valuable but blurry workshop frame.
 
 Keep the root paths stable until consuming course repositories and public links
 have been migrated deliberately.
