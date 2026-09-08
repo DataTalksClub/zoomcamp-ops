@@ -193,6 +193,37 @@ original non-crisp source and bounded crop were supplied to imagegen. A focused
 worker is reprocessing the first ten; the remaining eight stay open. This is
 not a crispness or repository-wide completion claim.
 
+## ML regression repair follow-up
+
+`b97d2ea` regenerated the remaining eight unresolved screenshot-derived
+references in the 2026 regression module from their original JPGs plus
+bounded crops. Averroes independently checked every target at native and
+608px lesson size.
+
+| Batch | Accepted | Needs correction | Unresolved |
+| --- | ---: | ---: | ---: |
+| ML regression `b97d2ea` | 8 | 0 | 0 |
+
+The reviewer confirmed exact formulas, values, axes, split relationships, and
+removal of webcam/browser/cursor artifacts. Each target contains C2PA
+`gpt-image`/OpenAI Media Service provenance and differs materially from its
+original JPG; this batch is accepted at asset level.
+
+## ML intro repair follow-up
+
+`70c642f` regenerated four ML intro targets from original JPGs plus bounded
+crops. Erdos independently checked them at native and 608px lesson size.
+
+| Target group | Accepted | Needs correction |
+| --- | ---: | ---: |
+| Multiclass diagram and two linear-algebra diagrams | 3 | 0 |
+| Multiple-comparisons diagram | 0 | 1 |
+
+The multiple-comparisons output is crisp and complete but uses the wrong
+currency labels for the lesson; a focused semantic repair is open. The other
+three are accepted with C2PA/OpenAI Media Service provenance and no clipping,
+scribbles, camera, browser, or cursor artifacts.
+
 ### LLM Agentic RAG repair follow-up
 
 `da89a5f` regenerated the first three LLM repair targets and removed the
