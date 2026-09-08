@@ -5,6 +5,13 @@ This is the human/agent visual-review companion to
 proves scope, reference resolution, and basic decodability; the reviews below
 opened the retained images at native resolution and at lesson display size.
 
+> **Reopened:** on 2026-09-08 the user identified multiple retained
+> screenshot-derived assets that are still soft. The prior `PASS` rows below
+> must not be read as a crispness approval. See the
+> [crispness re-audit](crispness-reaudit-2026-09-08.md); screenshot-derived
+> assets are being regenerated or removed/native-rendered and will receive a
+> fresh independent review.
+
 ## Decision framework
 
 Choose the output style from the teaching point:
