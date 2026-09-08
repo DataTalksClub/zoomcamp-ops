@@ -109,3 +109,21 @@ do not imply a repository-wide PASS.
 | ML `09-serverless/...01-intro-05-module-plan-lambda-gateway-crisp.png` | ACCEPT | Headings/items match; clean crop without editor chrome or clipping |
 | ML `09-serverless/...03-tensorflow-lite-06-keras-preprocess-source-crisp.png` | ACCEPT | Code, line numbers, `127.5`, `1.`, and mean/std arrays match; selection/browser artifacts removed |
 | ML `10-kubernetes/...02-tensorflow-serving-01-saved-model-crisp.png` | ACCEPT | Terminal output/tree and `saved_model.pb`/variables details match; no GitHub/camera/selection artifacts |
+
+## Follow-up review: corrected and newly published assets
+
+| Repository target | Decision | Evidence |
+| --- | --- | --- |
+| ML `08-deep-learning/...03-pretrained-models-02-imagenet-crisp.png` from `4e56d95` | ACCEPT | Complete logo, heading, statistics, and terms box; no clipped margins or browser/camera/cursor artifacts |
+| ML `08-deep-learning/...03-pretrained-models-03-sagemaker-gpu-crisp.png` from `ca6dd36` | ACCEPT | Complete centered settings card; exact `ml.p2.xlarge`, ARN, status, platform, volume, and timestamp; no sidebar/browser/camera/handwriting |
+| ML `08-deep-learning/...03-pretrained-models-04-xception-model-crisp.png` | ACCEPT | Complete code/UUID/299×299 context and links; sharp and unclipped |
+| ML `08-deep-learning/...03-pretrained-models-05-xception-weights-download-crisp.png` | ACCEPT | Exact download URL/progress and follow-up cells; sharp and unclipped |
+| ML `08-deep-learning/...03-pretrained-models-06-batch-shape-crisp.png` | ACCEPT | Exact `(1, 299, 299, 3)` output and surrounding context; sharp and unclipped |
+| ML `08-deep-learning/...03-pretrained-models-07-preprocess-input-crisp.png` | ACCEPT | Exact preprocessing output and annotation context; no notebook chrome artifacts |
+| ML `08-deep-learning/...03-pretrained-models-08-decode-predictions-crisp.png` | ACCEPT | Exact ImageNet labels/values and clean notebook redraw; no unrelated UI |
+| ML `08-deep-learning/...08-more-layers-02-activation-functions-crisp.png` | ACCEPT | ReLU/convergence plots preserve axes, values, curves, and useful lesson context |
+| ML `08-deep-learning/...08-more-layers-06-val-accuracy-plot-crisp.png` | ACCEPT | Three series, legend, ticks, and relative performance match; clean and unclipped |
+| ML `08-deep-learning/...09-dropout-06-val-accuracy-dropout-imagegen.png` | NEEDS-CORRECTION | An unlabeled fifth blue trajectory was introduced from a handwritten highlight; regeneration is required |
+| ML `08-deep-learning/...09-dropout-07-dropout-02-vs-train-imagegen.png` | ACCEPT | Clean curve with matching oscillation and caption context |
+| ML `08-deep-learning/...09-dropout-08-no-regularization-overfit-imagegen.png` | NEEDS-CORRECTION | A handwritten `100%` guide became an extra high curve; regeneration is required |
+| ML `04-evaluation/...06-auc-05-auc-interpretation-imagegen-v2.png` | ACCEPT | Correct score sets/class assignments and selected pair; no extra score or overlays |
