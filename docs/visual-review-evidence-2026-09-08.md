@@ -174,3 +174,21 @@ and `14-agent-evaluation-01`; and project refs `02-evaluating-retrieval-01`,
 `04-evaluation/01-intro-02-interact-or-generate-imagegen.png`. A focused repair
 worker is handling the first Agentic RAG batch and the removal; no LLM
 repository-wide approval is claimed.
+
+## Independent ML regression review
+
+Pauli independently inspected all 22 active references in
+`cohorts/2026/02-regression` at native resolution and simulated lesson size.
+The result exposed the exact evidence gap behind the earlier overclaim:
+
+| Scope | Accepted | Needs correction | Remove/native | Unresolved |
+| --- | ---: | ---: | ---: | ---: |
+| ML regression active refs | 4 | 0 confirmed visually | 0 | 18 |
+
+The four accepted assets are the three conceptual imagegen illustrations and
+`06-linear-regression-vector-04-fake-feature-crisp.png`, whose source, bounded
+crop, imagegen output ID, and target are recorded. The other 18 are visually
+legible but remain unaccepted because no durable record proves that the
+original non-crisp source and bounded crop were supplied to imagegen. A focused
+worker is reprocessing the first ten; the remaining eight stay open. This is
+not a crispness or repository-wide completion claim.
