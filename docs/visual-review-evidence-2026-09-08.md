@@ -464,10 +464,8 @@ independent semantic review before they can be marked accepted.
 ## Checkpoint reconciliation after the ML 08--10 worker batches
 
 The machine-learning-zoomcamp repository's committed head is synchronized at
-`1d093c9`; a related untracked Kubernetes definitions renderer is currently
-being worked on and is not included in this checkpoint. These are
-implementation checkpoints, not dimensions-only
-crispness approvals. Every generated replacement below still needs the
+`7481b93`. These are implementation checkpoints, not dimensions-only
+crispness approvals. Every generated replacement is subject to the
 independent review gate: exact source facts, correct relationships, no camera
 or overlay artifacts, and readability at lesson size.
 
@@ -484,42 +482,32 @@ Completed implementation checkpoints:
 - `0316a68` regenerated the ReLU activation visual.
 - `1d093c9` regenerated the Kubernetes ingress and scaling diagrams after the
   first independent review found wrong service arrows.
+- `7481b93` corrected the Kubernetes definitions terminology deterministically
+  after the same review found altered exact terms.
 
-Exact semantic-review targets still open:
+Remaining bounded review targets:
 
-### Deep learning — ten regenerated assets awaiting independent review
+### Deep learning — two regenerated assets awaiting independent review
 
 - `08-deep-learning/images/04-conv-neural-nets-06-logistic-regression-crisp.png`
 - `08-deep-learning/images/05-transfer-learning-05-pooling-vectors-crisp.png`
-- `08-deep-learning/images/05-transfer-learning-08-history-plot-crisp.png`
-- `08-deep-learning/images/06-learning-rate-04-train-accuracy-crisp.png`
-- `08-deep-learning/images/06-learning-rate-05-val-accuracy-crisp.png`
-- `08-deep-learning/images/06-learning-rate-06-two-lr-validation-crisp.png`
-- `08-deep-learning/images/06-learning-rate-07-select-001-crisp.png`
-- `08-deep-learning/images/08-more-layers-02-activation-functions-crisp.png`
-- `08-deep-learning/images/09-dropout-07-dropout-02-vs-train-imagegen.png`
-- `08-deep-learning/images/09-dropout-08-no-regularization-overfit-imagegen.png`
 
-### Serverless — five regenerated API Gateway assets awaiting independent review
+### Serverless — API Gateway follow-up
 
-- `09-serverless/images/07-api-gateway-01-create-rest-api-crisp.png`
-- `09-serverless/images/07-api-gateway-02-create-resource-crisp.png`
-- `09-serverless/images/07-api-gateway-04-method-test-crisp.png`
-- `09-serverless/images/07-api-gateway-05-test-response-crisp.png`
-- `09-serverless/images/07-api-gateway-06-deploy-stage-crisp.png`
+An independent review accepted asset 01. Assets 02, 04, and 05 were visually
+accepted but require provenance-ledger correction: one source hash is
+malformed, and the source JPG assignments for 04/05 are swapped relative to
+their crops. Asset 06 needs a visual repair because an orange cursor/highlight
+remains beside `Deploy API`. These four follow-ups are open.
 
-### Kubernetes — one semantic repair, two review targets, and one unresolved source-faithfulness target
+### Kubernetes — accepted correction and one unresolved source-faithfulness target
 
 The prior independent review rejected the first redraws despite their visual
-crispness. Two were regenerated in `1d093c9` and still need independent review:
+crispness. The corrected three-asset batch was independently accepted:
 
 - `10-kubernetes/images/05-kubernetes-intro-04-external-internal-ingress-imagegen.png`
-- `10-kubernetes/images/05-kubernetes-intro-06-scaling-imagegen.png`
-
-The definitions diagram still needs semantic correction because the prior
-review found that it changed exact Kubernetes terms:
-
 - `10-kubernetes/images/05-kubernetes-intro-05-definitions-imagegen.png`
+- `10-kubernetes/images/05-kubernetes-intro-06-scaling-imagegen.png`
 
 The following AWS-console capture remains unresolved because a faithful redraw
 could invent UI text; it is not an approval:
@@ -562,3 +550,27 @@ were readable at 608px and had no camera, browser, overlay, or crop remnants.
 The two remaining deep-learning redraws in the earlier open list are the
 logistic-regression and pooling visuals from `3213505` and `a3ab678`; they
 still need the same independent review gate.
+
+## Bounded Kubernetes correction review checkpoint
+
+Pasteur independently reviewed the three corrected Kubernetes diagrams after
+the first imagegen batch failed semantic review. All three passed native and
+608px checks. The ingress and scaling diagrams contain clean imagegen
+metadata; the definitions diagram is a deterministic SVG rasterization. The
+review confirmed the exact service flow and terms `ClusterIP`, `LoadBalancer`,
+and `same image and configuration`.
+
+| Batch | Accepted | Needs repair | Remove |
+| --- | ---: | ---: | ---: |
+| Kubernetes correction `1d093c9` / `7481b93` | 3 | 0 | 0 |
+
+## Bounded API Gateway review checkpoint
+
+Hilbert independently reviewed all five API Gateway redraws at native and
+608px sizes. Asset 01 passed outright. Assets 02, 04, and 05 were visually
+correct but remain open until their source/crop/hash provenance is corrected;
+asset 06 remains open for removal of an orange cursor/highlight artifact.
+
+| Asset group | Visually accepted | Provenance follow-up | Needs visual repair |
+| --- | ---: | ---: | ---: |
+| API Gateway `3ebc5a1` | 4 | 3 | 1 |
