@@ -409,3 +409,23 @@ metadata and source/crop hashes.
 | Batch | Accepted | Needs repair | Unresolved |
 | --- | ---: | ---: | ---: |
 | ML deployment/tree correction `1947c96` | 1 | 0 | 0 |
+
+## ML deep-learning, serverless, and Kubernetes audit
+
+Herschel independently reviewed all 173 active refs in ML modules 08--10 at
+native size and simulated 608px lesson size. This is a bounded asset audit,
+not a claim about the other ML modules.
+
+| Scope | Accepted | Needs repair | Remove/native | Unresolved | Total |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Deep learning | 34 | 3 | 24 | 7 | 68 |
+| Serverless | 7 | 0 | 35 | 14 | 56 |
+| Kubernetes | 11 | 3 | 33 | 2 | 49 |
+| **Total** | **52** | **6** | **92** | **23** | **173** |
+
+The six repair targets are: two dropout/overfitting diagrams and the
+activation-functions image in deep learning; three Kubernetes intro diagrams.
+The 23 unresolved refs are screenshot-derived or otherwise lacking a
+verifiable redraw chain. Three Luna-max workers are processing these disjoint
+module scopes. Native code, tables, plans, commands, and exact outputs are
+being removed as image embeds rather than redrawn as invented illustrations.
