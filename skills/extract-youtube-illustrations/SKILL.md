@@ -10,6 +10,7 @@ frames. The goal is not to capture every screen change. The goal is to find
 images that add instructional value to the written lesson.
 
 Read [`template/illustration-rubric.md`](../../template/illustration-rubric.md)
+and [`template/image-regeneration-workflow.md`](../../template/image-regeneration-workflow.md)
 before selecting final images.
 
 ## Inputs and working area
@@ -48,7 +49,32 @@ are working files, not course assets.
    proposed alt text in a manifest next to the candidates.
 6. Copy only accepted frames into the course module's `images/` directory,
    using a descriptive filename and a caption that says what the learner
-   should notice.
+   should notice. Before copying, follow the crop-and-regenerate workflow:
+   crop the useful region from the candidate, then ask imagegen to regenerate
+   it as a crisp high-resolution asset when the image is a bounded illustration
+   and the worker has the skill. Exact code, URLs, plots, numbers, and UI
+   states must use a deterministic replacement instead.
+
+## Provenance for each accepted image
+
+An accepted image must be traceable through the whole pipeline:
+
+```text
+YouTube URL/ID + timestamp
+  → local video in .tmp/videos/
+  → ffmpeg candidate frame in .tmp/illustrations/
+  → rubric decision
+  → deterministic crop
+  → imagegen crisp regeneration or deterministic re-export
+  → module/images asset + Markdown reference
+```
+
+Record the source URL or ID, timestamp, transcript/chop-plan cue, source and
+crop dimensions, crop coordinates, final filename, rubric score, disposition,
+and the invariants checked during review. Candidate frames, crops, contact
+sheets, prompts, rejected generations, and downloaded videos stay in
+gitignored `.tmp/`; only the reviewed final asset and its lesson reference are
+published.
 
 ## Selection rules
 

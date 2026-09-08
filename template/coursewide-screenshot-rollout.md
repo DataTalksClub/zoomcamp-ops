@@ -23,6 +23,13 @@ Every screenshot gets a disposition. Do not silently skip an asset because it
 is inconvenient, and do not delete a useful screenshot only because its frame
 is ugly.
 
+When a screenshot comes from a YouTube workshop, retain its provenance in the
+inventory: source URL or video ID, timestamp, transcript/chop-plan cue,
+original frame path, crop coordinates, final asset path, and the rubric score.
+The recording frame is only the starting point; it becomes a lesson image
+through the crop-and-regenerate pipeline documented in
+[`image-regeneration-workflow.md`](image-regeneration-workflow.md).
+
 ## Two safe processing paths
 
 ### Imagegen path
@@ -36,10 +43,14 @@ pixels are not the lesson's source of truth.
 3. Crop the meaningful content first with a deterministic tool. Exclude
    webcam tiles, faces, browser/Zoom chrome, cursors, watermarks, and black
    borders from the reference input.
-4. Prompt with exact required labels, values, order, arrows, and layout. State
+4. Ask imagegen to regenerate the crop as a crisp, high-resolution lesson
+   asset. The crop is an input/reference, not the final deliverable: do not
+   accept a crop that is still soft or pixelated merely because its framing is
+   better.
+5. Prompt with exact required labels, values, order, arrows, and layout. State
    that no faces, camera tiles, controls, overlays, or extra components may
    remain.
-5. Inspect the output at lesson size and reject any changed label, value,
+6. Inspect the output at lesson size and reject any changed label, value,
    relationship, or teaching meaning. Make one targeted correction at a time.
 
 ### Deterministic path
