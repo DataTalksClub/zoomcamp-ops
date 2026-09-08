@@ -331,3 +331,43 @@ The reviewer confirmed exact UI labels/values, histogram axes and shapes,
 split relationships, complete crops, no capture artifacts, byte-identical
 imagegen outputs, C2PA/JUMD `gpt-image` provenance, and no post-generation
 resizing or sharpening.
+
+## DE repair follow-up
+
+The five-target DE repair `04f9c77` was independently checked by Singer. Three
+targets were accepted immediately; two warehouse targets required a second
+correction because of source-value drift and a residual editor marker.
+
+`de422d4` corrected those two targets, and Fermat independently accepted both
+at native and 800px lesson size:
+
+| Batch | Accepted | Needs correction | Unresolved |
+| --- | ---: | ---: | ---: |
+| DE five-target repair after `de422d4` | 5 | 0 | 0 |
+
+The accepted warehouse values are exactly `105.9 MB` for partition pruning and
+`843.5 MB` for cluster pruning; all five outputs have matching ledger hashes
+and signed `gpt-image` provenance.
+
+## ML evaluation repair follow-up
+
+`0dfa1df` rebuilt the accuracy plot deterministically from all 21 lesson values
+and removed the duplicate/wrong confusion-table image reference. Mencius
+independently verified the 21 points, the `0.803` maximum at threshold `0.50`,
+the axes, and the retained native table/output.
+
+| Batch | Accepted | Removed/native | Unresolved |
+| --- | ---: | ---: | ---: |
+| ML evaluation `0dfa1df` | 1 | 1 | 16 |
+
+The 16 provenance-unresolved evaluation assets remain explicitly open.
+
+## ML classification and deployment/tree review baselines
+
+Pascal's independent classification review found 7 accepted and 11
+provenance-unresolved refs; James is reprocessing those 11 with retained
+source/crop/imagegen evidence. Bacon's independent deployment/tree review
+found 15 accepted, 13 semantic/axis corrections, 10 native removals, and 10
+provenance-unresolved refs. Native removals are being handled in `14b5a3e`;
+the 13 semantic/axis repairs are in a separate focused worker. These are open
+queues, not crispness approvals.
