@@ -443,3 +443,11 @@ The first cleanup checkpoints are now pushed:
 These checkpoint commits do not constitute crispness approval for the
 remaining queues. Each regenerated asset still needs independent native-size
 and lesson-size review before it is recorded as accepted.
+
+Kubernetes has also completed its implementation queue in focused commits:
+`c613aa7` removed 33 native-content embeds, `c4a0f88` regenerated the three
+defective intro diagrams with imagegen, `d679ff8` removed a duplicate command
+capture, and `ae4eb6c` documented the one AWS-console reference left
+unresolved because a faithful redraw could invent UI text. The three
+regenerated diagrams are pending an independent visual check; the unresolved
+AWS-console item is not an approval.
