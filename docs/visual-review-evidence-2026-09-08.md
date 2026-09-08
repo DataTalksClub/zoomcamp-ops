@@ -193,6 +193,22 @@ original non-crisp source and bounded crop were supplied to imagegen. A focused
 worker is reprocessing the first ten; the remaining eight stay open. This is
 not a crispness or repository-wide completion claim.
 
+## Independent ML intro review
+
+Meitner independently inspected all 32 active local references in
+`cohorts/2026/01-intro` at native resolution and display size using the rubric.
+
+| Scope | Accepted | Needs correction | Remove/native | Unresolved |
+| --- | ---: | ---: | ---: | ---: |
+| ML intro active refs | 20 | 6 | 6 | 2 |
+
+The repair queue includes the multiclass diagram, multiple-comparisons
+diagram, two linear-algebra diagrams, six environment visuals (including two
+with profile faces and one exposed tokenized Jupyter URL), and two exact
+list/code visuals that should become native lesson content. A focused worker
+is regenerating the first four imagegen targets; environment and native-content
+repairs remain open. This is a bounded-scope result, not a full ML approval.
+
 ### MLOps repair follow-up
 
 `d47085f` regenerated `06-best-practices/AWS-stream-pipeline-redrawn.png`
