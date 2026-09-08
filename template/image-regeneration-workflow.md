@@ -14,11 +14,13 @@ Choose the output style from the lesson's teaching point, not from the
 source's file extension or how polished a generated image might look.
 
 1. **Preserve, or crop and crispify, the screenshot** when the screenshot is
-   instructional evidence: an exact UI state, notebook output, plot, table,
-   code, command, or result. Crop only when needed to isolate useful content;
-   then keep the original source and use a deterministic crop/export or a
+   instructional evidence: an exact UI state, notebook output, plot, code,
+   command, or result. Crop only when needed to isolate useful content; then
+   keep the original source and use a deterministic crop/export or a
    deterministic re-render. The source pixels, labels, values, and state are
-   the authority.
+   the authority. If the useful content is only a table, comparison matrix, or
+   exact-value list, convert it to native Markdown/HTML instead of making an
+   image.
 2. **Use imagegen for a clean iconographic or diagrammatic redraw** when the
    lesson teaches a conceptual relationship or process and exact pixels are
    not the source of truth. It may improve composition and legibility, but it
@@ -33,10 +35,13 @@ source's file extension or how polished a generated image might look.
 ```text
 What does the learner need to learn from the image?
             │
-            ├─ Exact evidence: UI state, notebook output, plot, table,
-            │  code, command, URL, number, or result?
+            ├─ Exact evidence: UI state, notebook output, plot, code,
+            │  command, URL, number, or result?
             │       └─ Preserve, crop only if useful-content isolation is needed,
             │          then deterministic crop/export or deterministic re-render.
+            │
+            ├─ Only a table, comparison matrix, or exact-value list?
+            │       └─ Convert to native Markdown/HTML and verify every value.
             │
             └─ Conceptual relationship or process; exact pixels are not truth?
                     └─ Imagegen redraw from the retained original source and
@@ -63,7 +68,8 @@ Do not use imagegen for:
   conclusion.
 
 For those cases, use the original source, a deterministic crop, or a
-deterministically rendered replacement from the notebook or code.
+deterministically rendered replacement from the notebook or code. For a table
+or exact-value list, prefer native Markdown/HTML and verify every cell.
 
 ## Capability gate for delegated workers
 

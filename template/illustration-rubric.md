@@ -38,6 +38,11 @@ the primary question:
 
 These override the total score:
 
+- If the useful content is a table or a list of exact values that can be
+  represented faithfully in lesson markup, convert it to a native Markdown or
+  HTML table/list instead of publishing a screenshot. Keep an image only when
+  the visual layout itself is instructional and cannot be represented without
+  losing meaning.
 - If instructional contribution is 0, remove the image.
 - If the relevant content cannot be made readable by cropping or replacing
   it, remove the image.
@@ -57,6 +62,11 @@ in text.
 Remove an image when it shows a workshop page, repository navigation, a
 presenter or chat panel, an empty application, code already printed clearly in
 the lesson, or a command with no meaningful output.
+
+Convert a frame to native lesson content when it is only a table, comparison
+matrix, or exact-value list. Check the resulting markup against the source for
+row order, labels, values, and units. Do not use image generation to recreate
+tabular data that readers need to search, copy, or compare.
 
 Crop or replace an image when the underlying evidence matters but the capture
 contains video-call chrome, browser tabs, unrelated panels, tiny text, or a
