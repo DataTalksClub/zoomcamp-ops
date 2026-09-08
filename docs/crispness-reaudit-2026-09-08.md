@@ -103,6 +103,11 @@ complete:
   references, and removed unreferenced crop intermediates.
 - ML `05b5cb8` and `39016f2`: regenerated deployment and tree visuals. Worker
   audits reported all owned assets passing and all references resolving.
+- ML `10bae47`, `212beaa`, `7e6620c`, `bc52fcb`, and `31049ba`: added a small
+  batch of imagegen replacements for ImageNet, checkpointing, k-fold, serverless,
+  and SavedModel screenshots. These are implementation commits only; the
+  independent review queue remains open, and the serverless preprocessing image
+  still needs an aspect-ratio check.
 
 The active DE warehouse scope is now 16 illustration references after the
 native-content removals. The active DE batch scope currently contains 51
