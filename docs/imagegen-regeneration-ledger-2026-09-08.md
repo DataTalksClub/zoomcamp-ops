@@ -57,6 +57,7 @@ source and lesson invariants before it can be called accepted.
 | DE `06-batch/...15-setting-up-a-dataproc-cluster-05-reports-in-bucket-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-3511bef5-af63-4b99-b8a9-ed679d96d569` | `d2432e1` | Regenerated exact `code/`, `pq/`, `report-2020/`, `report-2021/` folders; accepted by independent review |
 | ML `02-regression/...04-fake-feature-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-37de99a4-c2b2-4abc-aa23-4411e9922fb5` | `095d0dc` | Crisp vectors and relation; accepted in first independent review |
 | ML `02-regression/...05-prepend-one-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-c69bfbe7-36bf-42e8-a4fb-53bc18d268a6` | `b72735e` | Corrected to `return dot(xi, w_new)`; pending re-review |
+| ML `08-deep-learning/...03-pretrained-models-01-keras-applications-crisp.png` | `...03-pretrained-models-01-keras-applications.jpg` + `...-cropped.png` | `exec-edccde7f-fb54-4705-b0be-61a4a690de3f` | `7e22144` | Regenerated without browser/camera chrome; exact heading, prose, and visible table values checked; independent review pending |
 
 The generated files remain in the local imagegen output directory named in
 each tool result. The course repository contains only the copied published
