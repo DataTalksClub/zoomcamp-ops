@@ -530,3 +530,35 @@ Other previously recorded queues remain open: the 16 provenance-unresolved
 assets in ML evaluation and the ten provenance-unresolved assets in ML
 deployment/trees. The conservative scanner queue is not reduced by these
 implementation commits until independent evidence is recorded.
+
+## Bounded deep-learning chart review checkpoint
+
+A read-only independent review checked the eight regenerated assets from
+`98cce69` and `0316a68` at native size and at a simulated 608px lesson width.
+The reviewer also inspected each retained original JPG and bounded crop, the
+notebook values, and the repair provenance. All eight passed this bounded
+review; this is not a claim about the remaining deep-learning assets or the
+repository as a whole.
+
+| Batch | Accepted | Needs repair | Remove | Scope |
+| --- | ---: | ---: | ---: | --- |
+| Deep-learning charts and ReLU review | 8 | 0 | 0 | `98cce69`, `0316a68` |
+
+Accepted targets:
+
+- `05-transfer-learning-08-history-plot-crisp.png`
+- `06-learning-rate-04-train-accuracy-crisp.png`
+- `06-learning-rate-05-val-accuracy-crisp.png`
+- `06-learning-rate-06-two-lr-validation-crisp.png`
+- `06-learning-rate-07-select-001-crisp.png`
+- `08-more-layers-02-activation-functions-crisp.png`
+- `09-dropout-07-dropout-02-vs-train-imagegen.png`
+- `09-dropout-08-no-regularization-overfit-imagegen.png`
+
+The seven plot files are deterministic native Matplotlib renders from the
+lesson notebook values, not enlarged screenshots. The ReLU file is a clean
+imagegen redraw with the equation and graph semantics preserved. All eight
+were readable at 608px and had no camera, browser, overlay, or crop remnants.
+The two remaining deep-learning redraws in the earlier open list are the
+logistic-regression and pooling visuals from `3213505` and `a3ab678`; they
+still need the same independent review gate.
