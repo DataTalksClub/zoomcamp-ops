@@ -10,7 +10,7 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | Repository | HEAD | Worktree | Active selection |
 | --- | --- | --- | --- | --- |
-| ML | `/home/alexey/git/machine-learning-zoomcamp` | `01a55d8af511abeb852c77de73c90022fd4dcc30` | dirty (snapshot still read-only) | the published 2026 cohort flow and its module manifests |
+| ML | `/home/alexey/git/machine-learning-zoomcamp` | `1947c963fed605aaa8b9887f7f626aaac2685f6d` | clean | the published 2026 cohort flow and its module manifests |
 | LLM | `/home/alexey/git/llm-zoomcamp` | `8606dafb3b0cfe13e8955dd7ff146d5e004d539f` | clean | the published 2026 cohort flow and its module manifests |
 | MLOps | `/home/alexey/git/mlops-zoomcamp` | `d47085f98cae063be65f2e9e33eaa88c7cda04a7` | clean | numbered root module/project README pages; no published cohort manifest exists |
 | DE | `/home/alexey/git/data-engineering-zoomcamp` | `de422d45e2dc19db8cbf717fe7863051d6197f6f` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
@@ -419,31 +419,31 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/05-deployment/06-docker.md` | 127 | `images/06-docker-05-port-mapping-imagegen.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/05-deployment/07-aws-eb.md` | 29 | `images/07-aws-eb-02-eb-architecture-imagegen.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/05-deployment/09-explore-more.md` | 6 | `images/09-explore-more-01-deployment-choices-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/01-credit-risk.md` | 24 | `images/01-credit-risk-01-loan-application-imagegen.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/01-credit-risk.md` | 24 | `images/01-credit-risk-01-loan-application-imagegen.png` | instructional illustration | PRESENT | 1774×887 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/01-credit-risk.md` | 32 | `images/01-credit-risk-02-historical-data-imagegen.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/01-credit-risk.md` | 60 | `images/01-credit-risk-03-probability-of-default-imagegen.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/03-decision-trees.md` | 37 | `images/03-decision-trees-01-risk-rules-tree-imagegen.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/03-decision-trees.md` | 120 | `images/03-decision-trees-05-memorizing-imagegen.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/03-decision-trees.md` | 179 | `images/03-decision-trees-06-learned-rules-imagegen.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/03-decision-trees.md` | 179 | `images/03-decision-trees-06-learned-rules-imagegen.png` | instructional illustration | PRESENT | 1606×979 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/03-decision-trees.md` | 185 | `images/03-decision-trees-07-decision-stump-imagegen.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | 119 | `images/05-decision-tree-tuning-05-heatmap-imagegen.png` | instructional illustration | PRESENT | 1573×1000 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | 132 | `images/05-decision-tree-tuning-07-wider-search-imagegen.png` | instructional illustration | PRESENT | 1642×958 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | 119 | `images/05-decision-tree-tuning-05-heatmap-imagegen.png` | instructional illustration | PRESENT | 1487×1246 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | 132 | `images/05-decision-tree-tuning-07-wider-search-imagegen.png` | instructional illustration | PRESENT | 1882×1246 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/06-random-forest.md` | 26 | `images/06-random-forest-01-board-of-experts-imagegen.png` | instructional illustration | PRESENT | 1491×1055 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/06-random-forest.md` | 58 | `images/06-random-forest-02-random-forest-imagegen.png` | instructional illustration | PRESENT | 1491×1055 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/06-random-forest.md` | 87 | `images/06-random-forest-03-auc-vs-trees-imagegen.png` | instructional illustration | PRESENT | 1463×1075 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/06-random-forest.md` | 133 | `images/06-random-forest-04-tuning-max-depth-imagegen.png` | instructional illustration | PRESENT | 1434×1097 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/06-random-forest.md` | 186 | `images/06-random-forest-05-tuning-min-samples-leaf-imagegen.png` | instructional illustration | PRESENT | 1434×1097 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/06-random-forest.md` | 87 | `images/06-random-forest-03-auc-vs-trees-imagegen.png` | instructional illustration | PRESENT | 1556×1246 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/06-random-forest.md` | 133 | `images/06-random-forest-04-tuning-max-depth-imagegen.png` | instructional illustration | PRESENT | 1574×1246 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/06-random-forest.md` | 186 | `images/06-random-forest-05-tuning-min-samples-leaf-imagegen.png` | instructional illustration | PRESENT | 1574×1246 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/07-boosting.md` | 27 | `images/07-boosting-01-boosting-vs-random-forest-imagegen.png` | instructional illustration | PRESENT | 1491×1055 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/07-boosting.md` | 32 | `images/07-boosting-02-gradient-boosting-trees-imagegen.png` | instructional illustration | PRESENT | 1491×1055 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/07-boosting.md` | 187 | `images/07-boosting-03-train-val-auc-imagegen.png` | instructional illustration | PRESENT | 1463×1075 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/07-boosting.md` | 187 | `images/07-boosting-03-train-val-auc-imagegen.png` | instructional illustration | PRESENT | 1556×1246 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 24 | `images/08-xgb-tuning-01-parameters-imagegen.png` | instructional illustration | PRESENT | 1491×1055 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 81 | `images/08-xgb-tuning-02-tuning-eta-imagegen.png` | instructional illustration | PRESENT | 1463×1075 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 114 | `images/08-xgb-tuning-03-max-depth-curves-imagegen.png` | instructional illustration | PRESENT | 1548×1016 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 152 | `images/08-xgb-tuning-04-min-child-weight-curves-imagegen.png` | instructional illustration | PRESENT | 1562×1007 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 81 | `images/08-xgb-tuning-02-tuning-eta-imagegen.png` | instructional illustration | PRESENT | 1574×1246 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 114 | `images/08-xgb-tuning-03-max-depth-curves-imagegen.png` | instructional illustration | PRESENT | 1574×1246 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 152 | `images/08-xgb-tuning-04-min-child-weight-curves-imagegen.png` | instructional illustration | PRESENT | 1592×1246 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/09-final-model.md` | 19 | `images/09-final-model-01-comparing-validation-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/10-summary.md` | 14 | `images/10-summary-01-summary-slide-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/10-summary.md` | 25 | `images/10-summary-02-decision-tree-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/10-summary.md` | 27 | `images/10-summary-03-overfitting-auc-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/10-summary.md` | 25 | `images/10-summary-02-decision-tree-imagegen.png` | instructional illustration | PRESENT | 1774×887 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/10-summary.md` | 27 | `images/10-summary-03-overfitting-auc-imagegen.png` | instructional illustration | PRESENT | 1383×1092 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/10-summary.md` | 37 | `images/10-summary-04-random-forest-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/10-summary.md` | 45 | `images/10-summary-05-gradient-boosting-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/10-summary.md` | 47 | `images/10-summary-06-xgb-parameters-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
