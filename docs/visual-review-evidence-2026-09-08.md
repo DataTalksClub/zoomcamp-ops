@@ -399,3 +399,13 @@ and is being corrected in a focused follow-up; it is not accepted.
 | Batch | Implemented | Independently accepted | Needs repair |
 | --- | ---: | ---: | ---: |
 | ML deployment/tree repair `6a7a98c` | 13 | 12 | 1 |
+
+The remaining diagram was regenerated in `1947c96` from its original JPG and
+bounded crop. Banach independently checked the native and 608px renders,
+confirmed the corrected `Yes → job in [yes]` and `No → seniority < 5`
+branches, found no camera/overlay artifacts, and verified the imagegen
+metadata and source/crop hashes.
+
+| Batch | Accepted | Needs repair | Unresolved |
+| --- | ---: | ---: | ---: |
+| ML deployment/tree correction `1947c96` | 1 | 0 | 0 |
