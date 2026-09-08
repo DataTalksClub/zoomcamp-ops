@@ -63,6 +63,29 @@ native-content removals. The active DE batch scope still contains many
 also contains a much larger active illustration set; no repository-wide ML
 crispness PASS is being claimed until its complete inventory is reviewed.
 
+## Inventory results from the independent audits
+
+The implementation queue is now evidence-based rather than inferred from
+filenames:
+
+- ML 2026: 578 active local image references; 368 native-content removals or
+  conversions, 110 already-supported imagegen reconstructions, 91
+  screenshot-derived assets requiring regeneration, and 12 deterministic or
+  external exceptions. One combined TensorFlow Lite asset needs its two
+  component originals as the regeneration input.
+- DE 2027 batch: 74 active references; 17 source-backed imagegen assets, 57
+  crop/upscale/re-export screenshot derivatives, and 3 imagegen list slides
+  that were removed because nearby prose already contains the same content.
+- DE 2027 streaming: 0 active illustration references. The unsupported
+  generated streaming set was removed; no replacement should be invented.
+- DE 2027 warehouse: 16 active references after table/list cleanup; the six
+  deployment screenshots were regenerated from their original JPGs plus crops
+  in commits `73b1eff` and `7bc4aed`.
+
+These counts are queues and classifications, not completion claims. The
+repository-specific audit agents found no broken active references in these
+scopes.
+
 ## Provenance required for each completion
 
 Record the source path, original dimensions, crop coordinates, imagegen input
