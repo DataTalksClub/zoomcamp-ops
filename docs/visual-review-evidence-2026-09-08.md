@@ -29,10 +29,10 @@ merged/cropped reference—not only a resized or sharpened derivative.
 
 | Scope | Repository head | Retained active references reviewed | Result | Units without illustrations |
 | --- | --- | ---: | --- | ---: |
-| ML 2026 | `8aa115b` | 581/581 | PASS; 0 failures, 0 missing local refs | 0/105 |
-| LLM 2026 | `15e256f` | 38/38 | PASS; 0 soft/chrome-heavy retained assets | 36/72 |
+| ML 2026 | `bfafbbb` | 581/581 | PASS; 0 failures, 0 missing local refs | 0/105 |
+| LLM 2026 | `c557a0a` | 38/38 | PASS; 0 soft/chrome-heavy retained assets | 36/72 |
 | MLOps current lesson set | `e68ba45` | 38 current-scope refs; repository-wide legacy refs also cleaned | PASS; 0 broken refs after cleanup | 2/7 |
-| DE 2027 draft | `d694583` | 111 retained from 175 reviewed occurrences | PASS for retained assets; 64 unsupported assets removed | 66/88 |
+| DE 2027 draft | `21b6693` | 111 retained from 175 reviewed occurrences | PASS for retained assets; 64 unsupported assets removed | 66/88 |
 
 “Units without illustrations” is intentionally not hidden: those units lost
 unsupported or invented visuals during the distrust audit. They should receive
@@ -54,6 +54,16 @@ The LLM reviewer inspected all 38 retained local references individually. The
 MLOps reviewer inspected the current lesson visuals, exact AWS screenshots,
 shared diagrams, and the official badge; the implementation pass also removed
 historical thumbnail embeds and stale broken references.
+
+The Astra style review found three semantic defects and no broad style
+outliers. They were corrected and independently reviewed:
+
+- ML correlation strength cards: `bfafbbb` corrected the LOW/STRONG spatial
+  ordering.
+- LLM agent flow: `c557a0a` restored `Olama` (failed search) versus `Ollama`
+  (corrected retry).
+- DE Spark reshuffling: `21b6693` removed the extra route so the three
+  `(h₁,z₁)` records go only to P1 and the two `(h₁,z₂)` records only to P2.
 
 ## Review gates
 

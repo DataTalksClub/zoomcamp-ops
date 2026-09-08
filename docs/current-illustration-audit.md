@@ -8,10 +8,10 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | Repository | HEAD | Worktree | Active selection |
 | --- | --- | --- | --- | --- |
-| ML | `/home/alexey/git/machine-learning-zoomcamp` | `8aa115bea3a53d80363e2d4dab3609412926a38c` | clean | the published 2026 cohort flow and its module manifests |
-| LLM | `/home/alexey/git/llm-zoomcamp` | `15e256f9a12db3117a3f21513d1dd11a56755ce1` | clean | the published 2026 cohort flow and its module manifests |
+| ML | `/home/alexey/git/machine-learning-zoomcamp` | `bfafbbb0c7922e99814ecfcd2a1ee45cf51c84b9` | clean | the published 2026 cohort flow and its module manifests |
+| LLM | `/home/alexey/git/llm-zoomcamp` | `c557a0a05e27b710014f32e7533f96454b2dc51f` | clean | the published 2026 cohort flow and its module manifests |
 | MLOps | `/home/alexey/git/mlops-zoomcamp` | `e68ba45e215e8ebada38614444b05098fc933d9f` | clean | numbered root module/project README pages; no published cohort manifest exists |
-| DE | `/home/alexey/git/data-engineering-zoomcamp` | `d69458342899d36881d2ff0788dbf9aa8e4b23eb` | clean | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
+| DE | `/home/alexey/git/data-engineering-zoomcamp` | `21b6693d9dc253e8962f9ac216799b7e223e87d9` | clean | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
 
 ## Status contract
 
