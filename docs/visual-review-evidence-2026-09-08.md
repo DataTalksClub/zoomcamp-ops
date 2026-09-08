@@ -438,6 +438,7 @@ The first cleanup checkpoints are now pushed:
 | --- | --- | --- | --- |
 | Deep learning | `a765b7b` | removed 24 native-content embeds | 9 repair/unresolved targets |
 | Deep learning | `3213505` | regenerated one unresolved visual with imagegen from original JPG + bounded crop | follow-up queue remains |
+| Deep learning | `a3ab678` | regenerated the transfer-learning pooling visual with imagegen from original JPG + bounded crop | 8 repair targets |
 | Serverless | `bc153ae` | removed 35 native-content embeds | 14 AWS/UI targets |
 
 These checkpoint commits do not constitute crispness approval for the
@@ -451,3 +452,7 @@ capture, and `ae4eb6c` documented the one AWS-console reference left
 unresolved because a faithful redraw could invent UI text. The three
 regenerated diagrams are pending an independent visual check; the unresolved
 AWS-console item is not an approval.
+
+Serverless then removed nine additional unreproducible AWS UI captures in
+`2d32576` and `17db699`, preserving the JSON response natively. Five API
+Gateway captures remain under a focused disposition worker.
