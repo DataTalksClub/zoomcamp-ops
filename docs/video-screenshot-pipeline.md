@@ -135,6 +135,26 @@ deleted immediately after its frames were extracted and committed. The
 enforcement lives in the daemon (`mp4_count` check) and in the worker
 playbook.
 
+### Which route served which run
+
+The proxy did not just slow down mid-run: at ~18:33 on 6 Sep 2026 every
+authenticated Oxylabs request began returning **407 account-wide**
+(traffic quota), and it did not come back for the rest of the run — the
+daemon's periodic `/generate_204` probe never went green that night. Tell
+the codes apart when debugging: **407 = proxy quota exhausted,
+403 = YouTube blocking you.**
+
+- data-engineering-zoomcamp (22 units, modules 3+6): all 22 transcripts
+  were cached before the outage, so lesson text never stalled; the
+  screenshot pass downloaded its videos through mirrors.
+- machine-learning-zoomcamp (95 video units): 41 transcripts were already
+  cached; the remaining 54 were scraped from mirror metadata (Piped
+  `subtitles`, Invidious `captions`) and normalized into the shared cache
+  by `vtt_to_cache`. Videos came from Piped worker loops.
+- llm-zoomcamp (55 units, 53 distinct videos): the daemon above carried
+  essentially the whole job — `DL SUCCESS` every few minutes once the
+  per-video mirror rotation settled.
+
 ## 3. Finding the frames
 
 Timestamps came from the transcript, matched against the unit's text:
@@ -145,12 +165,30 @@ Timestamps came from the transcript, matched against the unit's text:
    talking, not title cards.
 3. Find each moment's timestamp from the transcript — the paragraph that
    discusses a diagram sits next to the transcript lines where it is drawn
-   or shown, and `M:SS` lines convert directly to seek positions.
+   or shown, and `M:SS` lines convert directly to seek positions. Marker
+   phrases in the transcript ("here you can see", "in this diagram",
+   "let me open/show you") are the strongest signals that a visual moment
+   is starting.
 4. When a video fed two units (chopped lesson videos do), each unit got its
    own frames from different parts of the video, split by topic.
 5. Fallback when no transcript exists: sample frames evenly across the
    duration (it is in the mirror metadata JSON) and keep the content-bearing
    ones.
+
+Worked example (real, from ML Zoomcamp 2026 `01-intro/01-what-is-ml.md`,
+video `Crm_5n4mvmg`). The unit's paragraph about a seller reaching the
+price field is illustrated by the moment the video first shows the
+ad-creation form. The transcript says:
+
+```
+1:08 then they uh reach uh this price field.
+```
+
+Three candidates were extracted at 1:05 / 1:08 / 1:11; the one with the
+whole form visible became `images/01-what-is-ml-01-price-field.jpg`,
+embedded immediately after that paragraph. The next paragraph ("What do we
+know about cars?") maps the same way onto the transcript lines a minute
+later where the table of car attributes appears.
 
 ## 4. Extracting the frames
 
@@ -172,13 +210,27 @@ ffmpeg -ss <seconds> -i <video-id>.mp4 -frames:v 1 -q:v 3 out.jpg
 
 ## 5. Selecting keepers
 
-Every candidate was viewed (Read tool on the image) before being kept:
+Every candidate was viewed (Read tool renders the jpg) before a decision —
+no frame was embedded from a timestamp alone. Per moment, keep the
+candidate that has:
 
-- keep the sharpest, most representative frame of the moment;
-- discard motion blur, fade transitions, half-drawn diagrams, and frames
-  where the content is off-screen;
-- 3–8 embedded per unit is the target; fewer is acceptable only when the
-  video genuinely shows less.
+- the content fully on screen and legible at 640×360 (slide body, notebook
+  cell, terminal output);
+- the least motion blur of the three candidates;
+- the state the neighbouring paragraph describes (e.g. the query result
+  after it renders, not the empty prompt before).
+
+Discard candidates that are:
+
+- a talking head with no content on screen;
+- mid-transition: fades, slide wipes, half-drawn diagrams;
+- duplicates of an already-kept frame from the same video;
+- occluded — relevant region off-screen, or covered by a webcam tile,
+  popup, or an animated tooltip caught mid-move.
+
+3–8 embedded per unit is the target; fewer is acceptable only when the
+video genuinely shows less. A unit whose video is pure discussion ends
+with zero frames rather than filler.
 
 ## 6. Cropping
 
