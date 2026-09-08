@@ -653,6 +653,13 @@ uninspected refs as follows:
 | --- | ---: | ---: | ---: | ---: |
 | DE 06-batch uninspected eight | 1 | 2 | 1 | 4 |
 
+DE follow-up commits `3771ae1`, `ed8bfff`, and `f5605c6` repaired the missing
+`1TB` mapPartitions annotation, regenerated the Dataproc submit form, and
+removed the BigQuery traceback screenshot. Commits `28447dc` and `d93b267`
+then regenerated the Spark master and worker UI captures with imagegen and
+retained exact provenance. The submit form and four regenerated UI assets need
+independent review; two Dataproc images remain unresolved.
+
 ## ML classification and evaluation strict audit follow-up
 
 Fresh strict audits replaced the earlier broad approvals for ML modules 03
@@ -669,6 +676,19 @@ the ungrounded preprocessing/model-comparison diagram; the one-hot table will
 be removed as native lesson markup. Evaluation repairs are queued for two
 precision/recall visuals, while the low-value recall-definition image will be
 removed. The 19 provenance-unresolved assets remain open.
+
+Bacon independently rechecked the classification repairs: both visuals pass,
+the one-hot image reference is gone, and the native table preserves all seven
+rows and five encoded columns. The evaluation visuals are semantically correct
+but initially failed provenance-only review because their bounded crops were
+temporary. Commit `2de31ca` retained both crops and added the reproducible
+crop script without changing published PNG pixels; a final provenance review
+is still required.
+
+| Follow-up batch | Accepted | Needs provenance review | Remove |
+| --- | ---: | ---: | ---: |
+| Classification `ef15e0f` / `5375259` | 2 | 0 | 1 image embed |
+| Evaluation `00cf1c9` / `a755623` / `2de31ca` | 0 | 2 | 1 image embed |
 
 The accepted asset is the RDD DAG image. The unresolved queue contains the
 map-partitions diagram (missing the lesson's `1TB` annotation) and four
