@@ -193,6 +193,21 @@ original non-crisp source and bounded crop were supplied to imagegen. A focused
 worker is reprocessing the first ten; the remaining eight stay open. This is
 not a crispness or repository-wide completion claim.
 
+### LLM Agentic RAG repair follow-up
+
+`da89a5f` regenerated the first three LLM repair targets and removed the
+unsupported evaluation-intro image reference. Volta independently inspected
+the three new PNGs at native and 608px lesson size.
+
+| Target | Decision | Evidence |
+| --- | --- | --- |
+| `01-agentic-rag/01-intro-01-rag-project-overview-imagegen.png` | ACCEPT | Correct question → search over FAQ corpus → retrieved context → LLM → answer flow; C2PA `gpt-image` metadata; no clipping or overlays |
+| `01-agentic-rag/03-rag-08-rag-architecture-sketch-imagegen.png` | ACCEPT | Complete assistant/question → search → knowledge base → retrieved data → prompt → LLM → answer flow; clean redraw of the Zoom/webcam source |
+| `01-agentic-rag/16-other-frameworks-01-shared-agent-loop-imagegen.png` | ACCEPT | SDK A/B/C each share the complete messages → tool call → observe → answer loop; crisp at both sizes |
+
+The old unsupported asset remains unreferenced. The other six LLM repair
+targets remain open; this follow-up does not establish an LLM-wide pass.
+
 ## Independent ML intro review
 
 Meitner independently inspected all 32 active local references in
