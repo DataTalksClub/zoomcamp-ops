@@ -341,7 +341,9 @@ def assess_reference(ref: ImageRef, repo: Path) -> None:
 
     dimensions = parse_dimensions(ref.resolved_path)
     ref.dimensions = format_dimensions(dimensions)
-    ref.status = "PASS" if dimensions else "DECODE?"
+    # This is only a filesystem/readability check. Do not call it PASS: that
+    # wording was repeatedly misread as a visual crispness approval.
+    ref.status = "PRESENT" if dimensions else "DECODE?"
     if ref.kind in {"navigation thumbnail", "homework/support"}:
         ref.quality = "reference checked; non-illustration asset"
     elif "-cropped" in ref.resolved_path.stem and not any(
@@ -397,14 +399,14 @@ def short_path(path: Path, repo: Path) -> str:
 
 def render_scope_summary(scope: ScopeSpec, repo: Path, units: list[Unit], refs: list[ImageRef]) -> str:
     instructional_units = sum(
-        any(ref.kind == "instructional illustration" and ref.status in {"PASS", "DECODE?"} for ref in unit.refs)
+        any(ref.kind == "instructional illustration" and ref.status in {"PRESENT", "DECODE?"} for ref in unit.refs)
         for unit in units
     )
     missing_units = len(units) - instructional_units
     local_refs = [ref for ref in refs if ref.kind != "remote"]
     missing_refs = sum(ref.status in {"MISSING", "OUTSIDE"} for ref in refs)
     review_refs = sum(
-        ref.kind == "instructional illustration" and ref.status in {"PASS", "DECODE?"} for ref in refs
+        ref.kind == "instructional illustration" and ref.status in {"PRESENT", "DECODE?"} for ref in refs
     )
     return (
         f"| {markdown_cell(scope.name)} | `{markdown_cell(scope.state)}` | {len(units)} | "
@@ -421,6 +423,8 @@ def render_report(workspace_root: Path, output: Path, data: list[tuple[ScopeSpec
     )
     lines = [
         "# Current illustration audit",
+        "",
+        "> **Important:** This inventory is not a crispness approval. Every image row is unverified until an independent visual review records a pass in `docs/visual-review-evidence-2026-09-08.md`. A resolving file, pixel dimensions, or an `imagegen` filename is not evidence that the published pixels are crisp.",
         "",
         f"Generated on **{generated}** by the read-only audit script.",
         "",
@@ -443,7 +447,7 @@ def render_report(workspace_root: Path, output: Path, data: list[tuple[ScopeSpec
             "",
             "## Status contract",
             "",
-            "- `PASS` means the local Markdown target resolves and a basic raster/vector dimension check succeeded.",
+            "- `PRESENT` means the local Markdown target resolves and a basic raster/vector dimension check succeeded. It says nothing about crispness, fidelity, overlays, or whether the file is an upscale.",
             "- `MISSING`/`OUTSIDE` is an actionable broken reference; `REMOTE` is recorded but not locally checked; `DECODE?` needs an image decoder check.",
             "- `review required` is intentional: filesystem checks cannot prove crop direction/order, visual crispness at lesson size, text or semantic fidelity, or overlay removal. An independent reviewer must record the visual verdict before publishing.",
             "- Completed visual-review evidence is recorded in [`docs/visual-review-evidence-2026-09-08.md`](visual-review-evidence-2026-09-08.md); this scanner's queue remains conservative and is not a substitute for that evidence.",
@@ -472,7 +476,7 @@ def render_report(workspace_root: Path, output: Path, data: list[tuple[ScopeSpec
     for scope, repo, units, _ in data:
         for unit in units:
             instructional = [
-                ref for ref in unit.refs if ref.kind == "instructional illustration" and ref.status in {"PASS", "DECODE?"}
+                ref for ref in unit.refs if ref.kind == "instructional illustration" and ref.status in {"PRESENT", "DECODE?"}
             ]
             local_or_remote = [ref for ref in unit.refs if ref.kind != "homework/support"]
             presence = "YES" if instructional else "MISSING"

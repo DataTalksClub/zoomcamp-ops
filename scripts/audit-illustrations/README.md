@@ -22,8 +22,10 @@ python scripts/audit-illustrations/audit_illustrations.py \
 ```
 
 The output records each source repository's `HEAD`, worktree state, active
-selection, unit coverage, and every image-reference occurrence. `PASS` only
+selection, unit coverage, and every image-reference occurrence. `PRESENT` only
 means that a local target resolves and its basic image dimensions can be read.
 The `review required` statuses are intentional: crispness, crop direction and
 order, text/semantic fidelity, overlays, and lesson-size readability require an
-independent visual reviewer and cannot be established by this scanner.
+independent visual reviewer and cannot be established by this scanner. A
+resolving file, large dimensions, or an `imagegen` filename is not a crispness
+approval.
