@@ -514,10 +514,15 @@ crispness. The corrected three-asset batch was independently accepted:
 - `10-kubernetes/images/05-kubernetes-intro-05-definitions-imagegen.png`
 - `10-kubernetes/images/05-kubernetes-intro-06-scaling-imagegen.png`
 
-The following AWS-console capture remains unresolved because a faithful redraw
-could invent UI text; it is not an approval:
+The following AWS-console capture was unresolved because a faithful redraw
+could invent UI text:
 
 - `10-kubernetes/images/08-eks-06-aws-console-crisp.png`
+
+Commit `efc683b` removed that embed while preserving the source JPG, crop, and
+PNG and recording exact hashes and the source-faithfulness rationale. The
+lesson explanation remains in place, so this module no longer publishes that
+unverified console capture.
 
 Other previously recorded queues remain open: the 16 provenance-unresolved
 assets in ML evaluation and the ten provenance-unresolved assets in ML
