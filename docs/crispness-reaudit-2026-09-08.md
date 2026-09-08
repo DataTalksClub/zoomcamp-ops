@@ -70,7 +70,11 @@ complete:
 - DE `aa152cf` and `f66a710`: regenerated the sort-merge and broadcast-join
   UI visuals from their original JPGs plus crops. The first sort-merge output
   was corrected in `64d18b2` to restore `WholeStageCodegen (5)`; both final
-  targets were independently accepted.
+  targets were initially reviewed, but the broadcast target later failed a
+  direct text check because imagegen rendered the leading `$` in
+  `$anonfun$withThreadLocalCaptured$1` as `S`. DE `eeb478e` and `bdacd32`
+  corrected that label deterministically; the target is pending fresh
+  independent review.
 - DE `0806220`, `e8e2868`, `16b4254`, and `d2432e1`: regenerated the worker
   status, GCS upload completion, Dataproc submit form, and Dataproc report
   folder visuals from original JPGs plus crops. The worker UI, submit form,
