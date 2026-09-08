@@ -56,15 +56,20 @@ complete:
 - DE `0904e57`, `fae367c`, and `d58916e`: regenerated four Spark notebook/UI
   screenshots from their original JPGs plus crops. The redundant group-by
   query screenshot was removed in `379f6cc` because the lesson already shows
-  the SQL natively. These assets remain pending independent visual review;
-  the commits do not establish a repository-wide crispness PASS.
+  the SQL natively. An independent reviewer accepted all four regenerated
+  targets; the commits still do not establish a repository-wide crispness
+  PASS.
 - DE `aa152cf` and `f66a710`: regenerated the sort-merge and broadcast-join
-  UI visuals from their original JPGs plus crops. They are pending the same
-  independent visual review gate.
+  UI visuals from their original JPGs plus crops. The first sort-merge output
+  was corrected in `64d18b2` to restore `WholeStageCodegen (5)`; both final
+  targets were independently accepted.
 - DE `0806220`, `e8e2868`, `16b4254`, and `d2432e1`: regenerated the worker
   status, GCS upload completion, Dataproc submit form, and Dataproc report
-  folder visuals from original JPGs plus crops. These also remain individually
-  tracked until the independent review gate completes.
+  folder visuals from original JPGs plus crops. The worker UI, submit form,
+  and report-folder outputs were independently accepted; the GCS screenshot
+  was rejected for text drift and replaced natively in `4bf778d`.
+- DE `63927e9` and `aff59ee`: regenerated the RDD DAG and mapPartitions feature
+  output from original JPGs plus crops; an independent reviewer accepted both.
 - DE `c3e895c` was rejected after the reviewer found changed path years,
   prefixes, and a missing `.crc` line despite the output being sharp. DE
   `4bf778d` replaced that deterministic terminal transcript with a native
