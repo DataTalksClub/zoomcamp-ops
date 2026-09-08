@@ -446,6 +446,7 @@ def render_report(workspace_root: Path, output: Path, data: list[tuple[ScopeSpec
             "- `PASS` means the local Markdown target resolves and a basic raster/vector dimension check succeeded.",
             "- `MISSING`/`OUTSIDE` is an actionable broken reference; `REMOTE` is recorded but not locally checked; `DECODE?` needs an image decoder check.",
             "- `review required` is intentional: filesystem checks cannot prove crop direction/order, visual crispness at lesson size, text or semantic fidelity, or overlay removal. An independent reviewer must record the visual verdict before publishing.",
+            "- Completed visual-review evidence is recorded in [`docs/visual-review-evidence-2026-09-08.md`](visual-review-evidence-2026-09-08.md); this scanner's queue remains conservative and is not a substitute for that evidence.",
             "- Thumbnail and homework/support assets are reference-checked but are not counted as instructional illustrations in the unit list.",
             "",
             "## Scope summary",

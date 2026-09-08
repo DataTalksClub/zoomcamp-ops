@@ -8,26 +8,27 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | Repository | HEAD | Worktree | Active selection |
 | --- | --- | --- | --- | --- |
-| ML | `/home/alexey/git/machine-learning-zoomcamp` | `48b39c60d6849344c48e35e749dc5a00b9f93935` | clean | the published 2026 cohort flow and its module manifests |
-| LLM | `/home/alexey/git/llm-zoomcamp` | `a27105ef5b7de052d9da18b195ad1d085c98e95c` | clean | the published 2026 cohort flow and its module manifests |
-| MLOps | `/home/alexey/git/mlops-zoomcamp` | `2dc614821d3a6791ad6ff186b7082d6dff763ca4` | clean | numbered root module/project README pages; no published cohort manifest exists |
-| DE | `/home/alexey/git/data-engineering-zoomcamp` | `e5b475ad6a632b8db63567107b20f7cc35821cc1` | clean | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
+| ML | `/home/alexey/git/machine-learning-zoomcamp` | `8aa115bea3a53d80363e2d4dab3609412926a38c` | clean | the published 2026 cohort flow and its module manifests |
+| LLM | `/home/alexey/git/llm-zoomcamp` | `15e256f9a12db3117a3f21513d1dd11a56755ce1` | clean | the published 2026 cohort flow and its module manifests |
+| MLOps | `/home/alexey/git/mlops-zoomcamp` | `e68ba45e215e8ebada38614444b05098fc933d9f` | clean | numbered root module/project README pages; no published cohort manifest exists |
+| DE | `/home/alexey/git/data-engineering-zoomcamp` | `d69458342899d36881d2ff0788dbf9aa8e4b23eb` | clean | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
 
 ## Status contract
 
 - `PASS` means the local Markdown target resolves and a basic raster/vector dimension check succeeded.
 - `MISSING`/`OUTSIDE` is an actionable broken reference; `REMOTE` is recorded but not locally checked; `DECODE?` needs an image decoder check.
 - `review required` is intentional: filesystem checks cannot prove crop direction/order, visual crispness at lesson size, text or semantic fidelity, or overlay removal. An independent reviewer must record the visual verdict before publishing.
+- Completed visual-review evidence is recorded in [`docs/visual-review-evidence-2026-09-08.md`](visual-review-evidence-2026-09-08.md); this scanner's queue remains conservative and is not a substitute for that evidence.
 - Thumbnail and homework/support assets are reference-checked but are not counted as instructional illustrations in the unit list.
 
 ## Scope summary
 
 | Scope | State | Active units | Illustration coverage | Image references | Visual review queue | Broken refs |
 | --- | --- | ---: | --- | ---: | ---: | ---: |
-| ML | `published current cohort` | 105 | 105 present / 0 missing | 585 (582 local) | 569 visual reviews required | 0 missing/outside |
-| LLM | `published current cohort` | 72 | 72 present / 0 missing | 126 (126 local) | 126 visual reviews required | 0 missing/outside |
-| MLOps | `current self-paced curriculum` | 7 | 6 present / 1 missing | 74 (62 local) | 33 visual reviews required | 0 missing/outside |
-| DE | `current draft; unpublished` | 88 | 86 present / 2 missing | 169 (169 local) | 169 visual reviews required | 0 missing/outside |
+| ML | `published current cohort` | 105 | 105 present / 0 missing | 581 (578 local) | 569 visual reviews required | 0 missing/outside |
+| LLM | `published current cohort` | 72 | 36 present / 36 missing | 38 (38 local) | 38 visual reviews required | 0 missing/outside |
+| MLOps | `current self-paced curriculum` | 7 | 5 present / 2 missing | 38 (37 local) | 31 visual reviews required | 0 missing/outside |
+| DE | `current draft; unpublished` | 88 | 22 present / 66 missing | 105 (105 local) | 105 visual reviews required | 0 missing/outside |
 
 ## Active units
 
@@ -78,9 +79,9 @@ Every row is in the selected active scope. `YES` means at least one resolving lo
 | ML | `cohorts/2026/03-classification` | Explore more | `cohorts/2026/03-classification/14-explore-more.md` | **YES** | 1 | 1 |
 | ML | `cohorts/2026/04-evaluation` | Evaluation metrics: session overview | `cohorts/2026/04-evaluation/01-overview.md` | **YES** | 7 | 7 |
 | ML | `cohorts/2026/04-evaluation` | Accuracy and dummy model | `cohorts/2026/04-evaluation/02-accuracy.md` | **YES** | 8 | 8 |
-| ML | `cohorts/2026/04-evaluation` | Confusion table | `cohorts/2026/04-evaluation/03-confusion-table.md` | **YES** | 7 | 8 |
-| ML | `cohorts/2026/04-evaluation` | Precision and Recall | `cohorts/2026/04-evaluation/04-precision-recall.md` | **YES** | 7 | 8 |
-| ML | `cohorts/2026/04-evaluation` | ROC Curves | `cohorts/2026/04-evaluation/05-roc.md` | **YES** | 6 | 8 |
+| ML | `cohorts/2026/04-evaluation` | Confusion table | `cohorts/2026/04-evaluation/03-confusion-table.md` | **YES** | 7 | 7 |
+| ML | `cohorts/2026/04-evaluation` | Precision and Recall | `cohorts/2026/04-evaluation/04-precision-recall.md` | **YES** | 7 | 7 |
+| ML | `cohorts/2026/04-evaluation` | ROC Curves | `cohorts/2026/04-evaluation/05-roc.md` | **YES** | 6 | 6 |
 | ML | `cohorts/2026/04-evaluation` | ROC AUC | `cohorts/2026/04-evaluation/06-auc.md` | **YES** | 5 | 5 |
 | ML | `cohorts/2026/04-evaluation` | Cross-Validation | `cohorts/2026/04-evaluation/07-cross-validation.md` | **YES** | 5 | 6 |
 | ML | `cohorts/2026/04-evaluation` | Summary | `cohorts/2026/04-evaluation/08-summary.md` | **YES** | 1 | 1 |
@@ -141,65 +142,65 @@ Every row is in the selected active scope. `YES` means at least one resolving lo
 | ML | `cohorts/2026/10-kubernetes` | Summary | `cohorts/2026/10-kubernetes/09-summary.md` | **YES** | 2 | 2 |
 | ML | `cohorts/2026/10-kubernetes` | Explore more | `cohorts/2026/10-kubernetes/10-explore-more.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/01-agentic-rag` | Introduction | `cohorts/2026/01-agentic-rag/01-intro.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/01-agentic-rag` | Environment | `cohorts/2026/01-agentic-rag/02-environment.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/01-agentic-rag` | RAG | `cohorts/2026/01-agentic-rag/03-rag.md` | **YES** | 4 | 4 |
-| LLM | `cohorts/2026/01-agentic-rag` | The Course FAQ Dataset | `cohorts/2026/01-agentic-rag/04-dataset.md` | **YES** | 2 | 2 |
-| LLM | `cohorts/2026/01-agentic-rag` | Search | `cohorts/2026/01-agentic-rag/05-search.md` | **YES** | 2 | 2 |
-| LLM | `cohorts/2026/01-agentic-rag` | Building the Prompt | `cohorts/2026/01-agentic-rag/06-building-prompt.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/01-agentic-rag` | The LLM | `cohorts/2026/01-agentic-rag/07-llm.md` | **YES** | 3 | 3 |
+| LLM | `cohorts/2026/01-agentic-rag` | Environment | `cohorts/2026/01-agentic-rag/02-environment.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/01-agentic-rag` | RAG | `cohorts/2026/01-agentic-rag/03-rag.md` | **YES** | 1 | 1 |
+| LLM | `cohorts/2026/01-agentic-rag` | The Course FAQ Dataset | `cohorts/2026/01-agentic-rag/04-dataset.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/01-agentic-rag` | Search | `cohorts/2026/01-agentic-rag/05-search.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/01-agentic-rag` | Building the Prompt | `cohorts/2026/01-agentic-rag/06-building-prompt.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/01-agentic-rag` | The LLM | `cohorts/2026/01-agentic-rag/07-llm.md` | **MISSING** | 0 | 0 |
 | LLM | `cohorts/2026/01-agentic-rag` | RAG Helper | `cohorts/2026/01-agentic-rag/08-rag-helper.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/01-agentic-rag` | Data Ingestion | `cohorts/2026/01-agentic-rag/09-data-ingestion.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/01-agentic-rag` | Wrap-up of Part 1 | `cohorts/2026/01-agentic-rag/10-rag-next-steps.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/01-agentic-rag` | Agents | `cohorts/2026/01-agentic-rag/11-agents-intro.md` | **YES** | 3 | 3 |
+| LLM | `cohorts/2026/01-agentic-rag` | Agents | `cohorts/2026/01-agentic-rag/11-agents-intro.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/01-agentic-rag` | Quick RAG Revision (Optional) | `cohorts/2026/01-agentic-rag/12-rag-revision.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/01-agentic-rag` | Function Calling | `cohorts/2026/01-agentic-rag/13-function-calling.md` | **YES** | 4 | 4 |
-| LLM | `cohorts/2026/01-agentic-rag` | The Agentic Loop | `cohorts/2026/01-agentic-rag/14-agentic-loop.md` | **YES** | 5 | 5 |
-| LLM | `cohorts/2026/01-agentic-rag` | ToyAIKit | `cohorts/2026/01-agentic-rag/15-frameworks.md` | **YES** | 2 | 2 |
+| LLM | `cohorts/2026/01-agentic-rag` | Function Calling | `cohorts/2026/01-agentic-rag/13-function-calling.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/01-agentic-rag` | The Agentic Loop | `cohorts/2026/01-agentic-rag/14-agentic-loop.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/01-agentic-rag` | ToyAIKit | `cohorts/2026/01-agentic-rag/15-frameworks.md` | **MISSING** | 0 | 0 |
 | LLM | `cohorts/2026/01-agentic-rag` | Other Frameworks | `cohorts/2026/01-agentic-rag/16-other-frameworks.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/02-vector-search` | Vector Search | `cohorts/2026/02-vector-search/01-intro.md` | **YES** | 3 | 3 |
+| LLM | `cohorts/2026/02-vector-search` | Vector Search | `cohorts/2026/02-vector-search/01-intro.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/02-vector-search` | Embeddings | `cohorts/2026/02-vector-search/02-embeddings.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/02-vector-search` | Embedding Our Dataset | `cohorts/2026/02-vector-search/03-embeddings-dataset.md` | **YES** | 2 | 2 |
-| LLM | `cohorts/2026/02-vector-search` | Vector Search | `cohorts/2026/02-vector-search/04-vector-search.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/02-vector-search` | Vector Search with minsearch | `cohorts/2026/02-vector-search/05-minsearch-vector.md` | **YES** | 2 | 2 |
-| LLM | `cohorts/2026/02-vector-search` | RAG with Vector Search | `cohorts/2026/02-vector-search/06-rag-vector.md` | **YES** | 2 | 2 |
-| LLM | `cohorts/2026/02-vector-search` | Vector Search with sqlitesearch | `cohorts/2026/02-vector-search/07-sqlitesearch-vector.md` | **YES** | 3 | 3 |
-| LLM | `cohorts/2026/02-vector-search` | Vector Search with PGVector | `cohorts/2026/02-vector-search/08-pgvector.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/02-vector-search` | Using ONNX Runtime instead of PyTorch | `cohorts/2026/02-vector-search/09-onnx-embedder.md` | **YES** | 2 | 2 |
+| LLM | `cohorts/2026/02-vector-search` | Embedding Our Dataset | `cohorts/2026/02-vector-search/03-embeddings-dataset.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/02-vector-search` | Vector Search | `cohorts/2026/02-vector-search/04-vector-search.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/02-vector-search` | Vector Search with minsearch | `cohorts/2026/02-vector-search/05-minsearch-vector.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/02-vector-search` | RAG with Vector Search | `cohorts/2026/02-vector-search/06-rag-vector.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/02-vector-search` | Vector Search with sqlitesearch | `cohorts/2026/02-vector-search/07-sqlitesearch-vector.md` | **YES** | 2 | 2 |
+| LLM | `cohorts/2026/02-vector-search` | Vector Search with PGVector | `cohorts/2026/02-vector-search/08-pgvector.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/02-vector-search` | Using ONNX Runtime instead of PyTorch | `cohorts/2026/02-vector-search/09-onnx-embedder.md` | **MISSING** | 0 | 0 |
 | LLM | `cohorts/2026/02-vector-search` | Next Steps | `cohorts/2026/02-vector-search/10-next-steps.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/03-orchestration` | AI Orchestration | `cohorts/2026/03-orchestration/01-intro.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/03-orchestration` | Context Engineering | `cohorts/2026/03-orchestration/02-context-engineering.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/03-orchestration` | Setting up Kestra | `cohorts/2026/03-orchestration/03-setup.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/03-orchestration` | AI Copilot | `cohorts/2026/03-orchestration/04-ai-copilot.md` | **YES** | 3 | 3 |
-| LLM | `cohorts/2026/03-orchestration` | Retrieval Augmented Generation | `cohorts/2026/03-orchestration/05-rag.md` | **YES** | 5 | 5 |
-| LLM | `cohorts/2026/03-orchestration` | AI Agents | `cohorts/2026/03-orchestration/06-agents.md` | **YES** | 3 | 3 |
-| LLM | `cohorts/2026/03-orchestration` | Multi-Agent Systems | `cohorts/2026/03-orchestration/07-multi-agent.md` | **YES** | 3 | 3 |
+| LLM | `cohorts/2026/03-orchestration` | AI Copilot | `cohorts/2026/03-orchestration/04-ai-copilot.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/03-orchestration` | Retrieval Augmented Generation | `cohorts/2026/03-orchestration/05-rag.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/03-orchestration` | AI Agents | `cohorts/2026/03-orchestration/06-agents.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/03-orchestration` | Multi-Agent Systems | `cohorts/2026/03-orchestration/07-multi-agent.md` | **MISSING** | 0 | 0 |
 | LLM | `cohorts/2026/03-orchestration` | Best Practices | `cohorts/2026/03-orchestration/08-best-practices.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/03-orchestration` | Next Steps | `cohorts/2026/03-orchestration/09-next-steps.md` | **YES** | 1 | 1 |
+| LLM | `cohorts/2026/03-orchestration` | Next Steps | `cohorts/2026/03-orchestration/09-next-steps.md` | **MISSING** | 0 | 0 |
 | LLM | `cohorts/2026/04-evaluation` | Evaluation | `cohorts/2026/04-evaluation/01-intro.md` | **YES** | 2 | 2 |
-| LLM | `cohorts/2026/04-evaluation` | Generating Ground Truth Data | `cohorts/2026/04-evaluation/02-ground-truth.md` | **YES** | 3 | 3 |
-| LLM | `cohorts/2026/04-evaluation` | Generating Ground Truth for All Documents | `cohorts/2026/04-evaluation/03-ground-truth-batch.md` | **YES** | 3 | 3 |
-| LLM | `cohorts/2026/04-evaluation` | Search Evaluation | `cohorts/2026/04-evaluation/04-search-evaluation.md` | **YES** | 4 | 4 |
-| LLM | `cohorts/2026/04-evaluation` | Search Evaluation Metrics | `cohorts/2026/04-evaluation/05-search-metrics.md` | **YES** | 2 | 2 |
-| LLM | `cohorts/2026/04-evaluation` | Search Parameter Tuning | `cohorts/2026/04-evaluation/06-search-tuning.md` | **YES** | 2 | 2 |
+| LLM | `cohorts/2026/04-evaluation` | Generating Ground Truth Data | `cohorts/2026/04-evaluation/02-ground-truth.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/04-evaluation` | Generating Ground Truth for All Documents | `cohorts/2026/04-evaluation/03-ground-truth-batch.md` | **YES** | 1 | 1 |
+| LLM | `cohorts/2026/04-evaluation` | Search Evaluation | `cohorts/2026/04-evaluation/04-search-evaluation.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/04-evaluation` | Search Evaluation Metrics | `cohorts/2026/04-evaluation/05-search-metrics.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/04-evaluation` | Search Parameter Tuning | `cohorts/2026/04-evaluation/06-search-tuning.md` | **MISSING** | 0 | 0 |
 | LLM | `cohorts/2026/04-evaluation` | RAG and Agent Evaluation | `cohorts/2026/04-evaluation/11-evaluation-intro.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/04-evaluation` | Generating RAG Answers | `cohorts/2026/04-evaluation/12-rag-answers.md` | **YES** | 3 | 3 |
-| LLM | `cohorts/2026/04-evaluation` | LLM as a Judge | `cohorts/2026/04-evaluation/13-llm-as-judge.md` | **YES** | 1 | 1 |
+| LLM | `cohorts/2026/04-evaluation` | Generating RAG Answers | `cohorts/2026/04-evaluation/12-rag-answers.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/04-evaluation` | LLM as a Judge | `cohorts/2026/04-evaluation/13-llm-as-judge.md` | **MISSING** | 0 | 0 |
 | LLM | `cohorts/2026/04-evaluation` | Agent Evaluation | `cohorts/2026/04-evaluation/14-agent-evaluation.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/04-evaluation` | Next Steps | `cohorts/2026/04-evaluation/15-next-steps.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/05-monitoring` | Monitoring | `cohorts/2026/05-monitoring/01-intro.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/05-monitoring` | Assistant | `cohorts/2026/05-monitoring/02-assistant-setup.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/05-monitoring` | Chat App | `cohorts/2026/05-monitoring/03-chat-app.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/05-monitoring` | Capturing Metrics | `cohorts/2026/05-monitoring/04-metrics.md` | **YES** | 2 | 2 |
-| LLM | `cohorts/2026/05-monitoring` | Storing Data in PostgreSQL | `cohorts/2026/05-monitoring/05-database.md` | **YES** | 2 | 2 |
-| LLM | `cohorts/2026/05-monitoring` | Querying Data | `cohorts/2026/05-monitoring/06-querying.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/05-monitoring` | Streamlit Dashboard | `cohorts/2026/05-monitoring/07-streamlit-dashboard.md` | **YES** | 2 | 2 |
-| LLM | `cohorts/2026/05-monitoring` | User Feedback | `cohorts/2026/05-monitoring/08-user-feedback.md` | **YES** | 2 | 2 |
-| LLM | `cohorts/2026/05-monitoring` | Built-in Judge | `cohorts/2026/05-monitoring/09-built-in-judge.md` | **YES** | 1 | 1 |
+| LLM | `cohorts/2026/05-monitoring` | Monitoring | `cohorts/2026/05-monitoring/01-intro.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/05-monitoring` | Assistant | `cohorts/2026/05-monitoring/02-assistant-setup.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/05-monitoring` | Chat App | `cohorts/2026/05-monitoring/03-chat-app.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/05-monitoring` | Capturing Metrics | `cohorts/2026/05-monitoring/04-metrics.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/05-monitoring` | Storing Data in PostgreSQL | `cohorts/2026/05-monitoring/05-database.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/05-monitoring` | Querying Data | `cohorts/2026/05-monitoring/06-querying.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/05-monitoring` | Streamlit Dashboard | `cohorts/2026/05-monitoring/07-streamlit-dashboard.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/05-monitoring` | User Feedback | `cohorts/2026/05-monitoring/08-user-feedback.md` | **MISSING** | 0 | 0 |
+| LLM | `cohorts/2026/05-monitoring` | Built-in Judge | `cohorts/2026/05-monitoring/09-built-in-judge.md` | **MISSING** | 0 | 0 |
 | LLM | `cohorts/2026/05-monitoring` | Feedback Dashboard | `cohorts/2026/05-monitoring/10-feedback-dashboard.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/05-monitoring` | Synthetic Data Generation | `cohorts/2026/05-monitoring/11-synthetic-data.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/05-monitoring` | Grafana Dashboards | `cohorts/2026/05-monitoring/12-grafana.md` | **YES** | 4 | 4 |
+| LLM | `cohorts/2026/05-monitoring` | Grafana Dashboards | `cohorts/2026/05-monitoring/12-grafana.md` | **MISSING** | 0 | 0 |
 | LLM | `cohorts/2026/05-monitoring` | Docker Compose | `cohorts/2026/05-monitoring/13-docker-compose.md` | **YES** | 1 | 1 |
-| LLM | `cohorts/2026/05-monitoring` | Next Steps | `cohorts/2026/05-monitoring/14-next-steps.md` | **YES** | 1 | 1 |
+| LLM | `cohorts/2026/05-monitoring` | Next Steps | `cohorts/2026/05-monitoring/14-next-steps.md` | **MISSING** | 0 | 0 |
 | LLM | `cohorts/2026/06-best-practices` | Best Practices for RAG | `cohorts/2026/06-best-practices/01-intro.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/06-best-practices` | Hybrid Search | `cohorts/2026/06-best-practices/02-hybrid-search.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/06-best-practices` | Document Reranking | `cohorts/2026/06-best-practices/03-reranking.md` | **YES** | 1 | 1 |
@@ -212,71 +213,71 @@ Every row is in the selected active scope. `YES` means at least one resolving lo
 | LLM | `cohorts/2026/07-project-example` | Monitoring and Containerization | `cohorts/2026/07-project-example/05-monitoring.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/07-project-example` | Summary and Closing Remarks | `cohorts/2026/07-project-example/06-summary.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/07-project-example` | Chunking for Longer Texts | `cohorts/2026/07-project-example/07-chunking.md` | **YES** | 1 | 1 |
-| MLOps | `01-intro` | 1. Introduction | `01-intro/README.md` | **YES** | 6 | 12 |
-| MLOps | `02-experiment-tracking` | 2. Experiment tracking and model management | `02-experiment-tracking/README.md` | **YES** | 7 | 14 |
-| MLOps | `03-orchestration` | 3. Orchestration and ML Pipelines | `03-orchestration/README.md` | **YES** | 3 | 5 |
-| MLOps | `04-deployment` | 4. Model Deployment | `04-deployment/README.md` | **YES** | 6 | 11 |
-| MLOps | `05-monitoring` | 5. Model Monitoring | `05-monitoring/README.md` | **YES** | 9 | 18 |
-| MLOps | `06-best-practices` | 6. Best Practices | `06-best-practices/README.md` | **YES** | 2 | 8 |
-| MLOps | `07-project` | 07-project | `07-project/README.md` | **MISSING** | 0 | 2 |
-| DE | `cohorts/2027/01-docker-terraform` | Introduction to Docker | `cohorts/2027/01-docker-terraform/01-introduction.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/01-docker-terraform` | Virtual Environments and Data Pipelines | `cohorts/2027/01-docker-terraform/02-virtual-environment.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/01-docker-terraform` | Dockerizing the Pipeline | `cohorts/2027/01-docker-terraform/03-dockerizing-pipeline.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/01-docker-terraform` | Running PostgreSQL with Docker | `cohorts/2027/01-docker-terraform/04-postgres-docker.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/01-docker-terraform` | NY Taxi Dataset and Data Ingestion | `cohorts/2027/01-docker-terraform/05-data-ingestion.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/01-docker-terraform` | Creating the Data Ingestion Script | `cohorts/2027/01-docker-terraform/06-ingestion-script.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/01-docker-terraform` | pgAdmin - Database Management Tool | `cohorts/2027/01-docker-terraform/07-pgadmin.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/01-docker-terraform` | Dockerizing the Ingestion Script | `cohorts/2027/01-docker-terraform/08-dockerizing-ingestion.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/01-docker-terraform` | Docker Compose | `cohorts/2027/01-docker-terraform/09-docker-compose.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/01-docker-terraform` | SQL Refresher | `cohorts/2027/01-docker-terraform/10-sql-refresher.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/01-docker-terraform` | Cleanup | `cohorts/2027/01-docker-terraform/11-cleanup.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/01-docker-terraform` | Terraform Overview | `cohorts/2027/01-docker-terraform/12-terraform-overview.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/01-docker-terraform` | GCP Overview | `cohorts/2027/01-docker-terraform/13-gcp-overview.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | What is Workflow Orchestration? | `cohorts/2027/02-workflow-orchestration/01-what-is-workflow-orchestration.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | What is Kestra? | `cohorts/2027/02-workflow-orchestration/02-what-is-kestra.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | Installing Kestra | `cohorts/2027/02-workflow-orchestration/03-installing-kestra.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | Kestra Concepts | `cohorts/2027/02-workflow-orchestration/04-kestra-concepts.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | Orchestrate Python Code | `cohorts/2027/02-workflow-orchestration/05-orchestrate-python-code.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | Getting Started Pipeline | `cohorts/2027/02-workflow-orchestration/06-getting-started-pipeline.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | Local DB: Load Taxi Data to Postgres | `cohorts/2027/02-workflow-orchestration/07-load-taxi-data-to-postgres.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | Local DB: Learn Scheduling and Backfills | `cohorts/2027/02-workflow-orchestration/08-scheduling-and-backfills.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | ETL vs ELT | `cohorts/2027/02-workflow-orchestration/09-etl-vs-elt.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | Setup Google Cloud Platform (GCP) | `cohorts/2027/02-workflow-orchestration/10-setup-google-cloud-platform.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | GCP Workflow: Load Taxi Data to BigQuery | `cohorts/2027/02-workflow-orchestration/11-load-taxi-data-to-bigquery.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | GCP Workflow: Schedule and Backfill Full Dataset | `cohorts/2027/02-workflow-orchestration/12-schedule-and-backfill-full-dataset.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | Introduction: Why AI for Workflows? | `cohorts/2027/02-workflow-orchestration/13-why-ai-for-workflows.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | Context Engineering with ChatGPT | `cohorts/2027/02-workflow-orchestration/14-context-engineering-with-chatgpt.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | AI Copilot in Kestra | `cohorts/2027/02-workflow-orchestration/15-ai-copilot-in-kestra.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | Bonus: Retrieval Augmented Generation (RAG) | `cohorts/2027/02-workflow-orchestration/16-retrieval-augmented-generation.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | Bonus: Deploy to the Cloud (Optional) | `cohorts/2027/02-workflow-orchestration/17-deploy-to-the-cloud.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/02-workflow-orchestration` | Additional Resources | `cohorts/2027/02-workflow-orchestration/18-additional-resources.md` | **YES** | 1 | 1 |
+| MLOps | `01-intro` | 1. Introduction | `01-intro/README.md` | **YES** | 6 | 6 |
+| MLOps | `02-experiment-tracking` | 2. Experiment tracking and model management | `02-experiment-tracking/README.md` | **YES** | 7 | 7 |
+| MLOps | `03-orchestration` | 3. Orchestration and ML Pipelines | `03-orchestration/README.md` | **YES** | 3 | 3 |
+| MLOps | `04-deployment` | 4. Model Deployment | `04-deployment/README.md` | **YES** | 6 | 6 |
+| MLOps | `05-monitoring` | 5. Model Monitoring | `05-monitoring/README.md` | **YES** | 9 | 9 |
+| MLOps | `06-best-practices` | 6. Best Practices | `06-best-practices/README.md` | **MISSING** | 0 | 2 |
+| MLOps | `07-project` | 07-project | `07-project/README.md` | **MISSING** | 0 | 1 |
+| DE | `cohorts/2027/01-docker-terraform` | Introduction to Docker | `cohorts/2027/01-docker-terraform/01-introduction.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/01-docker-terraform` | Virtual Environments and Data Pipelines | `cohorts/2027/01-docker-terraform/02-virtual-environment.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/01-docker-terraform` | Dockerizing the Pipeline | `cohorts/2027/01-docker-terraform/03-dockerizing-pipeline.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/01-docker-terraform` | Running PostgreSQL with Docker | `cohorts/2027/01-docker-terraform/04-postgres-docker.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/01-docker-terraform` | NY Taxi Dataset and Data Ingestion | `cohorts/2027/01-docker-terraform/05-data-ingestion.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/01-docker-terraform` | Creating the Data Ingestion Script | `cohorts/2027/01-docker-terraform/06-ingestion-script.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/01-docker-terraform` | pgAdmin - Database Management Tool | `cohorts/2027/01-docker-terraform/07-pgadmin.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/01-docker-terraform` | Dockerizing the Ingestion Script | `cohorts/2027/01-docker-terraform/08-dockerizing-ingestion.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/01-docker-terraform` | Docker Compose | `cohorts/2027/01-docker-terraform/09-docker-compose.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/01-docker-terraform` | SQL Refresher | `cohorts/2027/01-docker-terraform/10-sql-refresher.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/01-docker-terraform` | Cleanup | `cohorts/2027/01-docker-terraform/11-cleanup.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/01-docker-terraform` | Terraform Overview | `cohorts/2027/01-docker-terraform/12-terraform-overview.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/01-docker-terraform` | GCP Overview | `cohorts/2027/01-docker-terraform/13-gcp-overview.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | What is Workflow Orchestration? | `cohorts/2027/02-workflow-orchestration/01-what-is-workflow-orchestration.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | What is Kestra? | `cohorts/2027/02-workflow-orchestration/02-what-is-kestra.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | Installing Kestra | `cohorts/2027/02-workflow-orchestration/03-installing-kestra.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | Kestra Concepts | `cohorts/2027/02-workflow-orchestration/04-kestra-concepts.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | Orchestrate Python Code | `cohorts/2027/02-workflow-orchestration/05-orchestrate-python-code.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | Getting Started Pipeline | `cohorts/2027/02-workflow-orchestration/06-getting-started-pipeline.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | Local DB: Load Taxi Data to Postgres | `cohorts/2027/02-workflow-orchestration/07-load-taxi-data-to-postgres.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | Local DB: Learn Scheduling and Backfills | `cohorts/2027/02-workflow-orchestration/08-scheduling-and-backfills.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | ETL vs ELT | `cohorts/2027/02-workflow-orchestration/09-etl-vs-elt.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | Setup Google Cloud Platform (GCP) | `cohorts/2027/02-workflow-orchestration/10-setup-google-cloud-platform.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | GCP Workflow: Load Taxi Data to BigQuery | `cohorts/2027/02-workflow-orchestration/11-load-taxi-data-to-bigquery.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | GCP Workflow: Schedule and Backfill Full Dataset | `cohorts/2027/02-workflow-orchestration/12-schedule-and-backfill-full-dataset.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | Introduction: Why AI for Workflows? | `cohorts/2027/02-workflow-orchestration/13-why-ai-for-workflows.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | Context Engineering with ChatGPT | `cohorts/2027/02-workflow-orchestration/14-context-engineering-with-chatgpt.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | AI Copilot in Kestra | `cohorts/2027/02-workflow-orchestration/15-ai-copilot-in-kestra.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | Bonus: Retrieval Augmented Generation (RAG) | `cohorts/2027/02-workflow-orchestration/16-retrieval-augmented-generation.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | Bonus: Deploy to the Cloud (Optional) | `cohorts/2027/02-workflow-orchestration/17-deploy-to-the-cloud.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/02-workflow-orchestration` | Additional Resources | `cohorts/2027/02-workflow-orchestration/18-additional-resources.md` | **MISSING** | 0 | 0 |
 | DE | `cohorts/2027/03-data-warehouse` | Data Warehouse and BigQuery | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | **YES** | 8 | 8 |
 | DE | `cohorts/2027/03-data-warehouse` | Partitioning vs Clustering | `cohorts/2027/03-data-warehouse/02-partitioning-vs-clustering.md` | **YES** | 5 | 5 |
 | DE | `cohorts/2027/03-data-warehouse` | BigQuery Best Practices | `cohorts/2027/03-data-warehouse/03-bigquery-best-practices.md` | **YES** | 3 | 3 |
 | DE | `cohorts/2027/03-data-warehouse` | Internals of BigQuery | `cohorts/2027/03-data-warehouse/04-internals-of-bigquery.md` | **YES** | 3 | 3 |
 | DE | `cohorts/2027/03-data-warehouse` | Machine Learning in BigQuery | `cohorts/2027/03-data-warehouse/05-machine-learning-in-bigquery.md` | **YES** | 8 | 8 |
 | DE | `cohorts/2027/03-data-warehouse` | Deploying a Machine Learning Model from BigQuery | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | **YES** | 6 | 6 |
-| DE | `cohorts/2027/04-analytics-engineering` | Analytics Engineering Basics | `cohorts/2027/04-analytics-engineering/01-analytics-engineering-basics.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/04-analytics-engineering` | What is dbt? | `cohorts/2027/04-analytics-engineering/02-what-is-dbt.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/04-analytics-engineering` | dbt Core vs dbt Cloud | `cohorts/2027/04-analytics-engineering/03-dbt-core-vs-dbt-cloud.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/04-analytics-engineering` | dbt Project Structure | `cohorts/2027/04-analytics-engineering/04-dbt-project-structure.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/04-analytics-engineering` | dbt Sources | `cohorts/2027/04-analytics-engineering/05-dbt-sources.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/04-analytics-engineering` | dbt Models | `cohorts/2027/04-analytics-engineering/06-dbt-models.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/04-analytics-engineering` | dbt Seeds and Macros | `cohorts/2027/04-analytics-engineering/07-dbt-seeds-and-macros.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/04-analytics-engineering` | Documentation | `cohorts/2027/04-analytics-engineering/08-documentation.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/04-analytics-engineering` | dbt Tests | `cohorts/2027/04-analytics-engineering/09-dbt-tests.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/04-analytics-engineering` | dbt Packages | `cohorts/2027/04-analytics-engineering/10-dbt-packages.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/04-analytics-engineering` | dbt Commands | `cohorts/2027/04-analytics-engineering/11-dbt-commands.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/05-data-platforms` | Introduction to Bruin | `cohorts/2027/05-data-platforms/01-introduction.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/05-data-platforms` | Getting Started with Bruin | `cohorts/2027/05-data-platforms/02-getting-started.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/05-data-platforms` | Building an End-to-End Pipeline with NYC Taxi Data | `cohorts/2027/05-data-platforms/03-nyc-taxi-pipeline.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/05-data-platforms` | Using Bruin MCP with AI Agents | `cohorts/2027/05-data-platforms/04-bruin-mcp.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/05-data-platforms` | Deploying to Bruin Cloud | `cohorts/2027/05-data-platforms/05-bruin-cloud.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/05-data-platforms` | Core Concepts: Projects | `cohorts/2027/05-data-platforms/06-core-concepts-projects.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/05-data-platforms` | Core Concepts: Pipelines | `cohorts/2027/05-data-platforms/07-core-concepts-pipelines.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/05-data-platforms` | Core Concepts: Assets | `cohorts/2027/05-data-platforms/08-core-concepts-assets.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/05-data-platforms` | Core Concepts: Variables | `cohorts/2027/05-data-platforms/09-core-concepts-variables.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/05-data-platforms` | Core Concepts: Commands | `cohorts/2027/05-data-platforms/10-core-concepts-commands.md` | **YES** | 1 | 1 |
+| DE | `cohorts/2027/04-analytics-engineering` | Analytics Engineering Basics | `cohorts/2027/04-analytics-engineering/01-analytics-engineering-basics.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/04-analytics-engineering` | What is dbt? | `cohorts/2027/04-analytics-engineering/02-what-is-dbt.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/04-analytics-engineering` | dbt Core vs dbt Cloud | `cohorts/2027/04-analytics-engineering/03-dbt-core-vs-dbt-cloud.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/04-analytics-engineering` | dbt Project Structure | `cohorts/2027/04-analytics-engineering/04-dbt-project-structure.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/04-analytics-engineering` | dbt Sources | `cohorts/2027/04-analytics-engineering/05-dbt-sources.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/04-analytics-engineering` | dbt Models | `cohorts/2027/04-analytics-engineering/06-dbt-models.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/04-analytics-engineering` | dbt Seeds and Macros | `cohorts/2027/04-analytics-engineering/07-dbt-seeds-and-macros.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/04-analytics-engineering` | Documentation | `cohorts/2027/04-analytics-engineering/08-documentation.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/04-analytics-engineering` | dbt Tests | `cohorts/2027/04-analytics-engineering/09-dbt-tests.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/04-analytics-engineering` | dbt Packages | `cohorts/2027/04-analytics-engineering/10-dbt-packages.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/04-analytics-engineering` | dbt Commands | `cohorts/2027/04-analytics-engineering/11-dbt-commands.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/05-data-platforms` | Introduction to Bruin | `cohorts/2027/05-data-platforms/01-introduction.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/05-data-platforms` | Getting Started with Bruin | `cohorts/2027/05-data-platforms/02-getting-started.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/05-data-platforms` | Building an End-to-End Pipeline with NYC Taxi Data | `cohorts/2027/05-data-platforms/03-nyc-taxi-pipeline.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/05-data-platforms` | Using Bruin MCP with AI Agents | `cohorts/2027/05-data-platforms/04-bruin-mcp.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/05-data-platforms` | Deploying to Bruin Cloud | `cohorts/2027/05-data-platforms/05-bruin-cloud.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/05-data-platforms` | Core Concepts: Projects | `cohorts/2027/05-data-platforms/06-core-concepts-projects.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/05-data-platforms` | Core Concepts: Pipelines | `cohorts/2027/05-data-platforms/07-core-concepts-pipelines.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/05-data-platforms` | Core Concepts: Assets | `cohorts/2027/05-data-platforms/08-core-concepts-assets.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/05-data-platforms` | Core Concepts: Variables | `cohorts/2027/05-data-platforms/09-core-concepts-variables.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/05-data-platforms` | Core Concepts: Commands | `cohorts/2027/05-data-platforms/10-core-concepts-commands.md` | **MISSING** | 0 | 0 |
 | DE | `cohorts/2027/06-batch` | Introduction to Batch Processing | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | **YES** | 6 | 6 |
 | DE | `cohorts/2027/06-batch` | Introduction to Spark | `cohorts/2027/06-batch/02-introduction-to-spark.md` | **YES** | 3 | 3 |
 | DE | `cohorts/2027/06-batch` | Installing Spark | `cohorts/2027/06-batch/03-installing-spark.md` | **YES** | 5 | 5 |
@@ -293,20 +294,20 @@ Every row is in the selected active scope. `YES` means at least one resolving lo
 | DE | `cohorts/2027/06-batch` | Creating a Local Spark Cluster | `cohorts/2027/06-batch/14-creating-a-local-spark-cluster.md` | **YES** | 5 | 5 |
 | DE | `cohorts/2027/06-batch` | Setting up a Dataproc Cluster | `cohorts/2027/06-batch/15-setting-up-a-dataproc-cluster.md` | **YES** | 4 | 4 |
 | DE | `cohorts/2027/06-batch` | Connecting Spark to BigQuery | `cohorts/2027/06-batch/16-connecting-spark-to-bigquery.md` | **YES** | 3 | 3 |
-| DE | `cohorts/2027/07-streaming` | PyFlink: Stream Processing Workshop | `cohorts/2027/07-streaming/01-introduction.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/07-streaming` | Redpanda - a Kafka-compatible broker | `cohorts/2027/07-streaming/02-redpanda.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/07-streaming` | Produce messages to Kafka | `cohorts/2027/07-streaming/03-produce-messages-to-kafka.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/07-streaming` | Consume messages with Python | `cohorts/2027/07-streaming/04-consume-messages-with-python.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/07-streaming` | Save events to PostgreSQL | `cohorts/2027/07-streaming/05-save-events-to-postgresql.md` | **YES** | 1 | 1 |
+| DE | `cohorts/2027/07-streaming` | PyFlink: Stream Processing Workshop | `cohorts/2027/07-streaming/01-introduction.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/07-streaming` | Redpanda - a Kafka-compatible broker | `cohorts/2027/07-streaming/02-redpanda.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/07-streaming` | Produce messages to Kafka | `cohorts/2027/07-streaming/03-produce-messages-to-kafka.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/07-streaming` | Consume messages with Python | `cohorts/2027/07-streaming/04-consume-messages-with-python.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/07-streaming` | Save events to PostgreSQL | `cohorts/2027/07-streaming/05-save-events-to-postgresql.md` | **MISSING** | 0 | 0 |
 | DE | `cohorts/2027/07-streaming` | Why Flink? | `cohorts/2027/07-streaming/06-why-flink.md` | **MISSING** | 0 | 0 |
-| DE | `cohorts/2027/07-streaming` | The Flink image and services | `cohorts/2027/07-streaming/07-the-flink-image-and-services.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/07-streaming` | The pass-through Flink job | `cohorts/2027/07-streaming/08-the-pass-through-flink-job.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/07-streaming` | Offsets - earliest vs latest | `cohorts/2027/07-streaming/09-offsets-earliest-vs-latest.md` | **YES** | 1 | 1 |
+| DE | `cohorts/2027/07-streaming` | The Flink image and services | `cohorts/2027/07-streaming/07-the-flink-image-and-services.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/07-streaming` | The pass-through Flink job | `cohorts/2027/07-streaming/08-the-pass-through-flink-job.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/07-streaming` | Offsets - earliest vs latest | `cohorts/2027/07-streaming/09-offsets-earliest-vs-latest.md` | **MISSING** | 0 | 0 |
 | DE | `cohorts/2027/07-streaming` | Aggregation with tumbling windows | `cohorts/2027/07-streaming/10-aggregation-with-tumbling-windows.md` | **MISSING** | 0 | 0 |
-| DE | `cohorts/2027/07-streaming` | Late events and upserts | `cohorts/2027/07-streaming/11-late-events-and-upserts.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/07-streaming` | Understanding window types | `cohorts/2027/07-streaming/12-understanding-window-types.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/07-streaming` | Cleanup | `cohorts/2027/07-streaming/13-cleanup.md` | **YES** | 1 | 1 |
-| DE | `cohorts/2027/07-streaming` | Q&A | `cohorts/2027/07-streaming/14-questions-and-answers.md` | **YES** | 1 | 1 |
+| DE | `cohorts/2027/07-streaming` | Late events and upserts | `cohorts/2027/07-streaming/11-late-events-and-upserts.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/07-streaming` | Understanding window types | `cohorts/2027/07-streaming/12-understanding-window-types.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/07-streaming` | Cleanup | `cohorts/2027/07-streaming/13-cleanup.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/07-streaming` | Q&A | `cohorts/2027/07-streaming/14-questions-and-answers.md` | **MISSING** | 0 | 0 |
 
 ## Active illustration references and quality/check status
 
@@ -528,7 +529,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 33 | `images/09-logistic-regression-01-binary-classification-clean.png` | local image | PASS | 1300×760 | review required: native/source asset |
 | ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 57 | `images/09-logistic-regression-02-from-linear-to-logistic-clean.png` | local image | PASS | 1400×760 | review required: native/source asset |
 | ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 63 | `images/09-logistic-regression-03-sigmoid-formula-clean.png` | local image | PASS | 1300×820 | review required: native/source asset |
-| ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 98 | `images/09-logistic-regression-04-sigmoid-plot-crisp.png` | instructional illustration | PASS | 740×490 | review required: crisp/generated asset |
+| ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 98 | `images/09-logistic-regression-04-sigmoid-plot-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
 | ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 134 | `images/09-logistic-regression-05-logistic-regression-function-crisp.png` | instructional illustration | PASS | 960×410 | review required: crisp/generated asset |
 | ML | `cohorts/2026/03-classification/10-training-log-reg.md` | 29 | `images/10-training-log-reg-01-fit-crisp.png` | instructional illustration | PASS | 2640×504 | review required: crisp/generated asset |
 | ML | `cohorts/2026/03-classification/10-training-log-reg.md` | 59 | `images/10-training-log-reg-02-coefficients-crisp.png` | instructional illustration | PASS | 3030×918 | review required: crisp/generated asset |
@@ -558,10 +559,10 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/04-evaluation/01-overview.md` | 60 | `images/01-overview-05-features-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/01-overview.md` | 70 | `images/01-overview-06-predictions-accuracy-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/01-overview.md` | 85 | `images/01-overview-07-module-outline-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 15 | `images/02-accuracy-02-accuracy-example-crisp.png` | instructional illustration | PASS | 902×680 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 15 | `images/02-accuracy-02-accuracy-example-crisp.png` | instructional illustration | PASS | 1804×1360 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 31 | `images/02-accuracy-03-accuracy-notebook-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 43 | `images/02-accuracy-04-accuracy-score-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 88 | `images/02-accuracy-01-accuracy-vs-threshold-crisp.png` | instructional illustration | PASS | 744×496 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 88 | `images/02-accuracy-01-accuracy-vs-threshold-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 108 | `images/02-accuracy-05-dummy-counter-crisp.png` | instructional illustration | PASS | 1154×390 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 118 | `images/02-accuracy-06-dummy-accuracy-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 122 | `images/02-accuracy-07-thresholds-endpoints-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
@@ -573,7 +574,6 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 76 | `images/03-confusion-table-05-confusion-matrix-output-crisp.png` | instructional illustration | PASS | 1154×612 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 96 | `images/03-confusion-table-06-normalized-confusion-matrix-crisp.png` | instructional illustration | PASS | 1154×612 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 102 | `images/03-confusion-table-07-accuracy-from-table-crisp.png` | instructional illustration | PASS | 1044×680 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 148 | `images/confusion_matrix-cropped.png` | local image | PASS | 1380×562 | review required: crop-only reference |
 | ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 19 | `images/04-precision-recall-01-precision-definition-crisp.png` | instructional illustration | PASS | 1472×1069 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 30 | `images/04-precision-recall-02-precision-notebook-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 34 | `images/04-precision-recall-03-precision-pie-crisp.png` | instructional illustration | PASS | 816×430 | review required: crisp/generated asset |
@@ -581,15 +581,12 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 57 | `images/04-precision-recall-05-recall-example-crisp.png` | instructional illustration | PASS | 800×710 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 63 | `images/04-precision-recall-06-precision-recall-table-crisp.png` | instructional illustration | PASS | 996×640 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 67 | `images/04-precision-recall-07-metrics-summary-crisp.png` | instructional illustration | PASS | 880×660 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 89 | `images/classification_metrics-cropped.png` | local image | PASS | 1134×620 | review required: crop-only reference |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 27 | `images/TPR_FPR.png` | local image | PASS | 1028×472 | review required: native/source asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 77 | `images/05-roc-01-tpr-fpr-vs-threshold-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 90 | `images/05-roc-02-random-model-tpr-fpr-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 114 | `images/05-roc-03-ideal-model-tpr-fpr-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 132 | `images/05-roc-04-model-vs-ideal-tpr-fpr-crisp.png` | instructional illustration | PASS | 1552×1056 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 150 | `images/05-roc-05-roc-curve-manual-crisp.png` | instructional illustration | PASS | 1384×1332 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 178 | `images/05-roc-06-roc-curve-sklearn-crisp.png` | instructional illustration | PASS | 1384×1332 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 204 | `images/TPR_FPR.png` | local image | PASS | 1028×472 | review required: native/source asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 75 | `images/05-roc-01-tpr-fpr-vs-threshold-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 88 | `images/05-roc-02-random-model-tpr-fpr-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 112 | `images/05-roc-03-ideal-model-tpr-fpr-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 130 | `images/05-roc-04-model-vs-ideal-tpr-fpr-crisp.png` | instructional illustration | PASS | 1552×1056 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 148 | `images/05-roc-05-roc-curve-manual-crisp.png` | instructional illustration | PASS | 1384×1332 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 176 | `images/05-roc-06-roc-curve-sklearn-crisp.png` | instructional illustration | PASS | 1384×1332 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/06-auc.md` | 22 | `images/06-auc-02-auc-values-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/06-auc.md` | 34 | `images/06-auc-03-auc-notebook-crisp.png` | instructional illustration | PASS | 3462×1752 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/06-auc.md` | 46 | `images/06-auc-04-roc-auc-score-crisp.png` | instructional illustration | PASS | 3462×1752 | review required: crisp/generated asset |
@@ -900,119 +897,31 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/10-kubernetes/09-summary.md` | 62 | `images/09-summary-02-local-alternatives-crisp.png` | instructional illustration | PASS | 3018×2082 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/10-explore-more.md` | 4 | `images/10-explore-more-01-cluster-options-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/01-intro.md` | 71 | `images/01-intro-01-rag-project-overview-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/02-environment.md` | 109 | `images/02-environment-05-openai-api-key-imagegen.png` | instructional illustration | PASS | 1586×992 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/03-rag.md` | 59 | `images/03-rag-03-generic-llm-answer-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/03-rag.md` | 70 | `images/03-rag-04-faq-website-context-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/03-rag.md` | 126 | `images/03-rag-07-grounded-answer-crisp.png` | instructional illustration | PASS | 1440×810 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/03-rag.md` | 139 | `images/03-rag-08-rag-architecture-sketch-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/04-dataset.md` | 65 | `images/04-dataset-04-json-entry-fields-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/04-dataset.md` | 85 | `images/04-dataset-05-document-entry-imagegen.png` | instructional illustration | PASS | 1586×992 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/05-search.md` | 157 | `images/05-search-05-search-results-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/05-search.md` | 180 | `images/05-search-06-boosted-search-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/06-building-prompt.md` | 80 | `images/06-building-prompt-04-context-output-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/07-llm.md` | 63 | `images/07-llm-02-response-object-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/07-llm.md` | 75 | `images/07-llm-03-usage-tokens-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/07-llm.md` | 93 | `images/07-llm-04-model-pricing-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
+| LLM | `cohorts/2026/01-agentic-rag/03-rag.md` | 136 | `images/03-rag-08-rag-architecture-sketch-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/08-rag-helper.md` | 18 | `images/08-rag-helper-01-reusable-rag-helper-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/09-data-ingestion.md` | 232 | `images/09-data-ingestion-06-annotated-architecture-sketch-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/10-rag-next-steps.md` | 19 | `images/10-rag-next-steps-01-rag-roadmap-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/11-agents-intro.md` | 30 | `images/11-agents-intro-02-typo-search-failure-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/11-agents-intro.md` | 44 | `images/11-agents-intro-03-corrected-question-retry-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/11-agents-intro.md` | 50 | `images/11-agents-intro-04-agentic-flow-diagram-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| LLM | `cohorts/2026/01-agentic-rag/11-agents-intro.md` | 48 | `images/11-agents-intro-04-agentic-flow-diagram-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/12-rag-revision.md` | 15 | `images/12-rag-revision-01-typo-retry-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/13-function-calling.md` | 92 | `images/13-function-calling-01-no-tools-vague-answer-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/13-function-calling.md` | 139 | `images/13-function-calling-03-search-tool-schema-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/13-function-calling.md` | 187 | `images/13-function-calling-05-parsed-call-arguments-crisp.png` | instructional illustration | PASS | 1440×675 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/13-function-calling.md` | 225 | `images/13-function-calling-07-second-call-answer-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/14-agentic-loop.md` | 123 | `images/14-agentic-loop-02-printed-function-calls-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/14-agentic-loop.md` | 130 | `images/14-agentic-loop-03-messages-history-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/14-agentic-loop.md` | 174 | `images/14-agentic-loop-04-loop-run-output-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/14-agentic-loop.md` | 278 | `images/14-agentic-loop-06-multiple-search-run-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/14-agentic-loop.md` | 289 | `images/14-agentic-loop-07-queen-gambit-run-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/15-frameworks.md` | 144 | `images/15-frameworks-06-agentic-run-with-retry-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/15-frameworks.md` | 169 | `images/15-frameworks-07-cost-and-messages-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/16-other-frameworks.md` | 11 | `images/16-other-frameworks-01-shared-agent-loop-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/01-intro.md` | 10 | `images/01-intro-01-keyword-tokenization-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/01-intro.md` | 21 | `images/01-intro-02-paraphrased-queries-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/01-intro.md` | 26 | `images/01-intro-03-rag-pipeline-whiteboard-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| LLM | `cohorts/2026/02-vector-search/01-intro.md` | 24 | `images/01-intro-03-rag-pipeline-whiteboard-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/02-vector-search/02-embeddings.md` | 26 | `images/02-embeddings-01-vector-space-whiteboard-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/03-embeddings-dataset.md` | 36 | `images/03-embeddings-dataset-02-document-dict-fields-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/03-embeddings-dataset.md` | 77 | `images/03-embeddings-dataset-05-encoding-progress-done-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/04-vector-search.md` | 74 | `images/04-vector-search-03-best-document-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/05-minsearch-vector.md` | 11 | `images/05-minsearch-vector-01-by-hand-results-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/05-minsearch-vector.md` | 92 | `images/05-minsearch-vector-04-filter-by-course-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/06-rag-vector.md` | 73 | `images/06-rag-vector-03-keyword-search-answer-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/06-rag-vector.md` | 135 | `images/06-rag-vector-05-vector-assistant-answer-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/02-vector-search/07-sqlitesearch-vector.md` | 37 | `images/07-sqlitesearch-vector-01-ann-vs-nn-whiteboard-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/02-vector-search/07-sqlitesearch-vector.md` | 55 | `images/07-sqlitesearch-vector-02-ingestion-deployment-split-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/07-sqlitesearch-vector.md` | 116 | `images/07-sqlitesearch-vector-04-fit-and-search-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/08-pgvector.md` | 175 | `images/08-pgvector-05-cosine-search-query-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/09-onnx-embedder.md` | 23 | `images/09-onnx-embedder-01-size-comparison-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/02-vector-search/09-onnx-embedder.md` | 59 | `images/09-onnx-embedder-03-model-download-crisp.png` | instructional illustration | PASS | 1440×900 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/02-vector-search/10-next-steps.md` | 14 | `images/10-next-steps-01-similarity-search-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/03-orchestration/01-intro.md` | 38 | `images/01-intro-01-ai-orchestration-path-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/03-orchestration/02-context-engineering.md` | 22 | `images/02-context-engineering-01-context-quality-flow-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/03-orchestration/03-setup.md` | 39 | `images/03-setup-01-secure-kestra-setup-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/04-ai-copilot.md` | 10 | `images/04-ai-copilot-01-copilot-landing-examples-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/04-ai-copilot.md` | 38 | `images/04-ai-copilot-03-generated-taxi-flow-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/04-ai-copilot.md` | 44 | `images/04-ai-copilot-04-accept-copilot-diff-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/05-rag.md` | 58 | `images/05-rag-01-without-rag-hallucinated-answer-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/05-rag.md` | 74 | `images/05-rag-02-rag-flow-topology-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/05-rag.md` | 78 | `images/05-rag-03-rag-grounded-answer-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/05-rag.md` | 84 | `images/05-rag-04-websearch-retriever-flow-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/05-rag.md` | 103 | `images/05-rag-05-websearch-rag-answer-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/06-agents.md` | 84 | `images/06-agents-01-simple-agent-flow-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/06-agents.md` | 86 | `images/06-agents-02-agent-execution-tokens-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/06-agents.md` | 100 | `images/06-agents-03-web-research-agent-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/07-multi-agent.md` | 21 | `images/07-multi-agent-01-multi-agent-flow-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/07-multi-agent.md` | 34 | `images/07-multi-agent-02-research-output-logs-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/07-multi-agent.md` | 42 | `images/07-multi-agent-03-execution-durations-crisp.png` | instructional illustration | PASS | 1530×792 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/03-orchestration/08-best-practices.md` | 13 | `images/08-best-practices-01-pattern-selection-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/03-orchestration/09-next-steps.md` | 14 | `images/09-next-steps-01-orchestration-roadmap-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/04-evaluation/01-intro.md` | 16 | `images/01-intro-01-agentic-rag-diagram-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/04-evaluation/01-intro.md` | 30 | `images/01-intro-02-interact-or-generate-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/02-ground-truth.md` | 60 | `images/02-ground-truth-02-filter-llm-zoomcamp-docs-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/02-ground-truth.md` | 82 | `images/02-ground-truth-03-document-id-print-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/02-ground-truth.md` | 189 | `images/02-ground-truth-06-parsed-questions-output-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/04-evaluation/03-ground-truth-batch.md` | 100 | `images/03-ground-truth-batch-03-parallel-split-whiteboard-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/03-ground-truth-batch.md` | 121 | `images/03-ground-truth-batch-04-parallel-progress-bar-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/03-ground-truth-batch.md` | 166 | `images/03-ground-truth-batch-05-total-cost-dataframe-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/04-search-evaluation.md` | 48 | `images/04-search-evaluation-02-minsearch-test-search-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/04-search-evaluation.md` | 107 | `images/04-search-evaluation-03-relevance-search-flow-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/04-search-evaluation.md` | 134 | `images/04-search-evaluation-04-compute-relevance-first-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/04-search-evaluation.md` | 214 | `images/04-search-evaluation-06-relevance-total-sample-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/05-search-metrics.md` | 65 | `images/05-search-metrics-02-hit-rate-count-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/05-search-metrics.md` | 101 | `images/05-search-metrics-04-mrr-rank-annotations-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/06-search-tuning.md` | 57 | `images/06-search-tuning-02-boost-sweep-results-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/06-search-tuning.md` | 122 | `images/06-search-tuning-04-grid-sorted-by-mrr-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/04-evaluation/11-evaluation-intro.md` | 36 | `images/11-evaluation-intro-01-rag-agent-evaluation-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/12-rag-answers.md` | 111 | `images/12-rag-answers-03-rag-one-question-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/12-rag-answers.md` | 142 | `images/12-rag-answers-04-answer-record-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/12-rag-answers.md` | 215 | `images/12-rag-answers-05-total-cost-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/13-llm-as-judge.md` | 269 | `images/13-llm-as-judge-05-score-counts-crisp.png` | instructional illustration | PASS | 1620×780 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/04-evaluation/14-agent-evaluation.md` | 18 | `images/14-agent-evaluation-01-agent-evaluation-record-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/04-evaluation/15-next-steps.md` | 16 | `images/15-next-steps-01-evaluation-feedback-loop-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/01-intro.md` | 39 | `images/01-intro-02-ragbase-pipeline-code-crisp.png` | instructional illustration | PASS | 1509×1080 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/02-assistant-setup.md` | 115 | `images/02-assistant-04-makefile-run-target-crisp.png` | instructional illustration | PASS | 1509×1080 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/03-chat-app.md` | 66 | `images/03-chat-app-03-answer-in-browser-crisp.png` | instructional illustration | PASS | 1260×975 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/04-metrics.md` | 165 | `images/04-metrics-05-printed-call-record-crisp.png` | instructional illustration | PASS | 1740×777 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/04-metrics.md` | 200 | `images/04-metrics-06-streamlit-metrics-display-crisp.png` | instructional illustration | PASS | 1260×975 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/05-database.md` | 193 | `images/05-database-03-db-init-run-crisp.png` | instructional illustration | PASS | 1509×1080 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/05-database.md` | 310 | `images/05-database-06-psql-check-conversations-crisp.png` | instructional illustration | PASS | 1509×1080 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/06-querying.md` | 97 | `images/06-querying-03-conversations-from-psql-crisp.png` | instructional illustration | PASS | 1509×1080 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/07-streamlit-dashboard.md` | 111 | `images/07-streamlit-dashboard-04-charts-response-time-crisp.png` | instructional illustration | PASS | 1260×975 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/07-streamlit-dashboard.md` | 141 | `images/07-streamlit-dashboard-06-dashboard-overview-crisp.png` | instructional illustration | PASS | 1260×975 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/08-user-feedback.md` | 168 | `images/08-user-feedback-06-app-feedback-buttons-crisp.png` | instructional illustration | PASS | 1260×975 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/08-user-feedback.md` | 173 | `images/08-user-feedback-07-thanks-after-click-crisp.png` | instructional illustration | PASS | 1260×975 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/09-built-in-judge.md` | 129 | `images/09-built-in-judge-04-judge-run-output-crisp.png` | instructional illustration | PASS | 1509×1080 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/05-monitoring/10-feedback-dashboard.md` | 10 | `images/10-feedback-dashboard-01-monitoring-panels-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/05-monitoring/11-synthetic-data.md` | 11 | `images/11-synthetic-data-01-live-data-loop-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/12-grafana.md` | 44 | `images/12-grafana-02-add-datasource-list-crisp.png` | instructional illustration | PASS | 1740×777 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/12-grafana.md` | 56 | `images/12-grafana-03-postgres-datasource-config-crisp.png` | instructional illustration | PASS | 1740×777 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/12-grafana.md` | 123 | `images/12-grafana-06-token-usage-query-crisp.png` | instructional illustration | PASS | 1740×777 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/12-grafana.md` | 222 | `images/12-grafana-08-finished-dashboard-panels-crisp.png` | instructional illustration | PASS | 1740×777 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/05-monitoring/13-docker-compose.md` | 14 | `images/13-docker-compose-01-service-topology-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/05-monitoring/14-next-steps.md` | 19 | `images/14-next-steps-02-app-relevance-verdict-crisp.png` | instructional illustration | PASS | 1260×975 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/06-best-practices/01-intro.md` | 21 | `images/01-intro-01-rag-technique-map-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/06-best-practices/02-hybrid-search.md` | 6 | `images/02-hybrid-search-01-keyword-vector-fusion-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/06-best-practices/03-reranking.md` | 12 | `images/03-reranking-01-rrf-rerank-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
@@ -1025,111 +934,44 @@ This is the complete image-reference occurrence list for the selected unit files
 | LLM | `cohorts/2026/07-project-example/05-monitoring.md` | 5 | `images/05-monitoring-01-compose-observability-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/07-project-example/06-summary.md` | 5 | `images/06-summary-01-project-delivery-path-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/07-project-example/07-chunking.md` | 5 | `images/07-chunking-01-long-document-chunks-imagegen.png` | instructional illustration | PASS | 1672×940 | review required: crisp/generated asset |
-| MLOps | `01-intro/README.md` | 8 | `images/thumbnail-1-01.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `01-intro/README.md` | 12 | `images/illustrations/01-01-mlops-lifecycle.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `01-intro/README.md` | 22 | `images/thumbnail-1-02-1-imagegen.png` | navigation thumbnail | PASS | 1672×941 | reference checked; non-illustration asset |
-| MLOps | `01-intro/README.md` | 26 | `images/illustrations/01-02-01-cloud-workspace.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `01-intro/README.md` | 39 | `images/thumbnail-1-02-imagegen.png` | navigation thumbnail | PASS | 1672×941 | reference checked; non-illustration asset |
-| MLOps | `01-intro/README.md` | 43 | `images/illustrations/01-02-02-aws-vm-setup.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `01-intro/README.md` | 116 | `images/thumbnail-1-03.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `01-intro/README.md` | 120 | `images/illustrations/01-03-ride-duration-training.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `01-intro/README.md` | 132 | `images/thumbnail-1-04-imagegen.png` | navigation thumbnail | PASS | 1672×941 | reference checked; non-illustration asset |
-| MLOps | `01-intro/README.md` | 136 | `images/illustrations/01-04-course-overview.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `01-intro/README.md` | 145 | `images/thumbnail-1-05-imagegen.png` | navigation thumbnail | PASS | 1672×941 | reference checked; non-illustration asset |
-| MLOps | `01-intro/README.md` | 149 | `images/illustrations/01-05-mlops-maturity-model.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `01-intro/README.md` | 164 | `../images/homework-checklist.png` | homework/support | PASS | 1672×941 | reference checked; non-illustration asset |
-| MLOps | `02-experiment-tracking/README.md` | 12 | `images/thumbnail-2-01.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `02-experiment-tracking/README.md` | 16 | `images/illustrations/02-01-experiment-tracking.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `02-experiment-tracking/README.md` | 25 | `images/thumbnail-2-02.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `02-experiment-tracking/README.md` | 29 | `images/illustrations/02-02-mlflow-getting-started.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `02-experiment-tracking/README.md` | 43 | `images/thumbnail-2-03.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `02-experiment-tracking/README.md` | 47 | `images/illustrations/02-03-mlflow-experiment-tracking.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `02-experiment-tracking/README.md` | 56 | `images/thumbnail-2-04.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `02-experiment-tracking/README.md` | 60 | `images/illustrations/02-04-model-management.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `02-experiment-tracking/README.md` | 69 | `images/thumbnail-2-05.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `02-experiment-tracking/README.md` | 73 | `images/illustrations/02-05-model-registry.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `02-experiment-tracking/README.md` | 83 | `images/thumbnail-2-06.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `02-experiment-tracking/README.md` | 87 | `images/illustrations/02-06-mlflow-in-practice.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `02-experiment-tracking/README.md` | 95 | `images/thumbnail-2-07.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `02-experiment-tracking/README.md` | 99 | `images/illustrations/02-07-benefits-limitations-alternatives.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `02-experiment-tracking/README.md` | 109 | `../images/homework-checklist.png` | homework/support | PASS | 1672×941 | reference checked; non-illustration asset |
-| MLOps | `03-orchestration/README.md` | 6 | `https://markdown-videos-api.jorgenkh.no/youtube/uAR4BhVCNbI` | remote | REMOTE | — | not locally checked |
-| MLOps | `03-orchestration/README.md` | 10 | `images/illustrations/03-01-ml-pipeline.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `03-orchestration/README.md` | 17 | `https://markdown-videos-api.jorgenkh.no/youtube/3_Uu0rInxWI` | remote | REMOTE | — | not locally checked |
-| MLOps | `03-orchestration/README.md` | 21 | `images/illustrations/03-02-notebook-to-script.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `03-orchestration/README.md` | 34 | `images/illustrations/03-03-orchestrated-workflow.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `03-orchestration/README.md` | 87 | `../images/homework-checklist.png` | homework/support | PASS | 1672×941 | reference checked; non-illustration asset |
-| MLOps | `04-deployment/README.md` | 6 | `images/thumbnail-4-01.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `04-deployment/README.md` | 10 | `images/illustrations/04-01-three-deployment-modes.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `04-deployment/README.md` | 19 | `images/thumbnail-4-02.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `04-deployment/README.md` | 23 | `images/illustrations/04-02-flask-docker-service.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `04-deployment/README.md` | 34 | `images/thumbnail-4-03.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `04-deployment/README.md` | 38 | `images/illustrations/04-03-registry-model-serving.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `04-deployment/README.md` | 49 | `images/thumbnail-4-04.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `04-deployment/README.md` | 53 | `images/illustrations/04-04-streaming-kinesis-lambda.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `04-deployment/README.md` | 65 | `images/thumbnail-4-05.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `04-deployment/README.md` | 69 | `images/illustrations/04-05-batch-scoring-script.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `04-deployment/README.md` | 86 | `images/illustrations/04-06-mage-batch-workflow.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `04-deployment/README.md` | 96 | `../images/homework-checklist.png` | homework/support | PASS | 1672×941 | reference checked; non-illustration asset |
-| MLOps | `05-monitoring/README.md` | 6 | `https://markdown-videos-api.jorgenkh.no/youtube/SQ0jBwd_3kk` | remote | REMOTE | — | not locally checked |
-| MLOps | `05-monitoring/README.md` | 10 | `images/illustrations/05-01-ml-monitoring-loop.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `05-monitoring/README.md` | 19 | `https://markdown-videos-api.jorgenkh.no/youtube/yixA3C1xSxc` | remote | REMOTE | — | not locally checked |
-| MLOps | `05-monitoring/README.md` | 23 | `images/illustrations/05-02-monitoring-environment.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `05-monitoring/README.md` | 32 | `https://markdown-videos-api.jorgenkh.no/youtube/IjNrkqMYQeQ` | remote | REMOTE | — | not locally checked |
-| MLOps | `05-monitoring/README.md` | 36 | `images/illustrations/05-03-reference-model-preparation.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `05-monitoring/README.md` | 45 | `https://markdown-videos-api.jorgenkh.no/youtube/kP3lzh_HfWY` | remote | REMOTE | — | not locally checked |
-| MLOps | `05-monitoring/README.md` | 49 | `images/illustrations/05-04-evidently-metrics.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `05-monitoring/README.md` | 57 | `https://markdown-videos-api.jorgenkh.no/youtube/zjvYhDPzFlY` | remote | REMOTE | — | not locally checked |
-| MLOps | `05-monitoring/README.md` | 61 | `images/illustrations/05-05-monitoring-dashboard.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `05-monitoring/README.md` | 69 | `https://markdown-videos-api.jorgenkh.no/youtube/s3G4PMsOMOA` | remote | REMOTE | — | not locally checked |
-| MLOps | `05-monitoring/README.md` | 73 | `images/illustrations/05-06-dummy-monitoring.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `05-monitoring/README.md` | 82 | `https://markdown-videos-api.jorgenkh.no/youtube/fytrmPbcLhI` | remote | REMOTE | — | not locally checked |
-| MLOps | `05-monitoring/README.md` | 86 | `images/illustrations/05-07-data-quality-monitoring.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `05-monitoring/README.md` | 97 | `https://markdown-videos-api.jorgenkh.no/youtube/-c4iumyZMyw` | remote | REMOTE | — | not locally checked |
-| MLOps | `05-monitoring/README.md` | 101 | `images/illustrations/05-08-save-dashboard.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `05-monitoring/README.md` | 110 | `https://markdown-videos-api.jorgenkh.no/youtube/sNSk3ojISh8` | remote | REMOTE | — | not locally checked |
-| MLOps | `05-monitoring/README.md` | 114 | `images/illustrations/05-09-debugging-tests-reports.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
-| MLOps | `06-best-practices/README.md` | 10 | `images/thumbnail-6-1.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `06-best-practices/README.md` | 17 | `images/thumbnail-6-2.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `06-best-practices/README.md` | 24 | `images/thumbnail-6-3.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `06-best-practices/README.md` | 31 | `images/thumbnail-6-4.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `06-best-practices/README.md` | 38 | `images/thumbnail-6-5.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `06-best-practices/README.md` | 45 | `images/thumbnail-6-6.jpg` | navigation thumbnail | PASS | 480×360 | reference checked; non-illustration asset |
-| MLOps | `06-best-practices/README.md` | 60 | `AWS-stream-pipeline-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| MLOps | `06-best-practices/README.md` | 105 | `ci_cd_zoomcamp-imagegen.png` | instructional illustration | PASS | 1533×1026 | review required: crisp/generated asset |
-| MLOps | `07-project/README.md` | 4 | `images/thumbnail-7-1-imagegen.png` | navigation thumbnail | PASS | 1666×944 | reference checked; non-illustration asset |
-| MLOps | `07-project/README.md` | 106 | `https://static.streamlit.io/badges/streamlit_badge_black_white.svg` | remote | REMOTE | — | not locally checked |
-| DE | `cohorts/2027/01-docker-terraform/01-introduction.md` | 7 | `images/01-introduction-docker-mental-model-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/01-docker-terraform/02-virtual-environment.md` | 14 | `images/02-virtual-environment-reproducible-pipeline-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/01-docker-terraform/03-dockerizing-pipeline.md` | 5 | `images/03-dockerizing-pipeline-layers-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/01-docker-terraform/04-postgres-docker.md` | 7 | `images/04-postgres-container-volume-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/01-docker-terraform/05-data-ingestion.md` | 5 | `images/05-taxi-data-ingestion-flow-imagegen.png` | instructional illustration | PASS | 1942×809 | review required: crisp/generated asset |
-| DE | `cohorts/2027/01-docker-terraform/06-ingestion-script.md` | 5 | `images/06-notebook-to-ingestion-script-imagegen.png` | instructional illustration | PASS | 1942×809 | review required: crisp/generated asset |
-| DE | `cohorts/2027/01-docker-terraform/07-pgadmin.md` | 7 | `images/07-pgadmin-docker-network-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/01-docker-terraform/08-dockerizing-ingestion.md` | 5 | `images/08-reproducible-ingestion-imagegen.png` | instructional illustration | PASS | 2048×768 | review required: crisp/generated asset |
-| DE | `cohorts/2027/01-docker-terraform/09-docker-compose.md` | 5 | `images/09-docker-compose-services-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/01-docker-terraform/10-sql-refresher.md` | 13 | `images/10-sql-analysis-flow-imagegen.png` | instructional illustration | PASS | 2036×772 | review required: crisp/generated asset |
-| DE | `cohorts/2027/01-docker-terraform/11-cleanup.md` | 5 | `images/11-docker-cleanup-workflow-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/01-docker-terraform/12-terraform-overview.md` | 6 | `images/12-terraform-plan-apply-state-imagegen.png` | instructional illustration | PASS | 1695×928 | review required: crisp/generated asset |
-| DE | `cohorts/2027/01-docker-terraform/13-gcp-overview.md` | 6 | `images/13-gcp-data-platform-setup-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/01-what-is-workflow-orchestration.md` | 17 | `images/01-workflow-orchestration-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/02-what-is-kestra.md` | 14 | `images/02-kestra-platform-imagegen.png` | instructional illustration | PASS | 1752×897 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/03-installing-kestra.md` | 14 | `images/03-installing-kestra-topology-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/04-kestra-concepts.md` | 19 | `images/04-kestra-concepts-map-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/05-orchestrate-python-code.md` | 12 | `images/05-orchestrate-python-output-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/06-getting-started-pipeline.md` | 14 | `images/06-starter-etl-pipeline-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/07-load-taxi-data-to-postgres.md` | 8 | `images/07-local-taxi-postgres-flow-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/08-scheduling-and-backfills.md` | 10 | `images/08-scheduling-backfill-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/09-etl-vs-elt.md` | 18 | `images/09-etl-vs-elt-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/10-setup-google-cloud-platform.md` | 14 | `images/10-gcp-kv-setup-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/11-load-taxi-data-to-bigquery.md` | 8 | `images/11-cloud-taxi-bigquery-flow-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/12-schedule-and-backfill-full-dataset.md` | 10 | `images/12-cloud-schedule-backfill-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/13-why-ai-for-workflows.md` | 13 | `images/13-why-ai-for-workflows-imagegen.png` | instructional illustration | PASS | 1942×809 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/14-context-engineering-with-chatgpt.md` | 6 | `images/14-context-engineering-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/15-ai-copilot-in-kestra.md` | 8 | `images/15-ai-copilot-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/16-retrieval-augmented-generation.md` | 16 | `images/16-rag-imagegen.png` | instructional illustration | PASS | 1778×885 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/17-deploy-to-the-cloud.md` | 7 | `images/17-deploy-to-cloud-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/02-workflow-orchestration/18-additional-resources.md` | 10 | `images/18-additional-resources-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| MLOps | `01-intro/README.md` | 10 | `images/illustrations/01-01-mlops-lifecycle.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `01-intro/README.md` | 22 | `images/illustrations/01-02-01-cloud-workspace.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `01-intro/README.md` | 37 | `images/illustrations/01-02-02-aws-vm-setup.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `01-intro/README.md` | 112 | `images/illustrations/01-03-ride-duration-training.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `01-intro/README.md` | 126 | `images/illustrations/01-04-course-overview.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `01-intro/README.md` | 137 | `images/illustrations/01-05-mlops-maturity-model.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `01-intro/README.md` | 152 | `../images/homework-checklist.png` | homework/support | PASS | 1672×941 | reference checked; non-illustration asset |
+| MLOps | `02-experiment-tracking/README.md` | 14 | `images/illustrations/02-01-experiment-tracking.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `02-experiment-tracking/README.md` | 25 | `images/illustrations/02-02-mlflow-getting-started.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `02-experiment-tracking/README.md` | 41 | `images/illustrations/02-03-mlflow-experiment-tracking.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `02-experiment-tracking/README.md` | 52 | `images/illustrations/02-04-model-management.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `02-experiment-tracking/README.md` | 63 | `images/illustrations/02-05-model-registry.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `02-experiment-tracking/README.md` | 75 | `images/illustrations/02-06-mlflow-in-practice.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `02-experiment-tracking/README.md` | 85 | `images/illustrations/02-07-benefits-limitations-alternatives.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `02-experiment-tracking/README.md` | 95 | `../images/homework-checklist.png` | homework/support | PASS | 1672×941 | reference checked; non-illustration asset |
+| MLOps | `03-orchestration/README.md` | 8 | `images/illustrations/03-01-ml-pipeline.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `03-orchestration/README.md` | 17 | `images/illustrations/03-02-notebook-to-script.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `03-orchestration/README.md` | 30 | `images/illustrations/03-03-orchestrated-workflow.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `03-orchestration/README.md` | 83 | `../images/homework-checklist.png` | homework/support | PASS | 1672×941 | reference checked; non-illustration asset |
+| MLOps | `04-deployment/README.md` | 8 | `images/illustrations/04-01-three-deployment-modes.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `04-deployment/README.md` | 19 | `images/illustrations/04-02-flask-docker-service.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `04-deployment/README.md` | 32 | `images/illustrations/04-03-registry-model-serving.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `04-deployment/README.md` | 45 | `images/illustrations/04-04-streaming-kinesis-lambda.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `04-deployment/README.md` | 59 | `images/illustrations/04-05-batch-scoring-script.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `04-deployment/README.md` | 76 | `images/illustrations/04-06-mage-batch-workflow.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `04-deployment/README.md` | 86 | `../images/homework-checklist.png` | homework/support | PASS | 1672×941 | reference checked; non-illustration asset |
+| MLOps | `05-monitoring/README.md` | 8 | `images/illustrations/05-01-ml-monitoring-loop.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `05-monitoring/README.md` | 19 | `images/illustrations/05-02-monitoring-environment.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `05-monitoring/README.md` | 30 | `images/illustrations/05-03-reference-model-preparation.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `05-monitoring/README.md` | 41 | `images/illustrations/05-04-evidently-metrics.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `05-monitoring/README.md` | 51 | `images/illustrations/05-05-monitoring-dashboard.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `05-monitoring/README.md` | 61 | `images/illustrations/05-06-dummy-monitoring.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `05-monitoring/README.md` | 72 | `images/illustrations/05-07-data-quality-monitoring.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `05-monitoring/README.md` | 85 | `images/illustrations/05-08-save-dashboard.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `05-monitoring/README.md` | 96 | `images/illustrations/05-09-debugging-tests-reports.png` | instructional illustration | PASS | 1672×941 | review required: native/source asset |
+| MLOps | `06-best-practices/README.md` | 48 | `AWS-stream-pipeline.png` | local image | PASS | 1760×1144 | review required: native/source asset |
+| MLOps | `06-best-practices/README.md` | 93 | `ci_cd_zoomcamp.png` | local image | PASS | 1870×1322 | review required: native/source asset |
+| MLOps | `07-project/README.md` | 104 | `https://static.streamlit.io/badges/streamlit_badge_black_white.svg` | remote | REMOTE | — | not locally checked |
 | DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 40 | `images/01-data-warehouse-and-bigquery-01-olap-vs-oltp-crisp.png` | instructional illustration | PASS | 1666×944 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 60 | `images/01-data-warehouse-and-bigquery-02-data-warehouse-diagram-imagegen.png` | instructional illustration | PASS | 1693×929 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 105 | `images/01-data-warehouse-and-bigquery-03-bigquery-cost-crisp.png` | instructional illustration | PASS | 1680×660 | review required: crisp/generated asset |
@@ -1163,27 +1005,6 @@ This is the complete image-reference occurrence list for the selected unit files
 | DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 73 | `images/06-deploying-a-machine-learning-model-04-model-status-crisp.png` | instructional illustration | PASS | 1725×945 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 91 | `images/06-deploying-a-machine-learning-model-05-predict-crisp.png` | instructional illustration | PASS | 1725×945 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 96 | `images/06-deploying-a-machine-learning-model-06-predict-payment-type-2-crisp.png` | instructional illustration | PASS | 1725×945 | review required: crisp/generated asset |
-| DE | `cohorts/2027/04-analytics-engineering/01-analytics-engineering-basics.md` | 11 | `images/01-analytics-engineering-bridge-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| DE | `cohorts/2027/04-analytics-engineering/02-what-is-dbt.md` | 11 | `images/02-dbt-transformation-layer-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/04-analytics-engineering/03-dbt-core-vs-dbt-cloud.md` | 3 | `images/03-dbt-core-vs-cloud-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/04-analytics-engineering/04-dbt-project-structure.md` | 11 | `images/04-dbt-project-structure-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/04-analytics-engineering/05-dbt-sources.md` | 11 | `images/05-dbt-sources-staging-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/04-analytics-engineering/06-dbt-models.md` | 11 | `images/06-dbt-model-lineage-imagegen.png` | instructional illustration | PASS | 1822×863 | review required: crisp/generated asset |
-| DE | `cohorts/2027/04-analytics-engineering/07-dbt-seeds-and-macros.md` | 11 | `images/07-dbt-seeds-macros-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/04-analytics-engineering/08-documentation.md` | 11 | `images/08-dbt-documentation-catalog-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/04-analytics-engineering/09-dbt-tests.md` | 10 | `images/09-dbt-test-gates-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/04-analytics-engineering/10-dbt-packages.md` | 11 | `images/10-dbt-packages-install-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/04-analytics-engineering/11-dbt-commands.md` | 11 | `images/11-dbt-commands-map-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/05-data-platforms/01-introduction.md` | 23 | `images/01-bruin-unified-platform-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/05-data-platforms/02-getting-started.md` | 6 | `images/02-bruin-project-setup-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/05-data-platforms/03-nyc-taxi-pipeline.md` | 16 | `images/03-bruin-nyc-taxi-pipeline-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/05-data-platforms/04-bruin-mcp.md` | 18 | `images/04-bruin-mcp-agent-loop-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/05-data-platforms/05-bruin-cloud.md` | 16 | `images/05-bruin-cloud-deployment-imagegen.png` | instructional illustration | PASS | 1916×821 | review required: crisp/generated asset |
-| DE | `cohorts/2027/05-data-platforms/06-core-concepts-projects.md` | 10 | `images/06-bruin-project-concepts-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/05-data-platforms/07-core-concepts-pipelines.md` | 10 | `images/07-bruin-pipeline-concepts-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/05-data-platforms/08-core-concepts-assets.md` | 15 | `images/08-bruin-asset-concepts-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
-| DE | `cohorts/2027/05-data-platforms/09-core-concepts-variables.md` | 10 | `images/09-bruin-runtime-variables-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/05-data-platforms/10-core-concepts-commands.md` | 10 | `images/10-bruin-cli-commands-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 32 | `images/01-introduction-to-batch-processing-01-batch-vs-streaming-imagegen.png` | instructional illustration | PASS | 1601×982 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 46 | `images/01-introduction-to-batch-processing-02-streaming-example-imagegen.png` | instructional illustration | PASS | 1133×1388 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 62 | `images/01-introduction-to-batch-processing-03-batch-job-frequencies-imagegen.png` | instructional illustration | PASS | 1254×1254 | review required: crisp/generated asset |
@@ -1256,22 +1077,10 @@ This is the complete image-reference occurrence list for the selected unit files
 | DE | `cohorts/2027/06-batch/16-connecting-spark-to-bigquery.md` | 40 | `images/16-connecting-spark-to-bigquery-01-connector-tutorial-crisp.png` | instructional illustration | PASS | 1290×834 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/16-connecting-spark-to-bigquery.md` | 75 | `images/16-connecting-spark-to-bigquery-02-failed-to-find-bigquery-crisp.png` | instructional illustration | PASS | 1620×720 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/16-connecting-spark-to-bigquery.md` | 113 | `images/16-connecting-spark-to-bigquery-03-bigquery-table-crisp.png` | instructional illustration | PASS | 1605×900 | review required: crisp/generated asset |
-| DE | `cohorts/2027/07-streaming/01-introduction.md` | 21 | `images/01-pyflink-streaming-workshop-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/07-streaming/02-redpanda.md` | 24 | `images/02-redpanda-kafka-broker-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/07-streaming/03-produce-messages-to-kafka.md` | 17 | `images/03-kafka-producer-flow-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/07-streaming/04-consume-messages-with-python.md` | 7 | `images/04-python-kafka-consumer-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/07-streaming/05-save-events-to-postgresql.md` | 6 | `images/05-postgresql-sink-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/07-streaming/07-the-flink-image-and-services.md` | 6 | `images/07-flink-cluster-services-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/07-streaming/08-the-pass-through-flink-job.md` | 10 | `images/08-pass-through-job-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/07-streaming/09-offsets-earliest-vs-latest.md` | 6 | `images/09-offset-startup-modes-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/07-streaming/11-late-events-and-upserts.md` | 7 | `images/11-late-events-upsert-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/07-streaming/12-understanding-window-types.md` | 5 | `images/12-window-types-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/07-streaming/13-cleanup.md` | 3 | `images/13-cleanup-volume-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/07-streaming/14-questions-and-answers.md` | 6 | `images/14-streaming-qa-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 
 ## Review handoff
 
-- The machine-check snapshot contains 954 image-reference occurrences; 0 are missing or outside their repository.
+- The machine-check snapshot contains 762 image-reference occurrences; 0 are missing or outside their repository.
 - 0 active instructional references are crop-only candidates and must be checked against their retained original source before acceptance.
 - The implementation agent must retain each original non-crisp source, crop only when it isolates useful content, merge adjacent screenshots on the content side in the correct orientation, and pass the original source image(s) plus any merged source reference to imagegen. A 2×/3× resized derivative must never be the only imagegen input.
 - The independent reviewer must inspect crop direction/order, visual crispness, text/semantic fidelity, overlays, and every Markdown reference, then record an explicit verdict in the rollout report.
