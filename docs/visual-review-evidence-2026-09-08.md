@@ -500,6 +500,11 @@ malformed, and the source JPG assignments for 04/05 are swapped relative to
 their crops. Asset 06 needs a visual repair because an orange cursor/highlight
 remains beside `Deploy API`. These four follow-ups are open.
 
+Commit `51ef765` repaired the cursor/highlight and corrected the 02/04/05
+source, crop, and output hash records. Darwin is independently rechecking all
+five assets after that commit; none is promoted to final acceptance until that
+review is recorded.
+
 ### Kubernetes — accepted correction and one unresolved source-faithfulness target
 
 The prior independent review rejected the first redraws despite their visual
