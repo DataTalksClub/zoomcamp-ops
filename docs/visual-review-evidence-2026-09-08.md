@@ -192,3 +192,16 @@ legible but remain unaccepted because no durable record proves that the
 original non-crisp source and bounded crop were supplied to imagegen. A focused
 worker is reprocessing the first ten; the remaining eight stay open. This is
 not a crispness or repository-wide completion claim.
+
+### MLOps repair follow-up
+
+`d47085f` regenerated `06-best-practices/AWS-stream-pipeline-redrawn.png`
+from the original reference and current target. Epicurus independently checked
+the original, the new native output, and a 1000×650 lesson-size render:
+
+| Target | Decision | Evidence |
+| --- | --- | --- |
+| MLOps `06-best-practices/AWS-stream-pipeline-redrawn.png` | ACCEPT | Labels and relationships preserved; both connectors have approximately 90–100px interior margins; no camera/browser/editor/selection artifacts; crisp and legible at lesson size |
+
+The MLOps repair queue from the first review is therefore closed. This remains
+an asset-level acceptance, not a claim that other course scopes are complete.
