@@ -10,10 +10,10 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | Repository | HEAD | Worktree | Active selection |
 | --- | --- | --- | --- | --- |
-| ML | `/home/alexey/git/machine-learning-zoomcamp` | `ff3733fde98aeaa7be323da3bcf45a7ac741c978` | clean | the published 2026 cohort flow and its module manifests |
-| LLM | `/home/alexey/git/llm-zoomcamp` | `c557a0a05e27b710014f32e7533f96454b2dc51f` | clean | the published 2026 cohort flow and its module manifests |
-| MLOps | `/home/alexey/git/mlops-zoomcamp` | `42a1b0d5f448949f7aa2f25d8f3046045d9975bc` | clean | numbered root module/project README pages; no published cohort manifest exists |
-| DE | `/home/alexey/git/data-engineering-zoomcamp` | `0c13f3a278a1fe2a3aff2674f26790ca1d58855f` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
+| ML | `/home/alexey/git/machine-learning-zoomcamp` | `0c4bceb80437772781971a8b4cded6ffbcc5b016` | clean | the published 2026 cohort flow and its module manifests |
+| LLM | `/home/alexey/git/llm-zoomcamp` | `8606dafb3b0cfe13e8955dd7ff146d5e004d539f` | clean | the published 2026 cohort flow and its module manifests |
+| MLOps | `/home/alexey/git/mlops-zoomcamp` | `d47085f98cae063be65f2e9e33eaa88c7cda04a7` | clean | numbered root module/project README pages; no published cohort manifest exists |
+| DE | `/home/alexey/git/data-engineering-zoomcamp` | `04f9c77ad65335bde3c17096fb5770943e203aca` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
 
 ## Status contract
 
@@ -28,7 +28,7 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 | Scope | State | Active units | Illustration coverage | Image references | Visual review queue | Broken refs |
 | --- | --- | ---: | --- | ---: | ---: | ---: |
 | ML | `published current cohort` | 105 | 86 present / 19 missing | 317 (314 local) | 307 visual reviews required | 0 missing/outside |
-| LLM | `published current cohort` | 72 | 36 present / 36 missing | 38 (38 local) | 38 visual reviews required | 0 missing/outside |
+| LLM | `published current cohort` | 72 | 36 present / 36 missing | 37 (37 local) | 37 visual reviews required | 0 missing/outside |
 | MLOps | `current self-paced curriculum` | 7 | 5 present / 2 missing | 38 (37 local) | 31 visual reviews required | 0 missing/outside |
 | DE | `current draft; unpublished` | 88 | 19 present / 69 missing | 58 (58 local) | 58 visual reviews required | 0 missing/outside |
 
@@ -178,7 +178,7 @@ Every row is in the selected active scope. `YES` means at least one resolving lo
 | LLM | `cohorts/2026/03-orchestration` | Multi-Agent Systems | `cohorts/2026/03-orchestration/07-multi-agent.md` | **MISSING** | 0 | 0 |
 | LLM | `cohorts/2026/03-orchestration` | Best Practices | `cohorts/2026/03-orchestration/08-best-practices.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/03-orchestration` | Next Steps | `cohorts/2026/03-orchestration/09-next-steps.md` | **MISSING** | 0 | 0 |
-| LLM | `cohorts/2026/04-evaluation` | Evaluation | `cohorts/2026/04-evaluation/01-intro.md` | **YES** | 2 | 2 |
+| LLM | `cohorts/2026/04-evaluation` | Evaluation | `cohorts/2026/04-evaluation/01-intro.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/04-evaluation` | Generating Ground Truth Data | `cohorts/2026/04-evaluation/02-ground-truth.md` | **MISSING** | 0 | 0 |
 | LLM | `cohorts/2026/04-evaluation` | Generating Ground Truth for All Documents | `cohorts/2026/04-evaluation/03-ground-truth-batch.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/04-evaluation` | Search Evaluation | `cohorts/2026/04-evaluation/04-search-evaluation.md` | **MISSING** | 0 | 0 |
@@ -328,14 +328,14 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 88 | `images/02-ml-vs-rules-07-rule-based-summary-imagegen-pilot.png` | instructional illustration | PRESENT | 1770×889 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 92 | `images/02-ml-vs-rules-08-ml-summary-imagegen-pilot.png` | instructional illustration | PRESENT | 1537×1023 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 60 | `images/03-supervised-ml-04-regression-imagegen-pilot.png` | instructional illustration | PRESENT | 1698×926 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 73 | `images/03-supervised-ml-05-multiclass-imagegen-pilot.png` | instructional illustration | PRESENT | 1695×928 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 73 | `images/03-supervised-ml-05-multiclass-imagegen-pilot.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 81 | `images/03-supervised-ml-06-ranking-imagegen-pilot.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 93 | `images/03-supervised-ml-07-summary-imagegen-pilot.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/04-crisp-dm.md` | 25 | `images/04-crisp-dm-02-process-diagram-imagegen-pilot.png` | instructional illustration | PRESENT | 1628×966 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/04-crisp-dm.md` | 31 | `images/04-crisp-dm-03-business-understanding-imagegen-pilot.png` | instructional illustration | PRESENT | 1628×966 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/04-crisp-dm.md` | 62 | `images/04-crisp-dm-04-data-preparation-imagegen-pilot.png` | instructional illustration | PRESENT | 1693×929 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/05-model-selection.md` | 20 | `images/05-model-selection-01-train-validation-imagegen-pilot.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/05-model-selection.md` | 43 | `images/05-model-selection-02-multiple-comparisons-imagegen-pilot.png` | instructional illustration | PRESENT | 1580×996 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/05-model-selection.md` | 43 | `images/05-model-selection-02-multiple-comparisons-imagegen-pilot.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/05-model-selection.md` | 55 | `images/05-model-selection-03-train-valid-test-imagegen-pilot.png` | instructional illustration | PRESENT | 1619×971 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/05-model-selection.md` | 67 | `images/05-model-selection-04-select-and-test-imagegen-pilot.png` | instructional illustration | PRESENT | 1693×929 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/06-environment.md` | 23 | `images/06-environment-01-create-repo-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
@@ -344,30 +344,30 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/01-intro/06-environment.md` | 49 | `images/06-environment-04-push-pip-install-crisp.png` | instructional illustration | PRESENT | 1969×799 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/06-environment.md` | 59 | `images/06-environment-05-jupyter-notebook-crisp.png` | instructional illustration | PRESENT | 1723×913 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/06-environment.md` | 63 | `images/06-environment-06-homework-notebook-crisp.png` | homework/support | PRESENT | 1493×1054 | reference checked; non-illustration asset |
-| ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 65 | `images/08-linear-algebra-02-dot-product-crisp.png` | instructional illustration | PRESENT | 1665×945 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 65 | `images/08-linear-algebra-02-dot-product-crisp.png` | instructional illustration | PRESENT | 1717×916 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 116 | `images/08-linear-algebra-04-matrix-vector-idea-crisp.png` | instructional illustration | PRESENT | 1645×956 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/10-summary.md` | 67 | `images/10-summary-04-supervised-g-x-y-imagegen-pilot.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/10-summary.md` | 73 | `images/10-summary-05-crisp-dm-bigger-picture-imagegen-pilot.png` | instructional illustration | PRESENT | 1254×1254 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/10-summary.md` | 79 | `images/10-summary-06-model-selection-split-imagegen-pilot.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 17 | `images/01-car-price-intro-01-select-best-price-crisp.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 26 | `images/01-car-price-intro-02-kaggle-dataset-crisp.png` | instructional illustration | PRESENT | 1857×847 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 31 | `images/01-car-price-intro-03-kaggle-data-explorer-crisp.png` | instructional illustration | PRESENT | 1790×879 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 39 | `images/01-car-price-intro-04-msrp-column-crisp.png` | instructional illustration | PRESENT | 1790×879 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 67 | `images/01-car-price-intro-06-github-repo-crisp.png` | instructional illustration | PRESENT | 1716×917 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 17 | `images/01-car-price-intro-01-select-best-price-crisp.png` | instructional illustration | PRESENT | 1717×916 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 26 | `images/01-car-price-intro-02-kaggle-dataset-crisp.png` | instructional illustration | PRESENT | 1790×879 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 31 | `images/01-car-price-intro-03-kaggle-data-explorer-crisp.png` | instructional illustration | PRESENT | 1818×865 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 39 | `images/01-car-price-intro-04-msrp-column-crisp.png` | instructional illustration | PRESENT | 1771×888 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 67 | `images/01-car-price-intro-06-github-repo-crisp.png` | instructional illustration | PRESENT | 1817×866 | review required: crisp/generated asset |
 | ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 75 | `images/01-car-price-intro-07-chapter-files-crisp.png` | instructional illustration | PRESENT | 2170×725 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/03-eda.md` | 99 | `images/03-eda-03-long-tail-distribution-crisp.png` | instructional illustration | PRESENT | 1888×833 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/03-eda.md` | 120 | `images/03-eda-04-zoom-below-100k-crisp.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/03-eda.md` | 181 | `images/03-eda-06-log1p-normal-distribution-crisp.png` | instructional illustration | PRESENT | 1870×841 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/04-validation-framework.md` | 25 | `images/04-validation-framework-01-train-val-test-split-crisp.png` | instructional illustration | PRESENT | 1611×976 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 18 | `images/06-linear-regression-vector-01-g-x-approx-y-crisp.png` | instructional illustration | PRESENT | 1386×1135 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/03-eda.md` | 99 | `images/03-eda-03-long-tail-distribution-crisp.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/03-eda.md` | 120 | `images/03-eda-04-zoom-below-100k-crisp.png` | instructional illustration | PRESENT | 1661×947 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/03-eda.md` | 181 | `images/03-eda-06-log1p-normal-distribution-crisp.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/04-validation-framework.md` | 25 | `images/04-validation-framework-01-train-val-test-split-crisp.png` | instructional illustration | PRESENT | 1731×909 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 18 | `images/06-linear-regression-vector-01-g-x-approx-y-crisp.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 34 | `images/06-linear-regression-vector-02-dot-product-notation-crisp.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 75 | `images/06-linear-regression-vector-04-fake-feature-crisp.png` | instructional illustration | PRESENT | 1774×887 | review required: crisp/generated asset |
 | ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 121 | `images/06-linear-regression-vector-06-matrix-vector-multiplication-crisp.png` | instructional illustration | PRESENT | 1570×1001 | review required: crisp/generated asset |
 | ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 37 | `images/07-linear-regression-training-01-inverse-solution-crisp.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 59 | `images/07-linear-regression-training-02-gram-matrix-crisp.png` | instructional illustration | PRESENT | 1363×1154 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 59 | `images/07-linear-regression-training-02-gram-matrix-crisp.png` | instructional illustration | PRESENT | 1617×972 | review required: crisp/generated asset |
 | ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 79 | `images/07-linear-regression-training-03-normal-equation-crisp.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/02-regression/08-baseline-model.md` | 128 | `images/08-baseline-model-06-prediction-histogram-crisp.png` | instructional illustration | PRESENT | 1561×1008 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/10-car-price-validation.md` | 22 | `images/10-car-price-validation-01-split-diagram-crisp.png` | instructional illustration | PRESENT | 1517×1037 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/10-car-price-validation.md` | 22 | `images/10-car-price-validation-01-split-diagram-crisp.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/02-regression/11-feature-engineering.md` | 13 | `images/11-feature-engineering-01-feature-engineering-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/02-regression/15-using-model.md` | 137 | `images/15-using-model-05-website-request-diagram-imagegen.png` | instructional illustration | PRESENT | 1521×1034 | review required: crisp/generated asset |
 | ML | `cohorts/2026/02-regression/17-explore-more.md` | 4 | `images/17-explore-more-01-feature-experiments-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
@@ -651,10 +651,9 @@ This is the complete image-reference occurrence list for the selected unit files
 | LLM | `cohorts/2026/03-orchestration/02-context-engineering.md` | 22 | `images/02-context-engineering-01-context-quality-flow-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/03-orchestration/03-setup.md` | 39 | `images/03-setup-01-secure-kestra-setup-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/03-orchestration/08-best-practices.md` | 13 | `images/08-best-practices-01-pattern-selection-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/01-intro.md` | 16 | `images/01-intro-01-agentic-rag-diagram-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/01-intro.md` | 30 | `images/01-intro-02-interact-or-generate-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
+| LLM | `cohorts/2026/04-evaluation/01-intro.md` | 16 | `images/01-intro-01-agentic-rag-diagram-imagegen.png` | instructional illustration | PRESENT | 1671×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/04-evaluation/03-ground-truth-batch.md` | 100 | `images/03-ground-truth-batch-03-parallel-split-whiteboard-imagegen.png` | instructional illustration | PRESENT | 1774×887 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/04-evaluation/11-evaluation-intro.md` | 36 | `images/11-evaluation-intro-01-rag-agent-evaluation-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
+| LLM | `cohorts/2026/04-evaluation/11-evaluation-intro.md` | 36 | `images/11-evaluation-intro-01-rag-agent-evaluation-imagegen.png` | instructional illustration | PRESENT | 1671×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/04-evaluation/14-agent-evaluation.md` | 18 | `images/14-agent-evaluation-01-agent-evaluation-record-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/04-evaluation/15-next-steps.md` | 16 | `images/15-next-steps-01-evaluation-feedback-loop-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/05-monitoring/10-feedback-dashboard.md` | 10 | `images/10-feedback-dashboard-01-monitoring-panels-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
@@ -666,12 +665,12 @@ This is the complete image-reference occurrence list for the selected unit files
 | LLM | `cohorts/2026/06-best-practices/04-langchain.md` | 11 | `images/04-langchain-01-retriever-wrapper-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/06-best-practices/05-next-steps.md` | 16 | `images/05-next-steps-01-retrieval-roadmap-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/07-project-example/01-intro.md` | 5 | `images/01-intro-01-fitness-rag-project-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/07-project-example/02-evaluating-retrieval.md` | 5 | `images/02-evaluating-retrieval-01-hit-rate-mrr-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/07-project-example/03-evaluating-rag.md` | 5 | `images/03-evaluating-rag-01-llm-judge-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
+| LLM | `cohorts/2026/07-project-example/02-evaluating-retrieval.md` | 5 | `images/02-evaluating-retrieval-01-hit-rate-mrr-imagegen.png` | instructional illustration | PRESENT | 1814×867 | review required: crisp/generated asset |
+| LLM | `cohorts/2026/07-project-example/03-evaluating-rag.md` | 5 | `images/03-evaluating-rag-01-llm-judge-imagegen.png` | instructional illustration | PRESENT | 1701×925 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/07-project-example/04-interface.md` | 5 | `images/04-interface-01-api-ingestion-flow-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/07-project-example/05-monitoring.md` | 5 | `images/05-monitoring-01-compose-observability-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/07-project-example/06-summary.md` | 5 | `images/06-summary-01-project-delivery-path-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/07-project-example/07-chunking.md` | 5 | `images/07-chunking-01-long-document-chunks-imagegen.png` | instructional illustration | PRESENT | 1672×940 | review required: crisp/generated asset |
+| LLM | `cohorts/2026/07-project-example/07-chunking.md` | 5 | `images/07-chunking-01-long-document-chunks-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | MLOps | `01-intro/README.md` | 10 | `images/illustrations/01-01-mlops-lifecycle.png` | instructional illustration | PRESENT | 1672×941 | review required: native/source asset |
 | MLOps | `01-intro/README.md` | 22 | `images/illustrations/01-02-01-cloud-workspace.png` | instructional illustration | PRESENT | 1672×941 | review required: native/source asset |
 | MLOps | `01-intro/README.md` | 37 | `images/illustrations/01-02-02-aws-vm-setup.png` | instructional illustration | PRESENT | 1672×941 | review required: native/source asset |
@@ -707,7 +706,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | MLOps | `05-monitoring/README.md` | 72 | `images/illustrations/05-07-data-quality-monitoring.png` | instructional illustration | PRESENT | 1672×941 | review required: native/source asset |
 | MLOps | `05-monitoring/README.md` | 85 | `images/illustrations/05-08-save-dashboard.png` | instructional illustration | PRESENT | 1672×941 | review required: native/source asset |
 | MLOps | `05-monitoring/README.md` | 96 | `images/illustrations/05-09-debugging-tests-reports.png` | instructional illustration | PRESENT | 1672×941 | review required: native/source asset |
-| MLOps | `06-best-practices/README.md` | 48 | `AWS-stream-pipeline-redrawn.png` | local image | PRESENT | 1575×998 | review required: native/source asset |
+| MLOps | `06-best-practices/README.md` | 48 | `AWS-stream-pipeline-redrawn.png` | local image | PRESENT | 1555×1011 | review required: native/source asset |
 | MLOps | `06-best-practices/README.md` | 93 | `ci_cd_zoomcamp-redrawn.png` | local image | PRESENT | 1450×1085 | review required: native/source asset |
 | MLOps | `07-project/README.md` | 104 | `https://static.streamlit.io/badges/streamlit_badge_black_white.svg` | remote | REMOTE | — | not locally checked |
 | DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 65 | `images/01-data-warehouse-and-bigquery-02-data-warehouse-diagram-imagegen.png` | instructional illustration | PRESENT | 1693×929 | review required: crisp/generated asset |
@@ -722,7 +721,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | DE | `cohorts/2027/03-data-warehouse/05-machine-learning-in-bigquery.md` | 66 | `images/05-machine-learning-in-bigquery-01-model-choice-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 26 | `images/06-deploying-a-machine-learning-model-01-exported-to-gcs-crisp.png` | instructional illustration | PRESENT | 1740×904 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 40 | `images/06-deploying-a-machine-learning-model-02-copy-model-local-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 65 | `images/06-deploying-a-machine-learning-model-03-docker-running-crisp.png` | instructional illustration | PRESENT | 2092×752 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 65 | `images/06-deploying-a-machine-learning-model-03-docker-running-crisp.png` | instructional illustration | PRESENT | 2206×713 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 73 | `images/06-deploying-a-machine-learning-model-04-model-status-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 91 | `images/06-deploying-a-machine-learning-model-05-predict-crisp.png` | instructional illustration | PRESENT | 1694×929 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 96 | `images/06-deploying-a-machine-learning-model-06-predict-payment-type-2-crisp.png` | instructional illustration | PRESENT | 1692×929 | review required: crisp/generated asset |
@@ -743,7 +742,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 149 | `images/04-first-look-at-spark-04-partitions-slides-imagegen.png` | instructional illustration | PRESENT | 1402×1122 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 26 | `images/05-spark-dataframes-01-print-schema-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 43 | `images/05-spark-dataframes-02-select-crisp.png` | instructional illustration | PRESENT | 2007×784 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 108 | `images/05-spark-dataframes-03-built-in-functions-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 108 | `images/05-spark-dataframes-03-built-in-functions-crisp.png` | instructional illustration | PRESENT | 1671×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 82 | `images/06-preparing-taxi-data-04-zcat-crisp.png` | instructional illustration | PRESENT | 2109×745 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 87 | `images/06-preparing-taxi-data-05-tree-raw-crisp.png` | instructional illustration | PRESENT | 1562×1007 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 107 | `images/06-preparing-taxi-data-06-schema-strings-crisp.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
@@ -760,7 +759,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | DE | `cohorts/2027/06-batch/10-joins-in-spark.md` | 59 | `images/10-joins-in-spark-02-sort-merge-join-stages-crisp.png` | instructional illustration | PRESENT | 1794×877 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/10-joins-in-spark.md` | 176 | `images/10-joins-in-spark-04-broadcast-exchange-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/11-operations-on-spark-rdds.md` | 99 | `images/11-operations-on-spark-rdds-02-map-key-value-whiteboard-imagegen.png` | instructional illustration | PRESENT | 1667×943 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/11-operations-on-spark-rdds.md` | 248 | `images/11-operations-on-spark-rdds-06-dag-two-stages-crisp.png` | instructional illustration | PRESENT | 1586×992 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/11-operations-on-spark-rdds.md` | 248 | `images/11-operations-on-spark-rdds-06-dag-two-stages-crisp.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/12-spark-rdd-mappartition.md` | 20 | `images/12-spark-rdd-mappartition-01-map-partitions-diagram-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/14-creating-a-local-spark-cluster.md` | 39 | `images/14-creating-a-local-spark-cluster-01-spark-master-ui-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/14-creating-a-local-spark-cluster.md` | 88 | `images/14-creating-a-local-spark-cluster-02-worker-registered-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
@@ -771,7 +770,7 @@ This is the complete image-reference occurrence list for the selected unit files
 
 ## Review handoff
 
-- The machine-check snapshot contains 451 image-reference occurrences; 0 are missing or outside their repository.
+- The machine-check snapshot contains 450 image-reference occurrences; 0 are missing or outside their repository.
 - 0 active instructional references are crop-only candidates and must be checked against their retained original source before acceptance.
 - The implementation agent must retain each original non-crisp source, crop only when it isolates useful content, merge adjacent screenshots on the content side in the correct orientation, and pass the original source image(s) plus any merged source reference to imagegen. A 2×/3× resized derivative must never be the only imagegen input.
 - The independent reviewer must inspect crop direction/order, visual crispness, text/semantic fidelity, overlays, and every Markdown reference, then record an explicit verdict in the rollout report.
