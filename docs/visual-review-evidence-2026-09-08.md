@@ -224,6 +224,16 @@ currency labels for the lesson; a focused semantic repair is open. The other
 three are accepted with C2PA/OpenAI Media Service provenance and no clipping,
 scribbles, camera, browser, or cursor artifacts.
 
+### ML intro currency repair
+
+`2da77a8` regenerated the multiple-comparisons image from the original JPG and
+bounded crop. Einstein independently checked the published image at native
+1617×973 and 608px lesson size.
+
+| Target | Decision | Evidence |
+| --- | --- | --- |
+| `01-intro/05-model-selection-02-multiple-comparisons-imagegen-pilot.png` | ACCEPT | Exact `EURO`, `US DOLLAR`, `ZLOTY`, `RUBLE`, and `HRYVNIA` labels; five emails/coins, title, and `20%`; no browser/camera/cursor/scribble/clipping artifacts; C2PA/JUMD provenance matches recorded output |
+
 ### LLM Agentic RAG repair follow-up
 
 `da89a5f` regenerated the first three LLM repair targets and removed the
