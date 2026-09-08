@@ -58,6 +58,7 @@ source and lesson invariants before it can be called accepted.
 | ML `02-regression/...04-fake-feature-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-37de99a4-c2b2-4abc-aa23-4411e9922fb5` | `095d0dc` | Crisp vectors and relation; accepted in first independent review |
 | ML `02-regression/...05-prepend-one-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-c69bfbe7-36bf-42e8-a4fb-53bc18d268a6` | `b72735e` | Corrected to `return dot(xi, w_new)`; pending re-review |
 | ML `08-deep-learning/...03-pretrained-models-01-keras-applications-crisp.png` | `...03-pretrained-models-01-keras-applications.jpg` + `...-cropped.png` | `exec-edccde7f-fb54-4705-b0be-61a4a690de3f` | `7e22144` | Regenerated without browser/camera chrome; exact heading, prose, and visible table values checked; independent review pending |
+| ML `08-deep-learning/...11-large-model-05-training-output-crisp.png` | `...11-large-model-05-training-output.jpg` + `...-cropped.png` | `exec-251c1793-18ba-4c10-9e27-be50e305d3cd` | `0f00823` | Regenerated on a wide canvas without notebook/camera chrome; epoch metrics and heading checked line-by-line; independent review pending |
 
 The generated files remain in the local imagegen output directory named in
 each tool result. The course repository contains only the copied published
