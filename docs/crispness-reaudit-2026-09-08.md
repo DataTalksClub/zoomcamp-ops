@@ -66,8 +66,12 @@ complete:
   status, GCS upload completion, Dataproc submit form, and Dataproc report
   folder visuals from original JPGs plus crops. These also remain individually
   tracked until the independent review gate completes.
+- DE `c3e895c` was rejected after the reviewer found changed path years,
+  prefixes, and a missing `.crc` line despite the output being sharp. DE
+  `4bf778d` replaced that deterministic terminal transcript with a native
+  output block containing the exact source values.
 - DE `bfb7bc9`, `4bd583f`, `2526fa4`, `a769f39`, `b3ac8b5`, `c0abf49`, and
-  `c3b003f`: removed code-only, table-only, duplicate, or exact-value
+  `c3b003f`, and `72c2419`: removed code-only, table-only, duplicate, or exact-value
   screenshots where the lesson already contains the information as native
   code, prose, or Markdown tables.
 - ML `095d0dc`: regenerated the two user-flagged regression-vector visuals from
@@ -91,7 +95,7 @@ filenames:
   component originals as the regeneration input.
 - DE 2027 batch: the earlier audit found 74 active references. After the
   native-content cleanup and duplicate removal commits above, the current
-  active reference count is 53. The remaining assets are still an open
+  active reference count is 51. The remaining assets are still an open
   asset-by-asset queue; regenerated files are not a repository-wide PASS until
   their direct and independent checks are recorded.
 - DE 2027 streaming: 0 active illustration references. The unsupported
