@@ -30,6 +30,10 @@ source and lesson invariants before it can be called accepted.
 | DE `06-batch/...04-first-look-at-spark-01-spark-ui-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-5c2e2ff3-61c3-41c8-9867-2473a3e1930c` | `62e6c24` | Crisp zero-job Spark UI; pending independent review |
 | DE `06-batch/...04-first-look-at-spark-02-schema-problem-pandas-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-43903919-e160-4c72-9c29-8d315d2444e7` | `62e6c24` | Crisp notebook/schema evidence; pending independent review |
 | DE `06-batch/...04-first-look-at-spark-03-schema-structtype-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-99181745-370a-4b82-9fa7-addcc89c36a6` | `62e6c24` | Crisp exact schema code; pending independent review |
+| DE `06-batch/...05-spark-dataframes-01-print-schema-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-6074c3bc-7846-4c7e-a70d-fb9911251533` | `1854c0d` | Crisp parquet schema output; pending independent review |
+| DE `06-batch/...05-spark-dataframes-02-select-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-be2c27f0-4c94-446f-9c67-c933ea41ff7a` | `1854c0d` | Crisp four-column selection output; pending independent review |
+| DE `06-batch/...05-spark-dataframes-03-built-in-functions-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-58db4808-795a-456e-b9f1-93a44629ab01` | `1854c0d` | Crisp `F.to*` autocomplete and output; pending independent review |
+| DE `06-batch/...05-spark-dataframes-04-udf-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-79e5f330-b8a8-43f4-aa5c-991588b3e548` | `1854c0d` | Crisp UDF/output state; pending independent review |
 | DE `06-batch/...03-installing-spark-01-install-guide-java-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-603231f7-f547-4abc-908f-b7aeb0128150` | `ae96d44` | Crisp documentation page; pending independent review |
 | DE `06-batch/...03-installing-spark-02-java-home-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-85605ad3-9fb3-4efb-bb6f-a7cd7c034e4e` | `ae96d44` | Crisp terminal; pending independent review |
 | DE `06-batch/...03-installing-spark-03-spark-download-page-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-abe2821c-e83c-41c7-ae57-fef24cfcece6` | `ae96d44` | Release `3.0.3` preserved; pending independent review |
@@ -41,3 +45,14 @@ source and lesson invariants before it can be called accepted.
 The generated files remain in the local imagegen output directory named in
 each tool result. The course repository contains only the copied published
 target; the original source and crop remain alongside it for auditability.
+
+## Source-of-truth conflict recorded
+
+The original frame for
+`06-batch/...04-first-look-at-spark-03-schema-structtype-crisp.png` shows the
+earlier inferred schema (`StringType`, `LongType`, and `DoubleType`), while the
+lesson section and its explicit `StructType` code specify timestamps, integer
+IDs, and nullable `SR_Flag` as `StringType`. The regenerated target follows
+the current lesson code and caption rather than reproducing the contradictory
+old frame. This is a semantic correction that requires reviewer confirmation;
+it is not evidence that the old screenshot was faithfully regenerated.
