@@ -653,6 +653,23 @@ uninspected refs as follows:
 | --- | ---: | ---: | ---: | ---: |
 | DE 06-batch uninspected eight | 1 | 2 | 1 | 4 |
 
+## ML classification and evaluation strict audit follow-up
+
+Fresh strict audits replaced the earlier broad approvals for ML modules 03
+and 04. Both audits inspected every active ref at native and simulated 608px
+lesson size and kept provenance-unverified assets separate from acceptance.
+
+| Scope | Accepted | Needs repair | Remove/native | Unresolved |
+| --- | ---: | ---: | ---: | ---: |
+| ML classification | 11 | 2 | 1 | 4 |
+| ML evaluation | 3 | 2 | 1 | 15 |
+
+Classification repairs are queued for the wrong production probability and
+the ungrounded preprocessing/model-comparison diagram; the one-hot table will
+be removed as native lesson markup. Evaluation repairs are queued for two
+precision/recall visuals, while the low-value recall-definition image will be
+removed. The 19 provenance-unresolved assets remain open.
+
 The accepted asset is the RDD DAG image. The unresolved queue contains the
 map-partitions diagram (missing the lesson's `1TB` annotation) and four
 visually readable assets with incomplete provenance. The Dataproc submit-form
