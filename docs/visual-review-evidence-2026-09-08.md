@@ -639,3 +639,23 @@ plus matching JPG/crop/output hashes and C2PA metadata.
 | Batch | Accepted | Needs repair | Unresolved |
 | --- | ---: | ---: | ---: |
 | DE Docker-running repair `90fc461` | 1 | 0 | 0 |
+
+The ML deployment port-mapping failure was separately repaired in
+`f951bbaec48899ac3145e0f73ce49cdec48e8935`: the focused redraw now shows
+`HOST PORT 9696 → CONTAINER PORT 9696` and the exact `9696:9696` mapping at
+608px, with matching provenance hashes. It still awaits an independent
+reviewer; the worker's local check is not acceptance.
+
+The DE 06-batch strict checkpoint then classified the eight previously
+uninspected refs as follows:
+
+| Batch | Accepted | Needs repair | Remove/native | Unresolved |
+| --- | ---: | ---: | ---: | ---: |
+| DE 06-batch uninspected eight | 1 | 2 | 1 | 4 |
+
+The accepted asset is the RDD DAG image. The unresolved queue contains the
+map-partitions diagram (missing the lesson's `1TB` annotation) and four
+visually readable assets with incomplete provenance. The Dataproc submit-form
+image needs the fields promised by its caption. The BigQuery error screenshot
+should become native error output rather than an image. No asset in this
+checkpoint is silently promoted from a pending visual inspection.
