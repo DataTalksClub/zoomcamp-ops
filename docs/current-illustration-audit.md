@@ -10,7 +10,7 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | Repository | HEAD | Worktree | Active selection |
 | --- | --- | --- | --- | --- |
-| ML | `/home/alexey/git/machine-learning-zoomcamp` | `1947c963fed605aaa8b9887f7f626aaac2685f6d` | clean | the published 2026 cohort flow and its module manifests |
+| ML | `/home/alexey/git/machine-learning-zoomcamp` | `1d093c9ddea6d73d80a3edaf605e464567d3b370` | dirty (snapshot still read-only) | the published 2026 cohort flow and its module manifests |
 | LLM | `/home/alexey/git/llm-zoomcamp` | `8606dafb3b0cfe13e8955dd7ff146d5e004d539f` | clean | the published 2026 cohort flow and its module manifests |
 | MLOps | `/home/alexey/git/mlops-zoomcamp` | `d47085f98cae063be65f2e9e33eaa88c7cda04a7` | clean | numbered root module/project README pages; no published cohort manifest exists |
 | DE | `/home/alexey/git/data-engineering-zoomcamp` | `de422d45e2dc19db8cbf717fe7863051d6197f6f` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
@@ -27,7 +27,7 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | State | Active units | Illustration coverage | Image references | Visual review queue | Broken refs |
 | --- | --- | ---: | --- | ---: | ---: | ---: |
-| ML | `published current cohort` | 105 | 85 present / 20 missing | 306 (303 local) | 296 visual reviews required | 0 missing/outside |
+| ML | `published current cohort` | 105 | 77 present / 28 missing | 205 (202 local) | 195 visual reviews required | 0 missing/outside |
 | LLM | `published current cohort` | 72 | 36 present / 36 missing | 37 (37 local) | 37 visual reviews required | 0 missing/outside |
 | MLOps | `current self-paced curriculum` | 7 | 5 present / 2 missing | 38 (37 local) | 31 visual reviews required | 0 missing/outside |
 | DE | `current draft; unpublished` | 88 | 19 present / 69 missing | 58 (58 local) | 58 visual reviews required | 0 missing/outside |
@@ -108,40 +108,40 @@ Every row is in the selected active scope. `YES` means at least one resolving lo
 | ML | `cohorts/2026/06-trees` | Selecting the best model | `cohorts/2026/06-trees/09-final-model.md` | **YES** | 1 | 1 |
 | ML | `cohorts/2026/06-trees` | Summary | `cohorts/2026/06-trees/10-summary.md` | **YES** | 6 | 6 |
 | ML | `cohorts/2026/06-trees` | Explore more | `cohorts/2026/06-trees/11-explore-more.md` | **YES** | 1 | 1 |
-| ML | `cohorts/2026/08-deep-learning` | Fashion classification | `cohorts/2026/08-deep-learning/01-fashion-classification.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/08-deep-learning` | TensorFlow and Keras | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | **YES** | 8 | 8 |
-| ML | `cohorts/2026/08-deep-learning` | Pre-trained convolutional neural networks | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | **YES** | 8 | 8 |
+| ML | `cohorts/2026/08-deep-learning` | Fashion classification | `cohorts/2026/08-deep-learning/01-fashion-classification.md` | **YES** | 2 | 2 |
+| ML | `cohorts/2026/08-deep-learning` | TensorFlow and Keras | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | **YES** | 3 | 3 |
+| ML | `cohorts/2026/08-deep-learning` | Pre-trained convolutional neural networks | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | **YES** | 2 | 2 |
 | ML | `cohorts/2026/08-deep-learning` | Convolutional neural networks | `cohorts/2026/08-deep-learning/04-conv-neural-nets.md` | **YES** | 8 | 11 |
-| ML | `cohorts/2026/08-deep-learning` | Transfer learning | `cohorts/2026/08-deep-learning/05-transfer-learning.md` | **YES** | 8 | 8 |
-| ML | `cohorts/2026/08-deep-learning` | Adjusting the learning rate | `cohorts/2026/08-deep-learning/06-learning-rate.md` | **YES** | 7 | 7 |
+| ML | `cohorts/2026/08-deep-learning` | Transfer learning | `cohorts/2026/08-deep-learning/05-transfer-learning.md` | **YES** | 3 | 3 |
+| ML | `cohorts/2026/08-deep-learning` | Adjusting the learning rate | `cohorts/2026/08-deep-learning/06-learning-rate.md` | **YES** | 5 | 5 |
 | ML | `cohorts/2026/08-deep-learning` | Checkpointing | `cohorts/2026/08-deep-learning/07-checkpointing.md` | **YES** | 3 | 3 |
 | ML | `cohorts/2026/08-deep-learning` | Adding more layers | `cohorts/2026/08-deep-learning/08-more-layers.md` | **YES** | 3 | 3 |
 | ML | `cohorts/2026/08-deep-learning` | Regularization and dropout | `cohorts/2026/08-deep-learning/09-dropout.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/08-deep-learning` | Data augmentation | `cohorts/2026/08-deep-learning/10-augmentation.md` | **YES** | 5 | 5 |
+| ML | `cohorts/2026/08-deep-learning` | Data augmentation | `cohorts/2026/08-deep-learning/10-augmentation.md` | **YES** | 4 | 4 |
 | ML | `cohorts/2026/08-deep-learning` | Training a larger model | `cohorts/2026/08-deep-learning/11-large-model.md` | **MISSING** | 0 | 0 |
 | ML | `cohorts/2026/08-deep-learning` | Using the model | `cohorts/2026/08-deep-learning/12-using-model.md` | **YES** | 1 | 1 |
 | ML | `cohorts/2026/08-deep-learning` | Summary | `cohorts/2026/08-deep-learning/13-summary.md` | **YES** | 1 | 1 |
 | ML | `cohorts/2026/08-deep-learning` | Explore more | `cohorts/2026/08-deep-learning/14-explore-more.md` | **YES** | 1 | 1 |
 | ML | `cohorts/2026/08-deep-learning` | Installation of TensorFlow | `cohorts/2026/08-deep-learning/install.md` | **YES** | 1 | 1 |
-| ML | `cohorts/2026/09-serverless` | Introduction to Serverless | `cohorts/2026/09-serverless/01-intro.md` | **YES** | 5 | 5 |
-| ML | `cohorts/2026/09-serverless` | AWS Lambda | `cohorts/2026/09-serverless/02-aws-lambda.md` | **YES** | 8 | 8 |
-| ML | `cohorts/2026/09-serverless` | TensorFlow Lite | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/09-serverless` | Preparing the code for Lambda | `cohorts/2026/09-serverless/04-preparing-code.md` | **YES** | 6 | 6 |
-| ML | `cohorts/2026/09-serverless` | Preparing a Docker image | `cohorts/2026/09-serverless/05-docker-image.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/09-serverless` | Creating the lambda function | `cohorts/2026/09-serverless/06-creating-lambda.md` | **YES** | 8 | 8 |
-| ML | `cohorts/2026/09-serverless` | API Gateway: exposing the lambda function | `cohorts/2026/09-serverless/07-api-gateway.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/09-serverless` | Summary | `cohorts/2026/09-serverless/08-summary.md` | **YES** | 5 | 5 |
+| ML | `cohorts/2026/09-serverless` | Introduction to Serverless | `cohorts/2026/09-serverless/01-intro.md` | **YES** | 3 | 3 |
+| ML | `cohorts/2026/09-serverless` | AWS Lambda | `cohorts/2026/09-serverless/02-aws-lambda.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/09-serverless` | TensorFlow Lite | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/09-serverless` | Preparing the code for Lambda | `cohorts/2026/09-serverless/04-preparing-code.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/09-serverless` | Preparing a Docker image | `cohorts/2026/09-serverless/05-docker-image.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/09-serverless` | Creating the lambda function | `cohorts/2026/09-serverless/06-creating-lambda.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/09-serverless` | API Gateway: exposing the lambda function | `cohorts/2026/09-serverless/07-api-gateway.md` | **YES** | 5 | 5 |
+| ML | `cohorts/2026/09-serverless` | Summary | `cohorts/2026/09-serverless/08-summary.md` | **MISSING** | 0 | 0 |
 | ML | `cohorts/2026/09-serverless` | Explore more | `cohorts/2026/09-serverless/09-explore-more.md` | **YES** | 1 | 1 |
 | ML | `cohorts/2026/09-serverless` | Python 3.12 vs TF Lite 2.17 | `cohorts/2026/09-serverless/updates.md` | **YES** | 1 | 1 |
-| ML | `cohorts/2026/10-kubernetes` | Overview | `cohorts/2026/10-kubernetes/01-overview.md` | **YES** | 6 | 6 |
-| ML | `cohorts/2026/10-kubernetes` | TensorFlow Serving | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/10-kubernetes` | Creating a pre-processing service | `cohorts/2026/10-kubernetes/03-preprocessing.md` | **YES** | 6 | 6 |
+| ML | `cohorts/2026/10-kubernetes` | Overview | `cohorts/2026/10-kubernetes/01-overview.md` | **YES** | 5 | 5 |
+| ML | `cohorts/2026/10-kubernetes` | TensorFlow Serving | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/10-kubernetes` | Creating a pre-processing service | `cohorts/2026/10-kubernetes/03-preprocessing.md` | **MISSING** | 0 | 0 |
 | ML | `cohorts/2026/10-kubernetes` | Running everything locally with Docker-compose | `cohorts/2026/10-kubernetes/04-docker-compose.md` | **YES** | 1 | 1 |
 | ML | `cohorts/2026/10-kubernetes` | Introduction to Kubernetes | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | **YES** | 6 | 6 |
-| ML | `cohorts/2026/10-kubernetes` | Deploying a simple service to Kubernetes | `cohorts/2026/10-kubernetes/06-kubernetes-simple-service.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/10-kubernetes` | Deploying TensorFlow models to Kubernetes | `cohorts/2026/10-kubernetes/07-kubernetes-tf-serving.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/10-kubernetes` | Deploying to EKS | `cohorts/2026/10-kubernetes/08-eks.md` | **YES** | 6 | 6 |
-| ML | `cohorts/2026/10-kubernetes` | Summary | `cohorts/2026/10-kubernetes/09-summary.md` | **YES** | 2 | 2 |
+| ML | `cohorts/2026/10-kubernetes` | Deploying a simple service to Kubernetes | `cohorts/2026/10-kubernetes/06-kubernetes-simple-service.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/10-kubernetes` | Deploying TensorFlow models to Kubernetes | `cohorts/2026/10-kubernetes/07-kubernetes-tf-serving.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/10-kubernetes` | Deploying to EKS | `cohorts/2026/10-kubernetes/08-eks.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/10-kubernetes` | Summary | `cohorts/2026/10-kubernetes/09-summary.md` | **YES** | 1 | 1 |
 | ML | `cohorts/2026/10-kubernetes` | Explore more | `cohorts/2026/10-kubernetes/10-explore-more.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/01-agentic-rag` | Introduction | `cohorts/2026/01-agentic-rag/01-intro.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/01-agentic-rag` | Environment | `cohorts/2026/01-agentic-rag/02-environment.md` | **MISSING** | 0 | 0 |
@@ -450,71 +450,47 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/06-trees/11-explore-more.md` | 4 | `images/11-explore-more-01-ensemble-experiments-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/01-fashion-classification.md` | 19 | `images/01-fashion-classification-01-tabular-vs-images-imagegen.png` | instructional illustration | PRESENT | 1445×1088 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/01-fashion-classification.md` | 34 | `images/01-fashion-classification-02-upload-service-imagegen.png` | instructional illustration | PRESENT | 1444×1089 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/01-fashion-classification.md` | 51 | `images/01-fashion-classification-03-clothing-dataset-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/01-fashion-classification.md` | 62 | `images/01-fashion-classification-04-dataset-small-train-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/01-fashion-classification.md` | 88 | `images/01-fashion-classification-05-cs231n-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/01-fashion-classification.md` | 107 | `images/01-fashion-classification-06-notebook-plan-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/01-fashion-classification.md` | 113 | `images/01-fashion-classification-07-notebook-plan-2-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | 24 | `images/02-tensorflow-keras-01-keras-inside-tensorflow-imagegen.png` | instructional illustration | PRESENT | 1445×1088 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | 46 | `images/02-tensorflow-keras-02-install-tensorflow-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | 65 | `images/02-tensorflow-keras-03-imports-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | 82 | `images/02-tensorflow-keras-04-load-img-import-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | 102 | `images/02-tensorflow-keras-05-image-sizes-imagegen.png` | instructional illustration | PRESENT | 1445×1088 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | 112 | `images/02-tensorflow-keras-06-load-img-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | 124 | `images/02-tensorflow-keras-07-rgb-channels-imagegen.png` | instructional illustration | PRESENT | 1445×1088 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | 146 | `images/02-tensorflow-keras-08-numpy-array-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | 99 | `images/02-tensorflow-keras-05-image-sizes-imagegen.png` | instructional illustration | PRESENT | 1445×1088 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | 120 | `images/02-tensorflow-keras-07-rgb-channels-imagegen.png` | instructional illustration | PRESENT | 1445×1088 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 25 | `images/03-pretrained-models-02-imagenet-crisp.png` | instructional illustration | PRESENT | 1774×887 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 36 | `images/03-pretrained-models-01-keras-applications-crisp.png` | instructional illustration | PRESENT | 1478×1064 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 54 | `images/03-pretrained-models-03-sagemaker-gpu-crisp.png` | instructional illustration | PRESENT | 1622×969 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 88 | `images/03-pretrained-models-04-xception-model-crisp.png` | instructional illustration | PRESENT | 1478×1064 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 93 | `images/03-pretrained-models-05-xception-weights-download-crisp.png` | instructional illustration | PRESENT | 1478×1064 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 108 | `images/03-pretrained-models-06-batch-shape-crisp.png` | instructional illustration | PRESENT | 1478×1064 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 125 | `images/03-pretrained-models-07-preprocess-input-crisp.png` | instructional illustration | PRESENT | 1478×1064 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 152 | `images/03-pretrained-models-08-decode-predictions-crisp.png` | instructional illustration | PRESENT | 1478×1064 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 53 | `images/03-pretrained-models-03-sagemaker-gpu-crisp.png` | instructional illustration | PRESENT | 1622×969 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/04-conv-neural-nets.md` | 22 | `images/04-conv-neural-nets-01-cnn-overview-imagegen.png` | instructional illustration | PRESENT | 1585×992 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/04-conv-neural-nets.md` | 50 | `images/04-conv-neural-nets-02-feature-map-imagegen.png` | instructional illustration | PRESENT | 1537×1023 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/04-conv-neural-nets.md` | 61 | `images/04-conv-neural-nets-03-one-feature-map-per-filter-imagegen.png` | instructional illustration | PRESENT | 1413×1113 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/04-conv-neural-nets.md` | 74 | `images/04-conv-neural-nets-04-chained-conv-layers-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/04-conv-neural-nets.md` | 111 | `images/04-conv-neural-nets-05-vector-representation-imagegen.png` | instructional illustration | PRESENT | 1412×1114 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/04-conv-neural-nets.md` | 139 | `images/04-conv-neural-nets-06-logistic-regression-crisp.png` | instructional illustration | PRESENT | 2670×2160 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/04-conv-neural-nets.md` | 139 | `images/04-conv-neural-nets-06-logistic-regression-crisp.png` | instructional illustration | PRESENT | 1774×887 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/04-conv-neural-nets.md` | 163 | `images/04-conv-neural-nets-07-dense-layer-imagegen.png` | instructional illustration | PRESENT | 1414×1112 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/04-conv-neural-nets.md` | 185 | `images/04-conv-neural-nets-08-summary-imagegen.png` | instructional illustration | PRESENT | 1405×1119 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/04-conv-neural-nets.md` | 246 | `https://github.com/user-attachments/assets/3cfca38d-56bd-4a51-a3ce-70d8c071d4c8` | remote | REMOTE | — | not locally checked |
 | ML | `cohorts/2026/08-deep-learning/04-conv-neural-nets.md` | 248 | `https://github.com/user-attachments/assets/5465dc2e-402d-41c9-a6fb-3ecfdc384796` | remote | REMOTE | — | not locally checked |
 | ML | `cohorts/2026/08-deep-learning/04-conv-neural-nets.md` | 248 | `https://github.com/user-attachments/assets/c8a57bb4-c454-4169-b18c-41b79449bbe6` | remote | REMOTE | — | not locally checked |
 | ML | `cohorts/2026/08-deep-learning/05-transfer-learning.md` | 36 | `images/05-transfer-learning-01-transfer-learning-idea-imagegen.png` | instructional illustration | PRESENT | 1619×971 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/05-transfer-learning.md` | 91 | `images/05-transfer-learning-02-found-3068-images-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/05-transfer-learning.md` | 95 | `images/05-transfer-learning-03-class-indices-one-hot-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/05-transfer-learning.md` | 147 | `images/05-transfer-learning-04-validation-341-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/05-transfer-learning.md` | 214 | `images/05-transfer-learning-05-pooling-vectors-crisp.png` | instructional illustration | PRESENT | 2736×2022 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/05-transfer-learning.md` | 239 | `images/05-transfer-learning-06-dense-10-outputs-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/05-transfer-learning.md` | 341 | `images/05-transfer-learning-07-training-output-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/05-transfer-learning.md` | 357 | `images/05-transfer-learning-08-history-plot-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/05-transfer-learning.md` | 211 | `images/05-transfer-learning-05-pooling-vectors-crisp.png` | instructional illustration | PRESENT | 1942×809 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/05-transfer-learning.md` | 352 | `images/05-transfer-learning-08-history-plot-crisp.png` | instructional illustration | PRESENT | 2000×1200 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 49 | `images/06-learning-rate-01-book-analogy-imagegen.png` | instructional illustration | PRESENT | 1444×1089 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 90 | `images/06-learning-rate-02-make-model-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 121 | `images/06-learning-rate-03-scores-loop-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 146 | `images/06-learning-rate-04-train-accuracy-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 162 | `images/06-learning-rate-05-val-accuracy-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 169 | `images/06-learning-rate-06-two-lr-validation-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 184 | `images/06-learning-rate-07-select-001-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 144 | `images/06-learning-rate-04-train-accuracy-crisp.png` | instructional illustration | PRESENT | 2000×1200 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 160 | `images/06-learning-rate-05-val-accuracy-crisp.png` | instructional illustration | PRESENT | 2000×1200 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 167 | `images/06-learning-rate-06-two-lr-validation-crisp.png` | instructional illustration | PRESENT | 2000×1200 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 182 | `images/06-learning-rate-07-select-001-crisp.png` | instructional illustration | PRESENT | 2000×1200 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/07-checkpointing.md` | 22 | `images/07-checkpointing-01-oscillation-crisp.png` | instructional illustration | PRESENT | 1609×977 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/07-checkpointing.md` | 44 | `images/07-checkpointing-02-callbacks-imagegen.png` | instructional illustration | PRESENT | 1508×1043 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/07-checkpointing.md` | 99 | `images/07-checkpointing-04-save-best-only-imagegen.png` | instructional illustration | PRESENT | 1508×1043 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/08-more-layers.md` | 28 | `images/08-more-layers-01-inner-layer-diagram-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/08-more-layers.md` | 41 | `images/08-more-layers-02-activation-functions-crisp.png` | instructional illustration | PRESENT | 2032×774 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/08-more-layers.md` | 41 | `images/08-more-layers-02-activation-functions-crisp.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/08-more-layers.md` | 137 | `images/08-more-layers-06-val-accuracy-plot-crisp.png` | instructional illustration | PRESENT | 1609×977 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/09-dropout.md` | 25 | `images/09-dropout-01-motivation-logo-imagegen.png` | instructional illustration | PRESENT | 1696×927 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/09-dropout.md` | 35 | `images/09-dropout-02-hiding-input-imagegen.png` | instructional illustration | PRESENT | 1024×1536 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/09-dropout.md` | 43 | `images/09-dropout-03-frozen-neuron-imagegen-v2.png` | instructional illustration | PRESENT | 1717×916 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/09-dropout.md` | 90 | `images/09-dropout-04-v3-diagram-imagegen.png` | instructional illustration | PRESENT | 1817×866 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/09-dropout.md` | 135 | `images/09-dropout-07-dropout-02-vs-train-imagegen.png` | instructional illustration | PRESENT | 1613×975 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/09-dropout.md` | 135 | `images/09-dropout-07-dropout-02-vs-train-imagegen.png` | instructional illustration | PRESENT | 2000×1200 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/09-dropout.md` | 152 | `images/09-dropout-06-val-accuracy-dropout-imagegen.png` | instructional illustration | PRESENT | 1609×977 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/09-dropout.md` | 165 | `images/09-dropout-08-no-regularization-overfit-imagegen.png` | instructional illustration | PRESENT | 1609×977 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/09-dropout.md` | 165 | `images/09-dropout-08-no-regularization-overfit-imagegen.png` | instructional illustration | PRESENT | 2000×1200 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/10-augmentation.md` | 15 | `images/10-augmentation-01-generate-more-images-imagegen.png` | instructional illustration | PRESENT | 1774×887 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/10-augmentation.md` | 27 | `images/10-augmentation-02-flip-rotation-shift-grids-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/10-augmentation.md` | 29 | `images/10-augmentation-03-zoom-grid-imagegen.png` | instructional illustration | PRESENT | 1891×831 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/10-augmentation.md` | 127 | `images/10-augmentation-05-nvidia-smi-cpu-bound-imagegen.png` | instructional illustration | PRESENT | 1717×916 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/10-augmentation.md` | 129 | `images/10-augmentation-06-val-stuck-077-imagegen.png` | instructional illustration | PRESENT | 1650×953 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/10-augmentation.md` | 128 | `images/10-augmentation-06-val-stuck-077-imagegen.png` | instructional illustration | PRESENT | 1650×953 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/12-using-model.md` | 94 | `images/12-using-model-03-load-img-pants-imagegen.png` | instructional illustration | PRESENT | 1199×1312 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/13-summary.md` | 9 | `images/13-summary-01-use-case-diagram-imagegen.png` | instructional illustration | PRESENT | 1774×887 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/14-explore-more.md` | 5 | `images/14-explore-more-01-learning-paths-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
@@ -522,56 +498,13 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/09-serverless/01-intro.md` | 25 | `images/01-intro-01-clothes-classification-use-case-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/01-intro.md` | 44 | `images/01-intro-02-aws-lambda-deployment-imagegen.png` | instructional illustration | PRESENT | 1691×930 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/01-intro.md` | 51 | `images/01-intro-03-lambda-uses-tf-lite-imagegen.png` | instructional illustration | PRESENT | 1835×857 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/01-intro.md` | 57 | `images/01-intro-04-module-plan-crisp.png` | instructional illustration | PRESENT | 1400×890 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/01-intro.md` | 69 | `images/01-intro-05-module-plan-lambda-gateway-crisp.png` | instructional illustration | PRESENT | 1400×845 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/02-aws-lambda.md` | 17 | `images/02-aws-lambda-01-search-lambda-crisp.png` | instructional illustration | PRESENT | 3000×1896 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/02-aws-lambda.md` | 41 | `images/02-aws-lambda-02-create-function-crisp.png` | instructional illustration | PRESENT | 3000×1896 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/02-aws-lambda.md` | 67 | `images/02-aws-lambda-03-pong-handler-crisp.png` | instructional illustration | PRESENT | 3000×1896 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/02-aws-lambda.md` | 81 | `images/02-aws-lambda-04-test-pong-response-crisp.png` | instructional illustration | PRESENT | 3288×1566 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/02-aws-lambda.md` | 109 | `images/02-aws-lambda-05-pants-response-crisp.png` | instructional illustration | PRESENT | 3288×1566 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/02-aws-lambda.md` | 111 | `images/02-aws-lambda-06-final-handler-code-crisp.png` | instructional illustration | PRESENT | 3288×1566 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/02-aws-lambda.md` | 127 | `images/02-aws-lambda-07-serverless-vs-serverful-imagegen.png` | instructional illustration | PRESENT | 1660×948 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/02-aws-lambda.md` | 146 | `images/02-aws-lambda-08-invite-link-function-crisp.png` | instructional illustration | PRESENT | 3000×1896 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 82 | `images/03-tensorflow-lite-01-load-keras-model-crisp.png` | instructional illustration | PRESENT | 3000×1836 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 93 | `images/03-tensorflow-lite-02-03-predictions-to-tflite-crisp.png` | instructional illustration | PRESENT | 2048×768 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 139 | `images/03-tensorflow-lite-04-model-sizes-crisp.png` | instructional illustration | PRESENT | 3000×1836 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 188 | `images/03-tensorflow-lite-05-interpreter-indexes-crisp.png` | instructional illustration | PRESENT | 3000×1836 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 221 | `images/03-tensorflow-lite-06-keras-preprocess-source-crisp.png` | instructional illustration | PRESENT | 2170×725 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 263 | `images/03-tensorflow-lite-07-keras-image-helper-crisp.png` | instructional illustration | PRESENT | 3000×1836 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 278 | `images/03-tensorflow-lite-08-tflite-runtime-install-crisp.png` | instructional illustration | PRESENT | 3000×1836 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/04-preparing-code.md` | 14 | `images/04-preparing-code-01-lesson-plan-crisp.png` | instructional illustration | PRESENT | 3000×2016 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/04-preparing-code.md` | 29 | `images/04-preparing-code-02-nbconvert-crisp.png` | instructional illustration | PRESENT | 3000×2016 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/04-preparing-code.md` | 34 | `images/04-preparing-code-03-generated-script-crisp.png` | instructional illustration | PRESENT | 3000×2016 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/04-preparing-code.md` | 52 | `images/04-preparing-code-04-predict-function-crisp.png` | instructional illustration | PRESENT | 3312×1320 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/04-preparing-code.md` | 113 | `images/04-preparing-code-06-final-script-crisp.png` | instructional illustration | PRESENT | 3000×2016 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/04-preparing-code.md` | 134 | `images/04-preparing-code-05-test-in-ipython-crisp.png` | instructional illustration | PRESENT | 3000×2016 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/05-docker-image.md` | 29 | `images/05-docker-image-01-ecr-public-gallery-crisp.png` | instructional illustration | PRESENT | 3300×1500 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/05-docker-image.md` | 60 | `images/05-docker-image-02-dockerfile-crisp.png` | instructional illustration | PRESENT | 3000×1890 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/05-docker-image.md` | 98 | `images/05-docker-image-03-test-script-crisp.png` | instructional illustration | PRESENT | 3000×1890 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/05-docker-image.md` | 120 | `images/05-docker-image-04-glibc-error-crisp.png` | instructional illustration | PRESENT | 3300×1578 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/05-docker-image.md` | 143 | `images/05-docker-image-05-tflite-wheels-crisp.png` | instructional illustration | PRESENT | 3300×1590 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/05-docker-image.md` | 161 | `images/05-docker-image-06-rebuild-crisp.png` | instructional illustration | PRESENT | 2682×1758 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/05-docker-image.md` | 170 | `images/05-docker-image-07-float32-error-crisp.png` | instructional illustration | PRESENT | 3300×1848 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/06-creating-lambda.md` | 36 | `images/06-creating-lambda-01-ecr-create-repository-crisp.png` | instructional illustration | PRESENT | 2682×1758 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/06-creating-lambda.md` | 119 | `images/06-creating-lambda-02-docker-push-crisp.png` | instructional illustration | PRESENT | 2682×1758 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/06-creating-lambda.md` | 135 | `images/06-creating-lambda-03-create-function-crisp.png` | instructional illustration | PRESENT | 3300×1608 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/06-creating-lambda.md` | 154 | `images/06-creating-lambda-04-timeout-error-crisp.png` | instructional illustration | PRESENT | 3300×1608 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/06-creating-lambda.md` | 163 | `images/06-creating-lambda-05-configure-timeout-memory-crisp.png` | instructional illustration | PRESENT | 3300×1608 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/06-creating-lambda.md` | 176 | `images/06-creating-lambda-06-test-success-crisp.png` | instructional illustration | PRESENT | 3300×1608 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/06-creating-lambda.md` | 188 | `images/06-creating-lambda-07-lambda-pricing-crisp.png` | instructional illustration | PRESENT | 3300×1608 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/06-creating-lambda.md` | 195 | `images/06-creating-lambda-08-price-calculation-crisp.png` | instructional illustration | PRESENT | 3000×2040 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/07-api-gateway.md` | 22 | `images/07-api-gateway-01-create-rest-api-crisp.png` | instructional illustration | PRESENT | 3300×1608 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/07-api-gateway.md` | 28 | `images/07-api-gateway-02-create-resource-crisp.png` | instructional illustration | PRESENT | 3300×1608 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/07-api-gateway.md` | 44 | `images/07-api-gateway-03-lambda-permission-crisp.png` | instructional illustration | PRESENT | 3000×1890 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/07-api-gateway.md` | 58 | `images/07-api-gateway-04-method-test-crisp.png` | instructional illustration | PRESENT | 3300×1608 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/07-api-gateway.md` | 66 | `images/07-api-gateway-05-test-response-crisp.png` | instructional illustration | PRESENT | 3300×1530 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/07-api-gateway.md` | 78 | `images/07-api-gateway-06-deploy-stage-crisp.png` | instructional illustration | PRESENT | 1520×980 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/07-api-gateway.md` | 92 | `images/07-api-gateway-07-test-py-gateway-url-crisp.png` | instructional illustration | PRESENT | 3312×1848 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/08-summary.md` | 19 | `images/08-summary-01-lambda-handler-code-crisp.png` | instructional illustration | PRESENT | 3000×1890 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/08-summary.md` | 36 | `images/08-summary-02-summary-points-crisp.png` | instructional illustration | PRESENT | 3000×1890 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/08-summary.md` | 49 | `images/08-summary-03-tflite-inference-code-crisp.png` | instructional illustration | PRESENT | 3000×1890 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/08-summary.md` | 55 | `images/08-summary-04-tflite-wheels-crisp.png` | instructional illustration | PRESENT | 3300×1590 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/08-summary.md` | 63 | `images/08-summary-05-tensorflow-wheel-size-crisp.png` | instructional illustration | PRESENT | 3300×1590 | review required: crisp/generated asset |
+| ML | `cohorts/2026/09-serverless/02-aws-lambda.md` | 121 | `images/02-aws-lambda-07-serverless-vs-serverful-imagegen.png` | instructional illustration | PRESENT | 1660×948 | review required: crisp/generated asset |
+| ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 91 | `images/03-tensorflow-lite-02-03-predictions-to-tflite-crisp.png` | instructional illustration | PRESENT | 2048×768 | review required: crisp/generated asset |
+| ML | `cohorts/2026/09-serverless/07-api-gateway.md` | 22 | `images/07-api-gateway-01-create-rest-api-crisp.png` | instructional illustration | PRESENT | 1798×875 | review required: crisp/generated asset |
+| ML | `cohorts/2026/09-serverless/07-api-gateway.md` | 28 | `images/07-api-gateway-02-create-resource-crisp.png` | instructional illustration | PRESENT | 1796×876 | review required: crisp/generated asset |
+| ML | `cohorts/2026/09-serverless/07-api-gateway.md` | 56 | `images/07-api-gateway-04-method-test-crisp.png` | instructional illustration | PRESENT | 1796×876 | review required: crisp/generated asset |
+| ML | `cohorts/2026/09-serverless/07-api-gateway.md` | 64 | `images/07-api-gateway-05-test-response-crisp.png` | instructional illustration | PRESENT | 1842×854 | review required: crisp/generated asset |
+| ML | `cohorts/2026/09-serverless/07-api-gateway.md` | 76 | `images/07-api-gateway-06-deploy-stage-crisp.png` | instructional illustration | PRESENT | 1561×1008 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/09-explore-more.md` | 3 | `images/09-explore-more-01-serverless-models-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/updates.md` | 12 | `images/updates-01-runtime-compatibility-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/01-overview.md` | 32 | `images/01-overview-01-tf-serving-inference-imagegen.png` | instructional illustration | PRESENT | 1448×1086 | review required: crisp/generated asset |
@@ -579,49 +512,15 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/10-kubernetes/01-overview.md` | 56 | `images/01-overview-03-grpc-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/01-overview.md` | 75 | `images/01-overview-05-cpu-gpu-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/01-overview.md` | 84 | `images/01-overview-04-kubernetes-imagegen.png` | instructional illustration | PRESENT | 1448×1086 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/01-overview.md` | 110 | `images/01-overview-06-plan-crisp.png` | instructional illustration | PRESENT | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | 39 | `images/02-tensorflow-serving-01-saved-model-crisp.png` | instructional illustration | PRESENT | 1685×933 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | 68 | `images/02-tensorflow-serving-02-signature-crisp.png` | instructional illustration | PRESENT | 3750×1239 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | 113 | `images/02-tensorflow-serving-03-docker-run-crisp.png` | instructional illustration | PRESENT | 2760×1494 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | 136 | `images/02-tensorflow-serving-04-install-libraries-crisp.png` | instructional illustration | PRESENT | 3000×1230 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | 166 | `images/02-tensorflow-serving-05-grpc-stub-crisp.png` | instructional illustration | PRESENT | 3000×1650 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | 204 | `images/02-tensorflow-serving-06-prepare-request-crisp.png` | instructional illustration | PRESENT | 3000×1740 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | 261 | `images/02-tensorflow-serving-07-prediction-crisp.png` | instructional illustration | PRESENT | 1520×1120 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/03-preprocessing.md` | 39 | `images/03-preprocessing-01-nbconvert-crisp.png` | instructional illustration | PRESENT | 2940×1542 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/03-preprocessing.md` | 86 | `images/03-preprocessing-02-gateway-script-crisp.png` | instructional illustration | PRESENT | 3000×1920 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/03-preprocessing.md` | 105 | `images/03-preprocessing-03-flask-app-crisp.png` | instructional illustration | PRESENT | 3000×1920 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/03-preprocessing.md` | 149 | `images/03-preprocessing-05-tensorflow-protobuf-crisp.png` | instructional illustration | PRESENT | 3000×1920 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/03-preprocessing.md` | 187 | `images/03-preprocessing-06-proto-py-crisp.png` | instructional illustration | PRESENT | 3000×1920 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/03-preprocessing.md` | 196 | `images/03-preprocessing-04-pipenv-install-crisp.png` | instructional illustration | PRESENT | 2760×1704 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/04-docker-compose.md` | 99 | `images/04-docker-compose-03-isolated-containers-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 34 | `images/05-kubernetes-intro-01-cluster-nodes-pods-imagegen.png` | instructional illustration | PRESENT | 1448×1086 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 48 | `images/05-kubernetes-intro-02-deployments-imagegen.png` | instructional illustration | PRESENT | 1438×1093 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 74 | `images/05-kubernetes-intro-03-services-crisp.png` | instructional illustration | PRESENT | 1441×1091 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 94 | `images/05-kubernetes-intro-05-definitions-imagegen.png` | instructional illustration | PRESENT | 1441×1091 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 96 | `images/05-kubernetes-intro-04-external-internal-ingress-imagegen.png` | instructional illustration | PRESENT | 1441×1091 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 112 | `images/05-kubernetes-intro-06-scaling-imagegen.png` | instructional illustration | PRESENT | 1442×1091 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/06-kubernetes-simple-service.md` | 96 | `images/06-kubernetes-simple-service-01-ping-app-crisp.png` | instructional illustration | PRESENT | 3576×2082 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/06-kubernetes-simple-service.md` | 101 | `images/06-kubernetes-simple-service-02-build-ping-crisp.png` | instructional illustration | PRESENT | 3576×1938 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/06-kubernetes-simple-service.md` | 141 | `images/06-kubernetes-simple-service-03-cluster-info-crisp.png` | instructional illustration | PRESENT | 2682×1644 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/06-kubernetes-simple-service.md` | 179 | `images/06-kubernetes-simple-service-04-deployment-yaml-crisp.png` | instructional illustration | PRESENT | 3576×2082 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/06-kubernetes-simple-service.md` | 213 | `images/06-kubernetes-simple-service-05-kind-load-crisp.png` | instructional illustration | PRESENT | 2682×1860 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/06-kubernetes-simple-service.md` | 234 | `images/06-kubernetes-simple-service-06-service-yaml-crisp.png` | instructional illustration | PRESENT | 3576×2082 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/06-kubernetes-simple-service.md` | 262 | `images/06-kubernetes-simple-service-07-service-lb-crisp.png` | instructional illustration | PRESENT | 2670×1896 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/07-kubernetes-tf-serving.md` | 15 | `images/07-kubernetes-tf-serving-01-kube-config-crisp.png` | instructional illustration | PRESENT | 3576×2082 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/07-kubernetes-tf-serving.md` | 78 | `images/07-kubernetes-tf-serving-02-model-deployment-crisp.png` | instructional illustration | PRESENT | 2682×1914 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/07-kubernetes-tf-serving.md` | 80 | `images/07-kubernetes-tf-serving-03-model-test-crisp.png` | instructional illustration | PRESENT | 1388×1276 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/07-kubernetes-tf-serving.md` | 121 | `images/07-kubernetes-tf-serving-04-model-service-crisp.png` | instructional illustration | PRESENT | 3576×2082 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/07-kubernetes-tf-serving.md` | 161 | `images/07-kubernetes-tf-serving-05-gateway-deployment-crisp.png` | instructional illustration | PRESENT | 3576×2082 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/07-kubernetes-tf-serving.md` | 204 | `images/07-kubernetes-tf-serving-06-telnet-crisp.png` | instructional illustration | PRESENT | 2682×1902 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/07-kubernetes-tf-serving.md` | 246 | `images/07-kubernetes-tf-serving-07-gateway-service-crisp.png` | instructional illustration | PRESENT | 2682×1902 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/08-eks.md` | 18 | `images/08-eks-01-eksctl-install-crisp.png` | instructional illustration | PRESENT | 2682×1902 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/08-eks.md` | 50 | `images/08-eks-02-eks-config-crisp.png` | instructional illustration | PRESENT | 3576×2082 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/08-eks.md` | 63 | `images/08-eks-04-create-cluster-crisp.png` | instructional illustration | PRESENT | 2700×1902 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/08-eks.md` | 111 | `images/08-eks-03-ecr-push-crisp.png` | instructional illustration | PRESENT | 3576×2082 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/08-eks.md` | 152 | `images/08-eks-05-external-ip-crisp.png` | instructional illustration | PRESENT | 2700×1902 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/08-eks.md` | 174 | `images/08-eks-06-aws-console-crisp.png` | instructional illustration | PRESENT | 3576×1542 | review required: crisp/generated asset |
+| ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 94 | `images/05-kubernetes-intro-05-definitions-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 96 | `images/05-kubernetes-intro-04-external-internal-ingress-imagegen.png` | instructional illustration | PRESENT | 1614×975 | review required: crisp/generated asset |
+| ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 112 | `images/05-kubernetes-intro-06-scaling-imagegen.png` | instructional illustration | PRESENT | 1619×971 | review required: crisp/generated asset |
+| ML | `cohorts/2026/10-kubernetes/08-eks.md` | 164 | `images/08-eks-06-aws-console-crisp.png` | instructional illustration | PRESENT | 3576×1542 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/09-summary.md` | 26 | `images/09-summary-01-architecture-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/09-summary.md` | 62 | `images/09-summary-02-local-alternatives-crisp.png` | instructional illustration | PRESENT | 3018×2082 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/10-explore-more.md` | 4 | `images/10-explore-more-01-cluster-options-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/01-intro.md` | 71 | `images/01-intro-01-rag-project-overview-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/03-rag.md` | 136 | `images/03-rag-08-rag-architecture-sketch-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
@@ -759,7 +658,7 @@ This is the complete image-reference occurrence list for the selected unit files
 
 ## Review handoff
 
-- The machine-check snapshot contains 439 image-reference occurrences; 0 are missing or outside their repository.
+- The machine-check snapshot contains 338 image-reference occurrences; 0 are missing or outside their repository.
 - 0 active instructional references are crop-only candidates and must be checked against their retained original source before acceptance.
 - The implementation agent must retain each original non-crisp source, crop only when it isolates useful content, merge adjacent screenshots on the content side in the correct orientation, and pass the original source image(s) plus any merged source reference to imagegen. A 2×/3× resized derivative must never be the only imagegen input.
 - The independent reviewer must inspect crop direction/order, visual crispness, text/semantic fidelity, overlays, and every Markdown reference, then record an explicit verdict in the rollout report.

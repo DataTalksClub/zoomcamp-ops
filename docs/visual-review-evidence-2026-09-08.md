@@ -457,4 +457,76 @@ now fixing those three; the unresolved AWS-console item is not an approval.
 
 Serverless then removed nine additional unreproducible AWS UI captures in
 `2d32576` and `17db699`, preserving the JSON response natively. Five API
-Gateway captures remain under a focused disposition worker.
+Gateway captures were then handled by `3ebc5a1`; the reconciliation below
+supersedes this sentence. The generated replacements still require an
+independent semantic review before they can be marked accepted.
+
+## Checkpoint reconciliation after the ML 08--10 worker batches
+
+The machine-learning-zoomcamp repository's committed head is synchronized at
+`1d093c9`; a related untracked Kubernetes definitions renderer is currently
+being worked on and is not included in this checkpoint. These are
+implementation checkpoints, not dimensions-only
+crispness approvals. Every generated replacement below still needs the
+independent review gate: exact source facts, correct relationships, no camera
+or overlay artifacts, and readability at lesson size.
+
+Completed implementation checkpoints:
+
+- `3ebc5a1` regenerated the five API Gateway references with imagegen from
+  each original JPG and bounded crop.
+- `3213505` regenerated the convolution lesson's logistic-regression visual
+  from its original JPG and crop.
+- `a3ab678` regenerated the transfer-learning pooling visual from its original
+  JPG and crop.
+- `98cce69` regenerated seven deep-learning charts/diagrams: the transfer
+  history plot, four learning-rate plots, and two dropout/overfitting plots.
+- `0316a68` regenerated the ReLU activation visual.
+- `1d093c9` regenerated the Kubernetes ingress and scaling diagrams after the
+  first independent review found wrong service arrows.
+
+Exact semantic-review targets still open:
+
+### Deep learning — ten regenerated assets awaiting independent review
+
+- `08-deep-learning/images/04-conv-neural-nets-06-logistic-regression-crisp.png`
+- `08-deep-learning/images/05-transfer-learning-05-pooling-vectors-crisp.png`
+- `08-deep-learning/images/05-transfer-learning-08-history-plot-crisp.png`
+- `08-deep-learning/images/06-learning-rate-04-train-accuracy-crisp.png`
+- `08-deep-learning/images/06-learning-rate-05-val-accuracy-crisp.png`
+- `08-deep-learning/images/06-learning-rate-06-two-lr-validation-crisp.png`
+- `08-deep-learning/images/06-learning-rate-07-select-001-crisp.png`
+- `08-deep-learning/images/08-more-layers-02-activation-functions-crisp.png`
+- `08-deep-learning/images/09-dropout-07-dropout-02-vs-train-imagegen.png`
+- `08-deep-learning/images/09-dropout-08-no-regularization-overfit-imagegen.png`
+
+### Serverless — five regenerated API Gateway assets awaiting independent review
+
+- `09-serverless/images/07-api-gateway-01-create-rest-api-crisp.png`
+- `09-serverless/images/07-api-gateway-02-create-resource-crisp.png`
+- `09-serverless/images/07-api-gateway-04-method-test-crisp.png`
+- `09-serverless/images/07-api-gateway-05-test-response-crisp.png`
+- `09-serverless/images/07-api-gateway-06-deploy-stage-crisp.png`
+
+### Kubernetes — one semantic repair, two review targets, and one unresolved source-faithfulness target
+
+The prior independent review rejected the first redraws despite their visual
+crispness. Two were regenerated in `1d093c9` and still need independent review:
+
+- `10-kubernetes/images/05-kubernetes-intro-04-external-internal-ingress-imagegen.png`
+- `10-kubernetes/images/05-kubernetes-intro-06-scaling-imagegen.png`
+
+The definitions diagram still needs semantic correction because the prior
+review found that it changed exact Kubernetes terms:
+
+- `10-kubernetes/images/05-kubernetes-intro-05-definitions-imagegen.png`
+
+The following AWS-console capture remains unresolved because a faithful redraw
+could invent UI text; it is not an approval:
+
+- `10-kubernetes/images/08-eks-06-aws-console-crisp.png`
+
+Other previously recorded queues remain open: the 16 provenance-unresolved
+assets in ML evaluation and the ten provenance-unresolved assets in ML
+deployment/trees. The conservative scanner queue is not reduced by these
+implementation commits until independent evidence is recorded.
