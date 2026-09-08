@@ -371,3 +371,16 @@ found 15 accepted, 13 semantic/axis corrections, 10 native removals, and 10
 provenance-unresolved refs. Native removals are being handled in `14b5a3e`;
 the 13 semantic/axis repairs are in a separate focused worker. These are open
 queues, not crispness approvals.
+
+### ML classification follow-up
+
+Hume independently rechecked the two corrections in `bcb530d` at native and
+rendered sizes. Both passed the visual and semantic checks: the correlation
+diagram uses `MEDIUM` consistently, and the monthly-charges chart preserves
+the lesson values with aligned `0/20/40/60%` guides. The imagegen/source
+hash chain and C2PA metadata also matched the repair ledger. This acceptance
+is limited to these two assets; it is not a repository-wide crispness claim.
+
+| Batch | Accepted | Needs repair | Unresolved |
+| --- | ---: | ---: | ---: |
+| ML classification correction `bcb530d` | 2 | 0 | 0 |
