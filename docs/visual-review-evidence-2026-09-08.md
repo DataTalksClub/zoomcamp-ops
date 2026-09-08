@@ -154,8 +154,8 @@ screenshots in `mlflow_on_aws.md` were also checked separately.
 
 The reviewer found OpenAI Media Service C2PA/JUMD metadata on the 34 generated
 or redrawn PNGs and rejected no active image as a mere upscale. The one repair
-is intentionally kept open until a fresh independent check confirms the new
-image at native and lesson size.
+was subsequently completed and independently accepted in the MLOps repair
+follow-up below.
 
 ## Independent LLM review
 
@@ -167,13 +167,13 @@ a crispness proxy.
 | --- | ---: | ---: | ---: | ---: | --- |
 | LLM active refs | 28 | 9 | 1 | 0 | Repair the nine relationship errors and remove the unsupported partial evaluation intro visual |
 
-The nine repair targets are: Agentic RAG refs `01-intro-01`, `03-rag-08`, and
+The nine repair targets were: Agentic RAG refs `01-intro-01`, `03-rag-08`, and
 `16-other-frameworks`; evaluation refs `01-intro-01`, `11-evaluation-intro-01`,
 and `14-agent-evaluation-01`; and project refs `02-evaluating-retrieval-01`,
 `03-evaluating-rag-01`, and `07-chunking-01`. The removed target is
-`04-evaluation/01-intro-02-interact-or-generate-imagegen.png`. A focused repair
-worker is handling the first Agentic RAG batch and the removal; no LLM
-repository-wide approval is claimed.
+`04-evaluation/01-intro-02-interact-or-generate-imagegen.png`. The follow-up
+sections below record the accepted repair batches; this initial table is kept
+as the pre-repair baseline, not as a current completion claim.
 
 ## Independent ML regression review
 
@@ -185,13 +185,13 @@ The result exposed the exact evidence gap behind the earlier overclaim:
 | --- | ---: | ---: | ---: | ---: |
 | ML regression active refs | 4 | 0 confirmed visually | 0 | 18 |
 
-The four accepted assets are the three conceptual imagegen illustrations and
+The four accepted assets were the three conceptual imagegen illustrations and
 `06-linear-regression-vector-04-fake-feature-crisp.png`, whose source, bounded
 crop, imagegen output ID, and target are recorded. The other 18 are visually
 legible but remain unaccepted because no durable record proves that the
-original non-crisp source and bounded crop were supplied to imagegen. A focused
-worker is reprocessing the first ten; the remaining eight stay open. This is
-not a crispness or repository-wide completion claim.
+original non-crisp source and bounded crop were supplied to imagegen. The two
+follow-up batches below reprocessed and independently accepted those 18
+assets. This is not a repository-wide completion claim.
 
 ## ML regression repair follow-up
 
@@ -224,7 +224,7 @@ currency labels for the lesson; a focused semantic repair is open. The other
 three are accepted with C2PA/OpenAI Media Service provenance and no clipping,
 scribbles, camera, browser, or cursor artifacts.
 
-### ML intro currency repair
+## ML intro currency repair
 
 `2da77a8` regenerated the multiple-comparisons image from the original JPG and
 bounded crop. Einstein independently checked the published image at native
@@ -254,7 +254,7 @@ autocomplete list; and restore the clipped Stage 30 → Stage 31 DAG connector.
 A focused worker is handling these five targets. No DE repository-wide pass is
 claimed.
 
-### LLM Agentic RAG repair follow-up
+## LLM Agentic RAG repair follow-up
 
 `da89a5f` regenerated the first three LLM repair targets and removed the
 unsupported evaluation-intro image reference. Volta independently inspected
@@ -267,9 +267,10 @@ the three new PNGs at native and 608px lesson size.
 | `01-agentic-rag/16-other-frameworks-01-shared-agent-loop-imagegen.png` | ACCEPT | SDK A/B/C each share the complete messages → tool call → observe → answer loop; crisp at both sizes |
 
 The old unsupported asset remains unreferenced. The other six LLM repair
-targets remain open; this follow-up does not establish an LLM-wide pass.
+targets were handled in `8606daf` below; the two follow-ups together cover all
+nine repair targets from the initial audit.
 
-### LLM evaluation/project repair follow-up
+## LLM evaluation/project repair follow-up
 
 `8606daf` regenerated the remaining six LLM repair targets. Sartre
 independently inspected all six at native and 608px lesson size.
@@ -295,14 +296,15 @@ Meitner independently inspected all 32 active local references in
 | --- | ---: | ---: | ---: | ---: |
 | ML intro active refs | 20 | 6 | 6 | 2 |
 
-The repair queue includes the multiclass diagram, multiple-comparisons
+The initial repair queue included the multiclass diagram, multiple-comparisons
 diagram, two linear-algebra diagrams, six environment visuals (including two
 with profile faces and one exposed tokenized Jupyter URL), and two exact
-list/code visuals that should become native lesson content. A focused worker
-is regenerating the first four imagegen targets; environment and native-content
-repairs remain open. This is a bounded-scope result, not a full ML approval.
+list/code visuals that should become native lesson content. The first four
+imagegen targets and the currency-label repair are independently accepted in
+the follow-ups above; environment and native-content repairs remain open. This
+is a bounded-scope result, not a full ML approval.
 
-### MLOps repair follow-up
+## MLOps repair follow-up
 
 `d47085f` regenerated `06-best-practices/AWS-stream-pipeline-redrawn.png`
 from the original reference and current target. Epicurus independently checked
