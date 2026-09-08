@@ -314,3 +314,18 @@ the original, the new native output, and a 1000×650 lesson-size render:
 
 The MLOps repair queue from the first review is therefore closed. This remains
 an asset-level acceptance, not a claim that other course scopes are complete.
+
+## ML regression screenshot repair follow-up
+
+`0c4bceb` regenerated the first ten ML regression screenshot-derived assets
+from original JPGs plus explicit bounded crops. Boole independently inspected
+all ten at native and 608px lesson size.
+
+| Batch | Accepted | Needs correction | Unresolved |
+| --- | ---: | ---: | ---: |
+| ML regression `0c4bceb` | 10 | 0 | 0 |
+
+The reviewer confirmed exact UI labels/values, histogram axes and shapes,
+split relationships, complete crops, no capture artifacts, byte-identical
+imagegen outputs, C2PA/JUMD `gpt-image` provenance, and no post-generation
+resizing or sharpening.
