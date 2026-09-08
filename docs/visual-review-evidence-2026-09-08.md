@@ -450,8 +450,10 @@ Kubernetes has also completed its implementation queue in focused commits:
 defective intro diagrams with imagegen, `d679ff8` removed a duplicate command
 capture, and `ae4eb6c` documented the one AWS-console reference left
 unresolved because a faithful redraw could invent UI text. The three
-regenerated diagrams are pending an independent visual check; the unresolved
-AWS-console item is not an approval.
+regenerated diagrams were independently checked and rejected for semantic
+errors despite being genuinely crisp: two have incorrect service arrows and
+the definitions diagram changes exact Kubernetes terms. A correction worker is
+now fixing those three; the unresolved AWS-console item is not an approval.
 
 Serverless then removed nine additional unreproducible AWS UI captures in
 `2d32576` and `17db699`, preserving the JSON response natively. Five API
