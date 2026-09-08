@@ -602,3 +602,32 @@ overlays.
 | Batch | Accepted | Needs repair | Unresolved |
 | --- | ---: | ---: | ---: |
 | API Gateway final review `51ef765` | 5 | 0 | 0 |
+
+## LLM and MLOps strict re-audit follow-up
+
+The strict re-audit covered all 37 LLM refs and all 37 local MLOps refs. LLM
+had one semantic defect and one current-provenance gap; MLOps had no
+instructional visual defects, but its decorative remote Streamlit badge was
+removed as out of scope.
+
+| Scope | Accepted | Needs repair | Remove/native | Unresolved |
+| --- | ---: | ---: | ---: | ---: |
+| LLM strict audit baseline | 35 | 1 | 0 | 1 |
+| MLOps strict audit baseline | 37 | 0 | 1 | 0 |
+
+LLM commits `3394c44` and `24c46ca` repaired the judge comparison and
+regenerated the agentic retry flow from its original JPG and bounded crop.
+Halley independently accepted both at native and 608px sizes, including C2PA
+and hash checks. MLOps commit `65c76a3` removed only the non-instructional
+Streamlit badge; its 37 instructional assets remain accepted within this
+bounded audit.
+
+## DE focused repair pending review
+
+The DE strict audit found the Docker-running screenshot technically sharp but
+unreadable at lesson width because of its extreme aspect ratio. Commit
+`90fc461` regenerated it with imagegen from the original JPG and bounded crop,
+preserving the exact Docker facts and removing browser/overlay artifacts. A
+separate reviewer is checking it before acceptance; the wider DE audit still
+has 34 inspected assets awaiting final rubric reconciliation and 8 not yet
+inspected.
