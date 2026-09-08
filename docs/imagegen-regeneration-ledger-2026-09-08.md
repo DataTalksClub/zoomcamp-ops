@@ -46,6 +46,8 @@ source and lesson invariants before it can be called accepted.
 | DE `06-batch/...03-installing-spark-05-spark-shell-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-35984590-455f-43c3-ae19-29278a56d998` | `d6f1822` | Spark 3.0.3 and final range output preserved; pending independent review |
 | DE `06-batch/...07-sql-with-spark-01-read-parquet-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-b4eb4e1b-459d-4aab-87bb-25b3e1b95fb8` | `0904e57` | Regenerated without webcam/browser chrome; exact Spark read/show context checked; pending independent review |
 | DE `06-batch/...07-sql-with-spark-02-common-columns-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-22e6d1d9-7c12-4415-8608-ff4d68bd6de7` | `0904e57` | Regenerated without webcam/browser chrome; exact common-column set checked; pending independent review |
+| DE `06-batch/...09-groupby-in-spark-02-three-stages-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-3fdc8c80-a6d9-4d4a-9dc3-46a2fc0649ae` | `fae367c` | Regenerated as a sharp DAG; stages 9–11 and labels checked; pending independent review |
+| DE `06-batch/...09-groupby-in-spark-04-shuffle-read-write-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-9fcc0df1-670e-4587-8e4a-6f5cc16b5281` | `d58916e` | Regenerated as a sharp stage table; task counts and `425.1 MiB` checked; pending independent review |
 | ML `02-regression/...04-fake-feature-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-37de99a4-c2b2-4abc-aa23-4411e9922fb5` | `095d0dc` | Crisp vectors and relation; accepted in first independent review |
 | ML `02-regression/...05-prepend-one-crisp.png` | matching `.jpg` + `-cropped.png` | `exec-c69bfbe7-36bf-42e8-a4fb-53bc18d268a6` | `b72735e` | Corrected to `return dot(xi, w_new)`; pending re-review |
 

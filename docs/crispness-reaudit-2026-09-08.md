@@ -54,6 +54,11 @@ complete:
   pruning visuals from original sources plus crops; these still require the
   committed provenance/reviewer ledger below before they can be called fully
   accepted.
+- DE `0904e57`, `fae367c`, and `d58916e`: regenerated four Spark notebook/UI
+  screenshots from their original JPGs plus crops. The redundant group-by
+  query screenshot was removed in `379f6cc` because the lesson already shows
+  the SQL natively. These assets remain pending independent visual review;
+  the commits do not establish a repository-wide crispness PASS.
 - ML `095d0dc`: regenerated the two user-flagged regression-vector visuals from
   their original sources plus crops.
 
