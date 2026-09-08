@@ -89,3 +89,23 @@ An image is accepted only when the reviewer confirms all of the following:
 
 The implementation agent cannot self-approve a generated replacement; an
 independent reviewer must record the result.
+
+## Fresh independent review batch
+
+The following decisions were made after opening the published pixels at native
+resolution and lesson display size. They are asset-level decisions only; they
+do not imply a repository-wide PASS.
+
+| Repository target | Decision | Evidence |
+| --- | --- | --- |
+| ML `08-deep-learning/...03-pretrained-models-01-keras-applications-crisp.png` | ACCEPT | Sharp redraw; visible heading, prose, table headings, and values match; no chrome, cursor, or selection artifacts |
+| ML `08-deep-learning/...03-pretrained-models-02-imagenet-crisp.png` from `10bae47` | NEEDS-CORRECTION | Text/statistics were sharp, but the logo and `Download` heading were clipped, explanatory lines were cut, and a green browser strip remained; replaced in `4e56d95`, pending fresh review |
+| ML `08-deep-learning/...11-large-model-05-training-output-crisp.png` | ACCEPT | Epochs 15–21 and visible loss/accuracy values match; clean terminal redraw with no notebook/camera chrome |
+| ML `08-deep-learning/...07-checkpointing-01-oscillation-crisp.png` | ACCEPT | Graph-only crop is readable; legend, axes, curves, epoch-8 annotation, and relationships match |
+| ML `02-regression/...06-linear-regression-vector-04-fake-feature-crisp.png` | ACCEPT | Symbols, subscripts, `n+1 dim`, equality, and blue annotation match; no camera/borders |
+| ML `02-regression/...06-linear-regression-vector-05-prepend-one-crisp.png` | ACCEPT | Code and `[7.17, 0.01, 0.04, 0.002]` match; no browser/camera/cursor/selection artifacts |
+| ML `04-evaluation/...07-cross-validation-01-kfold-diagram-pilot.png` | UNRESOLVED | Redraw is clear and semantically matching, but no separate bounded crop exists for provenance/aspect verification |
+| ML `09-serverless/...01-intro-04-module-plan-crisp.png` | ACCEPT | Lines, wording, colors, and numbering match; editor/cursor/selection artifacts removed |
+| ML `09-serverless/...01-intro-05-module-plan-lambda-gateway-crisp.png` | ACCEPT | Headings/items match; clean crop without editor chrome or clipping |
+| ML `09-serverless/...03-tensorflow-lite-06-keras-preprocess-source-crisp.png` | ACCEPT | Code, line numbers, `127.5`, `1.`, and mean/std arrays match; selection/browser artifacts removed |
+| ML `10-kubernetes/...02-tensorflow-serving-01-saved-model-crisp.png` | ACCEPT | Terminal output/tree and `saved_model.pb`/variables details match; no GitHub/camera/selection artifacts |
