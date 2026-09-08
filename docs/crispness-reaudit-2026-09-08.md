@@ -59,6 +59,9 @@ complete:
   query screenshot was removed in `379f6cc` because the lesson already shows
   the SQL natively. These assets remain pending independent visual review;
   the commits do not establish a repository-wide crispness PASS.
+- DE `aa152cf` and `f66a710`: regenerated the sort-merge and broadcast-join
+  UI visuals from their original JPGs plus crops. They are pending the same
+  independent visual review gate.
 - ML `095d0dc`: regenerated the two user-flagged regression-vector visuals from
   their original sources plus crops.
 
