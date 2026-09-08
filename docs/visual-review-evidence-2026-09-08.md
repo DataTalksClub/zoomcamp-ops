@@ -269,6 +269,23 @@ the three new PNGs at native and 608px lesson size.
 The old unsupported asset remains unreferenced. The other six LLM repair
 targets remain open; this follow-up does not establish an LLM-wide pass.
 
+### LLM evaluation/project repair follow-up
+
+`8606daf` regenerated the remaining six LLM repair targets. Sartre
+independently inspected all six at native and 608px lesson size.
+
+| Batch | Accepted | Needs correction | Unresolved |
+| --- | ---: | ---: | ---: |
+| LLM evaluation/project repairs `8606daf` | 6 | 0 | 0 |
+
+The reviewer confirmed exact relationships and labels, matching provenance
+hashes, C2PA/OpenAI Media Service `gpt-image` metadata, no overlays/clipping,
+and material pixel differences from the pre-repair images. Five conceptual
+assets honestly document their prior semantic PNGs and bounded references
+without claiming nonexistent JPG sources. All LLM repair targets are now
+independently accepted; the remaining LLM active refs still retain their
+original 28/38 review result.
+
 ## Independent ML intro review
 
 Meitner independently inspected all 32 active local references in
