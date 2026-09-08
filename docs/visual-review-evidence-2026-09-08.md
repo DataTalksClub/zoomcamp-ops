@@ -429,3 +429,17 @@ The 23 unresolved refs are screenshot-derived or otherwise lacking a
 verifiable redraw chain. Three Luna-max workers are processing these disjoint
 module scopes. Native code, tables, plans, commands, and exact outputs are
 being removed as image embeds rather than redrawn as invented illustrations.
+
+### ML 08--10 repair progress
+
+The first cleanup checkpoints are now pushed:
+
+| Scope | Commit | Result | Remaining |
+| --- | --- | --- | --- |
+| Deep learning | `a765b7b` | removed 24 native-content embeds | 9 repair/unresolved targets |
+| Deep learning | `3213505` | regenerated one unresolved visual with imagegen from original JPG + bounded crop | follow-up queue remains |
+| Serverless | `bc153ae` | removed 35 native-content embeds | 14 AWS/UI targets |
+
+These checkpoint commits do not constitute crispness approval for the
+remaining queues. Each regenerated asset still needs independent native-size
+and lesson-size review before it is recorded as accepted.
