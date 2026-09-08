@@ -139,3 +139,20 @@ train/validation image; commit `521d8d2` corrected the code before acceptance.
 | ML `08-deep-learning/...09-dropout-03-frozen-neuron-imagegen-v2.png` | ACCEPT | One crossed-out inner-layer neuron, de-emphasized connections, and `NOT UPDATED DURING TRAINING`; no camera/recording overlay |
 | ML `08-deep-learning/...09-dropout-06-val-accuracy-dropout-imagegen.png` | ACCEPT | Exactly four legend-matched validation curves; y-axis `0.78–0.86`; no extra training curve or handwritten guide |
 | ML `08-deep-learning/...09-dropout-08-no-regularization-overfit-imagegen.png` | ACCEPT after `521d8d2` | Image has exactly train/validation curves, and the lesson now plots `hist['val_accuracy']` plus `hist['accuracy']` for `scores[0.0]` |
+
+## Independent MLOps review
+
+Feynman independently inspected all 38 active README references at native
+resolution and at a max-1000px lesson render. This is an asset-level result,
+not a repository-wide crispness approval. The 11 additional AWS walkthrough
+screenshots in `mlflow_on_aws.md` were also checked separately.
+
+| Scope | Accepted | Needs correction | Removed/unresolved | Repair |
+| --- | ---: | ---: | ---: | --- |
+| MLOps active README refs | 37 | 1 | 0 | Regenerate `06-best-practices/AWS-stream-pipeline-redrawn.png` with complete horizontal margins; preserve labels and relationships |
+| MLOps additional AWS screenshots | 11 | 0 | 0 | Exact UI screenshots were accepted as source evidence; they are not imagegen illustrations |
+
+The reviewer found OpenAI Media Service C2PA/JUMD metadata on the 34 generated
+or redrawn PNGs and rejected no active image as a mere upscale. The one repair
+is intentionally kept open until a fresh independent check confirms the new
+image at native and lesson size.
