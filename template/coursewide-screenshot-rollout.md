@@ -40,17 +40,22 @@ pixels are not the lesson's source of truth.
 
 1. Read the imagegen skill if the worker has it.
 2. Inspect the source with `view_image` and read the surrounding lesson text.
-3. Crop the meaningful content first with a deterministic tool. Exclude
-   webcam tiles, faces, browser/Zoom chrome, cursors, watermarks, and black
-   borders from the reference input.
-4. Ask imagegen to regenerate the crop as a crisp, high-resolution lesson
-   asset. The crop is an input/reference, not the final deliverable: do not
-   accept a crop that is still soft or pixelated merely because its framing is
-   better.
-5. Prompt with exact required labels, values, order, arrows, and layout. State
+3. Retain the original non-crisp source unchanged. Crop only when needed to
+   isolate meaningful content; exclude webcam tiles, faces, browser/Zoom
+   chrome, cursors, watermarks, and black borders from the clean reference.
+4. If adjacent screenshots form one teaching surface, merge them on the
+   correct content side and orientation before regeneration. Record source
+   order, join coordinates, and the merged reference.
+5. Pass the original source image(s) and the clean crop or merged source
+   reference to imagegen. A 2×/3× resized or sharpened derivative must never
+   be the only imagegen input. Ask imagegen to regenerate the reference as a
+   crisp, high-resolution lesson asset. The crop is an input/reference, not the
+   final deliverable: do not accept a crop that is still soft or pixelated
+   merely because its framing is better.
+6. Prompt with exact required labels, values, order, arrows, and layout. State
    that no faces, camera tiles, controls, overlays, or extra components may
    remain.
-6. Inspect the output at lesson size and reject any changed label, value,
+7. Inspect the output at lesson size and reject any changed label, value,
    relationship, or teaching meaning. Make one targeted correction at a time.
 
 ### Deterministic path
@@ -111,6 +116,12 @@ Before accepting a batch, verify:
 - no active replaceable `*-cropped.png` reference remains;
 - each accepted screenshot has its own focused commit containing only its
   asset, report entry, and reference.
+
+The implementation worker must finish its change before an independent
+reviewer worker is launched. The reviewer checks crop direction and adjacent
+source order/orientation, visual crispness, text and semantic fidelity,
+faces/overlays, and all Markdown references; it records an explicit verdict.
+The batch is not accepted on the implementation worker's assertion alone.
 
 ## Rollout order
 
