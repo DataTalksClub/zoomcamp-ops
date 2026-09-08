@@ -127,3 +127,15 @@ do not imply a repository-wide PASS.
 | ML `08-deep-learning/...09-dropout-07-dropout-02-vs-train-imagegen.png` | ACCEPT | Clean curve with matching oscillation and caption context |
 | ML `08-deep-learning/...09-dropout-08-no-regularization-overfit-imagegen.png` | NEEDS-CORRECTION | A handwritten `100%` guide became an extra high curve; regeneration is required |
 | ML `04-evaluation/...06-auc-05-auc-interpretation-imagegen-v2.png` | ACCEPT | Correct score sets/class assignments and selected pair; no extra score or overlays |
+
+## Dropout follow-up review
+
+The follow-up reviewer accepted the regenerated dropout assets at native and
+lesson size. The reviewer also found a lesson-code mismatch for the
+train/validation image; commit `521d8d2` corrected the code before acceptance.
+
+| Repository target | Decision | Evidence |
+| --- | --- | --- |
+| ML `08-deep-learning/...09-dropout-03-frozen-neuron-imagegen-v2.png` | ACCEPT | One crossed-out inner-layer neuron, de-emphasized connections, and `NOT UPDATED DURING TRAINING`; no camera/recording overlay |
+| ML `08-deep-learning/...09-dropout-06-val-accuracy-dropout-imagegen.png` | ACCEPT | Exactly four legend-matched validation curves; y-axis `0.78–0.86`; no extra training curve or handwritten guide |
+| ML `08-deep-learning/...09-dropout-08-no-regularization-overfit-imagegen.png` | ACCEPT after `521d8d2` | Image has exactly train/validation curves, and the lesson now plots `hist['val_accuracy']` plus `hist['accuracy']` for `scores[0.0]` |

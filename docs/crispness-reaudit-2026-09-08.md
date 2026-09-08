@@ -108,6 +108,11 @@ complete:
   and SavedModel screenshots. These are implementation commits only; the
   independent review queue remains open, and the serverless preprocessing image
   still needs an aspect-ratio check.
+- ML `4e56d95`, `ca6dd36`, `1ad6a86`, `945499a`, `f4ff4b5`, `e19813a`,
+  `840d574`, `e413664`, `483cbfe`, and `521d8d2`: corrected clipped or
+  semantically misleading deep-learning assets; the corrected ImageNet,
+  SageMaker, Xception, and dropout targets now have independent asset-level
+  evidence. The repository-wide queue remains open.
 
 The active DE warehouse scope is now 16 illustration references after the
 native-content removals. The active DE batch scope currently contains 51

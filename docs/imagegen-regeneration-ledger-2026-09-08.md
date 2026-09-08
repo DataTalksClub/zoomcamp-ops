@@ -76,6 +76,9 @@ source and lesson invariants before it can be called accepted.
 | ML `08-deep-learning/...03-pretrained-models-08-decode-predictions-crisp.png` | matching `.jpg` + bounded crop | `exec-6de4842f-05c8-4f8a-aa51-1ae483fb82fa` | `840d574` | Exact prediction labels/values and clean notebook redraw; independent review accepted |
 | ML `08-deep-learning/...08-more-layers-06-val-accuracy-plot-crisp.png` | matching `.jpg` + bounded crop | `exec-2a01da1b-5a1e-47f0-93e0-4e46d1f42f19` | `e0e05ac` | Exact three-series legend/plot relationship; independent review accepted |
 | ML `04-evaluation/...06-auc-05-auc-interpretation-imagegen-v2.png` | matching `.jpg` + bounded crop | `exec-4d0ab6b0-c84f-416b-82bf-be17bcd9a00f` | `1c46d4f` | Corrected score sets and selected pair; independent review accepted |
+| ML `08-deep-learning/...09-dropout-03-frozen-neuron-imagegen-v2.png` | matching `.jpg` + bounded crop | `exec-c420442b-c0f4-4909-b3fe-c683713be9f8` | `483cbfe` | Clean dropped-neuron diagram; independent review accepted |
+| ML `08-deep-learning/...09-dropout-06-val-accuracy-dropout-imagegen.png` | matching `.jpg` + bounded crop | `exec-e3f4c2b9-7252-4f99-9bf6-1fb30692920f` | `e413664` | Corrected to exactly four validation curves and y-limit `0.78–0.86`; independent review accepted |
+| ML `08-deep-learning/...09-dropout-08-no-regularization-overfit-imagegen.png` | matching `.jpg` + bounded crop | `exec-b26a86fc-4c5a-4c99-9bd8-108065db181c` | `0aa4083` + `521d8d2` | Clean train/validation pair; lesson code corrected to plot the matching train/validation series; independent review accepted |
 
 The generated files remain in the local imagegen output directory named in
 each tool result. The course repository contains only the copied published
