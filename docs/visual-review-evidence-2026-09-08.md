@@ -384,3 +384,17 @@ is limited to these two assets; it is not a repository-wide crispness claim.
 | Batch | Accepted | Needs repair | Unresolved |
 | --- | ---: | ---: | ---: |
 | ML classification correction `bcb530d` | 2 | 0 | 0 |
+
+### ML deployment/tree repair pending independent review
+
+Worker commit `6a7a98c` replaced the 13 semantic/axis targets identified in
+the deployment/tree baseline. It used imagegen for three semantic diagrams
+and deterministic native rendering for ten exact plots, and added a
+provenance ledger plus reproducible renderer. A separate Luna-max reviewer is
+checking every native asset and rendered-size view for visual crispness,
+semantic fidelity, and crop/overlay defects. Until that review is recorded,
+these 13 assets remain pending rather than accepted.
+
+| Batch | Implemented | Independently accepted | Pending |
+| --- | ---: | ---: | ---: |
+| ML deployment/tree repair `6a7a98c` | 13 | 0 | 13 |
