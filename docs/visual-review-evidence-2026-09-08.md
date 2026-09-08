@@ -552,9 +552,17 @@ The seven plot files are deterministic native Matplotlib renders from the
 lesson notebook values, not enlarged screenshots. The ReLU file is a clean
 imagegen redraw with the equation and graph semantics preserved. All eight
 were readable at 608px and had no camera, browser, overlay, or crop remnants.
-The two remaining deep-learning redraws in the earlier open list are the
-logistic-regression and pooling visuals from `3213505` and `a3ab678`; they
-still need the same independent review gate.
+The two remaining deep-learning redraws in the earlier open list were the
+logistic-regression and pooling visuals from `3213505` and `a3ab678`.
+
+Plato completed that final bounded review. Both assets passed native and 608px
+checks, with exact lesson relationships, matching source/crop/output hashes,
+C2PA imagegen metadata, and no camera, handwriting, player chrome, or overlay
+artifacts.
+
+| Batch | Accepted | Needs repair | Remove |
+| --- | ---: | ---: | ---: |
+| ML deep-learning final redraws `3213505` / `a3ab678` | 2 | 0 | 0 |
 
 ## Bounded Kubernetes correction review checkpoint
 
