@@ -234,6 +234,26 @@ bounded crop. Einstein independently checked the published image at native
 | --- | --- | --- |
 | `01-intro/05-model-selection-02-multiple-comparisons-imagegen-pilot.png` | ACCEPT | Exact `EURO`, `US DOLLAR`, `ZLOTY`, `RUBLE`, and `HRYVNIA` labels; five emails/coins, title, and `20%`; no browser/camera/cursor/scribble/clipping artifacts; C2PA/JUMD provenance matches recorded output |
 
+## Independent DE warehouse and batch review
+
+Aristotle independently inspected all 58 currently active references in
+`cohorts/2027/03-data-warehouse` and `cohorts/2027/06-batch` at native
+resolution and simulated 800px lesson width. This is an asset-level result;
+the repair queue remains open.
+
+| Scope | Accepted | Needs correction | Remove/native | Unresolved |
+| --- | ---: | ---: | ---: | ---: |
+| DE data warehouse | 13 | 3 | 0 | 0 |
+| DE batch | 40 | 2 | 0 | 0 |
+| Total | 53 | 5 | 0 | 0 |
+
+Open repairs: remove the selection overlays from warehouse partition-pruning
+and cluster-pruning targets; tighten the warehouse Docker `docker ps` crop;
+remove the Spark built-in-functions active-cell border while preserving the
+autocomplete list; and restore the clipped Stage 30 → Stage 31 DAG connector.
+A focused worker is handling these five targets. No DE repository-wide pass is
+claimed.
+
 ### LLM Agentic RAG repair follow-up
 
 `da89a5f` regenerated the first three LLM repair targets and removed the
