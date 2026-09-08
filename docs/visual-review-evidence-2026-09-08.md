@@ -622,12 +622,20 @@ and hash checks. MLOps commit `65c76a3` removed only the non-instructional
 Streamlit badge; its 37 instructional assets remain accepted within this
 bounded audit.
 
-## DE focused repair pending review
+## DE focused repair review
 
 The DE strict audit found the Docker-running screenshot technically sharp but
 unreadable at lesson width because of its extreme aspect ratio. Commit
 `90fc461` regenerated it with imagegen from the original JPG and bounded crop,
-preserving the exact Docker facts and removing browser/overlay artifacts. A
-separate reviewer is checking it before acceptance; the wider DE audit still
+preserving the exact Docker facts and removing browser/overlay artifacts. The
+wider DE audit still
 has 34 inspected assets awaiting final rubric reconciliation and 8 not yet
 inspected.
+
+Kepler independently accepted `90fc461` at native and 608px sizes, confirming
+the exact container ID, image, command, timestamps, ports, and container name,
+plus matching JPG/crop/output hashes and C2PA metadata.
+
+| Batch | Accepted | Needs repair | Unresolved |
+| --- | ---: | ---: | ---: |
+| DE Docker-running repair `90fc461` | 1 | 0 | 0 |
