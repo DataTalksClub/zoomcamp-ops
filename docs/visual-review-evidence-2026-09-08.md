@@ -156,3 +156,21 @@ The reviewer found OpenAI Media Service C2PA/JUMD metadata on the 34 generated
 or redrawn PNGs and rejected no active image as a mere upscale. The one repair
 is intentionally kept open until a fresh independent check confirms the new
 image at native and lesson size.
+
+## Independent LLM review
+
+Avicenna independently inspected all 38 active LLM references at native
+resolution and at a 608px desktop lesson render. Dimensions were not used as
+a crispness proxy.
+
+| Scope | Accepted | Needs correction | Remove | Unresolved | Repair |
+| --- | ---: | ---: | ---: | ---: | --- |
+| LLM active refs | 28 | 9 | 1 | 0 | Repair the nine relationship errors and remove the unsupported partial evaluation intro visual |
+
+The nine repair targets are: Agentic RAG refs `01-intro-01`, `03-rag-08`, and
+`16-other-frameworks`; evaluation refs `01-intro-01`, `11-evaluation-intro-01`,
+and `14-agent-evaluation-01`; and project refs `02-evaluating-retrieval-01`,
+`03-evaluating-rag-01`, and `07-chunking-01`. The removed target is
+`04-evaluation/01-intro-02-interact-or-generate-imagegen.png`. A focused repair
+worker is handling the first Agentic RAG batch and the removal; no LLM
+repository-wide approval is claimed.
