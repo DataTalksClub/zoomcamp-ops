@@ -62,6 +62,14 @@ complete:
 - DE `aa152cf` and `f66a710`: regenerated the sort-merge and broadcast-join
   UI visuals from their original JPGs plus crops. They are pending the same
   independent visual review gate.
+- DE `0806220`, `e8e2868`, `16b4254`, and `d2432e1`: regenerated the worker
+  status, GCS upload completion, Dataproc submit form, and Dataproc report
+  folder visuals from original JPGs plus crops. These also remain individually
+  tracked until the independent review gate completes.
+- DE `bfb7bc9`, `4bd583f`, `2526fa4`, `a769f39`, `b3ac8b5`, `c0abf49`, and
+  `c3b003f`: removed code-only, table-only, duplicate, or exact-value
+  screenshots where the lesson already contains the information as native
+  code, prose, or Markdown tables.
 - ML `095d0dc`: regenerated the two user-flagged regression-vector visuals from
   their original sources plus crops.
 
@@ -81,9 +89,11 @@ filenames:
   screenshot-derived assets requiring regeneration, and 12 deterministic or
   external exceptions. One combined TensorFlow Lite asset needs its two
   component originals as the regeneration input.
-- DE 2027 batch: 74 active references; 17 source-backed imagegen assets, 57
-  crop/upscale/re-export screenshot derivatives, and 3 imagegen list slides
-  that were removed because nearby prose already contains the same content.
+- DE 2027 batch: the earlier audit found 74 active references. After the
+  native-content cleanup and duplicate removal commits above, the current
+  active reference count is 53. The remaining assets are still an open
+  asset-by-asset queue; regenerated files are not a repository-wide PASS until
+  their direct and independent checks are recorded.
 - DE 2027 streaming: 0 active illustration references. The unsupported
   generated streaming set was removed; no replacement should be invented.
 - DE 2027 warehouse: 16 active references after table/list cleanup; the six
