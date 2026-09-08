@@ -37,6 +37,32 @@ The linked external-table screenshot was regenerated with imagegen in DE commit
 the lesson already expresses the exact values as native text and the screenshot
 added no information beyond that text.
 
+## Corrections already pushed
+
+These commits are real corrections, not evidence that the remaining queue is
+complete:
+
+- DE `86b8bf0`: replaced the OLTP/OLAP comparison screenshot with a native
+  Markdown table.
+- DE `ba549cb`: removed eight redundant partitioning/clustering and best-
+  practices list slides; the lesson text already carries their content.
+- DE `5fb5839`: removed seven redundant BigQuery ML output/table screenshots.
+- DE `bb57249`: regenerated the BigQuery ML model-choice diagram with imagegen
+  from the retained original and crop; the generated result was inspected at
+  full resolution.
+- DE `eb0bc99` and `e043b33`: regenerated the partitioning, clustering, and
+  pruning visuals from original sources plus crops; these still require the
+  committed provenance/reviewer ledger below before they can be called fully
+  accepted.
+- ML `095d0dc`: regenerated the two user-flagged regression-vector visuals from
+  their original sources plus crops.
+
+The active DE warehouse scope is now 16 illustration references after the
+native-content removals. The active DE batch scope still contains many
+`*-crisp.png` screenshot derivatives and is not complete. The ML repository
+also contains a much larger active illustration set; no repository-wide ML
+crispness PASS is being claimed until its complete inventory is reviewed.
+
 ## Provenance required for each completion
 
 Record the source path, original dimensions, crop coordinates, imagegen input
