@@ -32,19 +32,20 @@ screenshots form one surface, the crop/merge order is determined from the
 content and recorded. Imagegen receives the original source image(s) and the
 merged/cropped reference—not only a resized or sharpened derivative.
 
-## Completed visual audits
+## Previous audit status — withdrawn
 
 | Scope | Repository head | Retained active references reviewed | Result | Units without illustrations |
 | --- | --- | ---: | --- | ---: |
-| ML 2026 | `bfafbbb` | 581/581 | PASS; 0 failures, 0 missing local refs | 0/105 |
-| LLM 2026 | `c557a0a` | 38/38 | PASS; 0 soft/chrome-heavy retained assets | 36/72 |
-| MLOps current lesson set | `e68ba45` | 38 current-scope refs; repository-wide legacy refs also cleaned | PASS; 0 broken refs after cleanup | 2/7 |
-| DE 2027 draft | `21b6693` | 111 retained from 175 reviewed occurrences | PASS for retained assets; 64 unsupported assets removed | 66/88 |
+| ML 2026 | superseded by `85f83bb` | 353 current active refs | **OPEN**; 345 reviews remain in the four-repo live queue | 15/105 currently missing active refs |
+| LLM 2026 | `c557a0a` | 38 current local refs | **OPEN**; no crispness acceptance | 36/72 |
+| MLOps current lesson set | `e68ba45` | 38 current-scope refs | **OPEN**; no crispness acceptance | 2/7 |
+| DE 2027 draft | `4bf778d` | 61 current refs | **OPEN**; no repository-wide acceptance | 69/88 |
 
 “Units without illustrations” is intentionally not hidden: those units lost
 unsupported or invented visuals during the distrust audit. They should receive
 a source-backed illustration only when one can be found; do not fill the gap
-with made-up content merely to reach 100% coverage.
+with made-up content merely to reach 100% coverage. The table above is a
+current queue, not evidence that the remaining images are crisp.
 
 ## Per-image lists and evidence
 
