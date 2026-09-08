@@ -6,8 +6,9 @@ reference resolution and visual intent, but several assets described as
 That evidence is not sufficient for a crispness acceptance.
 
 The live scanner was rerun after the cleanup commits at ML `85f83bb` and DE
-`4bf778d`. It found **493 active image-reference occurrences** across the four
-repositories; **345 still require direct visual review**. The old report's
+`4bf778d`. It found **454 active image-reference occurrences** across the four
+repositories; **437 still require direct visual review** (307 in ML, 38 in LLM,
+31 in MLOps, and 61 in DE). The old report's
 repository-wide `PASS` claims are withdrawn. A filename, pixel dimension, or
 worker implementation report is not an acceptance result.
 
@@ -35,7 +36,7 @@ This is a queue, not a completion claim.
 | --- | --- | --- | --- |
 | `data-engineering-zoomcamp` | `cohorts/2027/03-data-warehouse` screenshot-derived `*-crisp.png` assets | reopened; prior crop/sharpen PASS invalid | regenerate with imagegen, except assets proven to have already used imagegen; remove/native-render table/list content |
 | `data-engineering-zoomcamp` | `cohorts/2027/06-batch` screenshot-derived `*-crisp.png` assets | reopened; prior crop/sharpen PASS invalid | regenerate with imagegen, preserving exact code/UI invariants or replace with a deterministic source rendering when imagegen cannot preserve them |
-| `machine-learning-zoomcamp` | current cohorts 2026/01–10 | implementation is partly regenerated, but the live audit still has 345 visual reviews required across all four repos | independently inspect every active screenshot-derived target; regenerate from the original plus a bounded crop, or replace exact code/table/output with native content |
+| `machine-learning-zoomcamp` | current cohorts 2026/01–10 | implementation is partly regenerated, but the live audit still has 307 ML visual reviews required | independently inspect every active screenshot-derived target; regenerate from the original plus a bounded crop, or replace exact code/table/output with native content |
 | `llm-zoomcamp` | current cohort | 38 local active refs; no crispness acceptance | independently inspect every retained image and remove or regenerate unsupported/soft screenshots |
 | `mlops-zoomcamp` | current lesson set | 38 refs, including one remote; no crispness acceptance | independently inspect every retained image and repair exact UI/code assets without guessing |
 
@@ -118,8 +119,8 @@ The active DE warehouse scope is now 16 illustration references after the
 native-content removals. The active DE batch scope currently contains 51
 illustration references and is still open for asset-by-asset acceptance. The
 ML implementation workers reported 160 active references in their owned
-01–06 slices, but the current live scanner covers 353 ML refs across cohorts
-01–10 and still marks 345 references across all scopes for visual review. The
+01–06 slices, but the current live scanner covers 317 ML refs across cohorts
+01–10 and still marks 307 ML references for visual review. The
 partial independent reviews also found a live green Jupyter selection border
 in `06-linear-regression-vector-05-prepend-one-crisp.png`; the regression
 vector pair is therefore not accepted yet. No repository-wide ML crispness
@@ -132,7 +133,7 @@ filenames:
 
 - ML 2026: the earlier 578-reference classification was a pre-cleanup queue
   and is superseded for the current cohorts. The live scanner now reports 353
-  ML refs, 350 local and three remote/non-local references, with 15 units
+  ML refs, 314 local and three remote/non-local references, with 19 units
   lacking an active illustration. Earlier worker reports cover only their
   implementation slices and are not independent acceptance. The visual queue
   remains open until every active target is checked at native resolution and

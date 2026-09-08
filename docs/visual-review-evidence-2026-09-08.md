@@ -36,10 +36,10 @@ merged/cropped reference—not only a resized or sharpened derivative.
 
 | Scope | Repository head | Retained active references reviewed | Result | Units without illustrations |
 | --- | --- | ---: | --- | ---: |
-| ML 2026 | superseded by `85f83bb` | 353 current active refs | **OPEN**; 345 reviews remain in the four-repo live queue | 15/105 currently missing active refs |
+| ML 2026 | `ff3733f` | 317 current active refs | **OPEN**; 307 ML reviews remain in the live queue | 19/105 currently missing active refs |
 | LLM 2026 | `c557a0a` | 38 current local refs | **OPEN**; no crispness acceptance | 36/72 |
-| MLOps current lesson set | `e68ba45` | 38 current-scope refs | **OPEN**; no crispness acceptance | 2/7 |
-| DE 2027 draft | `4bf778d` | 61 current refs | **OPEN**; no repository-wide acceptance | 69/88 |
+| MLOps current lesson set | `42a1b0d` | 38 current-scope refs | **OPEN**; no crispness acceptance | 2/7 |
+| DE 2027 draft | `bdacd32` | 61 current refs | **OPEN**; no repository-wide acceptance | 69/88 |
 
 “Units without illustrations” is intentionally not hidden: those units lost
 unsupported or invented visuals during the distrust audit. They should receive
