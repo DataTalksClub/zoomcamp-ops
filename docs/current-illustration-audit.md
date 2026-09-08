@@ -10,7 +10,7 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | Repository | HEAD | Worktree | Active selection |
 | --- | --- | --- | --- | --- |
-| ML | `/home/alexey/git/machine-learning-zoomcamp` | `1d093c9ddea6d73d80a3edaf605e464567d3b370` | dirty (snapshot still read-only) | the published 2026 cohort flow and its module manifests |
+| ML | `/home/alexey/git/machine-learning-zoomcamp` | `efc683bf21f4574b799d408da1cf589b3567176a` | clean | the published 2026 cohort flow and its module manifests |
 | LLM | `/home/alexey/git/llm-zoomcamp` | `8606dafb3b0cfe13e8955dd7ff146d5e004d539f` | clean | the published 2026 cohort flow and its module manifests |
 | MLOps | `/home/alexey/git/mlops-zoomcamp` | `d47085f98cae063be65f2e9e33eaa88c7cda04a7` | clean | numbered root module/project README pages; no published cohort manifest exists |
 | DE | `/home/alexey/git/data-engineering-zoomcamp` | `de422d45e2dc19db8cbf717fe7863051d6197f6f` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
@@ -27,7 +27,7 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | State | Active units | Illustration coverage | Image references | Visual review queue | Broken refs |
 | --- | --- | ---: | --- | ---: | ---: | ---: |
-| ML | `published current cohort` | 105 | 77 present / 28 missing | 205 (202 local) | 195 visual reviews required | 0 missing/outside |
+| ML | `published current cohort` | 105 | 76 present / 29 missing | 204 (201 local) | 194 visual reviews required | 0 missing/outside |
 | LLM | `published current cohort` | 72 | 36 present / 36 missing | 37 (37 local) | 37 visual reviews required | 0 missing/outside |
 | MLOps | `current self-paced curriculum` | 7 | 5 present / 2 missing | 38 (37 local) | 31 visual reviews required | 0 missing/outside |
 | DE | `current draft; unpublished` | 88 | 19 present / 69 missing | 58 (58 local) | 58 visual reviews required | 0 missing/outside |
@@ -140,7 +140,7 @@ Every row is in the selected active scope. `YES` means at least one resolving lo
 | ML | `cohorts/2026/10-kubernetes` | Introduction to Kubernetes | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | **YES** | 6 | 6 |
 | ML | `cohorts/2026/10-kubernetes` | Deploying a simple service to Kubernetes | `cohorts/2026/10-kubernetes/06-kubernetes-simple-service.md` | **MISSING** | 0 | 0 |
 | ML | `cohorts/2026/10-kubernetes` | Deploying TensorFlow models to Kubernetes | `cohorts/2026/10-kubernetes/07-kubernetes-tf-serving.md` | **MISSING** | 0 | 0 |
-| ML | `cohorts/2026/10-kubernetes` | Deploying to EKS | `cohorts/2026/10-kubernetes/08-eks.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/10-kubernetes` | Deploying to EKS | `cohorts/2026/10-kubernetes/08-eks.md` | **MISSING** | 0 | 0 |
 | ML | `cohorts/2026/10-kubernetes` | Summary | `cohorts/2026/10-kubernetes/09-summary.md` | **YES** | 1 | 1 |
 | ML | `cohorts/2026/10-kubernetes` | Explore more | `cohorts/2026/10-kubernetes/10-explore-more.md` | **YES** | 1 | 1 |
 | LLM | `cohorts/2026/01-agentic-rag` | Introduction | `cohorts/2026/01-agentic-rag/01-intro.md` | **YES** | 1 | 1 |
@@ -516,10 +516,9 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 34 | `images/05-kubernetes-intro-01-cluster-nodes-pods-imagegen.png` | instructional illustration | PRESENT | 1448×1086 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 48 | `images/05-kubernetes-intro-02-deployments-imagegen.png` | instructional illustration | PRESENT | 1438×1093 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 74 | `images/05-kubernetes-intro-03-services-crisp.png` | instructional illustration | PRESENT | 1441×1091 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 94 | `images/05-kubernetes-intro-05-definitions-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 94 | `images/05-kubernetes-intro-05-definitions-imagegen.png` | instructional illustration | PRESENT | 1800×1120 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 96 | `images/05-kubernetes-intro-04-external-internal-ingress-imagegen.png` | instructional illustration | PRESENT | 1614×975 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 112 | `images/05-kubernetes-intro-06-scaling-imagegen.png` | instructional illustration | PRESENT | 1619×971 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/08-eks.md` | 164 | `images/08-eks-06-aws-console-crisp.png` | instructional illustration | PRESENT | 3576×1542 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/09-summary.md` | 26 | `images/09-summary-01-architecture-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/10-explore-more.md` | 4 | `images/10-explore-more-01-cluster-options-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/01-intro.md` | 71 | `images/01-intro-01-rag-project-overview-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
@@ -658,7 +657,7 @@ This is the complete image-reference occurrence list for the selected unit files
 
 ## Review handoff
 
-- The machine-check snapshot contains 338 image-reference occurrences; 0 are missing or outside their repository.
+- The machine-check snapshot contains 337 image-reference occurrences; 0 are missing or outside their repository.
 - 0 active instructional references are crop-only candidates and must be checked against their retained original source before acceptance.
 - The implementation agent must retain each original non-crisp source, crop only when it isolates useful content, merge adjacent screenshots on the content side in the correct orientation, and pass the original source image(s) plus any merged source reference to imagegen. A 2×/3× resized derivative must never be the only imagegen input.
 - The independent reviewer must inspect crop direction/order, visual crispness, text/semantic fidelity, overlays, and every Markdown reference, then record an explicit verdict in the rollout report.
