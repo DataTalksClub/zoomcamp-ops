@@ -657,8 +657,22 @@ DE follow-up commits `3771ae1`, `ed8bfff`, and `f5605c6` repaired the missing
 `1TB` mapPartitions annotation, regenerated the Dataproc submit form, and
 removed the BigQuery traceback screenshot. Commits `28447dc` and `d93b267`
 then regenerated the Spark master and worker UI captures with imagegen and
-retained exact provenance. The submit form and four regenerated UI assets need
-independent review; two Dataproc images remain unresolved.
+retained exact provenance. Descartes subsequently accepted the submit form,
+master UI, and worker UI; the provenance-only follow-up remains open for
+mapPartitions, Dataproc create-cluster, and reports-in-bucket.
+
+Descartes independently reviewed six of those outputs. Spark master, worker,
+and Dataproc submit-form outputs passed. MapPartitions still needs its tracked
+crop retained; Dataproc create-cluster lacks a ledger row; reports-in-bucket
+documents the wrong narrow crop. A provenance worker is fixing those three.
+
+## ML tree provenance audit
+
+The strict tree audit found 12 fresh refs: 11 visually crisp and semantically
+correct but lacking durable source/crop/output chains, plus one XGBoost
+parameter wording defect (`min_child_weight` was presented as equality with
+`min_samples_leaf`). A focused worker is retaining/recreating evidence for the
+11 and repairing the wording; none is accepted until independently rechecked.
 
 ## ML classification and evaluation strict audit follow-up
 
@@ -690,9 +704,16 @@ is still required.
 | Classification `ef15e0f` / `5375259` | 2 | 0 | 1 image embed |
 | Evaluation `00cf1c9` / `a755623` / `2de31ca` | 0 | 2 | 1 image embed |
 
-The accepted asset is the RDD DAG image. The unresolved queue contains the
-map-partitions diagram (missing the lesson's `1TB` annotation) and four
-visually readable assets with incomplete provenance. The Dataproc submit-form
-image needs the fields promised by its caption. The BigQuery error screenshot
-should become native error output rather than an image. No asset in this
-checkpoint is silently promoted from a pending visual inspection.
+Archimedes completed the final evaluation provenance review after `2de31ca`.
+Both tracked crops reproduce byte-for-byte from documented coordinates, and
+source/crop/output hashes plus C2PA and native/608px semantic checks pass.
+
+| Batch | Accepted | Needs repair | Unresolved |
+| --- | ---: | ---: | ---: |
+| Evaluation final provenance review `2de31ca` | 2 | 0 | 0 |
+
+The accepted asset in the initial eight-file checkpoint was the RDD DAG image.
+Subsequent focused work restored the `1TB` mapPartitions annotation, rebuilt
+the Dataproc submit form, and removed the BigQuery error embed. The current
+open DE follow-up is provenance for mapPartitions, Dataproc create-cluster,
+and reports-in-bucket; these are not silently promoted to accepted.
