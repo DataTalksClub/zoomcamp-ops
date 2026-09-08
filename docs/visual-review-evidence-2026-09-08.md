@@ -579,3 +579,13 @@ asset 06 remains open for removal of an orange cursor/highlight artifact.
 | Asset group | Visually accepted | Provenance follow-up | Needs visual repair |
 | --- | ---: | ---: | ---: |
 | API Gateway `3ebc5a1` | 4 | 3 | 1 |
+
+Darwin rechecked the post-repair commit `51ef765`. All five assets now pass:
+the 02/04/05 source/crop/output hashes match the corrected ledger, and the
+06 orange cursor/highlight is gone. All five are genuine imagegen redraws with
+clean native and 608px renders, C2PA metadata, and no camera/browser/cursor
+overlays.
+
+| Batch | Accepted | Needs repair | Unresolved |
+| --- | ---: | ---: | ---: |
+| API Gateway final review `51ef765` | 5 | 0 | 0 |
