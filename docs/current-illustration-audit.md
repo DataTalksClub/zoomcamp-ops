@@ -8,10 +8,10 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | Repository | HEAD | Worktree | Active selection |
 | --- | --- | --- | --- | --- |
-| ML | `/home/alexey/git/machine-learning-zoomcamp` | `bfafbbb0c7922e99814ecfcd2a1ee45cf51c84b9` | clean | the published 2026 cohort flow and its module manifests |
+| ML | `/home/alexey/git/machine-learning-zoomcamp` | `10bae470637b1833f0914e450e521a3cf3a4ee16` | clean | the published 2026 cohort flow and its module manifests |
 | LLM | `/home/alexey/git/llm-zoomcamp` | `c557a0a05e27b710014f32e7533f96454b2dc51f` | clean | the published 2026 cohort flow and its module manifests |
 | MLOps | `/home/alexey/git/mlops-zoomcamp` | `e68ba45e215e8ebada38614444b05098fc933d9f` | clean | numbered root module/project README pages; no published cohort manifest exists |
-| DE | `/home/alexey/git/data-engineering-zoomcamp` | `21b6693d9dc253e8962f9ac216799b7e223e87d9` | clean | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
+| DE | `/home/alexey/git/data-engineering-zoomcamp` | `bdacd32b83ca2347e764c3c73ce3c3287348cf98` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
 
 ## Status contract
 
@@ -25,10 +25,10 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | State | Active units | Illustration coverage | Image references | Visual review queue | Broken refs |
 | --- | --- | ---: | --- | ---: | ---: | ---: |
-| ML | `published current cohort` | 105 | 105 present / 0 missing | 581 (578 local) | 569 visual reviews required | 0 missing/outside |
+| ML | `published current cohort` | 105 | 90 present / 15 missing | 356 (353 local) | 345 visual reviews required | 0 missing/outside |
 | LLM | `published current cohort` | 72 | 36 present / 36 missing | 38 (38 local) | 38 visual reviews required | 0 missing/outside |
 | MLOps | `current self-paced curriculum` | 7 | 5 present / 2 missing | 38 (37 local) | 31 visual reviews required | 0 missing/outside |
-| DE | `current draft; unpublished` | 88 | 22 present / 66 missing | 105 (105 local) | 105 visual reviews required | 0 missing/outside |
+| DE | `current draft; unpublished` | 88 | 19 present / 69 missing | 61 (61 local) | 61 visual reviews required | 0 missing/outside |
 
 ## Active units
 
@@ -36,70 +36,70 @@ Every row is in the selected active scope. `YES` means at least one resolving lo
 
 | Scope | Module | Unit | Unit file | Illustration present/missing | Instructional refs | All local/remote image refs |
 | --- | --- | --- | --- | --- | ---: | ---: |
-| ML | `cohorts/2026/01-intro` | Introduction to Machine Learning | `cohorts/2026/01-intro/01-what-is-ml.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/01-intro` | ML vs Rule-Based Systems | `cohorts/2026/01-intro/02-ml-vs-rules.md` | **YES** | 8 | 8 |
-| ML | `cohorts/2026/01-intro` | Supervised Machine Learning | `cohorts/2026/01-intro/03-supervised-ml.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/01-intro` | CRISP-DM | `cohorts/2026/01-intro/04-crisp-dm.md` | **YES** | 6 | 6 |
+| ML | `cohorts/2026/01-intro` | Introduction to Machine Learning | `cohorts/2026/01-intro/01-what-is-ml.md` | **YES** | 5 | 5 |
+| ML | `cohorts/2026/01-intro` | ML vs Rule-Based Systems | `cohorts/2026/01-intro/02-ml-vs-rules.md` | **YES** | 5 | 5 |
+| ML | `cohorts/2026/01-intro` | Supervised Machine Learning | `cohorts/2026/01-intro/03-supervised-ml.md` | **YES** | 5 | 5 |
+| ML | `cohorts/2026/01-intro` | CRISP-DM | `cohorts/2026/01-intro/04-crisp-dm.md` | **YES** | 4 | 4 |
 | ML | `cohorts/2026/01-intro` | Model Selection Process | `cohorts/2026/01-intro/05-model-selection.md` | **YES** | 4 | 4 |
-| ML | `cohorts/2026/01-intro` | Setting up the Environment | `cohorts/2026/01-intro/06-environment.md` | **YES** | 9 | 9 |
-| ML | `cohorts/2026/01-intro` | Introduction to NumPy | `cohorts/2026/01-intro/07-numpy.md` | **YES** | 8 | 8 |
-| ML | `cohorts/2026/01-intro` | Linear Algebra Refresher | `cohorts/2026/01-intro/08-linear-algebra.md` | **YES** | 8 | 8 |
-| ML | `cohorts/2026/01-intro` | Introduction to Pandas | `cohorts/2026/01-intro/09-pandas.md` | **YES** | 8 | 8 |
+| ML | `cohorts/2026/01-intro` | Setting up the Environment | `cohorts/2026/01-intro/06-environment.md` | **YES** | 5 | 5 |
+| ML | `cohorts/2026/01-intro` | Introduction to NumPy | `cohorts/2026/01-intro/07-numpy.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/01-intro` | Linear Algebra Refresher | `cohorts/2026/01-intro/08-linear-algebra.md` | **YES** | 2 | 2 |
+| ML | `cohorts/2026/01-intro` | Introduction to Pandas | `cohorts/2026/01-intro/09-pandas.md` | **MISSING** | 0 | 0 |
 | ML | `cohorts/2026/01-intro` | Summary | `cohorts/2026/01-intro/10-summary.md` | **YES** | 6 | 6 |
-| ML | `cohorts/2026/02-regression` | Car price prediction project | `cohorts/2026/02-regression/01-car-price-intro.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/02-regression` | Data preparation | `cohorts/2026/02-regression/02-data-preparation.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/02-regression` | Exploratory data analysis | `cohorts/2026/02-regression/03-eda.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/02-regression` | Setting up the validation framework | `cohorts/2026/02-regression/04-validation-framework.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/02-regression` | Linear regression | `cohorts/2026/02-regression/05-linear-regression-simple.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/02-regression` | Linear regression: vector form | `cohorts/2026/02-regression/06-linear-regression-vector.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/02-regression` | Training linear regression: Normal equation | `cohorts/2026/02-regression/07-linear-regression-training.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/02-regression` | Baseline model for car price prediction project | `cohorts/2026/02-regression/08-baseline-model.md` | **YES** | 6 | 6 |
-| ML | `cohorts/2026/02-regression` | Root Mean Squared Error (RMSE) | `cohorts/2026/02-regression/09-rmse.md` | **YES** | 5 | 5 |
-| ML | `cohorts/2026/02-regression` | Computing RMSE on validation data | `cohorts/2026/02-regression/10-car-price-validation.md` | **YES** | 4 | 4 |
+| ML | `cohorts/2026/02-regression` | Car price prediction project | `cohorts/2026/02-regression/01-car-price-intro.md` | **YES** | 6 | 6 |
+| ML | `cohorts/2026/02-regression` | Data preparation | `cohorts/2026/02-regression/02-data-preparation.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/02-regression` | Exploratory data analysis | `cohorts/2026/02-regression/03-eda.md` | **YES** | 4 | 4 |
+| ML | `cohorts/2026/02-regression` | Setting up the validation framework | `cohorts/2026/02-regression/04-validation-framework.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/02-regression` | Linear regression | `cohorts/2026/02-regression/05-linear-regression-simple.md` | **YES** | 4 | 4 |
+| ML | `cohorts/2026/02-regression` | Linear regression: vector form | `cohorts/2026/02-regression/06-linear-regression-vector.md` | **YES** | 5 | 5 |
+| ML | `cohorts/2026/02-regression` | Training linear regression: Normal equation | `cohorts/2026/02-regression/07-linear-regression-training.md` | **YES** | 3 | 3 |
+| ML | `cohorts/2026/02-regression` | Baseline model for car price prediction project | `cohorts/2026/02-regression/08-baseline-model.md` | **YES** | 2 | 2 |
+| ML | `cohorts/2026/02-regression` | Root Mean Squared Error (RMSE) | `cohorts/2026/02-regression/09-rmse.md` | **YES** | 4 | 4 |
+| ML | `cohorts/2026/02-regression` | Computing RMSE on validation data | `cohorts/2026/02-regression/10-car-price-validation.md` | **YES** | 1 | 1 |
 | ML | `cohorts/2026/02-regression` | Feature engineering | `cohorts/2026/02-regression/11-feature-engineering.md` | **YES** | 1 | 1 |
-| ML | `cohorts/2026/02-regression` | Categorical variables | `cohorts/2026/02-regression/12-categorical-variables.md` | **YES** | 7 | 8 |
-| ML | `cohorts/2026/02-regression` | Regularization | `cohorts/2026/02-regression/13-regularization.md` | **YES** | 8 | 8 |
-| ML | `cohorts/2026/02-regression` | Tuning the model | `cohorts/2026/02-regression/14-tuning-model.md` | **YES** | 4 | 4 |
-| ML | `cohorts/2026/02-regression` | Using the model | `cohorts/2026/02-regression/15-using-model.md` | **YES** | 8 | 8 |
-| ML | `cohorts/2026/02-regression` | Car price prediction project summary | `cohorts/2026/02-regression/16-summary.md` | **YES** | 7 | 7 |
+| ML | `cohorts/2026/02-regression` | Categorical variables | `cohorts/2026/02-regression/12-categorical-variables.md` | **MISSING** | 0 | 1 |
+| ML | `cohorts/2026/02-regression` | Regularization | `cohorts/2026/02-regression/13-regularization.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/02-regression` | Tuning the model | `cohorts/2026/02-regression/14-tuning-model.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/02-regression` | Using the model | `cohorts/2026/02-regression/15-using-model.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/02-regression` | Car price prediction project summary | `cohorts/2026/02-regression/16-summary.md` | **MISSING** | 0 | 0 |
 | ML | `cohorts/2026/02-regression` | Explore more | `cohorts/2026/02-regression/17-explore-more.md` | **YES** | 1 | 1 |
-| ML | `cohorts/2026/03-classification` | Churn prediction project | `cohorts/2026/03-classification/01-churn-project.md` | **YES** | 3 | 3 |
-| ML | `cohorts/2026/03-classification` | Data preparation | `cohorts/2026/03-classification/02-data-preparation.md` | **YES** | 6 | 6 |
-| ML | `cohorts/2026/03-classification` | Setting up the validation framework | `cohorts/2026/03-classification/03-validation.md` | **YES** | 4 | 4 |
-| ML | `cohorts/2026/03-classification` | EDA | `cohorts/2026/03-classification/04-eda.md` | **YES** | 5 | 5 |
-| ML | `cohorts/2026/03-classification` | Feature importance: Churn rate and risk ratio | `cohorts/2026/03-classification/05-risk.md` | **YES** | 6 | 6 |
-| ML | `cohorts/2026/03-classification` | Feature importance: Mutual information | `cohorts/2026/03-classification/06-mutual-info.md` | **YES** | 4 | 4 |
-| ML | `cohorts/2026/03-classification` | Feature importance: Correlation | `cohorts/2026/03-classification/07-correlation.md` | **YES** | 3 | 5 |
-| ML | `cohorts/2026/03-classification` | One-hot encoding | `cohorts/2026/03-classification/08-ohe.md` | **YES** | 5 | 5 |
-| ML | `cohorts/2026/03-classification` | Logistic regression | `cohorts/2026/03-classification/09-logistic-regression.md` | **YES** | 2 | 5 |
-| ML | `cohorts/2026/03-classification` | Training logistic regression with Scikit-Learn | `cohorts/2026/03-classification/10-training-log-reg.md` | **YES** | 6 | 6 |
-| ML | `cohorts/2026/03-classification` | Model interpretation | `cohorts/2026/03-classification/11-log-reg-interpretation.md` | **YES** | 6 | 7 |
-| ML | `cohorts/2026/03-classification` | Using the model | `cohorts/2026/03-classification/12-using-log-reg.md` | **YES** | 4 | 4 |
-| ML | `cohorts/2026/03-classification` | Summary | `cohorts/2026/03-classification/13-summary.md` | **YES** | 3 | 3 |
+| ML | `cohorts/2026/03-classification` | Churn prediction project | `cohorts/2026/03-classification/01-churn-project.md` | **YES** | 2 | 2 |
+| ML | `cohorts/2026/03-classification` | Data preparation | `cohorts/2026/03-classification/02-data-preparation.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/03-classification` | Setting up the validation framework | `cohorts/2026/03-classification/03-validation.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/03-classification` | EDA | `cohorts/2026/03-classification/04-eda.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/03-classification` | Feature importance: Churn rate and risk ratio | `cohorts/2026/03-classification/05-risk.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/03-classification` | Feature importance: Mutual information | `cohorts/2026/03-classification/06-mutual-info.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/03-classification` | Feature importance: Correlation | `cohorts/2026/03-classification/07-correlation.md` | **YES** | 2 | 4 |
+| ML | `cohorts/2026/03-classification` | One-hot encoding | `cohorts/2026/03-classification/08-ohe.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/03-classification` | Logistic regression | `cohorts/2026/03-classification/09-logistic-regression.md` | **YES** | 1 | 4 |
+| ML | `cohorts/2026/03-classification` | Training logistic regression with Scikit-Learn | `cohorts/2026/03-classification/10-training-log-reg.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/03-classification` | Model interpretation | `cohorts/2026/03-classification/11-log-reg-interpretation.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/03-classification` | Using the model | `cohorts/2026/03-classification/12-using-log-reg.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/03-classification` | Summary | `cohorts/2026/03-classification/13-summary.md` | **YES** | 1 | 1 |
 | ML | `cohorts/2026/03-classification` | Explore more | `cohorts/2026/03-classification/14-explore-more.md` | **YES** | 1 | 1 |
-| ML | `cohorts/2026/04-evaluation` | Evaluation metrics: session overview | `cohorts/2026/04-evaluation/01-overview.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/04-evaluation` | Accuracy and dummy model | `cohorts/2026/04-evaluation/02-accuracy.md` | **YES** | 8 | 8 |
-| ML | `cohorts/2026/04-evaluation` | Confusion table | `cohorts/2026/04-evaluation/03-confusion-table.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/04-evaluation` | Precision and Recall | `cohorts/2026/04-evaluation/04-precision-recall.md` | **YES** | 7 | 7 |
+| ML | `cohorts/2026/04-evaluation` | Evaluation metrics: session overview | `cohorts/2026/04-evaluation/01-overview.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/04-evaluation` | Accuracy and dummy model | `cohorts/2026/04-evaluation/02-accuracy.md` | **YES** | 3 | 3 |
+| ML | `cohorts/2026/04-evaluation` | Confusion table | `cohorts/2026/04-evaluation/03-confusion-table.md` | **YES** | 3 | 3 |
+| ML | `cohorts/2026/04-evaluation` | Precision and Recall | `cohorts/2026/04-evaluation/04-precision-recall.md` | **YES** | 5 | 5 |
 | ML | `cohorts/2026/04-evaluation` | ROC Curves | `cohorts/2026/04-evaluation/05-roc.md` | **YES** | 6 | 6 |
-| ML | `cohorts/2026/04-evaluation` | ROC AUC | `cohorts/2026/04-evaluation/06-auc.md` | **YES** | 5 | 5 |
-| ML | `cohorts/2026/04-evaluation` | Cross-Validation | `cohorts/2026/04-evaluation/07-cross-validation.md` | **YES** | 5 | 6 |
-| ML | `cohorts/2026/04-evaluation` | Summary | `cohorts/2026/04-evaluation/08-summary.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/04-evaluation` | ROC AUC | `cohorts/2026/04-evaluation/06-auc.md` | **YES** | 2 | 2 |
+| ML | `cohorts/2026/04-evaluation` | Cross-Validation | `cohorts/2026/04-evaluation/07-cross-validation.md` | **MISSING** | 0 | 1 |
+| ML | `cohorts/2026/04-evaluation` | Summary | `cohorts/2026/04-evaluation/08-summary.md` | **MISSING** | 0 | 0 |
 | ML | `cohorts/2026/04-evaluation` | Explore more | `cohorts/2026/04-evaluation/09-explore-more.md` | **YES** | 1 | 1 |
-| ML | `cohorts/2026/05-deployment` | Intro / Session overview | `cohorts/2026/05-deployment/01-intro.md` | **YES** | 5 | 5 |
-| ML | `cohorts/2026/05-deployment` | Saving and loading the model | `cohorts/2026/05-deployment/02-pickle.md` | **YES** | 5 | 5 |
-| ML | `cohorts/2026/05-deployment` | Web services: introduction to Flask | `cohorts/2026/05-deployment/03-flask-intro.md` | **YES** | 3 | 3 |
-| ML | `cohorts/2026/05-deployment` | Serving the churn model with Flask | `cohorts/2026/05-deployment/04-flask-deployment.md` | **YES** | 6 | 6 |
-| ML | `cohorts/2026/05-deployment` | Python virtual environment: Pipenv | `cohorts/2026/05-deployment/05-pipenv.md` | **YES** | 6 | 6 |
-| ML | `cohorts/2026/05-deployment` | Environment management: Docker | `cohorts/2026/05-deployment/06-docker.md` | **YES** | 5 | 5 |
-| ML | `cohorts/2026/05-deployment` | Deployment to the cloud: AWS Elastic Beanstalk (optional) | `cohorts/2026/05-deployment/07-aws-eb.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/05-deployment` | Summary | `cohorts/2026/05-deployment/08-summary.md` | **YES** | 3 | 3 |
+| ML | `cohorts/2026/05-deployment` | Intro / Session overview | `cohorts/2026/05-deployment/01-intro.md` | **YES** | 3 | 3 |
+| ML | `cohorts/2026/05-deployment` | Saving and loading the model | `cohorts/2026/05-deployment/02-pickle.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/05-deployment` | Web services: introduction to Flask | `cohorts/2026/05-deployment/03-flask-intro.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/05-deployment` | Serving the churn model with Flask | `cohorts/2026/05-deployment/04-flask-deployment.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/05-deployment` | Python virtual environment: Pipenv | `cohorts/2026/05-deployment/05-pipenv.md` | **YES** | 4 | 4 |
+| ML | `cohorts/2026/05-deployment` | Environment management: Docker | `cohorts/2026/05-deployment/06-docker.md` | **YES** | 2 | 2 |
+| ML | `cohorts/2026/05-deployment` | Deployment to the cloud: AWS Elastic Beanstalk (optional) | `cohorts/2026/05-deployment/07-aws-eb.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/05-deployment` | Summary | `cohorts/2026/05-deployment/08-summary.md` | **MISSING** | 0 | 0 |
 | ML | `cohorts/2026/05-deployment` | Explore more | `cohorts/2026/05-deployment/09-explore-more.md` | **YES** | 1 | 1 |
-| ML | `cohorts/2026/06-trees` | Credit risk scoring project | `cohorts/2026/06-trees/01-credit-risk.md` | **YES** | 5 | 5 |
-| ML | `cohorts/2026/06-trees` | Data cleaning and preparation | `cohorts/2026/06-trees/02-data-prep.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/06-trees` | Decision trees | `cohorts/2026/06-trees/03-decision-trees.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/06-trees` | Decision tree learning algorithm | `cohorts/2026/06-trees/04-decision-tree-learning.md` | **YES** | 7 | 7 |
-| ML | `cohorts/2026/06-trees` | Decision trees parameter tuning | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | **YES** | 7 | 7 |
+| ML | `cohorts/2026/06-trees` | Credit risk scoring project | `cohorts/2026/06-trees/01-credit-risk.md` | **YES** | 3 | 3 |
+| ML | `cohorts/2026/06-trees` | Data cleaning and preparation | `cohorts/2026/06-trees/02-data-prep.md` | **MISSING** | 0 | 0 |
+| ML | `cohorts/2026/06-trees` | Decision trees | `cohorts/2026/06-trees/03-decision-trees.md` | **YES** | 4 | 4 |
+| ML | `cohorts/2026/06-trees` | Decision tree learning algorithm | `cohorts/2026/06-trees/04-decision-tree-learning.md` | **YES** | 1 | 1 |
+| ML | `cohorts/2026/06-trees` | Decision trees parameter tuning | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | **YES** | 2 | 2 |
 | ML | `cohorts/2026/06-trees` | Ensemble learning and random forest | `cohorts/2026/06-trees/06-random-forest.md` | **YES** | 5 | 5 |
 | ML | `cohorts/2026/06-trees` | Gradient boosting and XGBoost | `cohorts/2026/06-trees/07-boosting.md` | **YES** | 3 | 3 |
 | ML | `cohorts/2026/06-trees` | XGBoost parameter tuning | `cohorts/2026/06-trees/08-xgb-tuning.md` | **YES** | 4 | 4 |
@@ -251,11 +251,11 @@ Every row is in the selected active scope. `YES` means at least one resolving lo
 | DE | `cohorts/2027/02-workflow-orchestration` | Bonus: Retrieval Augmented Generation (RAG) | `cohorts/2027/02-workflow-orchestration/16-retrieval-augmented-generation.md` | **MISSING** | 0 | 0 |
 | DE | `cohorts/2027/02-workflow-orchestration` | Bonus: Deploy to the Cloud (Optional) | `cohorts/2027/02-workflow-orchestration/17-deploy-to-the-cloud.md` | **MISSING** | 0 | 0 |
 | DE | `cohorts/2027/02-workflow-orchestration` | Additional Resources | `cohorts/2027/02-workflow-orchestration/18-additional-resources.md` | **MISSING** | 0 | 0 |
-| DE | `cohorts/2027/03-data-warehouse` | Data Warehouse and BigQuery | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | **YES** | 8 | 8 |
-| DE | `cohorts/2027/03-data-warehouse` | Partitioning vs Clustering | `cohorts/2027/03-data-warehouse/02-partitioning-vs-clustering.md` | **YES** | 5 | 5 |
-| DE | `cohorts/2027/03-data-warehouse` | BigQuery Best Practices | `cohorts/2027/03-data-warehouse/03-bigquery-best-practices.md` | **YES** | 3 | 3 |
+| DE | `cohorts/2027/03-data-warehouse` | Data Warehouse and BigQuery | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | **YES** | 6 | 6 |
+| DE | `cohorts/2027/03-data-warehouse` | Partitioning vs Clustering | `cohorts/2027/03-data-warehouse/02-partitioning-vs-clustering.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/03-data-warehouse` | BigQuery Best Practices | `cohorts/2027/03-data-warehouse/03-bigquery-best-practices.md` | **MISSING** | 0 | 0 |
 | DE | `cohorts/2027/03-data-warehouse` | Internals of BigQuery | `cohorts/2027/03-data-warehouse/04-internals-of-bigquery.md` | **YES** | 3 | 3 |
-| DE | `cohorts/2027/03-data-warehouse` | Machine Learning in BigQuery | `cohorts/2027/03-data-warehouse/05-machine-learning-in-bigquery.md` | **YES** | 8 | 8 |
+| DE | `cohorts/2027/03-data-warehouse` | Machine Learning in BigQuery | `cohorts/2027/03-data-warehouse/05-machine-learning-in-bigquery.md` | **YES** | 1 | 1 |
 | DE | `cohorts/2027/03-data-warehouse` | Deploying a Machine Learning Model from BigQuery | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | **YES** | 6 | 6 |
 | DE | `cohorts/2027/04-analytics-engineering` | Analytics Engineering Basics | `cohorts/2027/04-analytics-engineering/01-analytics-engineering-basics.md` | **MISSING** | 0 | 0 |
 | DE | `cohorts/2027/04-analytics-engineering` | What is dbt? | `cohorts/2027/04-analytics-engineering/02-what-is-dbt.md` | **MISSING** | 0 | 0 |
@@ -278,22 +278,22 @@ Every row is in the selected active scope. `YES` means at least one resolving lo
 | DE | `cohorts/2027/05-data-platforms` | Core Concepts: Assets | `cohorts/2027/05-data-platforms/08-core-concepts-assets.md` | **MISSING** | 0 | 0 |
 | DE | `cohorts/2027/05-data-platforms` | Core Concepts: Variables | `cohorts/2027/05-data-platforms/09-core-concepts-variables.md` | **MISSING** | 0 | 0 |
 | DE | `cohorts/2027/05-data-platforms` | Core Concepts: Commands | `cohorts/2027/05-data-platforms/10-core-concepts-commands.md` | **MISSING** | 0 | 0 |
-| DE | `cohorts/2027/06-batch` | Introduction to Batch Processing | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | **YES** | 6 | 6 |
+| DE | `cohorts/2027/06-batch` | Introduction to Batch Processing | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | **YES** | 3 | 3 |
 | DE | `cohorts/2027/06-batch` | Introduction to Spark | `cohorts/2027/06-batch/02-introduction-to-spark.md` | **YES** | 3 | 3 |
 | DE | `cohorts/2027/06-batch` | Installing Spark | `cohorts/2027/06-batch/03-installing-spark.md` | **YES** | 5 | 5 |
-| DE | `cohorts/2027/06-batch` | First Look at Spark/PySpark | `cohorts/2027/06-batch/04-first-look-at-spark.md` | **YES** | 5 | 5 |
+| DE | `cohorts/2027/06-batch` | First Look at Spark/PySpark | `cohorts/2027/06-batch/04-first-look-at-spark.md` | **YES** | 4 | 4 |
 | DE | `cohorts/2027/06-batch` | Spark DataFrames | `cohorts/2027/06-batch/05-spark-dataframes.md` | **YES** | 4 | 4 |
-| DE | `cohorts/2027/06-batch` | Preparing Yellow and Green Taxi Data | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | **YES** | 7 | 7 |
+| DE | `cohorts/2027/06-batch` | Preparing Yellow and Green Taxi Data | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | **YES** | 5 | 5 |
 | DE | `cohorts/2027/06-batch` | SQL with Spark | `cohorts/2027/06-batch/07-sql-with-spark.md` | **YES** | 2 | 2 |
 | DE | `cohorts/2027/06-batch` | Anatomy of a Spark Cluster | `cohorts/2027/06-batch/08-anatomy-of-a-spark-cluster.md` | **YES** | 4 | 4 |
-| DE | `cohorts/2027/06-batch` | GroupBy in Spark | `cohorts/2027/06-batch/09-groupby-in-spark.md` | **YES** | 4 | 4 |
-| DE | `cohorts/2027/06-batch` | Joins in Spark | `cohorts/2027/06-batch/10-joins-in-spark.md` | **YES** | 4 | 4 |
-| DE | `cohorts/2027/06-batch` | Operations on Spark RDDs | `cohorts/2027/06-batch/11-operations-on-spark-rdds.md` | **YES** | 5 | 5 |
-| DE | `cohorts/2027/06-batch` | Spark RDD mapPartition | `cohorts/2027/06-batch/12-spark-rdd-mappartition.md` | **YES** | 5 | 5 |
-| DE | `cohorts/2027/06-batch` | Connecting to Google Cloud Storage | `cohorts/2027/06-batch/13-connecting-to-google-cloud-storage.md` | **YES** | 6 | 6 |
-| DE | `cohorts/2027/06-batch` | Creating a Local Spark Cluster | `cohorts/2027/06-batch/14-creating-a-local-spark-cluster.md` | **YES** | 5 | 5 |
-| DE | `cohorts/2027/06-batch` | Setting up a Dataproc Cluster | `cohorts/2027/06-batch/15-setting-up-a-dataproc-cluster.md` | **YES** | 4 | 4 |
-| DE | `cohorts/2027/06-batch` | Connecting Spark to BigQuery | `cohorts/2027/06-batch/16-connecting-spark-to-bigquery.md` | **YES** | 3 | 3 |
+| DE | `cohorts/2027/06-batch` | GroupBy in Spark | `cohorts/2027/06-batch/09-groupby-in-spark.md` | **YES** | 3 | 3 |
+| DE | `cohorts/2027/06-batch` | Joins in Spark | `cohorts/2027/06-batch/10-joins-in-spark.md` | **YES** | 2 | 2 |
+| DE | `cohorts/2027/06-batch` | Operations on Spark RDDs | `cohorts/2027/06-batch/11-operations-on-spark-rdds.md` | **YES** | 2 | 2 |
+| DE | `cohorts/2027/06-batch` | Spark RDD mapPartition | `cohorts/2027/06-batch/12-spark-rdd-mappartition.md` | **YES** | 2 | 2 |
+| DE | `cohorts/2027/06-batch` | Connecting to Google Cloud Storage | `cohorts/2027/06-batch/13-connecting-to-google-cloud-storage.md` | **MISSING** | 0 | 0 |
+| DE | `cohorts/2027/06-batch` | Creating a Local Spark Cluster | `cohorts/2027/06-batch/14-creating-a-local-spark-cluster.md` | **YES** | 2 | 2 |
+| DE | `cohorts/2027/06-batch` | Setting up a Dataproc Cluster | `cohorts/2027/06-batch/15-setting-up-a-dataproc-cluster.md` | **YES** | 3 | 3 |
+| DE | `cohorts/2027/06-batch` | Connecting Spark to BigQuery | `cohorts/2027/06-batch/16-connecting-spark-to-bigquery.md` | **YES** | 1 | 1 |
 | DE | `cohorts/2027/07-streaming` | PyFlink: Stream Processing Workshop | `cohorts/2027/07-streaming/01-introduction.md` | **MISSING** | 0 | 0 |
 | DE | `cohorts/2027/07-streaming` | Redpanda - a Kafka-compatible broker | `cohorts/2027/07-streaming/02-redpanda.md` | **MISSING** | 0 | 0 |
 | DE | `cohorts/2027/07-streaming` | Produce messages to Kafka | `cohorts/2027/07-streaming/03-produce-messages-to-kafka.md` | **MISSING** | 0 | 0 |
@@ -316,389 +316,164 @@ This is the complete image-reference occurrence list for the selected unit files
 | Scope | Unit | Line | Markdown target | Kind | Check | Dimensions | Quality status |
 | --- | --- | ---: | --- | --- | --- | --- | --- |
 | ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 14 | `images/01-what-is-ml-01-price-field-imagegen-pilot.png` | instructional illustration | PASS | 1816×866 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 28 | `images/01-what-is-ml-02-known-about-cars-imagegen-pilot.png` | instructional illustration | PASS | 1659×948 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 34 | `images/01-what-is-ml-03-expert-or-model-imagegen-pilot.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 45 | `images/01-what-is-ml-04-features-target-imagegen-pilot.png` | instructional illustration | PASS | 1690×931 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 51 | `images/01-what-is-ml-05-model-training-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 59 | `images/01-what-is-ml-06-using-model-imagegen-pilot.png` | instructional illustration | PASS | 1751×898 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 67 | `images/01-what-is-ml-07-suggest-price-imagegen-pilot.png` | instructional illustration | PASS | 1432×1098 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 33 | `images/01-what-is-ml-03-expert-or-model-imagegen-pilot.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 49 | `images/01-what-is-ml-05-model-training-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 57 | `images/01-what-is-ml-06-using-model-imagegen-pilot.png` | instructional illustration | PASS | 1751×898 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 65 | `images/01-what-is-ml-07-suggest-price-imagegen-pilot.png` | instructional illustration | PASS | 1432×1098 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 14 | `images/02-ml-vs-rules-01-spam-examples-imagegen-pilot.png` | instructional illustration | PASS | 1626×967 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 25 | `images/02-ml-vs-rules-02-rules-imagegen-pilot.png` | instructional illustration | PASS | 1642×958 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 29 | `images/02-ml-vs-rules-03-more-spam-imagegen-pilot.png` | instructional illustration | PASS | 1629×965 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 58 | `images/02-ml-vs-rules-04-features-imagegen-pilot.png` | instructional illustration | PASS | 1628×966 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 66 | `images/02-ml-vs-rules-05-encode-email-imagegen-pilot.png` | instructional illustration | PASS | 1628×966 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 81 | `images/02-ml-vs-rules-06-predictions-imagegen-pilot.png` | instructional illustration | PASS | 1629×966 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 91 | `images/02-ml-vs-rules-07-rule-based-summary-imagegen-pilot.png` | instructional illustration | PASS | 1770×889 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 95 | `images/02-ml-vs-rules-08-ml-summary-imagegen-pilot.png` | instructional illustration | PASS | 1537×1023 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 24 | `images/03-supervised-ml-01-features-target-imagegen-pilot.png` | instructional illustration | PASS | 1695×928 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 29 | `images/03-supervised-ml-02-feature-matrix-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 45 | `images/03-supervised-ml-03-predictions-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 55 | `images/03-supervised-ml-04-regression-imagegen-pilot.png` | instructional illustration | PASS | 1698×926 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 68 | `images/03-supervised-ml-05-multiclass-imagegen-pilot.png` | instructional illustration | PASS | 1695×928 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 76 | `images/03-supervised-ml-06-ranking-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 88 | `images/03-supervised-ml-07-summary-imagegen-pilot.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 28 | `images/02-ml-vs-rules-03-more-spam-imagegen-pilot.png` | instructional illustration | PASS | 1629×965 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 64 | `images/02-ml-vs-rules-05-encode-email-imagegen-pilot.png` | instructional illustration | PASS | 1628×966 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 88 | `images/02-ml-vs-rules-07-rule-based-summary-imagegen-pilot.png` | instructional illustration | PASS | 1770×889 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 92 | `images/02-ml-vs-rules-08-ml-summary-imagegen-pilot.png` | instructional illustration | PASS | 1537×1023 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 43 | `images/03-supervised-ml-03-predictions-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 53 | `images/03-supervised-ml-04-regression-imagegen-pilot.png` | instructional illustration | PASS | 1698×926 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 66 | `images/03-supervised-ml-05-multiclass-imagegen-pilot.png` | instructional illustration | PASS | 1695×928 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 74 | `images/03-supervised-ml-06-ranking-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/03-supervised-ml.md` | 86 | `images/03-supervised-ml-07-summary-imagegen-pilot.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/04-crisp-dm.md` | 12 | `images/04-crisp-dm-01-ml-projects-imagegen-pilot.png` | instructional illustration | PASS | 1627×967 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/04-crisp-dm.md` | 20 | `images/04-crisp-dm-02-process-diagram-imagegen-pilot.png` | instructional illustration | PASS | 1628×966 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/04-crisp-dm.md` | 26 | `images/04-crisp-dm-03-business-understanding-imagegen-pilot.png` | instructional illustration | PASS | 1628×966 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/04-crisp-dm.md` | 57 | `images/04-crisp-dm-04-data-preparation-imagegen-pilot.png` | instructional illustration | PASS | 1693×929 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/04-crisp-dm.md` | 61 | `images/04-crisp-dm-05-features-target-imagegen-pilot.png` | instructional illustration | PASS | 1635×962 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/04-crisp-dm.md` | 91 | `images/04-crisp-dm-06-summary-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/05-model-selection.md` | 20 | `images/05-model-selection-01-train-validation-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/05-model-selection.md` | 43 | `images/05-model-selection-02-multiple-comparisons-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/05-model-selection.md` | 55 | `images/05-model-selection-03-train-valid-test-imagegen-pilot.png` | instructional illustration | PASS | 1619×971 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/05-model-selection.md` | 67 | `images/05-model-selection-04-select-and-test-imagegen-pilot.png` | instructional illustration | PASS | 1693×929 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/06-environment.md` | 23 | `images/06-environment-01-create-repo-crisp.png` | instructional illustration | PASS | 1000×628 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/06-environment.md` | 27 | `images/06-environment-02-create-codespace-crisp.png` | instructional illustration | PASS | 1040×644 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/06-environment.md` | 33 | `images/06-environment-03-vscode-desktop-crisp.png` | instructional illustration | PASS | 1040×720 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/06-environment.md` | 49 | `images/06-environment-04-push-pip-install-crisp.png` | instructional illustration | PASS | 1280×520 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/06-environment.md` | 59 | `images/06-environment-05-jupyter-notebook-crisp.png` | instructional illustration | PASS | 1020×540 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/06-environment.md` | 63 | `images/06-environment-06-homework-notebook-crisp.png` | homework/support | PASS | 1020×720 | reference checked; non-illustration asset |
-| ML | `cohorts/2026/01-intro/06-environment.md` | 152 | `images/sample-jupyter-notebook-crisp.png` | instructional illustration | PASS | 1120×748 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/06-environment.md` | 160 | `images/sample-code-crisp.png` | instructional illustration | PASS | 2790×1350 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/06-environment.md` | 166 | `images/sample-data-file-crisp.png` | instructional illustration | PASS | 1000×818 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/06-environment.md` | 172 | `images/add-code-for-datafile-download-crisp.png` | instructional illustration | PASS | 3600×1320 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/07-numpy.md` | 44 | `images/07-numpy-01-zeros-ones-full-crisp.png` | instructional illustration | PASS | 1000×580 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/07-numpy.md` | 69 | `images/07-numpy-02-array-from-list-crisp.png` | instructional illustration | PASS | 1000×480 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/07-numpy.md` | 129 | `images/07-numpy-03-two-d-arrays-crisp.png` | instructional illustration | PASS | 1000×580 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/07-numpy.md` | 165 | `images/07-numpy-04-columns-crisp.png` | instructional illustration | PASS | 1000×500 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/07-numpy.md` | 191 | `images/07-numpy-05-random-seed-crisp.png` | instructional illustration | PASS | 1000×440 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/07-numpy.md` | 243 | `images/07-numpy-06-element-wise-crisp.png` | instructional illustration | PASS | 1000×400 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/07-numpy.md` | 273 | `images/07-numpy-07-comparison-crisp.png` | instructional illustration | PASS | 1000×370 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/07-numpy.md` | 313 | `images/07-numpy-08-summarizing-crisp.png` | instructional illustration | PASS | 1000×460 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 41 | `images/08-linear-algebra-01-vector-operations-crisp.png` | instructional illustration | PASS | 3360×1170 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 66 | `images/08-linear-algebra-02-dot-product-crisp.png` | instructional illustration | PASS | 2820×1602 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 101 | `images/08-linear-algebra-03-vector-vector-implementation-crisp.png` | instructional illustration | PASS | 3360×1278 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 118 | `images/08-linear-algebra-04-matrix-vector-idea-crisp.png` | instructional illustration | PASS | 2940×1710 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 168 | `images/08-linear-algebra-05-matrix-vector-implementation-crisp.png` | instructional illustration | PASS | 3360×1020 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 228 | `images/08-linear-algebra-06-matrix-matrix-crisp.png` | instructional illustration | PASS | 3360×1230 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 262 | `images/08-linear-algebra-07-identity-matrix-crisp.png` | instructional illustration | PASS | 3360×1158 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 288 | `images/08-linear-algebra-08-inverse-crisp.png` | instructional illustration | PASS | 3360×1230 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/09-pandas.md` | 64 | `images/09-pandas-01-create-dataframe-crisp.png` | instructional illustration | PASS | 3360×1710 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/09-pandas.md` | 144 | `images/09-pandas-02-series-and-columns-crisp.png` | instructional illustration | PASS | 3360×1380 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/09-pandas.md` | 219 | `images/09-pandas-03-iloc-crisp.png` | instructional illustration | PASS | 3360×1470 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/09-pandas.md` | 288 | `images/09-pandas-04-filtering-crisp.png` | instructional illustration | PASS | 3360×1230 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/09-pandas.md` | 346 | `images/09-pandas-05-string-operations-crisp.png` | instructional illustration | PASS | 3360×1350 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/09-pandas.md` | 391 | `images/09-pandas-06-describe-crisp.png` | instructional illustration | PASS | 3360×1440 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/09-pandas.md` | 436 | `images/09-pandas-07-missing-values-crisp.png` | instructional illustration | PASS | 3360×1230 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/09-pandas.md` | 466 | `images/09-pandas-08-groupby-crisp.png` | instructional illustration | PASS | 3360×630 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/06-environment.md` | 23 | `images/06-environment-01-create-repo-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/06-environment.md` | 27 | `images/06-environment-02-create-codespace-crisp.png` | instructional illustration | PASS | 1594×987 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/06-environment.md` | 33 | `images/06-environment-03-vscode-desktop-crisp.png` | instructional illustration | PASS | 1508×1043 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/06-environment.md` | 49 | `images/06-environment-04-push-pip-install-crisp.png` | instructional illustration | PASS | 1969×799 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/06-environment.md` | 59 | `images/06-environment-05-jupyter-notebook-crisp.png` | instructional illustration | PASS | 1723×913 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/06-environment.md` | 63 | `images/06-environment-06-homework-notebook-crisp.png` | homework/support | PASS | 1493×1054 | reference checked; non-illustration asset |
+| ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 65 | `images/08-linear-algebra-02-dot-product-crisp.png` | instructional illustration | PASS | 1665×945 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 116 | `images/08-linear-algebra-04-matrix-vector-idea-crisp.png` | instructional illustration | PASS | 1645×956 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/10-summary.md` | 17 | `images/10-summary-01-features-target-model-imagegen-pilot.png` | instructional illustration | PASS | 1706×922 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/10-summary.md` | 23 | `images/10-summary-02-rule-based-spam-rules-imagegen-pilot.png` | instructional illustration | PASS | 1716×917 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/10-summary.md` | 27 | `images/10-summary-03-ml-training-data-imagegen-pilot.png` | instructional illustration | PASS | 1713×918 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/10-summary.md` | 35 | `images/10-summary-04-supervised-g-x-y-imagegen-pilot.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/10-summary.md` | 41 | `images/10-summary-05-crisp-dm-bigger-picture-imagegen-pilot.png` | instructional illustration | PASS | 1254×1254 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/10-summary.md` | 47 | `images/10-summary-06-model-selection-split-imagegen-pilot.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 17 | `images/01-car-price-intro-01-select-best-price-crisp.png` | instructional illustration | PASS | 1008×672 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 26 | `images/01-car-price-intro-02-kaggle-dataset-crisp.png` | instructional illustration | PASS | 1078×492 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 31 | `images/01-car-price-intro-03-kaggle-data-explorer-crisp.png` | instructional illustration | PASS | 1152×566 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 39 | `images/01-car-price-intro-04-msrp-column-crisp.png` | instructional illustration | PASS | 1152×566 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 59 | `images/01-car-price-intro-05-project-plan-crisp.png` | instructional illustration | PASS | 970×634 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 68 | `images/01-car-price-intro-06-github-repo-crisp.png` | instructional illustration | PASS | 1060×566 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 76 | `images/01-car-price-intro-07-chapter-files-crisp.png` | instructional illustration | PASS | 1092×136 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/02-data-preparation.md` | 28 | `images/02-data-preparation-01-download-data-crisp.png` | instructional illustration | PASS | 1154×612 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/02-data-preparation.md` | 48 | `images/02-data-preparation-02-read-csv-crisp.png` | instructional illustration | PASS | 1154×580 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/02-data-preparation.md` | 102 | `images/02-data-preparation-03-lowercase-columns-crisp.png` | instructional illustration | PASS | 1154×290 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/02-data-preparation.md` | 117 | `images/02-data-preparation-04-dtypes-crisp.png` | instructional illustration | PASS | 1154×560 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/02-data-preparation.md` | 151 | `images/02-data-preparation-05-string-columns-crisp.png` | instructional illustration | PASS | 1154×380 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/02-data-preparation.md` | 153 | `images/02-data-preparation-06-strings-list-crisp.png` | instructional illustration | PASS | 1154×460 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/02-data-preparation.md` | 173 | `images/02-data-preparation-07-normalize-values-crisp.png` | instructional illustration | PASS | 1154×392 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/03-eda.md` | 56 | `images/03-eda-01-explore-columns-crisp.png` | instructional illustration | PASS | 1154×612 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/03-eda.md` | 90 | `images/03-eda-02-import-plotting-libraries-crisp.png` | instructional illustration | PASS | 1154×272 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/03-eda.md` | 101 | `images/03-eda-03-long-tail-distribution-crisp.png` | instructional illustration | PASS | 1154×510 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/03-eda.md` | 122 | `images/03-eda-04-zoom-below-100k-crisp.png` | instructional illustration | PASS | 1154×430 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/03-eda.md` | 148 | `images/03-eda-05-log-zero-problem-crisp.png` | instructional illustration | PASS | 1154×232 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/03-eda.md` | 176 | `images/03-eda-06-log1p-normal-distribution-crisp.png` | instructional illustration | PASS | 1154×520 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/03-eda.md` | 226 | `images/03-eda-07-missing-values-crisp.png` | instructional illustration | PASS | 1154×560 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/04-validation-framework.md` | 25 | `images/04-validation-framework-01-train-val-test-split-crisp.png` | instructional illustration | PASS | 1610×977 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/04-validation-framework.md` | 59 | `images/04-validation-framework-02-split-sizes-crisp.png` | instructional illustration | PASS | 1154×418 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/04-validation-framework.md` | 89 | `images/04-validation-framework-03-sequential-split-crisp.png` | instructional illustration | PASS | 1154×612 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/04-validation-framework.md` | 102 | `images/04-validation-framework-04-shuffle-numbers-crisp.png` | instructional illustration | PASS | 1010×506 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/04-validation-framework.md` | 124 | `images/04-validation-framework-05-split-with-shuffled-idx-crisp.png` | instructional illustration | PASS | 1154×460 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/04-validation-framework.md` | 168 | `images/04-validation-framework-06-reset-index-crisp.png` | instructional illustration | PASS | 1154×596 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/04-validation-framework.md` | 200 | `images/04-validation-framework-07-y-target-and-delete-msrp-crisp.png` | instructional illustration | PASS | 1154×362 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 17 | `images/01-car-price-intro-01-select-best-price-crisp.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 26 | `images/01-car-price-intro-02-kaggle-dataset-crisp.png` | instructional illustration | PASS | 1857×847 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 31 | `images/01-car-price-intro-03-kaggle-data-explorer-crisp.png` | instructional illustration | PASS | 1790×879 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 39 | `images/01-car-price-intro-04-msrp-column-crisp.png` | instructional illustration | PASS | 1790×879 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 67 | `images/01-car-price-intro-06-github-repo-crisp.png` | instructional illustration | PASS | 1716×917 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/01-car-price-intro.md` | 75 | `images/01-car-price-intro-07-chapter-files-crisp.png` | instructional illustration | PASS | 2170×725 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/03-eda.md` | 99 | `images/03-eda-03-long-tail-distribution-crisp.png` | instructional illustration | PASS | 1888×833 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/03-eda.md` | 120 | `images/03-eda-04-zoom-below-100k-crisp.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/03-eda.md` | 146 | `images/03-eda-05-log-zero-problem-crisp.png` | instructional illustration | PASS | 2170×725 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/03-eda.md` | 174 | `images/03-eda-06-log1p-normal-distribution-crisp.png` | instructional illustration | PASS | 1870×841 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/04-validation-framework.md` | 25 | `images/04-validation-framework-01-train-val-test-split-crisp.png` | instructional illustration | PASS | 1611×976 | review required: crisp/generated asset |
 | ML | `cohorts/2026/02-regression/05-linear-regression-simple.md` | 34 | `images/05-linear-regression-simple-01-one-car-one-price-imagegen-pilot.png` | instructional illustration | PASS | 1474×1067 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/05-linear-regression-simple.md` | 51 | `images/05-linear-regression-simple-02-car-10-features-crisp.png` | instructional illustration | PASS | 2910×1410 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/05-linear-regression-simple.md` | 76 | `images/05-linear-regression-simple-03-regression-formula-crisp.png` | instructional illustration | PASS | 3192×2040 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/05-linear-regression-simple.md` | 84 | `images/05-linear-regression-simple-04-sum-notation-crisp.png` | instructional illustration | PASS | 2700×1020 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/05-linear-regression-simple.md` | 118 | `images/05-linear-regression-simple-05-implementation-crisp.png` | instructional illustration | PASS | 3192×1320 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/05-linear-regression-simple.md` | 134 | `images/05-linear-regression-simple-06-weights-interpretation-crisp.png` | instructional illustration | PASS | 3192×780 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/05-linear-regression-simple.md` | 176 | `images/05-linear-regression-simple-07-prediction-undo-log-crisp.png` | instructional illustration | PASS | 2880×1200 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 18 | `images/06-linear-regression-vector-01-g-x-approx-y-crisp.png` | instructional illustration | PASS | 2490×2040 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 34 | `images/06-linear-regression-vector-02-dot-product-notation-crisp.png` | instructional illustration | PASS | 2700×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 62 | `images/06-linear-regression-vector-03-dot-function-crisp.png` | instructional illustration | PASS | 2880×1020 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 76 | `images/06-linear-regression-vector-04-fake-feature-crisp.png` | instructional illustration | PASS | 2700×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 115 | `images/06-linear-regression-vector-05-prepend-one-crisp.png` | instructional illustration | PASS | 2880×1050 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 124 | `images/06-linear-regression-vector-06-matrix-vector-multiplication-crisp.png` | instructional illustration | PASS | 2820×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 183 | `images/06-linear-regression-vector-07-x-dot-w-new-crisp.png` | instructional illustration | PASS | 2880×1218 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 37 | `images/07-linear-regression-training-01-inverse-solution-crisp.png` | instructional illustration | PASS | 2700×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 59 | `images/07-linear-regression-training-02-gram-matrix-crisp.png` | instructional illustration | PASS | 1440×1220 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 79 | `images/07-linear-regression-training-03-normal-equation-crisp.png` | instructional illustration | PASS | 2790×1680 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 113 | `images/07-linear-regression-training-04-gram-matrix-code-crisp.png` | instructional illustration | PASS | 3300×930 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 134 | `images/07-linear-regression-training-05-inverse-check-crisp.png` | instructional illustration | PASS | 3300×930 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 171 | `images/07-linear-regression-training-06-ones-column-stack-crisp.png` | instructional illustration | PASS | 2880×756 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 187 | `images/07-linear-regression-training-07-train-function-crisp.png` | instructional illustration | PASS | 3300×540 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/08-baseline-model.md` | 24 | `images/08-baseline-model-01-numerical-columns-crisp.png` | instructional illustration | PASS | 2880×1230 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/08-baseline-model.md` | 42 | `images/08-baseline-model-02-base-features-crisp.png` | instructional illustration | PASS | 2880×252 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/08-baseline-model.md` | 62 | `images/08-baseline-model-03-nan-weights-crisp.png` | instructional illustration | PASS | 2880×330 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/08-baseline-model.md` | 77 | `images/08-baseline-model-04-fillna-zero-crisp.png` | instructional illustration | PASS | 3120×960 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/08-baseline-model.md` | 90 | `images/08-baseline-model-05-missing-feature-ignored-crisp.png` | instructional illustration | PASS | 2700×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/08-baseline-model.md` | 134 | `images/08-baseline-model-06-prediction-histogram-crisp.png` | instructional illustration | PASS | 2880×1860 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/09-rmse.md` | 27 | `images/09-rmse-01-rmse-formula-crisp.png` | instructional illustration | PASS | 3390×1728 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/09-rmse.md` | 41 | `images/09-rmse-02-predictions-vs-actual-prices-crisp.png` | instructional illustration | PASS | 2892×2058 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/09-rmse.md` | 53 | `images/09-rmse-03-differences-crisp.png` | instructional illustration | PASS | 3150×2058 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/09-rmse.md` | 74 | `images/09-rmse-04-squared-errors-mean-crisp.png` | instructional illustration | PASS | 3150×1740 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/09-rmse.md` | 129 | `images/09-rmse-06-rmse-implementation-crisp.png` | instructional illustration | PASS | 3390×1728 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/10-car-price-validation.md` | 22 | `images/10-car-price-validation-01-split-diagram-crisp.png` | instructional illustration | PASS | 1520×1040 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/10-car-price-validation.md` | 62 | `images/10-car-price-validation-02-prepare-x-function-crisp.png` | instructional illustration | PASS | 3198×540 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/10-car-price-validation.md` | 86 | `images/10-car-price-validation-03-train-and-validate-crisp.png` | instructional illustration | PASS | 3198×1242 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/10-car-price-validation.md` | 94 | `images/10-car-price-validation-04-train-vs-validation-parts-crisp.png` | instructional illustration | PASS | 3198×1242 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/05-linear-regression-simple.md` | 75 | `images/05-linear-regression-simple-03-regression-formula-crisp.png` | instructional illustration | PASS | 1569×1003 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/05-linear-regression-simple.md` | 83 | `images/05-linear-regression-simple-04-sum-notation-crisp.png` | instructional illustration | PASS | 2038×771 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/05-linear-regression-simple.md` | 132 | `images/05-linear-regression-simple-06-weights-interpretation-crisp.png` | instructional illustration | PASS | 2170×725 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 18 | `images/06-linear-regression-vector-01-g-x-approx-y-crisp.png` | instructional illustration | PASS | 1386×1135 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 34 | `images/06-linear-regression-vector-02-dot-product-notation-crisp.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 75 | `images/06-linear-regression-vector-04-fake-feature-crisp.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 114 | `images/06-linear-regression-vector-05-prepend-one-crisp.png` | instructional illustration | PASS | 1804×872 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/06-linear-regression-vector.md` | 123 | `images/06-linear-regression-vector-06-matrix-vector-multiplication-crisp.png` | instructional illustration | PASS | 1570×1001 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 37 | `images/07-linear-regression-training-01-inverse-solution-crisp.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 59 | `images/07-linear-regression-training-02-gram-matrix-crisp.png` | instructional illustration | PASS | 1363×1154 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/07-linear-regression-training.md` | 79 | `images/07-linear-regression-training-03-normal-equation-crisp.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/08-baseline-model.md` | 86 | `images/08-baseline-model-05-missing-feature-ignored-crisp.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/08-baseline-model.md` | 130 | `images/08-baseline-model-06-prediction-histogram-crisp.png` | instructional illustration | PASS | 1561×1008 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/09-rmse.md` | 27 | `images/09-rmse-01-rmse-formula-crisp.png` | instructional illustration | PASS | 1756×895 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/09-rmse.md` | 41 | `images/09-rmse-02-predictions-vs-actual-prices-crisp.png` | instructional illustration | PASS | 1487×1058 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/09-rmse.md` | 53 | `images/09-rmse-03-differences-crisp.png` | instructional illustration | PASS | 1551×1014 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/09-rmse.md` | 74 | `images/09-rmse-04-squared-errors-mean-crisp.png` | instructional illustration | PASS | 1688×932 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/10-car-price-validation.md` | 22 | `images/10-car-price-validation-01-split-diagram-crisp.png` | instructional illustration | PASS | 1517×1037 | review required: crisp/generated asset |
 | ML | `cohorts/2026/02-regression/11-feature-engineering.md` | 13 | `images/11-feature-engineering-01-feature-engineering-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/12-categorical-variables.md` | 21 | `images/12-categorical-variables-01-object-columns-crisp.png` | instructional illustration | PASS | 3198×1608 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/12-categorical-variables.md` | 41 | `images/12-categorical-variables-02-encoding-diagram.jpg` | local image | PASS | 1492×1054 | review required: native/source asset |
-| ML | `cohorts/2026/02-regression/12-categorical-variables.md` | 92 | `images/12-categorical-variables-03-doors-loop-crisp.png` | instructional illustration | PASS | 3198×840 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/12-categorical-variables.md` | 114 | `images/12-categorical-variables-04-doors-rmse-crisp.png` | instructional illustration | PASS | 3198×930 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/12-categorical-variables.md` | 126 | `images/12-categorical-variables-05-top-makes-crisp.png` | instructional illustration | PASS | 3198×690 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/12-categorical-variables.md` | 170 | `images/12-categorical-variables-06-categories-dict-crisp.png` | instructional illustration | PASS | 3198×810 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/12-categorical-variables.md` | 183 | `images/12-categorical-variables-07-prepare-x-all-categories-crisp.png` | instructional illustration | PASS | 3198×810 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/12-categorical-variables.md` | 200 | `images/12-categorical-variables-08-broken-weights-crisp.png` | instructional illustration | PASS | 3198×1560 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/13-regularization.md` | 18 | `images/13-regularization-01-normal-equation-crisp.png` | instructional illustration | PASS | 920×680 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/13-regularization.md` | 45 | `images/13-regularization-02-duplicate-columns-crisp.png` | instructional illustration | PASS | 2880×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/13-regularization.md` | 76 | `images/13-regularization-03-noisy-gram-matrix-crisp.png` | instructional illustration | PASS | 2880×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/13-regularization.md` | 83 | `images/13-regularization-04-huge-weights-crisp.png` | instructional illustration | PASS | 2880×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/13-regularization.md` | 104 | `images/13-regularization-05-singular-matrix-crisp.png` | instructional illustration | PASS | 2880×1890 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/13-regularization.md` | 137 | `images/13-regularization-06-eye-diagonal-crisp.png` | instructional illustration | PASS | 2880×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/13-regularization.md` | 175 | `images/13-regularization-07-regularized-training-crisp.png` | instructional illustration | PASS | 2880×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/13-regularization.md` | 197 | `images/13-regularization-08-rmse-result-crisp.png` | instructional illustration | PASS | 2880×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/14-tuning-model.md` | 35 | `images/14-tuning-model-01-r-values-loop-crisp.png` | instructional illustration | PASS | 2880×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/14-tuning-model.md` | 39 | `images/14-tuning-model-02-rmse-per-r-crisp.png` | instructional illustration | PASS | 2880×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/14-tuning-model.md` | 53 | `images/14-tuning-model-03-choosing-r-crisp.png` | instructional illustration | PASS | 2880×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/14-tuning-model.md` | 70 | `images/14-tuning-model-04-final-model-crisp.png` | instructional illustration | PASS | 2880×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/15-using-model.md` | 36 | `images/15-using-model-01-full-train-concat-crisp.png` | instructional illustration | PASS | 3240×870 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/15-using-model.md` | 53 | `images/15-using-model-02-full-train-prepare-x-crisp.png` | instructional illustration | PASS | 2880×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/15-using-model.md` | 73 | `images/15-using-model-03-final-model-weights-crisp.png` | instructional illustration | PASS | 3300×1740 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/15-using-model.md` | 94 | `images/15-using-model-04-test-rmse-crisp.png` | instructional illustration | PASS | 3300×1740 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/15-using-model.md` | 134 | `images/15-using-model-06-car-dictionary-crisp.png` | instructional illustration | PASS | 3300×1740 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/15-using-model.md` | 142 | `images/15-using-model-05-website-request-diagram-imagegen.png` | instructional illustration | PASS | 1521×1034 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/15-using-model.md` | 167 | `images/15-using-model-07-single-car-prediction-crisp.png` | instructional illustration | PASS | 3300×1740 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/15-using-model.md` | 196 | `images/15-using-model-08-prediction-vs-actual-crisp.png` | instructional illustration | PASS | 3300×1740 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/16-summary.md` | 27 | `images/16-summary-01-data-cleaning-crisp.png` | instructional illustration | PASS | 3300×1740 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/16-summary.md` | 53 | `images/16-summary-03-linear-regression-loop-crisp.png` | instructional illustration | PASS | 3300×1740 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/16-summary.md` | 55 | `images/16-summary-04-vector-form-crisp.png` | instructional illustration | PASS | 3300×1740 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/16-summary.md` | 63 | `images/16-summary-05-normal-equation-crisp.png` | instructional illustration | PASS | 3300×1740 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/16-summary.md` | 65 | `images/16-summary-06-baseline-model-crisp.png` | instructional illustration | PASS | 3300×1740 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/16-summary.md` | 84 | `images/16-summary-07-feature-engineering-crisp.png` | instructional illustration | PASS | 3300×1740 | review required: crisp/generated asset |
-| ML | `cohorts/2026/02-regression/16-summary.md` | 91 | `images/16-summary-08-categorical-variables-crisp.png` | instructional illustration | PASS | 3300×1740 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/12-categorical-variables.md` | 40 | `images/12-categorical-variables-02-encoding-diagram.jpg` | local image | PASS | 1492×1054 | review required: native/source asset |
+| ML | `cohorts/2026/02-regression/13-regularization.md` | 18 | `images/13-regularization-01-normal-equation-crisp.png` | instructional illustration | PASS | 1459×1078 | review required: crisp/generated asset |
+| ML | `cohorts/2026/02-regression/15-using-model.md` | 137 | `images/15-using-model-05-website-request-diagram-imagegen.png` | instructional illustration | PASS | 1521×1034 | review required: crisp/generated asset |
 | ML | `cohorts/2026/02-regression/17-explore-more.md` | 4 | `images/17-explore-more-01-feature-experiments-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/01-churn-project.md` | 25 | `images/01-churn-project-01-churn-problem-crisp.png` | instructional illustration | PASS | 1196×720 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/01-churn-project.md` | 36 | `images/01-churn-project-02-binary-classification-crisp.png` | instructional illustration | PASS | 1196×720 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/01-churn-project.md` | 81 | `images/01-churn-project-03-module-plan-crisp.png` | instructional illustration | PASS | 984×642 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/02-data-preparation.md` | 33 | `images/02-data-preparation-01-download-data-crisp.png` | instructional illustration | PASS | 1100×604 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/02-data-preparation.md` | 91 | `images/02-data-preparation-02-first-look-crisp.png` | instructional illustration | PASS | 1100×604 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/02-data-preparation.md` | 118 | `images/02-data-preparation-03-normalized-crisp.png` | instructional illustration | PASS | 1100×616 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/02-data-preparation.md` | 147 | `images/02-data-preparation-04-totalcharges-error-crisp.png` | instructional illustration | PASS | 1100×604 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/02-data-preparation.md` | 173 | `images/02-data-preparation-05-coerce-missing-crisp.png` | instructional illustration | PASS | 1100×604 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/02-data-preparation.md` | 205 | `images/02-data-preparation-06-churn-encoding-crisp.png` | instructional illustration | PASS | 1100×604 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/03-validation.md` | 25 | `images/03-validation-01-train-val-test-split-crisp.png` | instructional illustration | PASS | 1042×720 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/03-validation.md` | 53 | `images/03-validation-02-split-sizes-crisp.png` | instructional illustration | PASS | 1100×644 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/03-validation.md` | 73 | `images/03-validation-03-reset-index-crisp.png` | instructional illustration | PASS | 1100×104 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/03-validation.md` | 98 | `images/03-validation-04-isolate-target-crisp.png` | instructional illustration | PASS | 1100×604 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/04-eda.md` | 54 | `images/04-eda-01-missing-values-crisp.png` | instructional illustration | PASS | 1100×604 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/04-eda.md` | 75 | `images/04-eda-02-churn-rate-crisp.png` | instructional illustration | PASS | 1100×604 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/04-eda.md` | 93 | `images/04-eda-03-churn-rate-mean-crisp.png` | instructional illustration | PASS | 1100×264 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/04-eda.md` | 110 | `images/04-eda-04-numerical-variables-crisp.png` | instructional illustration | PASS | 1100×64 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/04-eda.md` | 137 | `images/04-eda-05-categorical-variables-crisp.png` | instructional illustration | PASS | 1100×164 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/05-risk.md` | 39 | `images/05-risk-01-churn-rate-gender-crisp.png` | instructional illustration | PASS | 1100×588 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/05-risk.md` | 90 | `images/05-risk-02-churn-rate-partner-crisp.png` | instructional illustration | PASS | 1100×604 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/05-risk.md` | 113 | `images/05-risk-03-difference-vs-risk-ratio-imagegen-pilot.png` | instructional illustration | PASS | 1550×1014 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/05-risk.md` | 131 | `images/05-risk-04-risk-ratio-crisp.png` | instructional illustration | PASS | 1100×604 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/05-risk.md` | 194 | `images/05-risk-05-groupby-gender-crisp.png` | instructional illustration | PASS | 1100×604 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/05-risk.md` | 217 | `images/05-risk-06-groupby-contract-crisp.png` | instructional illustration | PASS | 1100×604 | review required: crisp/generated asset |
+| ML | `cohorts/2026/03-classification/01-churn-project.md` | 25 | `images/01-churn-project-01-churn-problem-crisp.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/03-classification/01-churn-project.md` | 36 | `images/01-churn-project-02-binary-classification-crisp.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/03-classification/03-validation.md` | 25 | `images/03-validation-01-train-val-test-split-crisp.png` | instructional illustration | PASS | 1509×1042 | review required: crisp/generated asset |
+| ML | `cohorts/2026/03-classification/05-risk.md` | 109 | `images/05-risk-03-difference-vs-risk-ratio-imagegen-pilot.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/03-classification/06-mutual-info.md` | 30 | `images/06-mutual-info-01-mutual-information-wikipedia-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/06-mutual-info.md` | 70 | `images/06-mutual-info-02-mutual-info-scores-crisp.png` | instructional illustration | PASS | 960×500 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/06-mutual-info.md` | 76 | `images/06-mutual-info-03-symmetric-crisp.png` | instructional illustration | PASS | 960×500 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/06-mutual-info.md` | 123 | `images/06-mutual-info-04-sorted-importance-crisp.png` | instructional illustration | PASS | 960×510 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/07-correlation.md` | 34 | `images/07-correlation-01-correlation-coefficient-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/07-correlation.md` | 42 | `images/07-correlation-02-binary-target-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/07-correlation.md` | 61 | `images/07-correlation-03-corrwith-churn-crisp.png` | instructional illustration | PASS | 960×210 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/07-correlation.md` | 137 | `images/07-correlation-04-churn-rate-tenure-clean.png` | local image | PASS | 1200×760 | review required: native/source asset |
-| ML | `cohorts/2026/03-classification/07-correlation.md` | 170 | `images/07-correlation-05-churn-rate-monthly-charges-clean.png` | local image | PASS | 1400×820 | review required: native/source asset |
-| ML | `cohorts/2026/03-classification/08-ohe.md` | 52 | `images/08-ohe-01-one-hot-table-crisp.png` | instructional illustration | PASS | 900×680 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/08-ohe.md` | 77 | `images/08-ohe-02-to-dict-records-crisp.png` | instructional illustration | PASS | 960×350 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/08-ohe.md` | 105 | `images/08-ohe-03-dictvectorizer-fit-crisp.png` | instructional illustration | PASS | 960×450 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/08-ohe.md` | 124 | `images/08-ohe-04-feature-names-crisp.png` | instructional illustration | PASS | 960×650 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/08-ohe.md` | 138 | `images/08-ohe-05-validation-transform-crisp.png` | instructional illustration | PASS | 960×450 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 33 | `images/09-logistic-regression-01-binary-classification-clean.png` | local image | PASS | 1300×760 | review required: native/source asset |
-| ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 57 | `images/09-logistic-regression-02-from-linear-to-logistic-clean.png` | local image | PASS | 1400×760 | review required: native/source asset |
-| ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 63 | `images/09-logistic-regression-03-sigmoid-formula-clean.png` | local image | PASS | 1300×820 | review required: native/source asset |
+| ML | `cohorts/2026/03-classification/07-correlation.md` | 34 | `images/07-correlation-01-correlation-coefficient-imagegen-pilot.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/03-classification/07-correlation.md` | 42 | `images/07-correlation-02-binary-target-imagegen-pilot.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/03-classification/07-correlation.md` | 135 | `images/07-correlation-04-churn-rate-tenure-clean.png` | local image | PASS | 1617×973 | review required: native/source asset |
+| ML | `cohorts/2026/03-classification/07-correlation.md` | 168 | `images/07-correlation-05-churn-rate-monthly-charges-clean.png` | local image | PASS | 1774×887 | review required: native/source asset |
+| ML | `cohorts/2026/03-classification/08-ohe.md` | 52 | `images/08-ohe-01-one-hot-table-crisp.png` | instructional illustration | PASS | 1443×1090 | review required: crisp/generated asset |
+| ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 33 | `images/09-logistic-regression-01-binary-classification-clean.png` | local image | PASS | 1617×973 | review required: native/source asset |
+| ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 57 | `images/09-logistic-regression-02-from-linear-to-logistic-clean.png` | local image | PASS | 1702×924 | review required: native/source asset |
+| ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 63 | `images/09-logistic-regression-03-sigmoid-formula-clean.png` | local image | PASS | 1617×973 | review required: native/source asset |
 | ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 98 | `images/09-logistic-regression-04-sigmoid-plot-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 134 | `images/09-logistic-regression-05-logistic-regression-function-crisp.png` | instructional illustration | PASS | 960×410 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/10-training-log-reg.md` | 29 | `images/10-training-log-reg-01-fit-crisp.png` | instructional illustration | PASS | 2640×504 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/10-training-log-reg.md` | 59 | `images/10-training-log-reg-02-coefficients-crisp.png` | instructional illustration | PASS | 3030×918 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/10-training-log-reg.md` | 81 | `images/10-training-log-reg-03-soft-predictions-crisp.png` | instructional illustration | PASS | 1200×400 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/10-training-log-reg.md` | 90 | `images/10-training-log-reg-04-churn-decision-crisp.png` | instructional illustration | PASS | 3030×660 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/10-training-log-reg.md` | 97 | `images/10-training-log-reg-05-selected-customers-crisp.png` | instructional illustration | PASS | 3030×1320 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/10-training-log-reg.md` | 137 | `images/10-training-log-reg-06-accuracy-crisp.png` | instructional illustration | PASS | 3030×1320 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/11-log-reg-interpretation.md` | 32 | `images/11-log-reg-interpretation-01-zip-crisp.png` | instructional illustration | PASS | 3030×1818 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/11-log-reg-interpretation.md` | 55 | `images/11-log-reg-interpretation-02-coefficients-crisp.png` | instructional illustration | PASS | 3030×1200 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/11-log-reg-interpretation.md` | 110 | `images/11-log-reg-interpretation-03-small-features-crisp.png` | instructional illustration | PASS | 2940×1410 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/11-log-reg-interpretation.md` | 133 | `images/11-log-reg-interpretation-04-small-model-weights-crisp.png` | instructional illustration | PASS | 2940×1320 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/11-log-reg-interpretation.md` | 184 | `images/11-log-reg-interpretation-05-first-example-rendered.png` | local image | PASS | 1200×440 | review required: native/source asset |
-| ML | `cohorts/2026/03-classification/11-log-reg-interpretation.md` | 193 | `images/11-log-reg-interpretation-06-second-example-imagegen.png` | instructional illustration | PASS | 1793×877 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/11-log-reg-interpretation.md` | 195 | `images/11-log-reg-interpretation-07-second-example-crisp.png` | instructional illustration | PASS | 3030×1380 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/12-using-log-reg.md` | 34 | `images/12-using-log-reg-01-final-model-crisp.png` | instructional illustration | PASS | 2898×1170 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/12-using-log-reg.md` | 57 | `images/12-using-log-reg-02-test-accuracy-crisp.png` | instructional illustration | PASS | 3498×1320 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/12-using-log-reg.md` | 97 | `images/12-using-log-reg-03-score-one-customer-crisp.png` | instructional illustration | PASS | 3498×1500 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/12-using-log-reg.md` | 130 | `images/12-using-log-reg-04-production-diagram-imagegen.png` | instructional illustration | PASS | 1983×793 | review required: crisp/generated asset |
+| ML | `cohorts/2026/03-classification/11-log-reg-interpretation.md` | 183 | `images/11-log-reg-interpretation-06-second-example-imagegen.png` | instructional illustration | PASS | 1774×887 | review required: crisp/generated asset |
+| ML | `cohorts/2026/03-classification/12-using-log-reg.md` | 124 | `images/12-using-log-reg-04-production-diagram-imagegen.png` | instructional illustration | PASS | 1983×793 | review required: crisp/generated asset |
 | ML | `cohorts/2026/03-classification/13-summary.md` | 10 | `images/13-summary-01-churn-prediction-imagegen.png` | instructional illustration | PASS | 1717×916 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/13-summary.md` | 40 | `images/13-summary-02-notebook-recap-crisp.png` | instructional illustration | PASS | 3408×1284 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/13-summary.md` | 50 | `images/13-summary-03-summary-takeaways-crisp.png` | instructional illustration | PASS | 3408×1410 | review required: crisp/generated asset |
 | ML | `cohorts/2026/03-classification/14-explore-more.md` | 6 | `images/14-explore-more-01-preprocessing-model-comparison-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/01-overview.md` | 11 | `images/01-overview-01-title-crisp.png` | instructional illustration | PASS | 956×720 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/01-overview.md` | 17 | `images/01-overview-03-metric-definition-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/01-overview.md` | 25 | `images/01-overview-02-churn-scenario-crisp.png` | instructional illustration | PASS | 956×720 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/01-overview.md` | 56 | `images/01-overview-04-load-split-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/01-overview.md` | 60 | `images/01-overview-05-features-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/01-overview.md` | 70 | `images/01-overview-06-predictions-accuracy-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/01-overview.md` | 85 | `images/01-overview-07-module-outline-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/01-overview.md` | 21 | `images/01-overview-02-churn-scenario-crisp.png` | instructional illustration | PASS | 1445×1088 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 15 | `images/02-accuracy-02-accuracy-example-crisp.png` | instructional illustration | PASS | 1804×1360 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 31 | `images/02-accuracy-03-accuracy-notebook-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 43 | `images/02-accuracy-04-accuracy-score-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 88 | `images/02-accuracy-01-accuracy-vs-threshold-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 108 | `images/02-accuracy-05-dummy-counter-crisp.png` | instructional illustration | PASS | 1154×390 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 118 | `images/02-accuracy-06-dummy-accuracy-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 122 | `images/02-accuracy-07-thresholds-endpoints-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 128 | `images/02-accuracy-08-class-imbalance-crisp.png` | instructional illustration | PASS | 902×680 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 24 | `images/03-confusion-table-01-four-outcomes-crisp.png` | instructional illustration | PASS | 1036×720 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 39 | `images/03-confusion-table-02-prediction-conditions-crisp.png` | instructional illustration | PASS | 1154×612 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 51 | `images/03-confusion-table-03-and-operator-crisp.png` | instructional illustration | PASS | 1154×612 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 55 | `images/03-confusion-table-04-confusion-counts-crisp.png` | instructional illustration | PASS | 1044×680 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 76 | `images/03-confusion-table-05-confusion-matrix-output-crisp.png` | instructional illustration | PASS | 1154×612 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 96 | `images/03-confusion-table-06-normalized-confusion-matrix-crisp.png` | instructional illustration | PASS | 1154×612 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 102 | `images/03-confusion-table-07-accuracy-from-table-crisp.png` | instructional illustration | PASS | 1044×680 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 19 | `images/04-precision-recall-01-precision-definition-crisp.png` | instructional illustration | PASS | 1472×1069 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 30 | `images/04-precision-recall-02-precision-notebook-crisp.png` | instructional illustration | PASS | 1154×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 34 | `images/04-precision-recall-03-precision-pie-crisp.png` | instructional illustration | PASS | 816×430 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 44 | `images/04-precision-recall-04-recall-definition-crisp.png` | instructional illustration | PASS | 916×720 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 57 | `images/04-precision-recall-05-recall-example-crisp.png` | instructional illustration | PASS | 800×710 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 63 | `images/04-precision-recall-06-precision-recall-table-crisp.png` | instructional illustration | PASS | 996×640 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 67 | `images/04-precision-recall-07-metrics-summary-crisp.png` | instructional illustration | PASS | 880×660 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 75 | `images/05-roc-01-tpr-fpr-vs-threshold-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 88 | `images/05-roc-02-random-model-tpr-fpr-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 112 | `images/05-roc-03-ideal-model-tpr-fpr-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 130 | `images/05-roc-04-model-vs-ideal-tpr-fpr-crisp.png` | instructional illustration | PASS | 1552×1056 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 148 | `images/05-roc-05-roc-curve-manual-crisp.png` | instructional illustration | PASS | 1384×1332 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 176 | `images/05-roc-06-roc-curve-sklearn-crisp.png` | instructional illustration | PASS | 1384×1332 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 84 | `images/02-accuracy-01-accuracy-vs-threshold-crisp.png` | instructional illustration | PASS | 1488×992 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 118 | `images/02-accuracy-08-class-imbalance-crisp.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 24 | `images/03-confusion-table-01-four-outcomes-crisp.png` | instructional illustration | PASS | 1504×1046 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 51 | `images/03-confusion-table-04-confusion-counts-crisp.png` | instructional illustration | PASS | 1554×1012 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 94 | `images/03-confusion-table-07-accuracy-from-table-crisp.png` | instructional illustration | PASS | 1554×1012 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 19 | `images/04-precision-recall-01-precision-definition-crisp.png` | instructional illustration | PASS | 1472×1068 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 32 | `images/04-precision-recall-03-precision-pie-crisp.png` | instructional illustration | PASS | 1728×910 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 42 | `images/04-precision-recall-04-recall-definition-crisp.png` | instructional illustration | PASS | 1415×1111 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 55 | `images/04-precision-recall-05-recall-example-crisp.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 61 | `images/04-precision-recall-06-precision-recall-table-crisp.png` | instructional illustration | PASS | 1565×1005 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 75 | `images/05-roc-01-tpr-fpr-vs-threshold-crisp.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 88 | `images/05-roc-02-random-model-tpr-fpr-crisp.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 112 | `images/05-roc-03-ideal-model-tpr-fpr-crisp.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 130 | `images/05-roc-04-model-vs-ideal-tpr-fpr-crisp.png` | instructional illustration | PASS | 1521×1034 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 148 | `images/05-roc-05-roc-curve-manual-crisp.png` | instructional illustration | PASS | 1278×1231 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 176 | `images/05-roc-06-roc-curve-sklearn-crisp.png` | instructional illustration | PASS | 1278×1231 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/06-auc.md` | 22 | `images/06-auc-02-auc-values-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/06-auc.md` | 34 | `images/06-auc-03-auc-notebook-crisp.png` | instructional illustration | PASS | 3462×1752 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/06-auc.md` | 46 | `images/06-auc-04-roc-auc-score-crisp.png` | instructional illustration | PASS | 3462×1752 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/06-auc.md` | 54 | `images/06-auc-05-auc-interpretation-imagegen.png` | instructional illustration | PASS | 1572×1001 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/06-auc.md` | 81 | `images/06-auc-06-auc-simulation-crisp.png` | instructional illustration | PASS | 3030×1680 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/07-cross-validation.md` | 42 | `images/07-cross-validation-02-train-predict-crisp.png` | instructional illustration | PASS | 3030×1110 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/07-cross-validation.md` | 48 | `images/07-cross-validation-01-kfold-diagram-pilot.png` | local image | PASS | 1555×1012 | review required: native/source asset |
-| ML | `cohorts/2026/04-evaluation/07-cross-validation.md` | 60 | `images/07-cross-validation-03-split-generator-crisp.png` | instructional illustration | PASS | 3030×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/07-cross-validation.md` | 88 | `images/07-cross-validation-04-tuning-loop-crisp.png` | instructional illustration | PASS | 3030×1710 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/07-cross-validation.md` | 102 | `images/07-cross-validation-05-tuning-results-crisp.png` | instructional illustration | PASS | 3030×1080 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/07-cross-validation.md` | 134 | `images/07-cross-validation-06-final-model-crisp.png` | instructional illustration | PASS | 3030×1680 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/08-summary.md` | 17 | `images/08-summary-01-metrics-list-crisp.png` | instructional illustration | PASS | 3462×930 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/06-auc.md` | 50 | `images/06-auc-05-auc-interpretation-imagegen.png` | instructional illustration | PASS | 1570×1001 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/07-cross-validation.md` | 46 | `images/07-cross-validation-01-kfold-diagram-pilot.png` | local image | PASS | 1647×955 | review required: native/source asset |
 | ML | `cohorts/2026/04-evaluation/09-explore-more.md` | 6 | `images/09-explore-more-01-threshold-precision-recall-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/01-intro.md` | 10 | `images/01-intro-01-title-crisp.png` | instructional illustration | PASS | 864×672 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/01-intro.md` | 31 | `images/01-intro-02-model-deployment-diagram-imagegen-pilot.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/01-intro.md` | 38 | `images/01-intro-03-module-plan-crisp.png` | instructional illustration | PASS | 910×600 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/01-intro.md` | 53 | `images/01-intro-04-module-plan-continued-crisp.png` | instructional illustration | PASS | 910×600 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/01-intro.md` | 59 | `images/01-intro-05-environments-crisp.png` | instructional illustration | PASS | 1478×1064 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/02-pickle.md` | 13 | `images/02-pickle-01-module-plan-crisp.png` | instructional illustration | PASS | 1020×572 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/02-pickle.md` | 42 | `images/02-pickle-02-pickle-dump-crisp.png` | instructional illustration | PASS | 1070×614 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/02-pickle.md` | 49 | `images/02-pickle-03-model-filename-crisp.png` | instructional illustration | PASS | 1070×590 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/02-pickle.md` | 70 | `images/02-pickle-04-loaded-model-crisp.png` | instructional illustration | PASS | 1070×590 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/02-pickle.md` | 89 | `images/02-pickle-05-train-py-crisp.png` | instructional illustration | PASS | 1020×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/03-flask-intro.md` | 12 | `images/03-flask-intro-01-module-overview-crisp.png` | instructional illustration | PASS | 928×688 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/03-flask-intro.md` | 21 | `images/03-flask-intro-02-request-response-crisp.png` | instructional illustration | PASS | 928×600 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/03-flask-intro.md` | 55 | `images/03-flask-intro-03-ping-app-crisp.png` | instructional illustration | PASS | 920×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/04-flask-deployment.md` | 15 | `images/04-flask-deployment-01-module-plan-crisp.png` | instructional illustration | PASS | 920×572 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/04-flask-deployment.md` | 57 | `images/04-flask-deployment-02-predict-py-crisp.png` | instructional illustration | PASS | 920×584 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/04-flask-deployment.md` | 75 | `images/04-flask-deployment-03-json-serializable-error-crisp.png` | instructional illustration | PASS | 960×546 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/04-flask-deployment.md` | 113 | `images/04-flask-deployment-04-test-request-crisp.png` | instructional illustration | PASS | 960×200 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/04-flask-deployment.md` | 127 | `images/04-flask-deployment-05-dev-server-warning-crisp.png` | instructional illustration | PASS | 922×374 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/04-flask-deployment.md` | 148 | `images/04-flask-deployment-06-waitress-windows-crisp.png` | instructional illustration | PASS | 900×380 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/05-pipenv.md` | 13 | `images/05-pipenv-01-title-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/05-pipenv.md` | 23 | `images/05-pipenv-02-version-conflict-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/05-pipenv.md` | 29 | `images/05-pipenv-03-isolated-environments-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/05-pipenv.md` | 36 | `images/05-pipenv-04-venv-tools-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/05-pipenv.md` | 84 | `images/05-pipenv-05-pipenv-install-lock-crisp.png` | instructional illustration | PASS | 2754×1680 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/05-pipenv.md` | 104 | `images/05-pipenv-06-shell-path-crisp.png` | instructional illustration | PASS | 2670×870 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/06-docker.md` | 13 | `images/06-docker-01-module-plan-crisp.png` | instructional illustration | PASS | 2724×750 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/06-docker.md` | 51 | `images/06-docker-02-containers-on-host-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/06-docker.md` | 77 | `images/06-docker-03-base-image-docker-hub-crisp.png` | instructional illustration | PASS | 3030×630 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/06-docker.md` | 108 | `images/06-docker-04-dockerfile-crisp.png` | instructional illustration | PASS | 2700×1650 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/06-docker.md` | 133 | `images/06-docker-05-port-mapping-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/07-aws-eb.md` | 9 | `images/07-aws-eb-01-module-plan-crisp.png` | instructional illustration | PASS | 2724×750 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/07-aws-eb.md` | 31 | `images/07-aws-eb-02-eb-architecture-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/07-aws-eb.md` | 54 | `images/07-aws-eb-03-eb-init-crisp.png` | instructional illustration | PASS | 2580×1440 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/07-aws-eb.md` | 64 | `images/07-aws-eb-04-eb-local-test-crisp.png` | instructional illustration | PASS | 2502×1140 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/07-aws-eb.md` | 73 | `images/07-aws-eb-05-eb-create-crisp.png` | instructional illustration | PASS | 2580×1230 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/07-aws-eb.md` | 81 | `images/07-aws-eb-06-eb-url-test-crisp.png` | instructional illustration | PASS | 3318×1560 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/07-aws-eb.md` | 93 | `images/07-aws-eb-07-terminate-environment-crisp.png` | instructional illustration | PASS | 3588×1470 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/08-summary.md` | 10 | `images/08-summary-01-module-plan-crisp.png` | instructional illustration | PASS | 2730×1800 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/08-summary.md` | 32 | `images/08-summary-02-module-plan-continued-crisp.png` | instructional illustration | PASS | 2730×720 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/08-summary.md` | 42 | `images/08-summary-03-summary-list-crisp.png` | instructional illustration | PASS | 2730×840 | review required: crisp/generated asset |
+| ML | `cohorts/2026/05-deployment/01-intro.md` | 10 | `images/01-intro-01-title-imagegen.png` | instructional illustration | PASS | 1422×1106 | review required: crisp/generated asset |
+| ML | `cohorts/2026/05-deployment/01-intro.md` | 31 | `images/01-intro-02-model-deployment-diagram-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/05-deployment/01-intro.md` | 55 | `images/01-intro-05-environments-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/05-deployment/03-flask-intro.md` | 19 | `images/03-flask-intro-02-request-response-imagegen.png` | instructional illustration | PASS | 1560×1008 | review required: crisp/generated asset |
+| ML | `cohorts/2026/05-deployment/05-pipenv.md` | 13 | `images/05-pipenv-01-title-imagegen.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/05-deployment/05-pipenv.md` | 23 | `images/05-pipenv-02-version-conflict-imagegen.png` | instructional illustration | PASS | 1616×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/05-deployment/05-pipenv.md` | 29 | `images/05-pipenv-03-isolated-environments-imagegen.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/05-deployment/05-pipenv.md` | 36 | `images/05-pipenv-04-venv-tools-imagegen.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/05-deployment/06-docker.md` | 49 | `images/06-docker-02-containers-on-host-imagegen.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/05-deployment/06-docker.md` | 127 | `images/06-docker-05-port-mapping-imagegen.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/05-deployment/07-aws-eb.md` | 29 | `images/07-aws-eb-02-eb-architecture-imagegen.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/05-deployment/09-explore-more.md` | 6 | `images/09-explore-more-01-deployment-choices-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/01-credit-risk.md` | 24 | `images/01-credit-risk-01-loan-application-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/01-credit-risk.md` | 32 | `images/01-credit-risk-02-historical-data-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/01-credit-risk.md` | 60 | `images/01-credit-risk-03-probability-of-default-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/01-credit-risk.md` | 69 | `images/01-credit-risk-04-dataset-columns-crisp.png` | instructional illustration | PASS | 860×660 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/01-credit-risk.md` | 89 | `images/01-credit-risk-05-module-plan-crisp.png` | instructional illustration | PASS | 1000×640 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/02-data-prep.md` | 40 | `images/02-data-prep-01-download-data-crisp.png` | instructional illustration | PASS | 1152×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/02-data-prep.md` | 93 | `images/02-data-prep-02-decode-status-crisp.png` | instructional illustration | PASS | 1152×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/02-data-prep.md` | 176 | `images/02-data-prep-03-encoded-missing-values-crisp.png` | instructional illustration | PASS | 1152×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/02-data-prep.md` | 189 | `images/02-data-prep-04-replace-missing-with-nan-crisp.png` | instructional illustration | PASS | 1152×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/02-data-prep.md` | 200 | `images/02-data-prep-05-remove-unknown-status-crisp.png` | instructional illustration | PASS | 1152×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/02-data-prep.md` | 220 | `images/02-data-prep-06-train-val-test-split-crisp.png` | instructional illustration | PASS | 1152×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/02-data-prep.md` | 239 | `images/02-data-prep-07-binary-target-crisp.png` | instructional illustration | PASS | 1152×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/03-decision-trees.md` | 37 | `images/03-decision-trees-01-risk-rules-tree-imagegen.png` | instructional illustration | PASS | 1705×923 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/03-decision-trees.md` | 51 | `images/03-decision-trees-02-assess-risk-crisp.png` | instructional illustration | PASS | 1152×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/03-decision-trees.md` | 88 | `images/03-decision-trees-03-training-crisp.png` | instructional illustration | PASS | 1152×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/03-decision-trees.md` | 118 | `images/03-decision-trees-04-overfit-auc-crisp.png` | instructional illustration | PASS | 1152×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/03-decision-trees.md` | 126 | `images/03-decision-trees-05-memorizing-imagegen.png` | instructional illustration | PASS | 1363×1154 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/03-decision-trees.md` | 185 | `images/03-decision-trees-06-learned-rules-imagegen.png` | instructional illustration | PASS | 1704×923 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/03-decision-trees.md` | 191 | `images/03-decision-trees-07-decision-stump-imagegen.png` | instructional illustration | PASS | 1364×1153 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/04-decision-tree-learning.md` | 52 | `images/04-decision-tree-learning-01-best-threshold-crisp.png` | instructional illustration | PASS | 1000×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/04-decision-tree-learning.md` | 60 | `images/04-decision-tree-learning-02-candidate-thresholds-crisp.png` | instructional illustration | PASS | 1000×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/04-decision-tree-learning.md` | 84 | `images/04-decision-tree-learning-03-split-t4000-crisp.png` | instructional illustration | PASS | 1000×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/04-decision-tree-learning.md` | 90 | `images/04-decision-tree-learning-04-misclassification-rate-crisp.png` | instructional illustration | PASS | 1000×570 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/04-decision-tree-learning.md` | 183 | `images/04-decision-tree-learning-06-split-algorithm-crisp.png` | instructional illustration | PASS | 910×660 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/04-decision-tree-learning.md` | 191 | `images/04-decision-tree-learning-07-impurity-criteria-crisp.png` | instructional illustration | PASS | 1000×720 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/04-decision-tree-learning.md` | 205 | `images/04-decision-tree-learning-08-stopping-criteria-imagegen.png` | instructional illustration | PASS | 1473×1068 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | 25 | `images/05-decision-tree-tuning-01-parameters-crisp.png` | instructional illustration | PASS | 2820×1710 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | 65 | `images/05-decision-tree-tuning-02-max-depth-scores-crisp.png` | instructional illustration | PASS | 1581×995 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | 87 | `images/05-decision-tree-tuning-03-grid-search-crisp.png` | instructional illustration | PASS | 1040×480 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | 119 | `images/05-decision-tree-tuning-04-pivot-crisp.png` | instructional illustration | PASS | 1400×940 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | 127 | `images/05-decision-tree-tuning-05-heatmap-crisp.png` | instructional illustration | PASS | 1320×840 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | 140 | `images/05-decision-tree-tuning-07-wider-search-crisp.png` | instructional illustration | PASS | 1440×840 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | 182 | `images/05-decision-tree-tuning-06-nan-warning-crisp.png` | instructional illustration | PASS | 1440×560 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/06-random-forest.md` | 26 | `images/06-random-forest-01-board-of-experts-imagegen.png` | instructional illustration | PASS | 1495×1052 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/06-random-forest.md` | 58 | `images/06-random-forest-02-random-forest-imagegen.png` | instructional illustration | PASS | 1492×1054 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/06-random-forest.md` | 87 | `images/06-random-forest-03-auc-vs-trees-crisp.png` | instructional illustration | PASS | 4080×3000 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/06-random-forest.md` | 133 | `images/06-random-forest-04-tuning-max-depth-crisp.png` | instructional illustration | PASS | 4080×3120 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/06-random-forest.md` | 186 | `images/06-random-forest-05-tuning-min-samples-leaf-crisp.png` | instructional illustration | PASS | 4080×3120 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/07-boosting.md` | 27 | `images/07-boosting-01-boosting-vs-random-forest-imagegen.png` | instructional illustration | PASS | 1493×1054 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/07-boosting.md` | 32 | `images/07-boosting-02-gradient-boosting-trees-imagegen.png` | instructional illustration | PASS | 1496×1051 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/07-boosting.md` | 187 | `images/07-boosting-03-train-val-auc-crisp.png` | instructional illustration | PASS | 4080×3000 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 24 | `images/08-xgb-tuning-01-parameters-imagegen.png` | instructional illustration | PASS | 1529×1029 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 81 | `images/08-xgb-tuning-02-tuning-eta-crisp.png` | instructional illustration | PASS | 4080×3000 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 114 | `images/08-xgb-tuning-03-max-depth-curves-crisp.png` | instructional illustration | PASS | 3456×2268 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 152 | `images/08-xgb-tuning-04-min-child-weight-curves-crisp.png` | instructional illustration | PASS | 3519×2268 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/09-final-model.md` | 19 | `images/09-final-model-01-comparing-validation-crisp.png` | instructional illustration | PASS | 1600×900 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/09-final-model.md` | 57 | `images/09-final-model-02-tuned-random-forest-crisp.png` | instructional illustration | PASS | 1600×900 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/09-final-model.md` | 88 | `images/09-final-model-03-xgb-validation-auc-crisp.png` | instructional illustration | PASS | 1600×900 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/09-final-model.md` | 111 | `images/09-final-model-04-full-train-prep-crisp.png` | instructional illustration | PASS | 1600×900 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/09-final-model.md` | 127 | `images/09-final-model-05-feature-matrices-crisp.png` | instructional illustration | PASS | 1600×900 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/09-final-model.md` | 136 | `images/09-final-model-06-dmatrix-crisp.png` | instructional illustration | PASS | 1600×900 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/09-final-model.md` | 166 | `images/09-final-model-07-final-test-auc-crisp.png` | instructional illustration | PASS | 1600×900 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/10-summary.md` | 14 | `images/10-summary-01-summary-slide-crisp.png` | instructional illustration | PASS | 1600×900 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/10-summary.md` | 25 | `images/10-summary-02-decision-tree-crisp.png` | instructional illustration | PASS | 1600×900 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/10-summary.md` | 27 | `images/10-summary-03-overfitting-auc-crisp.png` | instructional illustration | PASS | 1600×900 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/10-summary.md` | 37 | `images/10-summary-04-random-forest-crisp.png` | instructional illustration | PASS | 1600×900 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/10-summary.md` | 45 | `images/10-summary-05-gradient-boosting-crisp.png` | instructional illustration | PASS | 1600×900 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/10-summary.md` | 47 | `images/10-summary-06-xgb-parameters-crisp.png` | instructional illustration | PASS | 1600×900 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/01-credit-risk.md` | 24 | `images/01-credit-risk-01-loan-application-imagegen.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/01-credit-risk.md` | 32 | `images/01-credit-risk-02-historical-data-imagegen.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/01-credit-risk.md` | 60 | `images/01-credit-risk-03-probability-of-default-imagegen.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/03-decision-trees.md` | 37 | `images/03-decision-trees-01-risk-rules-tree-imagegen.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/03-decision-trees.md` | 120 | `images/03-decision-trees-05-memorizing-imagegen.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/03-decision-trees.md` | 179 | `images/03-decision-trees-06-learned-rules-imagegen.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/03-decision-trees.md` | 185 | `images/03-decision-trees-07-decision-stump-imagegen.png` | instructional illustration | PASS | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/04-decision-tree-learning.md` | 193 | `images/04-decision-tree-learning-08-stopping-criteria-imagegen.png` | instructional illustration | PASS | 1620×971 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | 119 | `images/05-decision-tree-tuning-05-heatmap-imagegen.png` | instructional illustration | PASS | 1573×1000 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/05-decision-tree-tuning.md` | 132 | `images/05-decision-tree-tuning-07-wider-search-imagegen.png` | instructional illustration | PASS | 1642×958 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/06-random-forest.md` | 26 | `images/06-random-forest-01-board-of-experts-imagegen.png` | instructional illustration | PASS | 1491×1055 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/06-random-forest.md` | 58 | `images/06-random-forest-02-random-forest-imagegen.png` | instructional illustration | PASS | 1491×1055 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/06-random-forest.md` | 87 | `images/06-random-forest-03-auc-vs-trees-imagegen.png` | instructional illustration | PASS | 1463×1075 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/06-random-forest.md` | 133 | `images/06-random-forest-04-tuning-max-depth-imagegen.png` | instructional illustration | PASS | 1434×1097 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/06-random-forest.md` | 186 | `images/06-random-forest-05-tuning-min-samples-leaf-imagegen.png` | instructional illustration | PASS | 1434×1097 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/07-boosting.md` | 27 | `images/07-boosting-01-boosting-vs-random-forest-imagegen.png` | instructional illustration | PASS | 1491×1055 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/07-boosting.md` | 32 | `images/07-boosting-02-gradient-boosting-trees-imagegen.png` | instructional illustration | PASS | 1491×1055 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/07-boosting.md` | 187 | `images/07-boosting-03-train-val-auc-imagegen.png` | instructional illustration | PASS | 1463×1075 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 24 | `images/08-xgb-tuning-01-parameters-imagegen.png` | instructional illustration | PASS | 1491×1055 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 81 | `images/08-xgb-tuning-02-tuning-eta-imagegen.png` | instructional illustration | PASS | 1463×1075 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 114 | `images/08-xgb-tuning-03-max-depth-curves-imagegen.png` | instructional illustration | PASS | 1548×1016 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 152 | `images/08-xgb-tuning-04-min-child-weight-curves-imagegen.png` | instructional illustration | PASS | 1562×1007 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/09-final-model.md` | 19 | `images/09-final-model-01-comparing-validation-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/09-final-model.md` | 57 | `images/09-final-model-02-tuned-random-forest-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/09-final-model.md` | 88 | `images/09-final-model-03-xgb-validation-auc-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/09-final-model.md` | 111 | `images/09-final-model-04-full-train-prep-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/09-final-model.md` | 127 | `images/09-final-model-05-feature-matrices-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/09-final-model.md` | 136 | `images/09-final-model-06-dmatrix-imagegen.png` | instructional illustration | PASS | 1672×940 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/09-final-model.md` | 166 | `images/09-final-model-07-final-test-auc-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/10-summary.md` | 14 | `images/10-summary-01-summary-slide-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/10-summary.md` | 25 | `images/10-summary-02-decision-tree-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/10-summary.md` | 27 | `images/10-summary-03-overfitting-auc-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/10-summary.md` | 37 | `images/10-summary-04-random-forest-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/10-summary.md` | 45 | `images/10-summary-05-gradient-boosting-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/10-summary.md` | 47 | `images/10-summary-06-xgb-parameters-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/11-explore-more.md` | 4 | `images/11-explore-more-01-ensemble-experiments-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/01-fashion-classification.md` | 19 | `images/01-fashion-classification-01-tabular-vs-images-imagegen.png` | instructional illustration | PASS | 1445×1088 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/01-fashion-classification.md` | 34 | `images/01-fashion-classification-02-upload-service-imagegen.png` | instructional illustration | PASS | 1444×1089 | review required: crisp/generated asset |
@@ -715,8 +490,8 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | 112 | `images/02-tensorflow-keras-06-load-img-crisp.png` | instructional illustration | PASS | 3000×2160 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | 124 | `images/02-tensorflow-keras-07-rgb-channels-imagegen.png` | instructional illustration | PASS | 1445×1088 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/02-tensorflow-keras.md` | 146 | `images/02-tensorflow-keras-08-numpy-array-crisp.png` | instructional illustration | PASS | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 25 | `images/03-pretrained-models-02-imagenet-crisp.png` | instructional illustration | PASS | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 36 | `images/03-pretrained-models-01-keras-applications-crisp.png` | instructional illustration | PASS | 3000×2160 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 25 | `images/03-pretrained-models-02-imagenet-crisp.png` | instructional illustration | PASS | 1478×1064 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 36 | `images/03-pretrained-models-01-keras-applications-crisp.png` | instructional illustration | PASS | 1478×1064 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 54 | `images/03-pretrained-models-03-sagemaker-gpu-crisp.png` | instructional illustration | PASS | 3000×2160 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 88 | `images/03-pretrained-models-04-xception-model-crisp.png` | instructional illustration | PASS | 3000×2160 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/03-pretrained-models.md` | 93 | `images/03-pretrained-models-05-xception-weights-download-crisp.png` | instructional illustration | PASS | 3000×2160 | review required: crisp/generated asset |
@@ -749,7 +524,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 162 | `images/06-learning-rate-05-val-accuracy-crisp.png` | instructional illustration | PASS | 3000×2160 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 169 | `images/06-learning-rate-06-two-lr-validation-crisp.png` | instructional illustration | PASS | 3000×2160 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/06-learning-rate.md` | 184 | `images/06-learning-rate-07-select-001-crisp.png` | instructional illustration | PASS | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/07-checkpointing.md` | 22 | `images/07-checkpointing-01-oscillation-crisp.png` | instructional illustration | PASS | 3000×2160 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/07-checkpointing.md` | 22 | `images/07-checkpointing-01-oscillation-crisp.png` | instructional illustration | PASS | 1478×1064 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/07-checkpointing.md` | 44 | `images/07-checkpointing-02-callbacks-imagegen.png` | instructional illustration | PASS | 1508×1043 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/07-checkpointing.md` | 87 | `images/07-checkpointing-03-filename-template-crisp.png` | instructional illustration | PASS | 3000×2160 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/07-checkpointing.md` | 98 | `images/07-checkpointing-04-save-best-only-imagegen.png` | instructional illustration | PASS | 1508×1043 | review required: crisp/generated asset |
@@ -780,7 +555,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/08-deep-learning/11-large-model.md` | 75 | `images/11-large-model-02-generators-shear-zoom-flip-crisp.png` | instructional illustration | PASS | 3000×2082 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/11-large-model.md` | 111 | `images/11-large-model-03-checkpoint-callback-crisp.png` | instructional illustration | PASS | 3000×2082 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/11-large-model.md` | 136 | `images/11-large-model-04-first-run-step-time-crisp.png` | instructional illustration | PASS | 3000×2082 | review required: crisp/generated asset |
-| ML | `cohorts/2026/08-deep-learning/11-large-model.md` | 163 | `images/11-large-model-05-training-output-crisp.png` | instructional illustration | PASS | 3000×2082 | review required: crisp/generated asset |
+| ML | `cohorts/2026/08-deep-learning/11-large-model.md` | 163 | `images/11-large-model-05-training-output-crisp.png` | instructional illustration | PASS | 1944×809 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/11-large-model.md` | 168 | `images/11-large-model-06-checkpoint-files-crisp.png` | instructional illustration | PASS | 3300×1782 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/12-using-model.md` | 36 | `images/12-using-model-01-fresh-notebook-imports-crisp.png` | instructional illustration | PASS | 3000×2082 | review required: crisp/generated asset |
 | ML | `cohorts/2026/08-deep-learning/12-using-model.md` | 75 | `images/12-using-model-02-load-model-evaluate-crisp.png` | instructional illustration | PASS | 3000×2082 | review required: crisp/generated asset |
@@ -795,8 +570,8 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/09-serverless/01-intro.md` | 25 | `images/01-intro-01-clothes-classification-use-case-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/01-intro.md` | 44 | `images/01-intro-02-aws-lambda-deployment-imagegen.png` | instructional illustration | PASS | 1691×930 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/01-intro.md` | 51 | `images/01-intro-03-lambda-uses-tf-lite-imagegen.png` | instructional illustration | PASS | 1835×857 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/01-intro.md` | 57 | `images/01-intro-04-module-plan-crisp.png` | instructional illustration | PASS | 3000×2016 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/01-intro.md` | 69 | `images/01-intro-05-module-plan-lambda-gateway-crisp.png` | instructional illustration | PASS | 3000×2016 | review required: crisp/generated asset |
+| ML | `cohorts/2026/09-serverless/01-intro.md` | 57 | `images/01-intro-04-module-plan-crisp.png` | instructional illustration | PASS | 1400×890 | review required: crisp/generated asset |
+| ML | `cohorts/2026/09-serverless/01-intro.md` | 69 | `images/01-intro-05-module-plan-lambda-gateway-crisp.png` | instructional illustration | PASS | 1400×845 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/02-aws-lambda.md` | 17 | `images/02-aws-lambda-01-search-lambda-crisp.png` | instructional illustration | PASS | 3000×1896 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/02-aws-lambda.md` | 41 | `images/02-aws-lambda-02-create-function-crisp.png` | instructional illustration | PASS | 3000×1896 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/02-aws-lambda.md` | 67 | `images/02-aws-lambda-03-pong-handler-crisp.png` | instructional illustration | PASS | 3000×1896 | review required: crisp/generated asset |
@@ -809,7 +584,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 93 | `images/03-tensorflow-lite-02-03-predictions-to-tflite-crisp.png` | instructional illustration | PASS | 2048×768 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 139 | `images/03-tensorflow-lite-04-model-sizes-crisp.png` | instructional illustration | PASS | 3000×1836 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 188 | `images/03-tensorflow-lite-05-interpreter-indexes-crisp.png` | instructional illustration | PASS | 3000×1836 | review required: crisp/generated asset |
-| ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 221 | `images/03-tensorflow-lite-06-keras-preprocess-source-crisp.png` | instructional illustration | PASS | 3000×720 | review required: crisp/generated asset |
+| ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 221 | `images/03-tensorflow-lite-06-keras-preprocess-source-crisp.png` | instructional illustration | PASS | 2170×725 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 263 | `images/03-tensorflow-lite-07-keras-image-helper-crisp.png` | instructional illustration | PASS | 3000×1836 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/03-tensorflow-lite.md` | 278 | `images/03-tensorflow-lite-08-tflite-runtime-install-crisp.png` | instructional illustration | PASS | 3000×1836 | review required: crisp/generated asset |
 | ML | `cohorts/2026/09-serverless/04-preparing-code.md` | 14 | `images/04-preparing-code-01-lesson-plan-crisp.png` | instructional illustration | PASS | 3000×2016 | review required: crisp/generated asset |
@@ -853,7 +628,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/10-kubernetes/01-overview.md` | 75 | `images/01-overview-05-cpu-gpu-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/01-overview.md` | 84 | `images/01-overview-04-kubernetes-imagegen.png` | instructional illustration | PASS | 1448×1086 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/01-overview.md` | 110 | `images/01-overview-06-plan-crisp.png` | instructional illustration | PASS | 3000×2160 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | 39 | `images/02-tensorflow-serving-01-saved-model-crisp.png` | instructional illustration | PASS | 2760×1530 | review required: crisp/generated asset |
+| ML | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | 39 | `images/02-tensorflow-serving-01-saved-model-crisp.png` | instructional illustration | PASS | 1685×933 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | 68 | `images/02-tensorflow-serving-02-signature-crisp.png` | instructional illustration | PASS | 3750×1239 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | 113 | `images/02-tensorflow-serving-03-docker-run-crisp.png` | instructional illustration | PASS | 2760×1494 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/02-tensorflow-serving.md` | 136 | `images/02-tensorflow-serving-04-install-libraries-crisp.png` | instructional illustration | PASS | 3000×1230 | review required: crisp/generated asset |
@@ -972,119 +747,75 @@ This is the complete image-reference occurrence list for the selected unit files
 | MLOps | `06-best-practices/README.md` | 48 | `AWS-stream-pipeline.png` | local image | PASS | 1760×1144 | review required: native/source asset |
 | MLOps | `06-best-practices/README.md` | 93 | `ci_cd_zoomcamp.png` | local image | PASS | 1870×1322 | review required: native/source asset |
 | MLOps | `07-project/README.md` | 104 | `https://static.streamlit.io/badges/streamlit_badge_black_white.svg` | remote | REMOTE | — | not locally checked |
-| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 40 | `images/01-data-warehouse-and-bigquery-01-olap-vs-oltp-crisp.png` | instructional illustration | PASS | 1666×944 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 60 | `images/01-data-warehouse-and-bigquery-02-data-warehouse-diagram-imagegen.png` | instructional illustration | PASS | 1693×929 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 105 | `images/01-data-warehouse-and-bigquery-03-bigquery-cost-crisp.png` | instructional illustration | PASS | 1680×660 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 170 | `images/01-data-warehouse-and-bigquery-04-external-table-details-crisp.png` | instructional illustration | PASS | 1836×990 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 198 | `images/01-data-warehouse-and-bigquery-05-partitioning-diagram-crisp.png` | instructional illustration | PASS | 1800×1005 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 242 | `images/01-data-warehouse-and-bigquery-06-partition-pruning-crisp.png` | instructional illustration | PASS | 1836×975 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 276 | `images/01-data-warehouse-and-bigquery-07-clustering-diagram-crisp.png` | instructional illustration | PASS | 1800×1005 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 315 | `images/01-data-warehouse-and-bigquery-08-cluster-pruning-crisp.png` | instructional illustration | PASS | 1836×975 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/02-partitioning-vs-clustering.md` | 38 | `images/02-partitioning-vs-clustering-01-partitioning-options-crisp.png` | instructional illustration | PASS | 1800×900 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/02-partitioning-vs-clustering.md` | 52 | `images/02-partitioning-vs-clustering-02-clustering-basics-crisp.png` | instructional illustration | PASS | 1800×855 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/02-partitioning-vs-clustering.md` | 92 | `images/02-partitioning-vs-clustering-03-partitioning-vs-clustering-crisp.png` | instructional illustration | PASS | 1800×900 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/02-partitioning-vs-clustering.md` | 106 | `images/02-partitioning-vs-clustering-04-clustering-over-partitioning-crisp.png` | instructional illustration | PASS | 1800×855 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/02-partitioning-vs-clustering.md` | 124 | `images/02-partitioning-vs-clustering-05-automatic-reclustering-crisp.png` | instructional illustration | PASS | 1800×900 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/03-bigquery-best-practices.md` | 15 | `images/03-bigquery-best-practices-01-cost-reduction-crisp.png` | instructional illustration | PASS | 1800×600 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/03-bigquery-best-practices.md` | 44 | `images/03-bigquery-best-practices-02-query-performance-crisp.png` | instructional illustration | PASS | 1800×735 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/03-bigquery-best-practices.md` | 70 | `images/03-bigquery-best-practices-03-join-patterns-crisp.png` | instructional illustration | PASS | 1800×750 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 65 | `images/01-data-warehouse-and-bigquery-02-data-warehouse-diagram-imagegen.png` | instructional illustration | PASS | 1693×929 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 173 | `images/01-data-warehouse-and-bigquery-04-external-table-details-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 201 | `images/01-data-warehouse-and-bigquery-05-partitioning-diagram-crisp.png` | instructional illustration | PASS | 1674×940 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 245 | `images/01-data-warehouse-and-bigquery-06-partition-pruning-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 279 | `images/01-data-warehouse-and-bigquery-07-clustering-diagram-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 318 | `images/01-data-warehouse-and-bigquery-08-cluster-pruning-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/04-internals-of-bigquery.md` | 13 | `images/04-internals-of-bigquery-01-architecture-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/04-internals-of-bigquery.md` | 52 | `images/04-internals-of-bigquery-02-columnar-storage-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/04-internals-of-bigquery.md` | 74 | `images/04-internals-of-bigquery-03-dremel-tree-imagegen.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/05-machine-learning-in-bigquery.md` | 66 | `images/05-machine-learning-in-bigquery-01-model-choice-crisp.png` | instructional illustration | PASS | 1800×1050 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/05-machine-learning-in-bigquery.md` | 143 | `images/05-machine-learning-in-bigquery-02-feature-table-crisp.png` | instructional illustration | PASS | 1836×975 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/05-machine-learning-in-bigquery.md` | 172 | `images/05-machine-learning-in-bigquery-03-model-evaluation-tab-crisp.png` | instructional illustration | PASS | 1836×975 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/05-machine-learning-in-bigquery.md` | 185 | `images/05-machine-learning-in-bigquery-04-feature-info-crisp.png` | instructional illustration | PASS | 1836×975 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/05-machine-learning-in-bigquery.md` | 212 | `images/05-machine-learning-in-bigquery-05-ml-evaluate-crisp.png` | instructional illustration | PASS | 1836×975 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/05-machine-learning-in-bigquery.md` | 238 | `images/05-machine-learning-in-bigquery-06-ml-predict-crisp.png` | instructional illustration | PASS | 1836×975 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/05-machine-learning-in-bigquery.md` | 266 | `images/05-machine-learning-in-bigquery-07-explain-predict-crisp.png` | instructional illustration | PASS | 1836×975 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/05-machine-learning-in-bigquery.md` | 298 | `images/05-machine-learning-in-bigquery-08-hyperparameter-tuning-crisp.png` | instructional illustration | PASS | 1836×975 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 26 | `images/06-deploying-a-machine-learning-model-01-exported-to-gcs-crisp.png` | instructional illustration | PASS | 1920×996 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 40 | `images/06-deploying-a-machine-learning-model-02-copy-model-local-crisp.png` | instructional illustration | PASS | 1884×1020 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 65 | `images/06-deploying-a-machine-learning-model-03-docker-running-crisp.png` | instructional illustration | PASS | 1884×1020 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 73 | `images/06-deploying-a-machine-learning-model-04-model-status-crisp.png` | instructional illustration | PASS | 1725×945 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 91 | `images/06-deploying-a-machine-learning-model-05-predict-crisp.png` | instructional illustration | PASS | 1725×945 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 96 | `images/06-deploying-a-machine-learning-model-06-predict-payment-type-2-crisp.png` | instructional illustration | PASS | 1725×945 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/05-machine-learning-in-bigquery.md` | 66 | `images/05-machine-learning-in-bigquery-01-model-choice-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 26 | `images/06-deploying-a-machine-learning-model-01-exported-to-gcs-crisp.png` | instructional illustration | PASS | 1740×904 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 40 | `images/06-deploying-a-machine-learning-model-02-copy-model-local-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 65 | `images/06-deploying-a-machine-learning-model-03-docker-running-crisp.png` | instructional illustration | PASS | 2092×752 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 73 | `images/06-deploying-a-machine-learning-model-04-model-status-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 91 | `images/06-deploying-a-machine-learning-model-05-predict-crisp.png` | instructional illustration | PASS | 1694×929 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 96 | `images/06-deploying-a-machine-learning-model-06-predict-payment-type-2-crisp.png` | instructional illustration | PASS | 1692×929 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 32 | `images/01-introduction-to-batch-processing-01-batch-vs-streaming-imagegen.png` | instructional illustration | PASS | 1601×982 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 46 | `images/01-introduction-to-batch-processing-02-streaming-example-imagegen.png` | instructional illustration | PASS | 1133×1388 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 62 | `images/01-introduction-to-batch-processing-03-batch-job-frequencies-imagegen.png` | instructional illustration | PASS | 1254×1254 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 78 | `images/01-introduction-to-batch-processing-04-technologies-imagegen.png` | instructional illustration | PASS | 1470×1070 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 106 | `images/01-introduction-to-batch-processing-06-advantages-imagegen.png` | instructional illustration | PASS | 1117×1409 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 122 | `images/01-introduction-to-batch-processing-07-batch-vs-streaming-share-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 116 | `images/01-introduction-to-batch-processing-07-batch-vs-streaming-share-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/02-introduction-to-spark.md` | 26 | `images/02-introduction-to-spark-02-data-processing-engine-whiteboard-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/02-introduction-to-spark.md` | 62 | `images/02-introduction-to-spark-03-when-to-use-spark-whiteboard-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/02-introduction-to-spark.md` | 87 | `images/02-introduction-to-spark-04-typical-workflow-whiteboard-imagegen.png` | instructional illustration | PASS | 1627×967 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/03-installing-spark.md` | 22 | `images/03-installing-spark-01-install-guide-java-crisp.png` | instructional illustration | PASS | 1395×435 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/03-installing-spark.md` | 45 | `images/03-installing-spark-02-java-home-crisp.png` | instructional illustration | PASS | 1428×888 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/03-installing-spark.md` | 71 | `images/03-installing-spark-03-spark-download-page-crisp.png` | instructional illustration | PASS | 1470×915 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/03-installing-spark.md` | 80 | `images/03-installing-spark-04-spark-home-crisp.png` | instructional illustration | PASS | 1428×888 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/03-installing-spark.md` | 107 | `images/03-installing-spark-05-spark-shell-crisp.png` | instructional illustration | PASS | 1428×888 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 38 | `images/04-first-look-at-spark-01-spark-ui-crisp.png` | instructional illustration | PASS | 1440×960 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 79 | `images/04-first-look-at-spark-02-schema-problem-pandas-crisp.png` | instructional illustration | PASS | 1395×930 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 123 | `images/04-first-look-at-spark-03-schema-structtype-crisp.png` | instructional illustration | PASS | 1365×867 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/03-installing-spark.md` | 22 | `images/03-installing-spark-01-install-guide-java-crisp.png` | instructional illustration | PASS | 2170×725 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/03-installing-spark.md` | 45 | `images/03-installing-spark-02-java-home-crisp.png` | instructional illustration | PASS | 1586×992 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/03-installing-spark.md` | 71 | `images/03-installing-spark-03-spark-download-page-crisp.png` | instructional illustration | PASS | 1590×989 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/03-installing-spark.md` | 80 | `images/03-installing-spark-04-spark-home-crisp.png` | instructional illustration | PASS | 1586×992 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/03-installing-spark.md` | 107 | `images/03-installing-spark-05-spark-shell-crisp.png` | instructional illustration | PASS | 1586×992 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 38 | `images/04-first-look-at-spark-01-spark-ui-crisp.png` | instructional illustration | PASS | 1844×853 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 79 | `images/04-first-look-at-spark-02-schema-problem-pandas-crisp.png` | instructional illustration | PASS | 1797×875 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 123 | `images/04-first-look-at-spark-03-schema-structtype-crisp.png` | instructional illustration | PASS | 1833×858 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 149 | `images/04-first-look-at-spark-04-partitions-slides-imagegen.png` | instructional illustration | PASS | 1402×1122 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 179 | `images/04-first-look-at-spark-05-repartition-write-parquet-crisp.png` | instructional illustration | PASS | 1395×930 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 26 | `images/05-spark-dataframes-01-print-schema-crisp.png` | instructional illustration | PASS | 1395×930 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 43 | `images/05-spark-dataframes-02-select-crisp.png` | instructional illustration | PASS | 1395×930 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 108 | `images/05-spark-dataframes-03-built-in-functions-crisp.png` | instructional illustration | PASS | 1395×930 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 169 | `images/05-spark-dataframes-04-udf-crisp.png` | instructional illustration | PASS | 1395×930 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 44 | `images/06-preparing-taxi-data-03-printf-crisp.png` | instructional illustration | PASS | 1314×882 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 49 | `images/06-preparing-taxi-data-02-url-list-crisp.png` | instructional illustration | PASS | 1314×882 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 85 | `images/06-preparing-taxi-data-04-zcat-crisp.png` | instructional illustration | PASS | 1314×882 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 90 | `images/06-preparing-taxi-data-05-tree-raw-crisp.png` | instructional illustration | PASS | 1314×882 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 110 | `images/06-preparing-taxi-data-06-schema-strings-crisp.png` | instructional illustration | PASS | 1410×930 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 175 | `images/06-preparing-taxi-data-07-spark-ui-one-task-crisp.png` | instructional illustration | PASS | 1500×936 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 184 | `images/06-preparing-taxi-data-08-tree-pq-crisp.png` | instructional illustration | PASS | 1314×870 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/07-sql-with-spark.md` | 36 | `images/07-sql-with-spark-01-read-parquet-crisp.png` | instructional illustration | PASS | 1395×924 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/07-sql-with-spark.md` | 50 | `images/07-sql-with-spark-02-common-columns-crisp.png` | instructional illustration | PASS | 1395×924 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 26 | `images/05-spark-dataframes-01-print-schema-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 43 | `images/05-spark-dataframes-02-select-crisp.png` | instructional illustration | PASS | 2007×784 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 108 | `images/05-spark-dataframes-03-built-in-functions-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 169 | `images/05-spark-dataframes-04-udf-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 82 | `images/06-preparing-taxi-data-04-zcat-crisp.png` | instructional illustration | PASS | 2109×745 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 87 | `images/06-preparing-taxi-data-05-tree-raw-crisp.png` | instructional illustration | PASS | 1562×1007 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 107 | `images/06-preparing-taxi-data-06-schema-strings-crisp.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 172 | `images/06-preparing-taxi-data-07-spark-ui-one-task-crisp.png` | instructional illustration | PASS | 1751×898 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 181 | `images/06-preparing-taxi-data-08-tree-pq-crisp.png` | instructional illustration | PASS | 1562×1007 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/07-sql-with-spark.md` | 36 | `images/07-sql-with-spark-01-read-parquet-crisp.png` | instructional illustration | PASS | 1562×1007 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/07-sql-with-spark.md` | 50 | `images/07-sql-with-spark-02-common-columns-crisp.png` | instructional illustration | PASS | 1562×1007 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/08-anatomy-of-a-spark-cluster.md` | 50 | `images/08-anatomy-of-a-spark-cluster-01-spark-submit-master-imagegen.png` | instructional illustration | PASS | 1448×1086 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/08-anatomy-of-a-spark-cluster.md` | 56 | `images/08-anatomy-of-a-spark-cluster-02-executors-failure-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/08-anatomy-of-a-spark-cluster.md` | 67 | `images/08-anatomy-of-a-spark-cluster-03-executors-pull-partitions-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/08-anatomy-of-a-spark-cluster.md` | 94 | `images/08-anatomy-of-a-spark-cluster-04-s3-gcs-instead-of-hdfs-imagegen.png` | instructional illustration | PASS | 1539×1022 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/09-groupby-in-spark.md` | 38 | `images/09-groupby-in-spark-01-revenue-query-crisp.png` | instructional illustration | PASS | 1395×930 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/09-groupby-in-spark.md` | 56 | `images/09-groupby-in-spark-02-three-stages-crisp.png` | instructional illustration | PASS | 1440×984 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/09-groupby-in-spark.md` | 122 | `images/09-groupby-in-spark-03-reshuffling-whiteboard-imagegen.png` | instructional illustration | PASS | 1569×1002 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/09-groupby-in-spark.md` | 160 | `images/09-groupby-in-spark-04-shuffle-read-write-crisp.png` | instructional illustration | PASS | 1440×984 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/10-joins-in-spark.md` | 24 | `images/10-joins-in-spark-01-outer-join-crisp.png` | instructional illustration | PASS | 1395×930 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/10-joins-in-spark.md` | 61 | `images/10-joins-in-spark-02-sort-merge-join-stages-crisp.png` | instructional illustration | PASS | 1440×984 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/10-joins-in-spark.md` | 141 | `images/10-joins-in-spark-03-zones-lookup-crisp.png` | instructional illustration | PASS | 1395×930 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/10-joins-in-spark.md` | 164 | `images/10-joins-in-spark-04-broadcast-exchange-crisp.png` | instructional illustration | PASS | 1440×984 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/11-operations-on-spark-rdds.md` | 60 | `images/11-operations-on-spark-rdds-01-rdd-of-rows-crisp.png` | instructional illustration | PASS | 1395×954 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/11-operations-on-spark-rdds.md` | 101 | `images/11-operations-on-spark-rdds-02-map-key-value-whiteboard-imagegen.png` | instructional illustration | PASS | 1667×943 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/11-operations-on-spark-rdds.md` | 181 | `images/11-operations-on-spark-rdds-03-reducebykey-chain-crisp.png` | instructional illustration | PASS | 1395×954 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/11-operations-on-spark-rdds.md` | 202 | `images/11-operations-on-spark-rdds-04-todf-lost-names-crisp.png` | instructional illustration | PASS | 1395×954 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/11-operations-on-spark-rdds.md` | 256 | `images/11-operations-on-spark-rdds-06-dag-two-stages-crisp.png` | instructional illustration | PASS | 1440×1020 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/09-groupby-in-spark.md` | 54 | `images/09-groupby-in-spark-02-three-stages-crisp.png` | instructional illustration | PASS | 1586×992 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/09-groupby-in-spark.md` | 120 | `images/09-groupby-in-spark-03-reshuffling-whiteboard-imagegen.png` | instructional illustration | PASS | 1569×1002 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/09-groupby-in-spark.md` | 158 | `images/09-groupby-in-spark-04-shuffle-read-write-crisp.png` | instructional illustration | PASS | 1586×992 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/10-joins-in-spark.md` | 59 | `images/10-joins-in-spark-02-sort-merge-join-stages-crisp.png` | instructional illustration | PASS | 1794×877 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/10-joins-in-spark.md` | 176 | `images/10-joins-in-spark-04-broadcast-exchange-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/11-operations-on-spark-rdds.md` | 99 | `images/11-operations-on-spark-rdds-02-map-key-value-whiteboard-imagegen.png` | instructional illustration | PASS | 1667×943 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/11-operations-on-spark-rdds.md` | 248 | `images/11-operations-on-spark-rdds-06-dag-two-stages-crisp.png` | instructional illustration | PASS | 1586×992 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/12-spark-rdd-mappartition.md` | 20 | `images/12-spark-rdd-mappartition-01-map-partitions-diagram-imagegen.png` | instructional illustration | PASS | 1536×1024 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/12-spark-rdd-mappartition.md` | 51 | `images/12-spark-rdd-mappartition-02-feature-columns-crisp.png` | instructional illustration | PASS | 1800×600 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/12-spark-rdd-mappartition.md` | 104 | `images/12-spark-rdd-mappartition-04-partition-sizes-crisp.png` | instructional illustration | PASS | 1395×954 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/12-spark-rdd-mappartition.md` | 177 | `images/12-spark-rdd-mappartition-06-model-and-yield-crisp.png` | instructional illustration | PASS | 1395×954 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/12-spark-rdd-mappartition.md` | 235 | `images/12-spark-rdd-mappartition-07-predicted-duration-crisp.png` | instructional illustration | PASS | 1395×954 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/13-connecting-to-google-cloud-storage.md` | 30 | `images/13-connecting-to-google-cloud-storage-02-upload-parquet-to-gcs-crisp.png` | instructional illustration | PASS | 1425×420 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/13-connecting-to-google-cloud-storage.md` | 35 | `images/13-connecting-to-google-cloud-storage-03-upload-progress-crisp.png` | instructional illustration | PASS | 1425×855 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/13-connecting-to-google-cloud-storage.md` | 70 | `images/13-connecting-to-google-cloud-storage-04-download-connector-jar-crisp.png` | instructional illustration | PASS | 1620×324 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/13-connecting-to-google-cloud-storage.md` | 101 | `images/13-connecting-to-google-cloud-storage-05-spark-conf-gcs-connector-crisp.png` | instructional illustration | PASS | 1500×300 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/13-connecting-to-google-cloud-storage.md` | 133 | `images/13-connecting-to-google-cloud-storage-06-spark-session-gcs-crisp.png` | instructional illustration | PASS | 1800×390 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/13-connecting-to-google-cloud-storage.md` | 146 | `images/13-connecting-to-google-cloud-storage-07-read-from-gcs-test-crisp.png` | instructional illustration | PASS | 1800×144 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/14-creating-a-local-spark-cluster.md` | 39 | `images/14-creating-a-local-spark-cluster-01-spark-master-ui-crisp.png` | instructional illustration | PASS | 1920×306 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/14-creating-a-local-spark-cluster.md` | 88 | `images/14-creating-a-local-spark-cluster-02-worker-registered-crisp.png` | instructional illustration | PASS | 1920×471 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/14-creating-a-local-spark-cluster.md` | 106 | `images/14-creating-a-local-spark-cluster-03-converted-script-crisp.png` | instructional illustration | PASS | 1080×780 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/14-creating-a-local-spark-cluster.md` | 148 | `images/14-creating-a-local-spark-cluster-04-running-script-2020-crisp.png` | instructional illustration | PASS | 1425×840 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/14-creating-a-local-spark-cluster.md` | 178 | `images/14-creating-a-local-spark-cluster-05-spark-submit-2021-crisp.png` | instructional illustration | PASS | 1425×900 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/15-setting-up-a-dataproc-cluster.md` | 28 | `images/15-setting-up-a-dataproc-cluster-01-create-cluster-crisp.png` | instructional illustration | PASS | 1605×990 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/15-setting-up-a-dataproc-cluster.md` | 67 | `images/15-setting-up-a-dataproc-cluster-02-submit-job-form-crisp.png` | instructional illustration | PASS | 1080×765 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/15-setting-up-a-dataproc-cluster.md` | 74 | `images/15-setting-up-a-dataproc-cluster-03-job-finished-report-crisp.png` | instructional illustration | PASS | 1605×960 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/15-setting-up-a-dataproc-cluster.md` | 127 | `images/15-setting-up-a-dataproc-cluster-05-reports-in-bucket-crisp.png` | instructional illustration | PASS | 1605×990 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/16-connecting-spark-to-bigquery.md` | 40 | `images/16-connecting-spark-to-bigquery-01-connector-tutorial-crisp.png` | instructional illustration | PASS | 1290×834 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/16-connecting-spark-to-bigquery.md` | 75 | `images/16-connecting-spark-to-bigquery-02-failed-to-find-bigquery-crisp.png` | instructional illustration | PASS | 1620×720 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/16-connecting-spark-to-bigquery.md` | 113 | `images/16-connecting-spark-to-bigquery-03-bigquery-table-crisp.png` | instructional illustration | PASS | 1605×900 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/12-spark-rdd-mappartition.md` | 51 | `images/12-spark-rdd-mappartition-02-feature-columns-crisp.png` | instructional illustration | PASS | 2120×742 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/14-creating-a-local-spark-cluster.md` | 39 | `images/14-creating-a-local-spark-cluster-01-spark-master-ui-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/14-creating-a-local-spark-cluster.md` | 88 | `images/14-creating-a-local-spark-cluster-02-worker-registered-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/15-setting-up-a-dataproc-cluster.md` | 28 | `images/15-setting-up-a-dataproc-cluster-01-create-cluster-crisp.png` | instructional illustration | PASS | 1597×985 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/15-setting-up-a-dataproc-cluster.md` | 67 | `images/15-setting-up-a-dataproc-cluster-02-submit-job-form-crisp.png` | instructional illustration | PASS | 1222×1287 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/15-setting-up-a-dataproc-cluster.md` | 125 | `images/15-setting-up-a-dataproc-cluster-05-reports-in-bucket-crisp.png` | instructional illustration | PASS | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/16-connecting-spark-to-bigquery.md` | 73 | `images/16-connecting-spark-to-bigquery-02-failed-to-find-bigquery-crisp.png` | instructional illustration | PASS | 1881×836 | review required: crisp/generated asset |
 
 ## Review handoff
 
-- The machine-check snapshot contains 762 image-reference occurrences; 0 are missing or outside their repository.
+- The machine-check snapshot contains 493 image-reference occurrences; 0 are missing or outside their repository.
 - 0 active instructional references are crop-only candidates and must be checked against their retained original source before acceptance.
 - The implementation agent must retain each original non-crisp source, crop only when it isolates useful content, merge adjacent screenshots on the content side in the correct orientation, and pass the original source image(s) plus any merged source reference to imagegen. A 2×/3× resized derivative must never be the only imagegen input.
 - The independent reviewer must inspect crop direction/order, visual crispness, text/semantic fidelity, overlays, and every Markdown reference, then record an explicit verdict in the rollout report.
 
-Reproduce this snapshot with: `python scripts/audit-illustrations/audit_illustrations.py --workspace-root /home/alexey/git --output docs/current-illustration-audit.md`
+Reproduce this snapshot with: `python scripts/audit-illustrations/audit_illustrations.py --workspace-root /home/alexey/git --output /tmp/current-illustration-audit-2026-09-08.md`
 
 The selected DE scope is explicitly `published=false`; it is included because it is the current 2027 draft work scope, not because it is already live. Historical cohorts and unrelated course repositories are excluded.
