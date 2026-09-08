@@ -91,6 +91,59 @@ just because the distracting frame is gone. Regenerate it from the crop with
 an explicit request for crisp, high-resolution output and inspect the result
 at the size used on the lesson page.
 
+## What counts as a crisp replacement
+
+“Crisp” describes the visible result, not the filename, file format, or pixel
+dimensions. A replacement is acceptable only when it passes both the visual
+quality gate and the content-fidelity gate.
+
+### Acceptable improvements
+
+- **Imagegen regeneration:** for a bounded diagram, conceptual illustration,
+  matrix, or process visual, use the clean crop as a reference and have
+  imagegen redraw it at high resolution. The regenerated image must have clean
+  edges, legible typography, and no recording artifacts.
+- **Deterministic re-rendering:** for exact code, commands, URLs, plots,
+  numeric results, or UI states, render from the original source, notebook,
+  browser state, or vector data. This is acceptable because it preserves the
+  source of truth, not because it makes a blurry screenshot larger.
+- **A crop followed by regeneration:** cropping is acceptable preparation when
+  it removes a face, camera tile, browser/Zoom chrome, cursor, or unrelated
+  panel. The crop itself is not the crisp replacement unless the source was
+  already sharp and remains readable at lesson size.
+- **Visible improvement:** at normal lesson-page width, important text is easy
+  to read, straight lines and shapes have clean boundaries, and fine details
+  are not smeared or blocky. At 100% inspection, the asset must not reveal
+  obvious interpolation blur or compression damage.
+- **Verified fidelity:** every required label, value, line break, arrow,
+  relationship, and ordering is checked against the source and the lesson.
+  Imagegen output is accepted only after this comparison.
+
+### Not acceptable as a final fix
+
+- enlarging a blurry crop with 2×, 3×, or any other interpolation and calling
+  the result regenerated;
+- applying sharpening, unsharp masking, denoising, or contrast changes to a
+  soft screenshot without rebuilding the missing detail;
+- changing JPG to PNG, increasing the DPI metadata, or changing the filename
+  to `*-crisp.png` without a visible quality improvement;
+- removing only the camera frame while leaving the instructional text
+  pixelated or unreadable;
+- using imagegen output that invents, misspells, drops, or rearranges labels,
+  code, URLs, numbers, table values, arrows, or UI controls;
+- accepting a polished image that changes the teaching meaning, even if it
+  looks sharper;
+- leaving a face, webcam tile, browser/Zoom controls, cursor, watermark, or
+  unrelated overlay in the published asset;
+- judging only from image dimensions, file size, a thumbnail, or the generation
+  prompt. The actual output must be opened and reviewed at lesson display size.
+
+An enlarged or sharpened image may be kept as a temporary diagnostic or as a
+fallback when the original is already sufficiently sharp. It must not be
+reported as a successful crisp regeneration when the source itself is soft.
+If imagegen is unavailable, record the candidate and the missing capability;
+do not silently substitute a cosmetic upscale.
+
 This pattern applies only when generation can preserve the teaching meaning.
 For exact code, URLs, numbers, plots, and UI states, use the crop as a guide
 and produce the crisp replacement deterministically from the original source,
