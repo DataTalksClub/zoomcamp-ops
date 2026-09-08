@@ -148,6 +148,49 @@ YouTube URL + timestamp
         → reviewed module image + Markdown reference
 ```
 
+## Second pass: make existing crops crisp
+
+The first cleanup pass may remove the camera frame without improving the
+source resolution. Treat every active `*-cropped.png` reference as a candidate
+for a second pass; do not assume that a cleanly framed crop is readable.
+
+For each active crop:
+
+1. Find the original recording frame or native source. Do not enlarge a crop
+   of a crop when the original is available.
+2. Reproduce the useful-region crop from that original and inspect it at the
+   lesson-page display size.
+3. For a bounded conceptual visual, send that crop to imagegen and request a
+   crisp, high-resolution sibling. Validate every required label, relationship,
+   and overlay constraint.
+4. For exact code, commands, URLs, plots, tables, numeric output, or live UI,
+   use a deterministic replacement. A reliable baseline is a 3× Lanczos
+   resize followed by mild sharpening, for example:
+
+   ```bash
+   magick source-crop.png \
+     -filter Lanczos -resize 300% \
+     -unsharp 0x0.5+0.5+0 \
+     final-crisp.png
+   ```
+
+   This improves presentation without changing source-of-truth pixels. Never
+   use imagegen to guess exact text or values.
+5. Save the accepted result as `*-crisp.png`, update the Markdown reference,
+   and keep the old source and `*-cropped.png` file for auditability.
+
+The second-pass acceptance gate is stronger than “the file exists”:
+
+- every active replaceable crop has a crisp sibling or an explicit native
+  high-resolution exception;
+- no active replaceable `*-cropped.png` reference remains;
+- every Markdown reference resolves;
+- the crisp asset is legible at normal lesson size and has no accidental face,
+  camera, cursor, browser/Zoom chrome, or generation artifact;
+- exact content matches the original source;
+- the worktree is clean, `git diff --check` passes, and focused commits are
+  pushed.
+
 ### 1. Confirm the instructional target
 
 Read the unit text and the image caption. Write down one sentence describing
@@ -233,10 +276,11 @@ forbade extra labels and numeric results, and it passed review.
 ### 7. Integrate non-destructively
 
 During experimentation, save the result under a sibling filename such as
-`*-imagegen-pilot.png` and update the one Markdown reference. Keep the source
-until the replacement has passed visual and lesson-context review. Use a
-stable descriptive filename for the final asset, and update its alt text or
-caption so it says what the learner should notice.
+`*-imagegen-pilot.png`. After review, use a stable `*-crisp.png` filename for
+the final asset and update the one Markdown reference. Keep the source and
+first-pass crop until the replacement has passed visual and lesson-context
+review. Update the alt text or caption so it says what the learner should
+notice.
 
 ### 8. Commit by focused area
 
@@ -273,5 +317,7 @@ label or invents a value.
 - [ ] The worker had the `imagegen` skill, or the task was handed off rather
   than falsely marked complete.
 - [ ] The Markdown reference, filename, and caption/alt text are correct.
+- [ ] The final screenshot uses a `*-crisp.png` sibling, or its native
+  high-resolution exception is recorded explicitly.
 - [ ] No code, URL, plot value, or configuration was entrusted to a generated approximation.
 - [ ] The change has a focused commit and no disposable intermediates are staged.

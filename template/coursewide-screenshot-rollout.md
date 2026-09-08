@@ -86,10 +86,18 @@ reference checks, and pushes only after the batch is accepted.
 
 ## Naming and review records
 
-During review, keep the original source and use a sibling name such as
-`*-imagegen-pilot.png` or `*-cropped.png`. Store crop coordinates, disposition,
-prompt iterations, invariants checked, and rejection reasons in a short report
-under `.tmp/`. Do not stage disposable crops or rejected generations.
+During review, keep the original source and use temporary siblings such as
+`*-imagegen-pilot.png` and `*-cropped.png`. The published replacement should
+use a `*-crisp.png` sibling. Store crop coordinates, disposition, prompt
+iterations, invariants checked, and rejection reasons in a short report under
+`.tmp/`. Do not stage disposable crops or rejected generations.
+
+For a second pass over an existing course, inventory active references ending
+in `-cropped.png`. Re-crop from the original source, then either regenerate a
+bounded visual with imagegen or apply deterministic 3× Lanczos resizing and
+mild sharpening to exact-fidelity content. Update each reference to the
+accepted `-crisp.png` sibling. Preserve the old crop, and record any native
+high-resolution exception explicitly rather than silently leaving a soft crop.
 
 Before accepting a batch, verify:
 
@@ -100,6 +108,7 @@ Before accepting a batch, verify:
   the deterministic path;
 - generated labels and relationships pass visual review on the imagegen path;
 - every Markdown reference resolves and `git diff --check` passes;
+- no active replaceable `*-cropped.png` reference remains;
 - each accepted screenshot has its own focused commit containing only its
   asset, report entry, and reference.
 
