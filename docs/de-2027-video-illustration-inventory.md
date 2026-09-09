@@ -33,7 +33,7 @@ upscale, or sharpening.
 | 01 | `JgspdlKXS-w` | Course introduction/overview only | **SUPPLEMENTAL** | Skip for instructional lesson illustrations |
 | 02 | `-JLnp-iLins`, `ZvVN_NmB_1s`, `wgPxC4UjoLM`, `MNOKVx8780E`, `VAHm0R_XjqI`, `-KmwrCqRhic`, `Z9ZmmwtXDcU`, `1pu_C_oOAMA`, `E04yurp1tSU`, `TLGFAOHpOYM`, `52u9X_bfTAo`, `b-6KhfWfk2M`, `GHPtRDAv044`, `LmnfjGKwnVU`, `3IbjHfC8bMg`, `XuPDQ1UcNyI` | Lessons 01–16, one video per lesson | **AUDITED — NO ASSET** | 23 native-only review candidates; date matrices, comparison tables, exact UI, code, and results remain native markup |
 | 03 | `jrHljAoD6nM`, `-CqXf7vhhDs`, `k81mLJVX08w`, `eduHi1inM4s`, `B-WtpB0PuG4`, `BjARzEWaznU` | Lessons 01–06 | **AUDITED — 12 CRISP ASSETS** | 12 source-backed bitmaps retained; three table/result screenshots converted to native Markdown and one unsafe terminal screenshot removed |
-| 04 | `uF76d5EmdtU`, `gsKuETFJr54`, `2dYDS4OQbT0`, `7CrrXazV_8k`, `JQYz-8sl1aQ`, `lT4fmTDEqVk`, `UqoWyMjcqrA`, `bvZ-rJm7uMU`, `KfhUA9Kfp8Y`, `t4OeWHW3SsA` | Lessons 01–11 (lesson 03 has no current video URL) | **UNPROCESSED** | dbt project/source/model/test/documentation/command states |
+| 04 | `uF76d5EmdtU`, `gsKuETFJr54`, `2dYDS4OQbT0`, `7CrrXazV_8k`, `JQYz-8sl1aQ`, `lT4fmTDEqVk`, `UqoWyMjcqrA`, `bvZ-rJm7uMU`, `KfhUA9Kfp8Y`, `t4OeWHW3SsA` | Lessons 01–11 (lesson 03 has no current video URL) | **PROCESSED — 3 ASSETS** | Three durable source-backed concepts were regenerated with imagegen; exact code/UI/table/terminal candidates remain native or were rejected |
 | 05 | `f6vg7lGqZx0`, `JJwHKSidX_c`, `q0k_iz9kWsI`, `224xH7h8OaQ`, `uBqjLEwF8rc`, `YWDjnSxbBtY`, `uzp_DiR4Sok`, `ZElY5SoqrwI`, `XCx0nDmhhxA`, `3nykPEs_V7E` | Lessons 01–10 | **UNPROCESSED** | Bruin concepts, pipeline/assets/variables/commands, durable UI/result states |
 | 06 | `dcHe5Fl3MF8`, `FhaqbEOuQ8U`, `hqUbB9c8sKg`, `r_Sf6fCB40c`, `ti3aC1m3rE8`, `CI3P4tAtru4`, `uAlp2VuZZPY`, `68CipcZt7ZA`, `9qrDsY_2COo`, `lu7TrqAWuH4`, `Bdu-xIrF3OM`, `k3uB2K99roI`, `Yyz293hBVcQ`, `HXBwSlXo5IA`, `osAiAYahvh8`, `HIm2BOj8C0Q` | Lessons 01–16 | **REOPENED** | Existing image set is source-backed but most screenshot replacements are crop/upscale/sharpen; regenerate retained screenshots or replace duplicated exact output with native content |
 | 07 | `YDUgFeHQzJU` plus the canonical theory recordings `hfvju3iOIP0`, `WxTxKGcfA-k`, `zPLZUDPi4AY`, `ZnEZFEYKppw`, `aegTuyxX7Yg`, `SXQtWyRpMKs`, `dUyA_63eRb0`, `NcpKlujh34Y`, `TNx5rmLY8Pk`, `r1OuLdwxbRc`, `DziQ4a4tn9Y`, `tBY_hBuyzwI` | Current introduction and theory lessons | **UNPROCESSED** | Process only source-backed streaming concepts from these recordings; remove unsupported/invented illustrations |
@@ -68,9 +68,15 @@ The current audit found:
   three table/result screenshots were converted to native Markdown and one
   unsafe terminal screenshot was removed. All retained bitmaps are genuinely
   crisp; no resize-only output remains.
-- Module 06: screenshot-derived assets exist, but their crop/upscale/sharpen
-  provenance does not satisfy the new crispness rule.
-- Modules 04, 05, and 07: no current instructional image set was found.
+- Module 04: 3 source-backed imagegen assets passed independent visual review;
+  exact code/UI/table/terminal candidates remain native or were rejected.
+- Module 06: source/frame audit is complete; 13 conceptual redraws await
+  independent review, one needs a new crop/redraw, 26 exact/native candidates
+  should remain native, and one warning-heavy screenshot should be removed.
+- Module 07: source/frame audit is complete; 7 sources have redraw-worthy
+  concepts, while exact/native and unsuitable candidates remain documented. No
+  bitmap was published.
+- Module 05: source/frame audit is still in progress.
 
 This inventory does not claim that every lesson should receive an image. Each
 candidate still has to pass the illustration rubric and the independent visual
@@ -137,6 +143,22 @@ tables, one terminal screenshot containing an unnecessary `rm -rf model`
 command was removed, and three path/SHA provenance typos were corrected in the
 tracked module audit. The remaining 12 bitmap assets are source-backed,
 crisp, and free of presenter/camera/Zoom/editor overlays.
+
+### DE module 04 audit and closure
+
+The complete Module 04 source/frame audit is under
+`.tmp/workshop-processing/de-2027-m04/audit-summary.md`; the tracked visual
+provenance is `cohorts/2027/04-analytics-engineering/visual-audit-2026-09-09.md`,
+and the independent review is under
+`.tmp/workshop-processing/de-2027-m04/INDEPENDENT-REVIEW.md`. All 10 canonical
+videos and transcripts were validated. Three durable concepts were selected
+from the recordings, cropped with source coordinates, and regenerated from the
+original frame plus focused crop: the analytics-engineering toolchain, the dbt
+model-to-warehouse flow, and dbt lineage. The first dbt-flow redraw was rejected
+because its persistence path implied a loop; it was regenerated and re-reviewed.
+All three final assets passed independent visual review. Exact code, tables,
+editor/browser/terminal UI, and transient values were not published as bitmap
+illustrations.
 
 ### DE module 07 audit
 
