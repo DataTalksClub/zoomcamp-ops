@@ -32,6 +32,27 @@ Playlist: `https://www.youtube.com/playlist?list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0
 | 4 — Evaluation | RAG and Agents Evaluation | `WUGtDveIe7A` |
 | 5 — Monitoring | Monitoring LLM Applications | `ImY5-Q97sRw` |
 
+## Illustration-source audit status
+
+As of 2026-09-09, all five current live-workshop masters were acquired through
+the documented DataImpulse route, validated with `ffprobe`, and audited for
+source-backed illustrations. The first pass covered `KSItlTAsMsk`,
+`RAqLWJsLZb4`, and `ImY5-Q97sRw`; the retry pass recovered and audited
+`BC3NsRUNEIg` and `WUGtDveIe7A`. Source hashes, frame candidates, crops, and
+per-video decisions are preserved in the ignored scratch reports:
+
+- `/home/alexey/git/.tmp/workshop-processing/llm-2026-live/`
+- `/home/alexey/git/.tmp/workshop-processing/llm-2026-live-retry/`
+
+No new bitmap illustration was accepted. Raw webcam/Zoom/browser/editor
+screenshots, exact code, tables, URLs, and transient dashboards were rejected;
+the few useful results remain native lesson material. The first-pass
+independent review is recorded in
+`llm-2026-live/independent-review.md`; the retry report records
+`SOURCE_OK / AUDITED_NO_PUBLISH` for both recovered masters. This audit does
+not alter the chopped-video source-of-truth or invent visuals for lessons that
+do not have a defensible source frame.
+
 ## The pipeline
 
 ### 1. Fetch the transcript
