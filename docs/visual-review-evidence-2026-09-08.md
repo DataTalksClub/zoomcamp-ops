@@ -918,6 +918,22 @@ non-upscale comparison, matching hashes, and C2PA metadata. The LLM repair
 queue is closed for this asset; the other 30 provenance-blocked assets remain
 open.
 
+## LLM source-backed provenance repair and independent review
+
+Focused commit `bad66cc` repaired seven additional source-backed assets: three
+Agentic RAG/ingestion visuals and four vector/evaluation visuals. Seven native
+crops, output hashes, C2PA evidence, and the generation audit were retained.
+Gibbs independently accepted all seven at native and simulated 608px size,
+confirming exact labels, numbers, arrows, relationships, correct Markdown
+references, and no face/camera/browser/editor/cursor/play/selection overlays.
+The seven repaired assets are closed.
+
+The current 37-reference partition is now **14 ACCEPT, 0 REPAIR, 0 REMOVE,
+and 23 PROVENANCE-BLOCKED**: seven earlier accepted/regenerated assets plus
+the seven in `bad66cc` are accepted; the remaining 23 prompt-native assets
+have C2PA but no repository original JPG/crop chain. They remain open under
+the evidence gate rather than being silently treated as source-backed.
+
 ## Fresh strict audit: ML regression and classification
 
 Godel reopened all 39 current references in modules 02 and 03 at native and
