@@ -10,7 +10,7 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | Repository | HEAD | Worktree | Active selection |
 | --- | --- | --- | --- | --- |
-| ML | `/home/alexey/git/machine-learning-zoomcamp` | `20a102484cc9aecf2bb4c5fe2356a9019baffdae` | clean | the published 2026 cohort flow and its module manifests |
+| ML | `/home/alexey/git/machine-learning-zoomcamp` | `b2c970d3c1037a44eb1c3fa400b617c00d810411` | clean | the published 2026 cohort flow and its module manifests |
 | LLM | `/home/alexey/git/llm-zoomcamp` | `7f32e2dd1e14d894aacc2fcde38e89cd9832a73e` | clean | the published 2026 cohort flow and its module manifests |
 | MLOps | `/home/alexey/git/mlops-zoomcamp` | `8bf083a1914495aa041ad9d1d54c0d80be23f8fd` | clean | numbered root module/project README pages; no published cohort manifest exists |
 | DE | `/home/alexey/git/data-engineering-zoomcamp` | `3a861c37b5c4d5c7cdd150d01a004f903c7515bb` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
@@ -408,7 +408,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/05-deployment/01-intro.md` | 29 | `images/01-intro-02-model-deployment-diagram-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/05-deployment/01-intro.md` | 53 | `images/01-intro-05-environments-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/05-deployment/03-flask-intro.md` | 19 | `images/03-flask-intro-02-request-response-imagegen.png` | instructional illustration | PRESENT | 1560×1008 | review required: crisp/generated asset |
-| ML | `cohorts/2026/05-deployment/05-pipenv.md` | 21 | `images/05-pipenv-02-version-conflict-imagegen.png` | instructional illustration | PRESENT | 1616×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/05-deployment/05-pipenv.md` | 21 | `images/05-pipenv-02-version-conflict-imagegen.png` | instructional illustration | PRESENT | 1706×922 | review required: crisp/generated asset |
 | ML | `cohorts/2026/05-deployment/05-pipenv.md` | 27 | `images/05-pipenv-03-isolated-environments-imagegen.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/05-deployment/06-docker.md` | 49 | `images/06-docker-02-containers-on-host-imagegen.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/05-deployment/06-docker.md` | 127 | `images/06-docker-05-port-mapping-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
@@ -432,7 +432,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/06-trees/07-boosting.md` | 32 | `images/07-boosting-02-gradient-boosting-trees-imagegen.png` | instructional illustration | PRESENT | 1491×1055 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/07-boosting.md` | 187 | `images/07-boosting-03-train-val-auc-imagegen.png` | instructional illustration | PRESENT | 1556×1246 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 24 | `images/08-xgb-tuning-01-parameters-imagegen.png` | instructional illustration | PRESENT | 1495×1052 | review required: crisp/generated asset |
-| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 81 | `images/08-xgb-tuning-02-tuning-eta-imagegen.png` | instructional illustration | PRESENT | 1574×1246 | review required: crisp/generated asset |
+| ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 81 | `images/08-xgb-tuning-02-tuning-eta-imagegen.png` | instructional illustration | PRESENT | 1463×1075 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 114 | `images/08-xgb-tuning-03-max-depth-curves-imagegen.png` | instructional illustration | PRESENT | 1574×1246 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/08-xgb-tuning.md` | 152 | `images/08-xgb-tuning-04-min-child-weight-curves-imagegen.png` | instructional illustration | PRESENT | 1592×1246 | review required: crisp/generated asset |
 | ML | `cohorts/2026/06-trees/09-final-model.md` | 19 | `images/09-final-model-01-comparing-validation-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
@@ -505,16 +505,16 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/10-kubernetes/01-overview.md` | 32 | `images/01-overview-01-tf-serving-inference-imagegen.png` | instructional illustration | PRESENT | 1448×1086 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/01-overview.md` | 50 | `images/01-overview-02-architecture-imagegen.png` | instructional illustration | PRESENT | 1619×971 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/01-overview.md` | 56 | `images/01-overview-03-grpc-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/01-overview.md` | 75 | `images/01-overview-05-cpu-gpu-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/10-kubernetes/01-overview.md` | 75 | `images/01-overview-05-cpu-gpu-imagegen.png` | instructional illustration | PRESENT | 1611×976 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/01-overview.md` | 84 | `images/01-overview-04-kubernetes-imagegen.png` | instructional illustration | PRESENT | 1448×1086 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/04-docker-compose.md` | 99 | `images/04-docker-compose-03-isolated-containers-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/10-kubernetes/04-docker-compose.md` | 99 | `images/04-docker-compose-03-isolated-containers-imagegen.png` | instructional illustration | PRESENT | 1612×976 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 34 | `images/05-kubernetes-intro-01-cluster-nodes-pods-imagegen.png` | instructional illustration | PRESENT | 1448×1086 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 48 | `images/05-kubernetes-intro-02-deployments-imagegen.png` | instructional illustration | PRESENT | 1438×1093 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 74 | `images/05-kubernetes-intro-03-services-crisp.png` | instructional illustration | PRESENT | 1441×1091 | review required: crisp/generated asset |
+| ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 74 | `images/05-kubernetes-intro-03-services-crisp.png` | instructional illustration | PRESENT | 1614×974 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 94 | `images/05-kubernetes-intro-05-definitions-imagegen.png` | instructional illustration | PRESENT | 1800×1120 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 96 | `images/05-kubernetes-intro-04-external-internal-ingress-imagegen.png` | instructional illustration | PRESENT | 1614×975 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 112 | `images/05-kubernetes-intro-06-scaling-imagegen.png` | instructional illustration | PRESENT | 1619×971 | review required: crisp/generated asset |
-| ML | `cohorts/2026/10-kubernetes/09-summary.md` | 26 | `images/09-summary-01-architecture-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/10-kubernetes/05-kubernetes-intro.md` | 112 | `images/05-kubernetes-intro-06-scaling-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
+| ML | `cohorts/2026/10-kubernetes/09-summary.md` | 26 | `images/09-summary-01-architecture-imagegen.png` | instructional illustration | PRESENT | 1614×975 | review required: crisp/generated asset |
 | ML | `cohorts/2026/10-kubernetes/10-explore-more.md` | 4 | `images/10-explore-more-01-cluster-options-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/01-intro.md` | 71 | `images/01-intro-01-rag-project-overview-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/03-rag.md` | 136 | `images/03-rag-08-rag-architecture-sketch-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
