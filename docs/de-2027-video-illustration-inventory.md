@@ -32,7 +32,7 @@ upscale, or sharpening.
 | 01 | `PBi0hHjLftk` | Terraform supplemental/setup content linked from module 01 | **AUDITED — NO ASSET** | Credential/project identifiers and exact state are publication hard gates |
 | 01 | `JgspdlKXS-w` | Course introduction/overview only | **SUPPLEMENTAL** | Skip for instructional lesson illustrations |
 | 02 | `-JLnp-iLins`, `ZvVN_NmB_1s`, `wgPxC4UjoLM`, `MNOKVx8780E`, `VAHm0R_XjqI`, `-KmwrCqRhic`, `Z9ZmmwtXDcU`, `1pu_C_oOAMA`, `E04yurp1tSU`, `TLGFAOHpOYM`, `52u9X_bfTAo`, `b-6KhfWfk2M`, `GHPtRDAv044`, `LmnfjGKwnVU`, `3IbjHfC8bMg`, `XuPDQ1UcNyI` | Lessons 01–16, one video per lesson | **AUDITED — NO ASSET** | 23 native-only review candidates; date matrices, comparison tables, exact UI, code, and results remain native markup |
-| 03 | `jrHljAoD6nM`, `-CqXf7vhhDs`, `k81mLJVX08w`, `eduHi1inM4s`, `B-WtpB0PuG4`, `BjARzEWaznU` | Lessons 01–06 | **REOPENED** | Existing module-03 images need a fresh crispness pass; four documented imagegen diagrams can remain after review |
+| 03 | `jrHljAoD6nM`, `-CqXf7vhhDs`, `k81mLJVX08w`, `eduHi1inM4s`, `B-WtpB0PuG4`, `BjARzEWaznU` | Lessons 01–06 | **AUDITED — 12 CRISP ASSETS** | 12 source-backed bitmaps retained; three table/result screenshots converted to native Markdown and one unsafe terminal screenshot removed |
 | 04 | `uF76d5EmdtU`, `gsKuETFJr54`, `2dYDS4OQbT0`, `7CrrXazV_8k`, `JQYz-8sl1aQ`, `lT4fmTDEqVk`, `UqoWyMjcqrA`, `bvZ-rJm7uMU`, `KfhUA9Kfp8Y`, `t4OeWHW3SsA` | Lessons 01–11 (lesson 03 has no current video URL) | **UNPROCESSED** | dbt project/source/model/test/documentation/command states |
 | 05 | `f6vg7lGqZx0`, `JJwHKSidX_c`, `q0k_iz9kWsI`, `224xH7h8OaQ`, `uBqjLEwF8rc`, `YWDjnSxbBtY`, `uzp_DiR4Sok`, `ZElY5SoqrwI`, `XCx0nDmhhxA`, `3nykPEs_V7E` | Lessons 01–10 | **UNPROCESSED** | Bruin concepts, pipeline/assets/variables/commands, durable UI/result states |
 | 06 | `dcHe5Fl3MF8`, `FhaqbEOuQ8U`, `hqUbB9c8sKg`, `r_Sf6fCB40c`, `ti3aC1m3rE8`, `CI3P4tAtru4`, `uAlp2VuZZPY`, `68CipcZt7ZA`, `9qrDsY_2COo`, `lu7TrqAWuH4`, `Bdu-xIrF3OM`, `k3uB2K99roI`, `Yyz293hBVcQ`, `HXBwSlXo5IA`, `osAiAYahvh8`, `HIm2BOj8C0Q` | Lessons 01–16 | **REOPENED** | Existing image set is source-backed but most screenshot replacements are crop/upscale/sharpen; regenerate retained screenshots or replace duplicated exact output with native content |
@@ -64,9 +64,10 @@ The current audit found:
 - Module 01: 3 accepted source-backed imagegen references; all raw screenshot
   crops remain scratch evidence only.
 - Module 02: 0 lesson illustrations (one homework screenshot is separate).
-- Module 03: 32 active image references before the latest cost-slide removal;
-  four have direct imagegen evidence, while the remaining screenshot-derived
-  set is reopened for crispness.
+- Module 03: 12 source-backed bitmap references remain after independent review;
+  three table/result screenshots were converted to native Markdown and one
+  unsafe terminal screenshot was removed. All retained bitmaps are genuinely
+  crisp; no resize-only output remains.
 - Module 06: screenshot-derived assets exist, but their crop/upscale/sharpen
   provenance does not satisfy the new crispness rule.
 - Modules 04, 05, and 07: no current instructional image set was found.
@@ -123,6 +124,19 @@ code or commands, or transient Kestra/GCP UI. No imagegen asset was generated
 or published, and all raw source MP4s were removed after their hashes and audit
 records were preserved. This is an intentional no-asset decision, not a claim
 that the videos contain no useful teaching moments.
+
+### DE module 03 audit and closure
+
+The complete source/frame/current-asset audit is under
+`.tmp/workshop-processing/de-2027-m03/STATUS.md`, with the independent review
+under `.tmp/workshop-processing/de-2027-m03/INDEPENDENT-REVIEW.md`. All 16
+pre-change bitmaps were inspected at normal lesson width: 10 passed directly
+and six were conditional. The conditional cases were resolved without
+inventing visuals: three exact table/result screenshots became native Markdown
+tables, one terminal screenshot containing an unnecessary `rm -rf model`
+command was removed, and three path/SHA provenance typos were corrected in the
+tracked module audit. The remaining 12 bitmap assets are source-backed,
+crisp, and free of presenter/camera/Zoom/editor overlays.
 
 ### DE module 07 audit
 
