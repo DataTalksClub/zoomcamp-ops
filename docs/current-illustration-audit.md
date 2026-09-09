@@ -11,7 +11,7 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 | Scope | Repository | HEAD | Worktree | Active selection |
 | --- | --- | --- | --- | --- |
 | ML | `/home/alexey/git/machine-learning-zoomcamp` | `20a102484cc9aecf2bb4c5fe2356a9019baffdae` | clean | the published 2026 cohort flow and its module manifests |
-| LLM | `/home/alexey/git/llm-zoomcamp` | `24c46cab0221e2aee93f17f532454683042ab3a7` | clean | the published 2026 cohort flow and its module manifests |
+| LLM | `/home/alexey/git/llm-zoomcamp` | `7f32e2dd1e14d894aacc2fcde38e89cd9832a73e` | clean | the published 2026 cohort flow and its module manifests |
 | MLOps | `/home/alexey/git/mlops-zoomcamp` | `8bf083a1914495aa041ad9d1d54c0d80be23f8fd` | clean | numbered root module/project README pages; no published cohort manifest exists |
 | DE | `/home/alexey/git/data-engineering-zoomcamp` | `3a861c37b5c4d5c7cdd150d01a004f903c7515bb` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
 
@@ -521,7 +521,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | LLM | `cohorts/2026/01-agentic-rag/08-rag-helper.md` | 18 | `images/08-rag-helper-01-reusable-rag-helper-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/09-data-ingestion.md` | 232 | `images/09-data-ingestion-06-annotated-architecture-sketch-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/10-rag-next-steps.md` | 19 | `images/10-rag-next-steps-01-rag-roadmap-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| LLM | `cohorts/2026/01-agentic-rag/11-agents-intro.md` | 48 | `images/11-agents-intro-04-agentic-flow-diagram-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
+| LLM | `cohorts/2026/01-agentic-rag/11-agents-intro.md` | 48 | `images/11-agents-intro-04-agentic-flow-diagram-imagegen.png` | instructional illustration | PRESENT | 1037×1517 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/12-rag-revision.md` | 15 | `images/12-rag-revision-01-typo-retry-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/01-agentic-rag/16-other-frameworks.md` | 11 | `images/16-other-frameworks-01-shared-agent-loop-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | LLM | `cohorts/2026/02-vector-search/01-intro.md` | 24 | `images/01-intro-03-rag-pipeline-whiteboard-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
