@@ -719,6 +719,16 @@ is still required.
 | Classification `ef15e0f` / `5375259` | 2 | 0 | 1 image embed |
 | Evaluation `00cf1c9` / `a755623` / `2de31ca` | 0 | 2 | 1 image embed |
 
+Leibniz independently accepted the four classification provenance repairs in
+`742f5c8`. All source JPGs, tracked crops, output hashes, crop-script
+reproductions, C2PA metadata, and native/608px semantic checks passed. The
+classification queue is therefore closed; the evaluation queue remains open
+only for its 15 unresolved assets.
+
+| Batch | Accepted | Needs repair | Unresolved |
+| --- | ---: | ---: | ---: |
+| Classification provenance closure `742f5c8` | 4 | 0 | 0 |
+
 Archimedes completed the final evaluation provenance review after `2de31ca`.
 Both tracked crops reproduce byte-for-byte from documented coordinates, and
 source/crop/output hashes plus C2PA and native/608px semantic checks pass.
