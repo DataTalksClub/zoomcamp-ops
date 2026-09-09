@@ -10,7 +10,7 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | Repository | HEAD | Worktree | Active selection |
 | --- | --- | --- | --- | --- |
-| ML | `/home/alexey/git/machine-learning-zoomcamp` | `991debffdddc4ab0faa2cca2a038de0b0c60fb38` | clean | the published 2026 cohort flow and its module manifests |
+| ML | `/home/alexey/git/machine-learning-zoomcamp` | `31d8a71b50662a69bf3c03520e18b4eda76292e6` | clean | the published 2026 cohort flow and its module manifests |
 | LLM | `/home/alexey/git/llm-zoomcamp` | `24c46cab0221e2aee93f17f532454683042ab3a7` | clean | the published 2026 cohort flow and its module manifests |
 | MLOps | `/home/alexey/git/mlops-zoomcamp` | `65c76a37c240ce88e4b459a7f8f440808a3b102a` | clean | numbered root module/project README pages; no published cohort manifest exists |
 | DE | `/home/alexey/git/data-engineering-zoomcamp` | `9ffc47ee724ff9726ede1f4f6cf49a6f6afd42dd` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
@@ -371,7 +371,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/03-classification/01-churn-project.md` | 25 | `images/01-churn-project-01-churn-problem-crisp.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/03-classification/01-churn-project.md` | 36 | `images/01-churn-project-02-binary-classification-crisp.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/03-classification/03-validation.md` | 25 | `images/03-validation-01-train-val-test-split-crisp.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/05-risk.md` | 109 | `images/05-risk-03-difference-vs-risk-ratio-imagegen-pilot.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/03-classification/05-risk.md` | 109 | `images/05-risk-03-difference-vs-risk-ratio-imagegen-pilot.png` | instructional illustration | PRESENT | 1619×971 | review required: crisp/generated asset |
 | ML | `cohorts/2026/03-classification/06-mutual-info.md` | 30 | `images/06-mutual-info-01-mutual-information-wikipedia-imagegen-pilot.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/03-classification/07-correlation.md` | 34 | `images/07-correlation-01-correlation-coefficient-imagegen-pilot.png` | instructional illustration | PRESENT | 1774×887 | review required: crisp/generated asset |
 | ML | `cohorts/2026/03-classification/07-correlation.md` | 42 | `images/07-correlation-02-binary-target-imagegen-pilot.png` | instructional illustration | PRESENT | 1619×971 | review required: crisp/generated asset |
@@ -381,26 +381,26 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 57 | `images/09-logistic-regression-02-from-linear-to-logistic-clean.png` | local image | PRESENT | 1400×760 | review required: native/source asset |
 | ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 63 | `images/09-logistic-regression-03-sigmoid-formula-clean.png` | local image | PRESENT | 1300×820 | review required: native/source asset |
 | ML | `cohorts/2026/03-classification/09-logistic-regression.md` | 98 | `images/09-logistic-regression-04-sigmoid-plot-crisp.png` | instructional illustration | PRESENT | 1488×992 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/11-log-reg-interpretation.md` | 183 | `images/11-log-reg-interpretation-06-second-example-imagegen.png` | instructional illustration | PRESENT | 1774×887 | review required: crisp/generated asset |
+| ML | `cohorts/2026/03-classification/11-log-reg-interpretation.md` | 183 | `images/11-log-reg-interpretation-06-second-example-imagegen.png` | instructional illustration | PRESENT | 2172×724 | review required: crisp/generated asset |
 | ML | `cohorts/2026/03-classification/12-using-log-reg.md` | 124 | `images/12-using-log-reg-04-production-diagram-imagegen.png` | instructional illustration | PRESENT | 2163×727 | review required: crisp/generated asset |
-| ML | `cohorts/2026/03-classification/13-summary.md` | 10 | `images/13-summary-01-churn-prediction-imagegen.png` | instructional illustration | PRESENT | 1717×916 | review required: crisp/generated asset |
+| ML | `cohorts/2026/03-classification/13-summary.md` | 10 | `images/13-summary-01-churn-prediction-imagegen.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/03-classification/14-explore-more.md` | 6 | `images/14-explore-more-01-preprocessing-model-comparison-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/01-overview.md` | 21 | `images/01-overview-02-churn-scenario-crisp.png` | instructional illustration | PRESENT | 1445×1088 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 15 | `images/02-accuracy-02-accuracy-example-crisp.png` | instructional illustration | PRESENT | 1804×1360 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 84 | `images/02-accuracy-01-accuracy-vs-threshold-crisp.png` | instructional illustration | PRESENT | 1488×992 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 118 | `images/02-accuracy-08-class-imbalance-crisp.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 24 | `images/03-confusion-table-01-four-outcomes-crisp.png` | instructional illustration | PRESENT | 1504×1046 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 51 | `images/03-confusion-table-04-confusion-counts-crisp.png` | instructional illustration | PRESENT | 1554×1012 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/02-accuracy.md` | 118 | `images/02-accuracy-08-class-imbalance-crisp.png` | instructional illustration | PRESENT | 1619×971 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 24 | `images/03-confusion-table-01-four-outcomes-crisp.png` | instructional illustration | PRESENT | 1774×887 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/03-confusion-table.md` | 51 | `images/03-confusion-table-04-confusion-counts-crisp.png` | instructional illustration | PRESENT | 1685×933 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 19 | `images/04-precision-recall-01-precision-definition-crisp.png` | instructional illustration | PRESENT | 1619×972 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 32 | `images/04-precision-recall-03-precision-pie-crisp.png` | instructional illustration | PRESENT | 1728×910 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 53 | `images/04-precision-recall-05-recall-example-crisp.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 32 | `images/04-precision-recall-03-precision-pie-crisp.png` | instructional illustration | PRESENT | 1670×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 53 | `images/04-precision-recall-05-recall-example-crisp.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/04-precision-recall.md` | 59 | `images/04-precision-recall-06-precision-recall-table-crisp.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 75 | `images/05-roc-01-tpr-fpr-vs-threshold-crisp.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 88 | `images/05-roc-02-random-model-tpr-fpr-crisp.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 112 | `images/05-roc-03-ideal-model-tpr-fpr-crisp.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 130 | `images/05-roc-04-model-vs-ideal-tpr-fpr-crisp.png` | instructional illustration | PRESENT | 1521×1034 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 148 | `images/05-roc-05-roc-curve-manual-crisp.png` | instructional illustration | PRESENT | 1278×1231 | review required: crisp/generated asset |
-| ML | `cohorts/2026/04-evaluation/05-roc.md` | 176 | `images/05-roc-06-roc-curve-sklearn-crisp.png` | instructional illustration | PRESENT | 1278×1231 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 75 | `images/05-roc-01-tpr-fpr-vs-threshold-crisp.png` | instructional illustration | PRESENT | 1510×1030 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 88 | `images/05-roc-02-random-model-tpr-fpr-crisp.png` | instructional illustration | PRESENT | 1510×1030 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 112 | `images/05-roc-03-ideal-model-tpr-fpr-crisp.png` | instructional illustration | PRESENT | 1510×1030 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 130 | `images/05-roc-04-model-vs-ideal-tpr-fpr-crisp.png` | instructional illustration | PRESENT | 1469×989 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 148 | `images/05-roc-05-roc-curve-manual-crisp.png` | instructional illustration | PRESENT | 1254×1227 | review required: crisp/generated asset |
+| ML | `cohorts/2026/04-evaluation/05-roc.md` | 176 | `images/05-roc-06-roc-curve-sklearn-crisp.png` | instructional illustration | PRESENT | 1254×1227 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/06-auc.md` | 22 | `images/06-auc-02-auc-values-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/06-auc.md` | 50 | `images/06-auc-05-auc-interpretation-imagegen-v2.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | ML | `cohorts/2026/04-evaluation/07-cross-validation.md` | 46 | `images/07-cross-validation-01-kfold-diagram-pilot.png` | local image | PRESENT | 1647×955 | review required: native/source asset |
