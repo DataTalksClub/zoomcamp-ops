@@ -89,6 +89,14 @@ Fetch attempts for `QEcps_iskgg`, `18jIzE41fJ4`, and the legacy supplemental
 IDs `s2bOYDCKl_M`, `Y2ux7gq3Z0o`, `PBi0hHjLftk`, and `JgspdlKXS-w` hit proxy
 HTTP 407. Those failed fetches are not source evidence.
 
+A fresh source-acquisition pass on 2026-09-09 rechecked the canonical
+`lP8xXebHmuE` recording. The local search was empty; direct `yt-dlp` hit the
+YouTube bot gate; the documented Oxylabs route returned HTTP 407; and the
+documented Piped/Invidious mirrors returned 403/5xx, DNS failures, or invalid
+non-stream responses. No MP4, source frame, or new candidate was produced.
+The module 01 units therefore remain source-gated rather than receiving
+transcript- or thumbnail-derived illustrations.
+
 The following cues are backed by the cached transcript for `lP8xXebHmuE` and
 are provisional for units 01–09 only. None is accepted without fetching and
 inspecting the original frame.
