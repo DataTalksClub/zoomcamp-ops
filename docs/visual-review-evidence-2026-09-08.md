@@ -1030,3 +1030,18 @@ one of two things:
 The original JPG, crop, imagegen output, published-output hash, and validation
 evidence must be retained. Deterministic crop/sharpen outputs are historical
 source evidence only, never proof of crispness.
+
+## Fresh strict audit: DE 06-batch lessons 01–05
+
+An independent audit covered all 18 active references in the first five batch
+lessons. The result was **4 ACCEPT, 1 REPAIR, 0 REMOVE, and 13
+PROVENANCE-BLOCKED**. All 18 were inspected natively and at simulated 608px;
+none was a simple enlargement, but C2PA metadata alone was insufficient for
+the blocked set.
+
+The repair is
+`02-introduction-to-spark-04-typical-workflow-whiteboard-imagegen.png`: the
+diagram must connect the trained `MODEL` to `SPARK APPLY ML`, as described by
+the lesson and video. The accepted set is limited to the four items with
+current target-specific records in the DE follow-up ledger; the other 13
+remain open until their current source/crop/output chains are documented.
