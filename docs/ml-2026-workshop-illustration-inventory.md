@@ -14,10 +14,10 @@ before a useful, source-backed visual is added.
 
 | Workshop unit | YouTube video | Transcript cache | Current published illustrations | Initial candidate teaching points |
 | --- | --- | --- | --- | --- |
-| Module 5: FastAPI and uv | `jzGzw98Eikk` | `/home/alexey/.cache/youtube_transcripts/jzGzw98Eikk.txt` | None in `cohorts/2026/05-deployment/workshop/` | model → prediction service; FastAPI request/response; pipeline and model artifact; Docker/Fly deployment state |
-| Deep learning / PyTorch | `Ne25VujHRLA` | `/home/alexey/.cache/youtube_transcripts/Ne25VujHRLA.txt` | None in `cohorts/2026/08-deep-learning/pytorch/` | image → preprocessing tensor → pretrained model → class scores; transfer learning; frozen base plus ten-class head |
-| Serverless deployment | `sHQaeVm5hT8` | `/home/alexey/.cache/youtube_transcripts/sHQaeVm5hT8.txt` | None in `cohorts/2026/09-serverless/workshop/` | Lambda request/response; model-in-Docker packaging; scikit-learn/ONNX deployment path; pay-per-request boundary |
-| Kubernetes deployment | `c_CzCsCnWoU` | `/home/alexey/.cache/youtube_transcripts/c_CzCsCnWoU.txt` | None in `cohorts/2026/10-kubernetes/workshop/` | model → FastAPI → Docker → Kind/Kubernetes; ONNX inference; health checks; deployment/service/pod relationships |
+| Module 5: FastAPI and uv | `jzGzw98Eikk` | `/home/alexey/.cache/youtube_transcripts/jzGzw98Eikk.txt` | None; audited in `6302aed` | model → prediction service; FastAPI request/response; pipeline and model artifact; Docker/Fly deployment state |
+| Deep learning / PyTorch | `Ne25VujHRLA` | `/home/alexey/.cache/youtube_transcripts/Ne25VujHRLA.txt` | None; six candidates rejected in `ce2198e` | image → preprocessing tensor → pretrained model → class scores; transfer learning; frozen base plus ten-class head |
+| Serverless deployment | `sHQaeVm5hT8` | `/home/alexey/.cache/youtube_transcripts/sHQaeVm5hT8.txt` | None; no candidate cleared in `d6e3afc` | Lambda request/response; model-in-Docker packaging; scikit-learn/ONNX deployment path; pay-per-request boundary |
+| Kubernetes deployment | `c_CzCsCnWoU` | `/home/alexey/.cache/youtube_transcripts/c_CzCsCnWoU.txt` | None; no candidate cleared in `6ff0694` | model → FastAPI → Docker → Kind/Kubernetes; ONNX inference; health checks; deployment/service/pod relationships |
 
 The `/home/alexey/git/workshops` source repository contains the corresponding
 ML workshop projects (`mlzoomcamp-fastapi-uv`, `mlzoomcamp-deep-learning`,
@@ -29,11 +29,16 @@ are `05-deployment/workshop/README.md`,
 
 ## Processing status
 
-All four units are **UNPROCESSED** for video-backed illustrations. The
-transcripts identify candidate concepts, but no frame has been scored or
-published yet. The next pass must fetch each recording into gitignored
-`.tmp/videos/`, extract only a small set of timestamped candidates, score them
-with `template/illustration-rubric.md`, and publish only accepted assets.
+All four units are now **AUDITED — NO PUBLISH** for video-backed
+illustrations. The workers scored candidates and found no publishable visual:
+FastAPI could not acquire a source frame, while the Deep Learning, Serverless,
+and Kubernetes candidates failed the publish gate. No README image reference
+was added, and no decorative or transcript-invented visual was substituted.
+
+The four audit reports are the evidence for this no-publish decision. Reopen a
+unit only if a source recording becomes available or the lesson context
+changes; then repeat the same fetch → extract → rubric → crop/regenerate →
+independent-review flow.
 
 For a retained screenshot-derived frame, preserve the original frame, make a
 native bounded crop, and pass both the original and crop to imagegen when the
