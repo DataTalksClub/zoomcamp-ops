@@ -998,3 +998,14 @@ contains exactly 5 Gateway pods and 2 TF-Serving pods, with matching source,
 crop, output, and C2PA evidence. The Kubernetes semantic repair queue is now
 closed for the five changed assets; the seven unrelated provenance-blocked
 Kubernetes assets remain open.
+
+## Deterministic DE 06-batch anti-upscale screen
+
+While the per-module visual audits are in progress, a read-only ImageMagick
+screen covered all 41 active image references in DE `06-batch` at `3a861c3`.
+All 41 references resolve, all 41 have a same-stem original JPG and a tracked
+crop candidate, and none was close to a forced resize of its original: **0/41**
+had normalized RMSE below `0.02`; the mean normalized RMSE was `0.341919`.
+This rules out a simple resize-only derivative for this batch, but it does not
+prove crispness, semantic fidelity, usefulness, or a complete provenance chain.
+The independent visual reviewers still control acceptance.
