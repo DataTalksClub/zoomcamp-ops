@@ -34,9 +34,9 @@ upscale, or sharpening.
 | 02 | `-JLnp-iLins`, `ZvVN_NmB_1s`, `wgPxC4UjoLM`, `MNOKVx8780E`, `VAHm0R_XjqI`, `-KmwrCqRhic`, `Z9ZmmwtXDcU`, `1pu_C_oOAMA`, `E04yurp1tSU`, `TLGFAOHpOYM`, `52u9X_bfTAo`, `b-6KhfWfk2M`, `GHPtRDAv044`, `LmnfjGKwnVU`, `3IbjHfC8bMg`, `XuPDQ1UcNyI` | Lessons 01–16, one video per lesson | **AUDITED — NO ASSET** | 23 native-only review candidates; date matrices, comparison tables, exact UI, code, and results remain native markup |
 | 03 | `jrHljAoD6nM`, `-CqXf7vhhDs`, `k81mLJVX08w`, `eduHi1inM4s`, `B-WtpB0PuG4`, `BjARzEWaznU` | Lessons 01–06 | **AUDITED — 12 CRISP ASSETS** | 12 source-backed bitmaps retained; three table/result screenshots converted to native Markdown and one unsafe terminal screenshot removed |
 | 04 | `uF76d5EmdtU`, `gsKuETFJr54`, `2dYDS4OQbT0`, `7CrrXazV_8k`, `JQYz-8sl1aQ`, `lT4fmTDEqVk`, `UqoWyMjcqrA`, `bvZ-rJm7uMU`, `KfhUA9Kfp8Y`, `t4OeWHW3SsA` | Lessons 01–11 (lesson 03 has no current video URL) | **PROCESSED — 3 ASSETS** | Three durable source-backed concepts were regenerated with imagegen; exact code/UI/table/terminal candidates remain native or were rejected |
-| 05 | `f6vg7lGqZx0`, `JJwHKSidX_c`, `q0k_iz9kWsI`, `224xH7h8OaQ`, `uBqjLEwF8rc`, `YWDjnSxbBtY`, `uzp_DiR4Sok`, `ZElY5SoqrwI`, `XCx0nDmhhxA`, `3nykPEs_V7E` | Lessons 01–10 | **UNPROCESSED** | Bruin concepts, pipeline/assets/variables/commands, durable UI/result states |
-| 06 | `dcHe5Fl3MF8`, `FhaqbEOuQ8U`, `hqUbB9c8sKg`, `r_Sf6fCB40c`, `ti3aC1m3rE8`, `CI3P4tAtru4`, `uAlp2VuZZPY`, `68CipcZt7ZA`, `9qrDsY_2COo`, `lu7TrqAWuH4`, `Bdu-xIrF3OM`, `k3uB2K99roI`, `Yyz293hBVcQ`, `HXBwSlXo5IA`, `osAiAYahvh8`, `HIm2BOj8C0Q` | Lessons 01–16 | **REOPENED** | Existing image set is source-backed but most screenshot replacements are crop/upscale/sharpen; regenerate retained screenshots or replace duplicated exact output with native content |
-| 07 | `YDUgFeHQzJU` plus the canonical theory recordings `hfvju3iOIP0`, `WxTxKGcfA-k`, `zPLZUDPi4AY`, `ZnEZFEYKppw`, `aegTuyxX7Yg`, `SXQtWyRpMKs`, `dUyA_63eRb0`, `NcpKlujh34Y`, `TNx5rmLY8Pk`, `r1OuLdwxbRc`, `DziQ4a4tn9Y`, `tBY_hBuyzwI` | Current introduction and theory lessons | **UNPROCESSED** | Process only source-backed streaming concepts from these recordings; remove unsupported/invented illustrations |
+| 05 | `f6vg7lGqZx0`, `JJwHKSidX_c`, `q0k_iz9kWsI`, `224xH7h8OaQ`, `uBqjLEwF8rc`, `YWDjnSxbBtY`, `uzp_DiR4Sok`, `ZElY5SoqrwI`, `XCx0nDmhhxA`, `3nykPEs_V7E` | Lessons 01–10 | **PROCESSED — 6 ASSETS** | Six durable Bruin concepts were regenerated from original frames plus focused crops and independently reviewed; exact UI, code, tables, and command output remain native |
+| 06 | `dcHe5Fl3MF8`, `FhaqbEOuQ8U`, `hqUbB9c8sKg`, `r_Sf6fCB40c`, `ti3aC1m3rE8`, `CI3P4tAtru4`, `uAlp2VuZZPY`, `68CipcZt7ZA`, `9qrDsY_2COo`, `lu7TrqAWuH4`, `Bdu-xIrF3OM`, `k3uB2K99roI`, `Yyz293hBVcQ`, `HXBwSlXo5IA`, `osAiAYahvh8`, `HIm2BOj8C0Q` | Lessons 01–16 | **PROCESSED — 14 CONCEPTUAL ASSETS; NATIVE CLEANUP COMPLETE** | Fourteen source-backed conceptual redraws passed independent review; 26 exact/native captures were converted to native content and one warning-heavy capture was removed |
+| 07 | `YDUgFeHQzJU` plus the canonical theory recordings `hfvju3iOIP0`, `WxTxKGcfA-k`, `zPLZUDPi4AY`, `ZnEZFEYKppw`, `aegTuyxX7Yg`, `SXQtWyRpMKs`, `dUyA_63eRb0`, `NcpKlujh34Y`, `TNx5rmLY8Pk`, `r1OuLdwxbRc`, `DziQ4a4tn9Y`, `tBY_hBuyzwI` | Current introduction and theory lessons | **PROCESSED — 14 ASSETS** | Fourteen source-backed streaming concepts passed independent review, including a corrected forward-only schema-compatibility redraw; exact/native and unsupported candidates remain documented |
 
 ## Module 01 shared-video chop plan
 
@@ -70,14 +70,18 @@ The current audit found:
   crisp; no resize-only output remains.
 - Module 04: 3 source-backed imagegen assets passed independent visual review;
   exact code/UI/table/terminal candidates remain native or were rejected.
-- Module 06: source/frame audit is complete; 13 conceptual redraws await
-  independent review, one needs a new crop/redraw, 26 exact/native candidates
-  should remain native, and one warning-heavy screenshot should be removed.
-- Module 07: source/frame audit is complete; 6 source-backed conceptual
-  redraws passed independent review and are published, while 8 additional
-  candidates are in a second redraw/review batch. Exact/native and unsuitable
-  candidates remain documented.
-- Module 05: source/frame audit is still in progress.
+- Module 05: source/frame audit and independent review are complete; six
+  source-backed Bruin conceptual assets are published, including corrected
+  redraws for reversed arrows and a missing upstream asset. Exact/native
+  candidates remain native.
+- Module 06: source/frame audit, conceptual follow-up, and native cleanup are
+  complete; fourteen conceptual redraws are published, all exact/native
+  captures were converted to native content or removed, and no live
+  `*-crisp` screenshot reference remains.
+- Module 07: source/frame audit and both independent review batches are
+  complete; fourteen source-backed conceptual redraws are published. The
+  schema-compatibility asset was regenerated as a forward-only diagram after
+  review found unsupported backward-compatibility panels.
 
 This inventory does not claim that every lesson should receive an image. Each
 candidate still has to pass the illustration rubric and the independent visual
@@ -161,7 +165,30 @@ All three final assets passed independent visual review. Exact code, tables,
 editor/browser/terminal UI, and transient values were not published as bitmap
 illustrations.
 
-### DE module 07 audit
+### DE module 05 audit and closure
+
+The complete source/frame audit is under
+`.tmp/workshop-processing/de-2027-m05/STATUS.md`; the tracked visual
+provenance is `cohorts/2027/05-data-platforms/visual-audit-2026-09-09.md`.
+All 10 canonical Bruin recordings were validated. Six durable concepts were
+selected and regenerated from the original frame plus focused crop. The
+independent review initially required two corrections: one redraw had reversed
+arrows and another omitted one of three upstream assets. Both were regenerated
+from the original and focused crop and passed the follow-up review. Exact
+tables, code, command output, and volatile UI remain native.
+
+### DE module 06 audit and closure
+
+The tracked closure is
+`cohorts/2027/06-batch/visual-audit-2026-09-09.md`; the source/frame and
+independent-review evidence is under `.tmp/workshop-processing/de-2027-m06/`.
+All 16 canonical recordings were validated. Fourteen source-backed conceptual
+redraws remain after independent review. Exact runtime graphs, code, tables,
+volatile dashboards, and environment-specific UI were converted to native
+Markdown/code/tables/trees or removed; no live `*-crisp` screenshot references
+remain.
+
+### DE module 07 audit and closure
 
 The complete source/frame audit is under
 `.tmp/workshop-processing/de-2027-m07/STATUS.md`, with machine-readable
@@ -171,12 +198,14 @@ primary register contains 66 targeted moments; the supplemental QA pass adds
 two source-backed candidates. At source level, 7 recordings have durable
 concepts suitable for imagegen redraw, while 6 are rejected because their
 useful material is exact code, UI, runtime output, or unsuitable sketches.
-Six batch-1 concepts have passed independent review and are published in the
-theory README; eight additional source-backed concepts are in the batch-2
-generation/review queue. The exact/native candidates remain native and the
-unsuitable candidates remain removed. The two native Mermaid diagrams in unit
-10 remain; unsupported historical visuals such as `06-why-flink` and
-`10-tumbling-window-watermark` stay removed.
+Six batch-1 concepts and eight batch-2 concepts passed independent review and
+are published in the theory README. The schema-compatibility candidate was
+regenerated after review rejected unsupported backward-compatibility panels;
+the final forward-only output passed a second independent review. The
+exact/native candidates remain native and unsuitable candidates remain
+removed. The two native Mermaid diagrams in unit 10 remain; unsupported
+historical visuals such as `06-why-flink` and `10-tumbling-window-watermark`
+stay removed.
 
 Exact UI, terminal, code, table, and list candidates must use deterministic
 native Markdown/HTML/code treatment after the source frame is inspected;
