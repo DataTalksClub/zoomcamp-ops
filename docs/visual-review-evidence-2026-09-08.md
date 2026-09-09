@@ -680,6 +680,15 @@ including final-model values and reproducible hashes. The same review accepted
 the DE Dataproc regeneration `9ffc47e` and the ML Docker port-mapping repair
 `f951bba`, all at native and 608px sizes with C2PA and no capture artifacts.
 
+## DE 06-batch strict audit checkpoints
+
+The DE 06--16 audit classified 16 active refs: 9 accepted and 7 visually
+crisp but provenance-unresolved. The unresolved set is four Spark-cluster
+diagrams, one reshuffling diagram, one broadcast-exchange diagram, and one
+RDD map/key-value diagram. The separate DE 01--05 audit inspected 18 refs but
+stalled before final reconciliation; those 18 remain pending and are not
+counted as accepted.
+
 ## ML classification and evaluation strict audit follow-up
 
 Fresh strict audits replaced the earlier broad approvals for ML modules 03
