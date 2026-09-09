@@ -892,3 +892,21 @@ closed with two accepted at `65d5619` and the corrected third at `20a1024`.
 Faraday independently accepted all four DE 06-batch semantic repairs in
 `3a861c3`, including the blank Jobs-page caption correction, exact
 `head -n 101`, six correct partition-to-executor arrows, and quoted `HV0003`.
+
+## Fresh strict audit: LLM 2026
+
+Bernoulli independently reopened all 37 active local instructional image
+references at `24c46ca`, native and simulated 608px size. The old `37/37`
+acceptance is withdrawn. All 37 were visually crisp and free of faces,
+camera/browser chrome, cursors, play buttons, and selection overlays, but the
+evidence gate produced **6 ACCEPT, 1 REPAIR, 0 REMOVE, and 30
+PROVENANCE-BLOCKED**. C2PA/OpenAI metadata does not prove the source-to-output
+chain, and 28 assets lacked an original same-stem source for a direct
+anti-upscale comparison.
+
+The repair is
+`cohorts/2026/01-agentic-rag/images/11-agents-intro-04-agentic-flow-diagram-
+imagegen.png`: the failed search must say `Olama`, while the corrected retry
+must say `Ollama`. The remaining 30 outputs are not being called accepted until
+their current published hashes and source/reference-to-crop-to-output records
+are durable.
