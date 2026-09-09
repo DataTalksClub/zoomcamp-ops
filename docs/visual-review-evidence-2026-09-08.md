@@ -1009,3 +1009,24 @@ had normalized RMSE below `0.02`; the mean normalized RMSE was `0.341919`.
 This rules out a simple resize-only derivative for this batch, but it does not
 prove crispness, semantic fidelity, usefulness, or a complete provenance chain.
 The independent visual reviewers still control acceptance.
+
+## Screenshot-generation gate
+
+The DE rollout report also exposes why the anti-upscale screen is insufficient:
+many retained technical screenshots were made with a deterministic crop plus
+Lanczos/sharpen rather than imagegen. A crop, sharpen, or high resize RMSE does
+not make a screenshot crisp enough for this project. Those outputs remain
+**unaccepted** under the current gate.
+
+For every retained screenshot-derived illustration, the implementation must do
+one of two things:
+
+1. use the original non-crisp JPG and a native-resolution bounded crop as
+   imagegen inputs, then inspect the generated output at native and 608px size;
+   or
+2. replace exact code, tables, commands, or structured output with native
+   Markdown/code/table markup when an image would add no durable value.
+
+The original JPG, crop, imagegen output, published-output hash, and validation
+evidence must be retained. Deterministic crop/sharpen outputs are historical
+source evidence only, never proof of crispness.
