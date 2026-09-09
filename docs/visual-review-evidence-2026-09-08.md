@@ -1131,3 +1131,13 @@ legible at native and simulated 608px size; hashes, crop geometry, output
 equality, C2PA, and active Markdown references matched the ledger. No face,
 camera, browser/editor chrome, cursor, play button, selection overlay, or
 resize/sharpen-only derivative was found. The DE 11–15 queue is closed.
+
+## ML 04–06 ledger correction closure
+
+Focused commit `6d744e7` corrected the two remaining ledger defects found by
+the independent review of the ML 04–06 regeneration pass: the exact
+64-character parent hash for the Flask request/response output and the active
+Markdown line for the ensemble-experiments output. Socrates independently
+accepted the commit after checking both live references, source/crop/output
+hashes, and the absence of unrelated image changes. The documentation queue
+is closed; no image bytes were changed by this correction.
