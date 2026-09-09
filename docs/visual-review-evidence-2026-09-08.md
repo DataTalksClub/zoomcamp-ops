@@ -978,9 +978,9 @@ and bounded crops:
   `INSTALLS THE LATEST` annotation and removing the unexplained mark/face.
 - `5660c17` regenerated the XGBoost eta plot with lesson-consistent labels and
   documented deterministic/provenance evidence.
-- `765c9f5` repaired all five Kubernetes semantic illustrations: `5 CPU`,
-  preprocessing, pre-Compose isolation, complete service routing, and three
-  gateway plus three TensorFlow-Serving replicas.
+- `765c9f5` repaired the five Kubernetes semantic illustrations; its scaling
+  output was later superseded by `b2c970d` after the source-of-truth review
+  corrected the example to five Gateway plus two TensorFlow-Serving replicas.
 
 These commits remain provisional until their separate reviewers reopen the
 published bytes.
@@ -991,3 +991,9 @@ additional correction: the follow-up `41259ff` changed the scaling picture to
 4 gateway/3 TensorFlow-Serving pods, but the source lesson's concrete example
 is 5 gateway/2 TensorFlow-Serving instances. That follow-up is superseded and
 must not be marked accepted; a source-faithful correction is in progress.
+
+Kepler independently accepted the corrected `b2c970d`: the scaling image now
+contains exactly 5 Gateway pods and 2 TF-Serving pods, with matching source,
+crop, output, and C2PA evidence. The Kubernetes semantic repair queue is now
+closed for the five changed assets; the seven unrelated provenance-blocked
+Kubernetes assets remain open.
