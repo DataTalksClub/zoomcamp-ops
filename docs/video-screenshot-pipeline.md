@@ -42,10 +42,11 @@ HOME=/home/alexey uv run --with youtube-transcript-api --with python-dotenv \
 
 - Output: `~/.cache/youtube_transcripts/<id>.txt`, one `M:SS text` line per
   cue. Fetch once, then grep/read the file; it is a cache, idempotent.
-- YouTube is bot-blocked from this box, so the script routes through the
-  Oxylabs proxy configured in `/home/alexey/.config/youtube/.env`
-  (`OXYLABS_USER` / `OXYLABS_ENDPOINT` / `OXYLABS_PASSWORD` — never print or
-  commit these).
+- YouTube is bot-blocked from this box, so the daemon first tries the
+  DataImpulse proxy configured in `/home/alexey/.config/youtube/.env`
+  (`DATAIMPULSE_USER` / `DATAIMPULSE_PASSWORD` / `DATAIMPULSE_ENDPOINT`),
+  then the Oxylabs credentials there as a fallback. Never print or commit
+  these values.
 - Direct fetch without the proxy fails. With the proxy, rotating IPs work for
   transcript API calls; sticky sessions are only required for video streams.
 
@@ -64,12 +65,14 @@ Direct YouTube access is blocked ("Sign in to confirm you're not a bot").
 Two working routes exist; the run used A until the account hit its traffic
 limit, then B carried the rest.
 
-### Route A — yt-dlp through the Oxylabs proxy (primary)
+### Route A — yt-dlp through DataImpulse (Oxylabs fallback)
 
 ```bash
 set -a; . /home/alexey/.config/youtube/.env; set +a
-SID=$RANDOM$RANDOM   # ONE sticky session per video, reused for all requests
-PROXY="http://customer-${OXYLABS_USER}-sessid-${SID}:$(python3 -c 'from urllib.parse import quote; import os; print(quote(os.environ["OXYLABS_PASSWORD"], safe=""))')@${OXYLABS_ENDPOINT}"
+SID=$RANDOM$RANDOM
+USER="${DATAIMPULSE_USER}__sessid.${SID}"
+PASSWORD=$(python3 -c 'from urllib.parse import quote; import os; print(quote(os.environ["DATAIMPULSE_PASSWORD"], safe=""))')
+PROXY="http://${USER}:${PASSWORD}@${DATAIMPULSE_ENDPOINT}"
 yt-dlp --proxy "$PROXY" --js-runtimes node \
   --extractor-args "youtube:player_client=android" \
   -f "18/b[height<=360]" -o "<video-id>.mp4" \
@@ -78,10 +81,10 @@ yt-dlp --proxy "$PROXY" --js-runtimes node \
 
 The load-bearing details, each of which was individually required:
 
-- **Sticky session (`-sessid-<SID>`).** Rotating IPs get 403 on the
-  googlevideo stream even when the metadata requests succeed. One SID per
-  video, reused for that video's requests; on failure, pick a fresh SID and
-  retry.
+- **Per-video session.** DataImpulse supports `__sessid.<SID>` in the proxy
+  username; Oxylabs uses `customer-<user>-sessid-<SID>`. Rotating IPs get 403
+  on the googlevideo stream even when metadata requests succeed. One SID per
+  video is reused for that video's requests; on failure, a fresh SID is used.
 - **`player_client=android`.** The only client that reliably returns a
   downloadable stream here. `tv`, `ios`, `mweb`, `web_embedded` either 403 or
   return images only.
@@ -289,9 +292,9 @@ for the operational quirks of driving those sessions.
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| 403 on transcript API | no proxy / rotating IP blocked | route through Oxylabs |
-| 403 on video stream | rotating proxy IP on googlevideo | sticky `sessid` per video |
-| 407 on everything, account-wide | Oxylabs traffic quota exhausted | switch to mirror route (Route B), retry proxy periodically |
+| 403 on transcript API | no proxy / rotating IP blocked | route through DataImpulse, then Oxylabs |
+| 403 on video stream | rotating proxy IP on googlevideo | provider-supported `sessid` per video |
+| 407 on everything, account-wide | proxy traffic quota exhausted | switch to mirror route (Route B), retry proxy periodically |
 | formats missing / "images only" | wrong player client or no JS runtime | `player_client=android`, `--js-runtimes node` |
 | truncated mp4, ffmpeg error 187 | `--download-sections` through proxy | download whole file, validate with ffprobe |
 | proxy 403 vs 403 | 403 = YouTube blocking; 407 = proxy quota | read the code before changing recipes |
@@ -311,5 +314,5 @@ Copied verbatim from the run's scratch (the originals under
 - `scripts/video-screenshots/dl-daemon2.sh` — the variant actually running
   during the LLM backfill.
 
-All credentials come from `/home/alexey/.config/youtube/.env` at runtime;
-nothing here embeds them.
+All DataImpulse and Oxylabs credentials come from
+`/home/alexey/.config/youtube/.env` at runtime; nothing here embeds them.
