@@ -917,3 +917,54 @@ and retained crop. Galileo independently accepted the corrected sequence
 non-upscale comparison, matching hashes, and C2PA metadata. The LLM repair
 queue is closed for this asset; the other 30 provenance-blocked assets remain
 open.
+
+## Fresh strict audit: ML regression and classification
+
+Godel reopened all 39 current references in modules 02 and 03 at native and
+simulated 608px size. The result was **27 ACCEPT, 0 REPAIR, 0 REMOVE, and 12
+PROVENANCE-BLOCKED**. No current output was a simple 2×/3× enlargement and no
+camera, face, browser, or cursor artifact was found. The 12 blocked items are
+the regression vector/training and selected feature-engineering/usage assets
+whose target-specific source-to-crop-to-published-output records are not yet
+durable. All 17 classification assets passed the full visual, semantic, and
+provenance gate.
+
+## Fresh strict audit: ML evaluation, deployment, and trees
+
+Ohm reopened 58 current references. The result was **42 ACCEPT, 2 REPAIR, 0
+REMOVE, and 14 PROVENANCE-BLOCKED**. The repair queue is:
+
+- `05-deployment/images/05-pipenv-02-version-conflict-imagegen.png`: the
+  yellow mark is unexplained and the “installs the latest” annotation was lost.
+- `06-trees/images/08-xgb-tuning-02-tuning-eta-imagegen.png`: the plotted
+  ordering contradicts the lesson's stated best `eta` value.
+
+The 14 blocked files are visually useful but lack current target-specific
+source/crop/output records; they are not silently promoted.
+
+## Fresh strict audit: ML deep-learning and serverless
+
+Ampere reopened 56 current Markdown embeds: 44 deep-learning and 12 serverless.
+The result was **21 ACCEPT, 0 REPAIR, 0 REMOVE, and 35 PROVENANCE-BLOCKED**.
+All 56 were crisp at native and 608px sizes, with no camera, face, browser,
+cursor, or selection overlays and no matched source/output pair that was a
+simple upscale. The 35 open items are provenance-only in this pass.
+
+## Fresh strict audit: ML Kubernetes
+
+Noether reopened all 14 current Kubernetes references. The result was **2
+ACCEPT, 5 REPAIR, 0 REMOVE, and 7 PROVENANCE-BLOCKED**. All 14 were visually
+sharp; the repair queue is semantic, not an interpolation claim:
+
+- `01-overview-05-cpu-gpu-imagegen.png` and `09-summary-01-architecture-
+  imagegen.png` incorrectly show `2 CPU` instead of the source/lesson's
+  `5 CPU` and omit part of the preprocessing story.
+- `04-docker-compose-03-isolated-containers-imagegen.png` shows communication
+  before Compose even though the lesson teaches container isolation first.
+- `05-kubernetes-intro-03-services-crisp.png` omits the service-to-pod and
+  gateway-to-model-service routing relationships.
+- `05-kubernetes-intro-06-scaling-imagegen.png` omits additional gateway
+  replicas.
+
+The seven remaining assets are visually useful but provenance-blocked pending
+durable source/crop/output records.
