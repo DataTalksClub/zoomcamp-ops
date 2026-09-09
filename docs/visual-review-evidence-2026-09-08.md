@@ -1070,6 +1070,10 @@ source and crop chain.
 
 The lesson 02 Spark workflow repair was then regenerated in focused commit
 `352f667` from the original non-crisp JPG plus a native bounded crop. It is
-pending independent review of the added `MODEL → SPARK APPLY ML` relationship;
-it must not be marked accepted until that review confirms the native/608px
-render, semantic fidelity, no overlays, and the retained provenance chain.
+now independently accepted. The reviewer reproduced the `528×330` native crop
+from the `640×360` original byte-for-byte, confirmed the published
+`1942×809` PNG is byte-identical to the retained imagegen artifact, and found
+the expected C2PA/gpt-image metadata. Native and simulated `608×253` checks
+confirmed the left-pointing `MODEL → SPARK APPLY ML` arrow, faithful labels,
+and no face, webcam, browser, editor, cursor, or capture overlays. The repair
+is closed; the six provenance-blocked assets from lessons 08–10 remain open.
