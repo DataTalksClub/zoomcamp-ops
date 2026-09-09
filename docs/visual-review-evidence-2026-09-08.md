@@ -1068,6 +1068,16 @@ These six remain open under the screenshot-generation gate. The audit is not
 evidence that a visually usable screenshot is acceptable without its durable
 source and crop chain.
 
+Focused commit `556029f` regenerated all six from their original `640×360`
+JPGs plus retained native crops. The independent reviewer accepted all six:
+the four Spark-cluster diagrams preserve the driver/master, executor failure,
+partition routing, and S3/GCS relationships; the reshuffling diagram preserves
+all key/value mappings; and the broadcast-exchange screen preserves the
+validated job/stage/task values. Every published PNG is byte-identical to its
+imagegen artifact, has matching ledger hashes/C2PA, and passed native and
+simulated-608px inspection without face, camera, browser/editor chrome, cursor,
+play, or selection overlays. The DE 08–10 provenance queue is closed.
+
 The lesson 02 Spark workflow repair was then regenerated in focused commit
 `352f667` from the original non-crisp JPG plus a native bounded crop. It is
 now independently accepted. The reviewer reproduced the `528×330` native crop
