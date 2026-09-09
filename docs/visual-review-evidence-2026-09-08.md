@@ -876,3 +876,19 @@ accepted 44 of 45 unique files and found one repair: `02-experiment-tracking/
 images/db_password.png` still exposes password glyphs through its redaction.
 That asset is queued for opaque deterministic redaction or removal; imagegen
 must not be used to recreate secret-bearing text.
+
+The queued MLOps repair `8bf083a` replaced that incomplete redaction with a
+uniform opaque pixel block. Newton independently confirmed full opacity, no
+remaining OCR text at native or 608px size, and intact surrounding UI. The
+asset is now accepted.
+
+The ML intro content repair required a correction. `65d5619` fixed the two
+`BWM` labels, but its worker invented `850,000 UAH` in the suggested-price
+field. Herschel rejected that unsupported value. `20a1024` regenerated only
+that image from the original JPG plus bounded crop with the field blank;
+Aquinas independently accepted it. The three-item repair queue is therefore
+closed with two accepted at `65d5619` and the corrected third at `20a1024`.
+
+Faraday independently accepted all four DE 06-batch semantic repairs in
+`3a861c3`, including the blank Jobs-page caption correction, exact
+`head -n 101`, six correct partition-to-executor arrows, and quoted `HV0003`.
