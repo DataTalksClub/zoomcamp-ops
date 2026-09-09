@@ -1045,3 +1045,31 @@ diagram must connect the trained `MODEL` to `SPARK APPLY ML`, as described by
 the lesson and video. The accepted set is limited to the four items with
 current target-specific records in the DE follow-up ledger; the other 13
 remain open until their current source/crop/output chains are documented.
+
+## Fresh strict audit: DE 06-batch lessons 06–10
+
+An independent audit covered all 15 active references in lessons 06–10 at
+`3a861c3`. The result was **9 ACCEPT, 0 REPAIR, 0 REMOVE, and 6
+PROVENANCE-BLOCKED**. Every item was inspected at native resolution and at a
+simulated 608px display. The reviewer found no simple enlargement/sharpening,
+face, camera window, browser chrome, cursor, or other overlay in this slice.
+
+The six blocked items are visually and semantically usable but do not yet have
+a complete durable source → retained crop → generated output chain in the
+published evidence:
+
+- the four lesson 08 cluster diagrams lack retained current target-specific
+  crops/ledgers even though the originals and C2PA are present;
+- the lesson 09 reshuffling diagram lacks both a retained crop and C2PA;
+- the lesson 10 broadcast-exchange output has source/crop evidence, but its
+  current bytes lack C2PA after a label repair.
+
+These six remain open under the screenshot-generation gate. The audit is not
+evidence that a visually usable screenshot is acceptable without its durable
+source and crop chain.
+
+The lesson 02 Spark workflow repair was then regenerated in focused commit
+`352f667` from the original non-crisp JPG plus a native bounded crop. It is
+pending independent review of the added `MODEL → SPARK APPLY ML` relationship;
+it must not be marked accepted until that review confirms the native/608px
+render, semantic fidelity, no overlays, and the retained provenance chain.
