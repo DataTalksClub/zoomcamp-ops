@@ -10,10 +10,10 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | Repository | HEAD | Worktree | Active selection |
 | --- | --- | --- | --- | --- |
-| ML | `/home/alexey/git/machine-learning-zoomcamp` | `31d8a71b50662a69bf3c03520e18b4eda76292e6` | clean | the published 2026 cohort flow and its module manifests |
+| ML | `/home/alexey/git/machine-learning-zoomcamp` | `fb9e15b536b341159b6ad4a9358cef8d0e6172a0` | clean | the published 2026 cohort flow and its module manifests |
 | LLM | `/home/alexey/git/llm-zoomcamp` | `24c46cab0221e2aee93f17f532454683042ab3a7` | clean | the published 2026 cohort flow and its module manifests |
 | MLOps | `/home/alexey/git/mlops-zoomcamp` | `65c76a37c240ce88e4b459a7f8f440808a3b102a` | clean | numbered root module/project README pages; no published cohort manifest exists |
-| DE | `/home/alexey/git/data-engineering-zoomcamp` | `9ffc47ee724ff9726ede1f4f6cf49a6f6afd42dd` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
+| DE | `/home/alexey/git/data-engineering-zoomcamp` | `580bcda0ff1e89cec7db28562cc4a0d2c24e0a71` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
 
 ## Status contract
 
@@ -338,7 +338,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | ML | `cohorts/2026/01-intro/05-model-selection.md` | 43 | `images/05-model-selection-02-multiple-comparisons-imagegen-pilot.png` | instructional illustration | PRESENT | 1617×973 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/05-model-selection.md` | 55 | `images/05-model-selection-03-train-valid-test-imagegen-pilot.png` | instructional illustration | PRESENT | 1619×971 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/05-model-selection.md` | 67 | `images/05-model-selection-04-select-and-test-imagegen-pilot.png` | instructional illustration | PRESENT | 1693×929 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/06-environment.md` | 23 | `images/06-environment-01-create-repo-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/06-environment.md` | 23 | `images/06-environment-01-create-repo-crisp.png` | instructional illustration | PRESENT | 1583×994 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/06-environment.md` | 27 | `images/06-environment-02-create-codespace-crisp.png` | instructional illustration | PRESENT | 1594×987 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/06-environment.md` | 33 | `images/06-environment-03-vscode-desktop-crisp.png` | instructional illustration | PRESENT | 1508×1043 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/08-linear-algebra.md` | 65 | `images/08-linear-algebra-02-dot-product-crisp.png` | instructional illustration | PRESENT | 1717×916 | review required: crisp/generated asset |
@@ -593,7 +593,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 65 | `images/01-data-warehouse-and-bigquery-02-data-warehouse-diagram-imagegen.png` | instructional illustration | PRESENT | 1693×929 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 173 | `images/01-data-warehouse-and-bigquery-04-external-table-details-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 201 | `images/01-data-warehouse-and-bigquery-05-partitioning-diagram-crisp.png` | instructional illustration | PRESENT | 1674×940 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 245 | `images/01-data-warehouse-and-bigquery-06-partition-pruning-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 245 | `images/01-data-warehouse-and-bigquery-06-partition-pruning-crisp.png` | instructional illustration | PRESENT | 1774×887 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 279 | `images/01-data-warehouse-and-bigquery-07-clustering-diagram-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/01-data-warehouse-and-bigquery.md` | 318 | `images/01-data-warehouse-and-bigquery-08-cluster-pruning-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/04-internals-of-bigquery.md` | 13 | `images/04-internals-of-bigquery-01-architecture-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
@@ -603,9 +603,9 @@ This is the complete image-reference occurrence list for the selected unit files
 | DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 26 | `images/06-deploying-a-machine-learning-model-01-exported-to-gcs-crisp.png` | instructional illustration | PRESENT | 1740×904 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 40 | `images/06-deploying-a-machine-learning-model-02-copy-model-local-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 65 | `images/06-deploying-a-machine-learning-model-03-docker-running-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 73 | `images/06-deploying-a-machine-learning-model-04-model-status-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 91 | `images/06-deploying-a-machine-learning-model-05-predict-crisp.png` | instructional illustration | PRESENT | 1694×929 | review required: crisp/generated asset |
-| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 96 | `images/06-deploying-a-machine-learning-model-06-predict-payment-type-2-crisp.png` | instructional illustration | PRESENT | 1692×929 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 73 | `images/06-deploying-a-machine-learning-model-04-model-status-crisp.png` | instructional illustration | PRESENT | 1694×929 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 91 | `images/06-deploying-a-machine-learning-model-05-predict-crisp.png` | instructional illustration | PRESENT | 1693×929 | review required: crisp/generated asset |
+| DE | `cohorts/2027/03-data-warehouse/06-deploying-a-machine-learning-model.md` | 96 | `images/06-deploying-a-machine-learning-model-06-predict-payment-type-2-crisp.png` | instructional illustration | PRESENT | 1695×928 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 32 | `images/01-introduction-to-batch-processing-01-batch-vs-streaming-imagegen.png` | instructional illustration | PRESENT | 1601×982 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 46 | `images/01-introduction-to-batch-processing-02-streaming-example-imagegen.png` | instructional illustration | PRESENT | 1133×1388 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 116 | `images/01-introduction-to-batch-processing-07-batch-vs-streaming-share-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
