@@ -1,6 +1,6 @@
 # DE Zoomcamp 2027 video-to-illustration inventory
 
-Updated **2026-09-08**. This inventory compares the current
+Updated **2026-09-09**. This inventory compares the current
 `cohorts/2027` lessons with the canonical workshop/module pages at the
 repository root. A video is **unprocessed** when its current lesson has no
 source-backed illustration derived from that recording. A video is **reopened**
@@ -126,3 +126,15 @@ review; they do not indicate acceptance.
 Exact UI or terminal candidates must use a deterministic native crop after the
 original frame is inspected; imagegen is not permitted for those candidates.
 No invented assets were added, and nothing is published yet.
+
+### Module 03 deployment screenshot closure
+
+The six existing source-backed screenshots in the module 03 deployment lesson
+were refreshed after this inventory was reopened. Each pass sent the original
+JPG and true native crop to imagegen for a clean frame/background reference;
+the exact terminal or Postman content was then rendered deterministically.
+Resize-only or sharpen-only derivatives were rejected. The current published
+commits are `8478f19`, `d78ba11`, `92a20c6`, `051e3b6`, and `44fca50` (with
+`1353000` covering the first deployment frame), and every target has an
+independent acceptance record. This closes the module 03 deployment screenshot
+queue without changing the source-video inventory above.
