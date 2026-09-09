@@ -31,7 +31,7 @@ upscale, or sharpening.
 | 01 | `Y2ux7gq3Z0o` | Terraform supplemental/setup content linked from module 01 | **AUDITED — NO ASSET** | Exact Terraform/UI state needs native treatment; no imagegen asset published |
 | 01 | `PBi0hHjLftk` | Terraform supplemental/setup content linked from module 01 | **AUDITED — NO ASSET** | Credential/project identifiers and exact state are publication hard gates |
 | 01 | `JgspdlKXS-w` | Course introduction/overview only | **SUPPLEMENTAL** | Skip for instructional lesson illustrations |
-| 02 | `-JLnp-iLins`, `ZvVN_NmB_1s`, `wgPxC4UjoLM`, `MNOKVx8780E`, `VAHm0R_XjqI`, `-KmwrCqRhic`, `Z9ZmmwtXDcU`, `1pu_C_oOAMA`, `E04yurp1tSU`, `TLGFAOHpOYM`, `52u9X_bfTAo`, `b-6KhfWfk2M`, `GHPtRDAv044`, `LmnfjGKwnVU`, `3IbjHfC8bMg`, `XuPDQ1UcNyI` | Lessons 01–16, one video per lesson | **UNPROCESSED** | Process-flow/UI/result frames; date matrices and comparison tables become native markup |
+| 02 | `-JLnp-iLins`, `ZvVN_NmB_1s`, `wgPxC4UjoLM`, `MNOKVx8780E`, `VAHm0R_XjqI`, `-KmwrCqRhic`, `Z9ZmmwtXDcU`, `1pu_C_oOAMA`, `E04yurp1tSU`, `TLGFAOHpOYM`, `52u9X_bfTAo`, `b-6KhfWfk2M`, `GHPtRDAv044`, `LmnfjGKwnVU`, `3IbjHfC8bMg`, `XuPDQ1UcNyI` | Lessons 01–16, one video per lesson | **AUDITED — NO ASSET** | 23 native-only review candidates; date matrices, comparison tables, exact UI, code, and results remain native markup |
 | 03 | `jrHljAoD6nM`, `-CqXf7vhhDs`, `k81mLJVX08w`, `eduHi1inM4s`, `B-WtpB0PuG4`, `BjARzEWaznU` | Lessons 01–06 | **REOPENED** | Existing module-03 images need a fresh crispness pass; four documented imagegen diagrams can remain after review |
 | 04 | `uF76d5EmdtU`, `gsKuETFJr54`, `2dYDS4OQbT0`, `7CrrXazV_8k`, `JQYz-8sl1aQ`, `lT4fmTDEqVk`, `UqoWyMjcqrA`, `bvZ-rJm7uMU`, `KfhUA9Kfp8Y`, `t4OeWHW3SsA` | Lessons 01–11 (lesson 03 has no current video URL) | **UNPROCESSED** | dbt project/source/model/test/documentation/command states |
 | 05 | `f6vg7lGqZx0`, `JJwHKSidX_c`, `q0k_iz9kWsI`, `224xH7h8OaQ`, `uBqjLEwF8rc`, `YWDjnSxbBtY`, `uzp_DiR4Sok`, `ZElY5SoqrwI`, `XCx0nDmhhxA`, `3nykPEs_V7E` | Lessons 01–10 | **UNPROCESSED** | Bruin concepts, pipeline/assets/variables/commands, durable UI/result states |
@@ -110,6 +110,19 @@ asset is limited to the durable volume relationship:
 | 06 | 1:29:00–1:45:39 | Notebook-to-script result, not duplicated code |
 | 07–09 | 1:48:08–2:02:42 | Connected services or multi-container state |
 | 08–09 | 2:04:58–2:06:19 | Wrap-up result only if not in the lesson |
+
+### DE module 02 audit and closure
+
+All 16 canonical workflow-orchestration recordings were acquired through the
+DataImpulse route, validated with `ffprobe`, and sampled at source resolution.
+The complete worker report is
+`.tmp/workshop-processing/de-2027-m02/status.md`. It records 16/16 validated
+downloads, 262 sampled originals, and 23 retained review candidates. Every
+retained candidate is native-only: topology/Gantt/input/result screens, exact
+code or commands, or transient Kestra/GCP UI. No imagegen asset was generated
+or published, and all raw source MP4s were removed after their hashes and audit
+records were preserved. This is an intentional no-asset decision, not a claim
+that the videos contain no useful teaching moments.
 
 ### DE module 07 audit
 
