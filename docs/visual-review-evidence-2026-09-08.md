@@ -1105,6 +1105,22 @@ and no face, webcam, browser, editor, cursor, or capture overlays. The repair
 is closed; the six assets from lessons 08–10 are covered by `556029f` and
 independently accepted above.
 
+## DE 06-batch lessons 01–05 closure
+
+Focused commit `73be7e2` regenerated the 13 previously provenance-blocked
+lesson 01–05 outputs and retained five already-proven outputs. The independent
+review found one semantic defect in the StructType illustration: it showed
+inferred `StringType/LongType/DoubleType` while the live lesson teaches an
+explicit `TimestampType/IntegerType/StringType` schema. Focused commit
+`8176ba7` regenerated that one asset from the original JPG and native crop.
+
+The follow-up reviewer accepted the corrected asset: exactly two
+`TimestampType`, two `IntegerType`, and three `StringType` fields are present;
+the old inferred types remain only in superseded source/history evidence. All
+18 active refs in lessons 01–05 now pass the semantic, source/crop/output,
+C2PA, native/608px, overlay, and Markdown-reference checks. The DE 01–05
+queue is closed.
+
 ## Fresh strict review: DE 06-batch lessons 11–15
 
 Focused commit `4503275` regenerated four lesson 11–15 outputs from original
