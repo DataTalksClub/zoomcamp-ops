@@ -45,3 +45,9 @@ rubric score, output hash, and independent visual review.
 The absence of an image in a workshop README is therefore a queue item for
 review, not permission to invent a decorative diagram or to copy an arbitrary
 screen from the recording.
+
+The transcript fetch succeeded for all four videos. Direct `yt-dlp` downloads
+from this environment were blocked by YouTube's bot check, so no video was
+published or placed in a tracked directory. The frame-extraction pass must use
+the documented mirror/download workflow or an already available local source,
+then record the actual source path and duration in the per-image provenance.
