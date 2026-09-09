@@ -13,7 +13,7 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 | ML | `/home/alexey/git/machine-learning-zoomcamp` | `b2c970d3c1037a44eb1c3fa400b617c00d810411` | clean | the published 2026 cohort flow and its module manifests |
 | LLM | `/home/alexey/git/llm-zoomcamp` | `7f32e2dd1e14d894aacc2fcde38e89cd9832a73e` | clean | the published 2026 cohort flow and its module manifests |
 | MLOps | `/home/alexey/git/mlops-zoomcamp` | `8bf083a1914495aa041ad9d1d54c0d80be23f8fd` | clean | numbered root module/project README pages; no published cohort manifest exists |
-| DE | `/home/alexey/git/data-engineering-zoomcamp` | `3a861c37b5c4d5c7cdd150d01a004f903c7515bb` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
+| DE | `/home/alexey/git/data-engineering-zoomcamp` | `352f667fc71977ef90eff33fb847a33e50617c3d` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
 
 ## Status contract
 
@@ -611,7 +611,7 @@ This is the complete image-reference occurrence list for the selected unit files
 | DE | `cohorts/2027/06-batch/01-introduction-to-batch-processing.md` | 116 | `images/01-introduction-to-batch-processing-07-batch-vs-streaming-share-imagegen.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/02-introduction-to-spark.md` | 26 | `images/02-introduction-to-spark-02-data-processing-engine-whiteboard-redraw-imagegen.png` | instructional illustration | PRESENT | 1615×974 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/02-introduction-to-spark.md` | 62 | `images/02-introduction-to-spark-03-when-to-use-spark-whiteboard-redraw-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/02-introduction-to-spark.md` | 87 | `images/02-introduction-to-spark-04-typical-workflow-whiteboard-imagegen.png` | instructional illustration | PRESENT | 1627×967 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/02-introduction-to-spark.md` | 87 | `images/02-introduction-to-spark-04-typical-workflow-whiteboard-imagegen.png` | instructional illustration | PRESENT | 1942×809 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/03-installing-spark.md` | 22 | `images/03-installing-spark-01-install-guide-java-crisp.png` | instructional illustration | PRESENT | 2170×725 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/03-installing-spark.md` | 45 | `images/03-installing-spark-02-java-home-crisp.png` | instructional illustration | PRESENT | 1586×992 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/03-installing-spark.md` | 71 | `images/03-installing-spark-03-spark-download-page-crisp.png` | instructional illustration | PRESENT | 1590×989 | review required: crisp/generated asset |
