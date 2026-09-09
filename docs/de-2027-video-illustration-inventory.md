@@ -73,3 +73,56 @@ The initial audit found:
 This inventory does not claim that every lesson should receive an image. Each
 candidate still has to pass the illustration rubric and the independent visual
 review gate.
+
+## Verification — 2026-09-09
+
+### DE module 01 canonical-video audit
+
+| Canonical video | Unit coverage | Verification state |
+| --- | --- | --- |
+| `lP8xXebHmuE` | Units 01–09 | Transcript cached; no local video/frame. |
+| `QEcps_iskgg` | Unit 10 | No cached transcript or original frame. |
+| `18jIzE41fJ4` | Units 12–13 | No transcript/frame; 12/13 split unresolved. |
+| — | Unit 11 | No canonical video identified. |
+
+Fetch attempts for `QEcps_iskgg`, `18jIzE41fJ4`, and the legacy supplemental
+IDs `s2bOYDCKl_M`, `Y2ux7gq3Z0o`, `PBi0hHjLftk`, and `JgspdlKXS-w` hit proxy
+HTTP 407. Those failed fetches are not source evidence.
+
+The following cues are backed by the cached transcript for `lP8xXebHmuE` and
+are provisional for units 01–09 only. None is accepted without fetching and
+inspecting the original frame.
+
+| Unit(s) | Transcript window | Provisional candidate cue |
+| --- | --- | --- |
+| 01 | 09:33–27:52 | Docker/container relationship or command result |
+| 02 | 36:23–42:00 | Environment isolation/result, not command typing |
+| 03 | 42:55–55:41 | Completed image/container state or layered relationship |
+| 04 | 56:45–1:07:26 | Running database container and durable connection state |
+| 05 | 1:07:34–1:28:55 | Successful ingestion/result state |
+| 06 | 1:29:00–1:45:39 | Notebook-to-script result, not duplicated code |
+| 07–09 | 1:48:08–2:02:42 | Connected services or multi-container state |
+| 08–09 | 2:04:58–2:06:19 | Wrap-up result only if not in the lesson |
+
+### DE module 07 audit
+
+`YDUgFeHQzJU` has a cached transcript, but no bitmap references remain. The
+two native Mermaid diagrams in unit 10 are source-backed and retained. The
+unsupported generated visuals `06-why-flink` and
+`10-tumbling-window-watermark` have already been removed.
+
+The prioritized transcript-backed candidates below remain **UNPROCESSED**
+until their original frames are fetched and inspected. Scores prioritize
+review; they do not indicate acceptance.
+
+| Unit | Timestamp | Score | Status |
+| --- | --- | ---: | --- |
+| 02 | 13:18–13:49 | 9 | **UNPROCESSED** — frame fetch/inspection pending |
+| 05 | 47:57–48:33 | 9 | **UNPROCESSED** — frame fetch/inspection pending |
+| 07 | 1:03:03–1:03:21 | 10 | **UNPROCESSED** — frame fetch/inspection pending |
+| 08 | 1:09:31–1:10:57 | 9 | **UNPROCESSED** — frame fetch/inspection pending |
+| 11 | 1:17:29–1:17:41 | 10 | **UNPROCESSED** — frame fetch/inspection pending |
+
+Exact UI or terminal candidates must use a deterministic native crop after the
+original frame is inspected; imagegen is not permitted for those candidates.
+No invented assets were added, and nothing is published yet.
