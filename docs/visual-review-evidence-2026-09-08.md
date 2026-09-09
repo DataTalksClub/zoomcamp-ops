@@ -1141,3 +1141,35 @@ Markdown line for the ensemble-experiments output. Socrates independently
 accepted the commit after checking both live references, source/crop/output
 hashes, and the absence of unrelated image changes. The documentation queue
 is closed; no image bytes were changed by this correction.
+
+## ML current strict-review closures
+
+The latest independent review sequence closed the remaining ML queues:
+
+- `cf1c162` plus `43d994f` covers all 29 active intro references. The final
+  review accepted the caret-free GitHub repository screenshot, the corrected
+  source hash, all 20 repaired refs, and all 29 live Markdown refs.
+- `db44278` plus `42ef42d` and `92e9f7d` covers all 35 active deep-learning
+  and serverless references. The reviewers required removal of a selection
+  arrow and a mouse cursor, then accepted the regenerated outputs; the final
+  ledger hash correction was independently accepted. The TensorFlow Lite
+  combined visual preserves Keras predictions on the left and conversion to
+  TFLite on the right.
+- `65841a3` plus `146a6f4` covers all 14 active Kubernetes references. The
+  final review accepted the deterministic definitions exception, the
+  prompt-native Explore More exception, and the corrected nodes/pods visual
+  with two nodes, four closed pods, and four visible `POD` labels.
+
+All three closures required native and simulated-608px inspection, semantic
+checks, overlay checks, and source/crop/output provenance. Deterministic
+assets are documented as such; prompt-native conceptual assets are not
+misrepresented as screenshot redraws.
+
+## LLM standalone-visual cleanup
+
+The standalone LLM audit classified 22 visuals as supported prompt-native
+conceptual imagegen assets and one as redundant because it duplicated an
+immediately preceding Markdown decision table. Focused commit `6e223ea`
+removed only that active embed, preserved its PNG for history, and recorded
+the classification. The independent reviewer accepted the table preservation,
+zero active refs to the redundant PNG, and all 36 remaining active refs.
