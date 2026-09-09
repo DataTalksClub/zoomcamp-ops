@@ -1173,3 +1173,39 @@ immediately preceding Markdown decision table. Focused commit `6e223ea`
 removed only that active embed, preserved its PNG for history, and recorded
 the classification. The independent reviewer accepted the table preservation,
 zero active refs to the redundant PNG, and all 36 remaining active refs.
+
+## DE 03-data-warehouse deployment screenshot closure
+
+The remaining six active screenshots in
+`06-deploying-a-machine-learning-model.md` were reprocessed from their
+original non-crisp JPGs and true native crops. Imagegen received the original
+and native crop for each target, but supplied only a clean frame/background.
+Exact terminal, Postman, URL, JSON, command, filename, status, and numeric
+content was rendered deterministically. Resize-only and sharpen-only outputs
+were rejected.
+
+- `1353000` and its independent review cover the exported-to-GCS UI.
+- `80b2491` was blocked as a resize-only derivative; `8478f19` replaced it
+  with the imagegen-background plus exact-text repair for `02-copy-model-local`
+  and was independently accepted.
+- `d78ba11` covers `03-docker-running` and was independently accepted.
+- `223e23b` plus provenance correction `92a20c6` covers `04-model-status`;
+  the follow-up review accepted the focused 1220×800 Postman/JSON visual.
+- `051e3b6` covers `05-predict` and was independently accepted.
+- `01b4bb9` plus hash correction `44fca50` covers
+  `06-predict-payment-type-2` and was independently accepted.
+
+The six current lesson references pass the source/crop/output, exact-content,
+no-upscale, artifact-removal, native/608px, and independent-review gates.
+The DE warehouse deployment screenshot queue is closed.
+
+## Workshop source-frame gate
+
+The ML workshop audits for FastAPI/uv, PyTorch, Serverless, and Kubernetes
+were completed without publishing inferred screenshots. Their transcripts
+provide candidate timestamps, but direct YouTube, yt-dlp/proxy, Piped, and
+Invidious acquisition did not produce a local source video or verifiable
+frame. Every candidate therefore remains hard-gated at 0/12 until the
+original recording or a valid mirror is available. The audit records are kept
+with the workshop source trees; no thumbnail or transcript-only reconstruction
+was promoted to a lesson image.
