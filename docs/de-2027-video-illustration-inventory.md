@@ -24,12 +24,12 @@ upscale, or sharpening.
 
 | Module | Video | Current lesson(s) | Current status | Candidate use |
 | --- | --- | --- | --- | --- |
-| 01 | `lP8xXebHmuE` | 01–09 Docker/Postgres workshop | **UNPROCESSED** | Docker workflow, virtual environment, Dockerfile, Postgres, ingestion, pgAdmin/Compose; one source spans nine lessons |
-| 01 | `QEcps_iskgg` | 10 SQL refresher | **UNPROCESSED** | Join/group/aggregation result; prefer native SQL/result markup |
-| 01 | `18jIzE41fJ4` | 12 Terraform overview; 13 GCP overview | **UNPROCESSED** | Terraform plan/apply and GCP resource relationship; one source spans two lessons; never expose credentials |
-| 01 | `s2bOYDCKl_M` | Terraform supplemental/setup content linked from module 01 | **UNPROCESSED** | Terraform files/declarations and plan/apply |
-| 01 | `Y2ux7gq3Z0o` | Terraform supplemental/setup content linked from module 01 | **UNPROCESSED** | One-file configuration to provisioned resource |
-| 01 | `PBi0hHjLftk` | Terraform supplemental/setup content linked from module 01 | **UNPROCESSED** | Variables file versus hard-coded configuration |
+| 01 | `lP8xXebHmuE` | 01–09 Docker/Postgres workshop | **PROCESSED — 1 ASSET** | Docker volume relationship; raw screenshots rejected, conceptual redraw published in unit 01 |
+| 01 | `QEcps_iskgg` | 10 SQL refresher | **AUDITED — NO ASSET** | Exact joins/grouping/aggregation results remain native SQL/result markup |
+| 01 | `18jIzE41fJ4` | 12 Terraform overview; 13 GCP overview | **PROCESSED — 1 ASSET** | GCP service-family relationship published in unit 13; no credentials or exact UI |
+| 01 | `s2bOYDCKl_M` | Terraform supplemental/setup content linked from module 01 | **PROCESSED — 1 ASSET** | Terraform/provider flow published in unit 12; raw editor/camera state rejected |
+| 01 | `Y2ux7gq3Z0o` | Terraform supplemental/setup content linked from module 01 | **AUDITED — NO ASSET** | Exact Terraform/UI state needs native treatment; no imagegen asset published |
+| 01 | `PBi0hHjLftk` | Terraform supplemental/setup content linked from module 01 | **AUDITED — NO ASSET** | Credential/project identifiers and exact state are publication hard gates |
 | 01 | `JgspdlKXS-w` | Course introduction/overview only | **SUPPLEMENTAL** | Skip for instructional lesson illustrations |
 | 02 | `-JLnp-iLins`, `ZvVN_NmB_1s`, `wgPxC4UjoLM`, `MNOKVx8780E`, `VAHm0R_XjqI`, `-KmwrCqRhic`, `Z9ZmmwtXDcU`, `1pu_C_oOAMA`, `E04yurp1tSU`, `TLGFAOHpOYM`, `52u9X_bfTAo`, `b-6KhfWfk2M`, `GHPtRDAv044`, `LmnfjGKwnVU`, `3IbjHfC8bMg`, `XuPDQ1UcNyI` | Lessons 01–16, one video per lesson | **UNPROCESSED** | Process-flow/UI/result frames; date matrices and comparison tables become native markup |
 | 03 | `jrHljAoD6nM`, `-CqXf7vhhDs`, `k81mLJVX08w`, `eduHi1inM4s`, `B-WtpB0PuG4`, `BjARzEWaznU` | Lessons 01–06 | **REOPENED** | Existing module-03 images need a fresh crispness pass; four documented imagegen diagrams can remain after review |
@@ -59,9 +59,10 @@ and this provenance map are publishable.
 
 ## Current illustration audit
 
-The initial audit found:
+The current audit found:
 
-- Module 01: 0 current instructional image references.
+- Module 01: 3 accepted source-backed imagegen references; all raw screenshot
+  crops remain scratch evidence only.
 - Module 02: 0 lesson illustrations (one homework screenshot is separate).
 - Module 03: 32 active image references before the latest cost-slide removal;
   four have direct imagegen evidence, while the remaining screenshot-derived
@@ -76,30 +77,28 @@ review gate.
 
 ## Verification — 2026-09-09
 
-### DE module 01 canonical-video audit
+### DE module 01 canonical-video audit and closure
 
 | Canonical video | Unit coverage | Verification state |
 | --- | --- | --- |
-| `lP8xXebHmuE` | Units 01–09 | Transcript cached; no local video/frame. |
-| `QEcps_iskgg` | Unit 10 | No cached transcript or original frame. |
-| `18jIzE41fJ4` | Units 12–13 | No transcript/frame; 12/13 split unresolved. |
+| `lP8xXebHmuE` | Units 01–09 | Transcript cached; source validated; one conceptual volume illustration published in unit 01. |
+| `QEcps_iskgg` | Unit 10 | Source validated; exact SQL/result views audited and kept native; no bitmap published. |
+| `18jIzE41fJ4` | Units 12–13 | Source validated; one conceptual GCP service-family illustration published in unit 13. |
+| `s2bOYDCKl_M` | Supplemental Terraform setup | Source validated; one conceptual Terraform/provider illustration published in unit 12. |
+| `Y2ux7gq3Z0o` | Supplemental Terraform setup | Source validated; no asset after native UI/identifier review. |
+| `PBi0hHjLftk` | Supplemental Terraform setup | Source validated; no asset after credential/project-identifier review. |
 | — | Unit 11 | No canonical video identified. |
 
-Fetch attempts for `QEcps_iskgg`, `18jIzE41fJ4`, and the legacy supplemental
-IDs `s2bOYDCKl_M`, `Y2ux7gq3Z0o`, `PBi0hHjLftk`, and `JgspdlKXS-w` hit proxy
-HTTP 407. Those failed fetches are not source evidence.
+The six source videos above were acquired through the documented DataImpulse
+route and validated with `ffprobe`. The worker preserved source hashes, frame
+hashes, native crop coordinates, and candidate decisions under
+`.tmp/workshop-processing/de-2027-m01/`. The three accepted assets were made
+with imagegen from the original source frame plus focused crop, independently
+reviewed, and committed with tracked provenance in the DE module-01 directory.
+The raw JPEG frames and crops are not published.
 
-A fresh source-acquisition pass on 2026-09-09 rechecked the canonical
-`lP8xXebHmuE` recording. The local search was empty; direct `yt-dlp` hit the
-YouTube bot gate; the documented Oxylabs route returned HTTP 407; and the
-documented Piped/Invidious mirrors returned 403/5xx, DNS failures, or invalid
-non-stream responses. No MP4, source frame, or new candidate was produced.
-The module 01 units therefore remain source-gated rather than receiving
-transcript- or thumbnail-derived illustrations.
-
-The following cues are backed by the cached transcript for `lP8xXebHmuE` and
-are provisional for units 01–09 only. None is accepted without fetching and
-inspecting the original frame.
+The following cues remain useful as audit context for units 01–09; the accepted
+asset is limited to the durable volume relationship:
 
 | Unit(s) | Transcript window | Provisional candidate cue |
 | --- | --- | --- |
