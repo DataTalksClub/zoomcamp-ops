@@ -671,8 +671,14 @@ documents the wrong narrow crop. A provenance worker is fixing those three.
 The strict tree audit found 12 fresh refs: 11 visually crisp and semantically
 correct but lacking durable source/crop/output chains, plus one XGBoost
 parameter wording defect (`min_child_weight` was presented as equality with
-`min_samples_leaf`). A focused worker is retaining/recreating evidence for the
-11 and repairing the wording; none is accepted until independently rechecked.
+`min_samples_leaf`). The focused worker retained/recreated evidence for the
+11 and repaired the wording; the 11 plus the corrected XGBoost summary are now
+independently accepted except for any future changes to those bytes.
+
+Fermat independently accepted the corrected XGBoost summary in `991debf`,
+including final-model values and reproducible hashes. The same review accepted
+the DE Dataproc regeneration `9ffc47e` and the ML Docker port-mapping repair
+`f951bba`, all at native and 608px sizes with C2PA and no capture artifacts.
 
 ## ML classification and evaluation strict audit follow-up
 
