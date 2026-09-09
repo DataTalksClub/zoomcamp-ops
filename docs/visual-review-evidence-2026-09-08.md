@@ -761,3 +761,58 @@ Subsequent focused work restored the `1TB` mapPartitions annotation, rebuilt
 the Dataproc submit form, and removed the BigQuery error embed. The current
 open DE follow-up is provenance for mapPartitions, Dataproc create-cluster,
 and reports-in-bucket; these are not silently promoted to accepted.
+
+## Fresh strict audit: ML 01-intro
+
+Arendt's strict re-audit of the current `cohorts/2026/01-intro` references
+opened all 29 published outputs at native resolution and simulated 608px
+lesson width. The result was **4 ACCEPT, 3 NEEDS, 0 REMOVE-NATIVE, and 22
+UNRESOLVED**. The visual check found material redraws rather than simple
+upscales and found no camera, browser-chrome, cursor, or accidental overlay
+artifacts. The unresolved status is deliberate: 22 outputs have source and
+C2PA evidence but no durable source-to-bounded-crop-to-output ledger.
+
+The three repair findings are exact content defects, not “looks crisp”
+judgments: two images spell `BMW` as `BWM`, and the suggested-price form leaves
+the price field blank. The four accepted outputs are the multiclass,
+multiple-comparisons, dot-product, and matrix-vector assets with complete
+provenance. This re-audit does not promote the 22 unresolved images.
+
+## Fresh strict audit: DE 04-analytics-engineering and 05-data-platforms
+
+Lagrange found no active instructional illustrations in these modules. The
+active local image references are video-navigation thumbnails; presenter faces,
+camera insets, and play-button overlays are intentional for that role. Five
+`05-data-platforms` thumbnails are byte-identical blank/near-black placeholders
+and need either a verified first-party thumbnail or removal of only the image
+embed while retaining the video link:
+
+```text
+thumbnail-YWDjnSxbBtY.jpg
+thumbnail-uzp_DiR4Sok.jpg
+thumbnail-ZElY5SoqrwI.jpg
+thumbnail-XCx0nDmhhxA.jpg
+thumbnail-3nykPEs_V7E.jpg
+```
+
+These are navigation-thumbnail repairs, not imagegen candidates. The module
+scope correction is also recorded here: the repository has `05-data-platforms`,
+not `05-batch-processing`; batch processing is module 06.
+
+## Fresh strict audit: DE 06-batch follow-up
+
+A strict seven-reference audit found **0 ACCEPT, 4 NEEDS, 0 REMOVE-NATIVE,
+and 3 UNRESOLVED**. All seven current outputs were judged visually sharp at
+native and 608px sizes and none was a simple enlargement or contained camera or
+browser artifacts. The open findings are semantic or provenance gates:
+
+- Spark UI has no job row although the lesson says it shows notebook jobs.
+- The Pandas schema image says `head -n 1001` while the lesson requires
+  `head -n 101`.
+- The partitions diagram lacks arrows/executor labels.
+- The built-in-functions image omits quotes around `HV0003`.
+- StructType, `printSchema`, and `select` are visually/semantically correct
+  but lack a durable source-to-crop-to-imagegen ledger.
+
+The outputs contain image-generation metadata, but that alone is not accepted
+provenance. The partition crop is also not tracked.
