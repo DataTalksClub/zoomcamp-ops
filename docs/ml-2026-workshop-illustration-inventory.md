@@ -4,18 +4,17 @@ This is the workshop-specific companion to the current illustration audit. It
 covers the four video-backed ML Zoomcamp workshops that are stored under the
 2026 cohort: deployment/FastAPI, deep learning, serverless, and Kubernetes.
 
-The workshop READMEs are processed independently. FastAPI and Serverless now
-have published, source-backed imagegen illustrations. Deep Learning has one
-candidate awaiting its independent review; Kubernetes has completed its audit
-with no image accepted. A missing image is never treated as proof that a video
-has no useful teaching visual.
+The workshop READMEs are processed independently. FastAPI, Deep Learning, and
+Serverless now have published, source-backed imagegen illustrations.
+Kubernetes has completed its audit with no image accepted. A missing image is
+never treated as proof that a video has no useful teaching visual.
 
 ## Video and unit map
 
 | Workshop unit | YouTube video | Transcript cache | Current published illustrations | Initial candidate teaching points |
 | --- | --- | --- | --- | --- |
 | Module 5: FastAPI and uv | `jzGzw98Eikk` | `/home/alexey/.cache/youtube_transcripts/jzGzw98Eikk.txt` | 2 imagegen assets; accepted in `5256dd8` | model → prediction service; FastAPI request/response; pipeline and model artifact; Docker/Fly deployment state |
-| Deep learning / PyTorch | `Ne25VujHRLA` | `/home/alexey/.cache/youtube_transcripts/Ne25VujHRLA.txt` | One imagegen candidate; independent review pending | image → preprocessing tensor → pretrained model → class scores; transfer learning; frozen base plus ten-class head |
+| Deep learning / PyTorch | `Ne25VujHRLA` | `/home/alexey/.cache/youtube_transcripts/Ne25VujHRLA.txt` | 1 imagegen asset; accepted after independent review | image → preprocessing tensor → pretrained model → class scores; transfer learning; frozen base plus ten-class head |
 | Serverless deployment | `sHQaeVm5hT8` | `/home/alexey/.cache/youtube_transcripts/sHQaeVm5hT8.txt` | 2 imagegen assets; accepted after independent review | Lambda request/response; model-in-Docker packaging; scikit-learn/ONNX deployment path; pay-per-request boundary |
 | Kubernetes deployment | `c_CzCsCnWoU` | `/home/alexey/.cache/youtube_transcripts/c_CzCsCnWoU.txt` | Audited; no image accepted | model → FastAPI → Docker → Kind/Kubernetes; ONNX inference; health checks; deployment/service/pod relationships |
 
@@ -29,19 +28,18 @@ are `05-deployment/workshop/README.md`,
 
 ## Processing status
 
-FastAPI is **PUBLISHED — 2 ASSETS**. Serverless is **PUBLISHED — 2 ASSETS**.
+FastAPI is **PUBLISHED — 2 ASSETS**. Deep Learning is **PUBLISHED — 1
+ASSET**. Serverless is **PUBLISHED — 2 ASSETS**.
 Their source videos were acquired through the DataImpulse route, candidate
 frames were reviewed, and the accepted diagrams were independently checked for
-legibility, source support, and removal of faces/Zoom/editor overlays. Deep
-Learning is **REVIEW PENDING — 1 CANDIDATE**. Kubernetes is **AUDITED — NO
-ASSET**: exact YAML, commands, JSON, status output, and transient UI were
-correctly retained as native material or rejected.
+legibility, source support, and removal of faces/Zoom/editor overlays.
+Kubernetes is **AUDITED — NO ASSET**: exact YAML, commands, JSON, status output,
+and transient UI were correctly retained as native material or rejected.
 
-The FastAPI, Serverless, and Kubernetes audit and independent-review reports are
-the evidence for their publication decisions. Deep Learning is using the same
-validated-source process: fetch → extract → rubric → crop/regenerate →
-independent review. A worker must not call a candidate publishable merely
-because a source frame exists.
+The FastAPI, Deep Learning, Serverless, and Kubernetes audit and
+independent-review reports are the evidence for their publication decisions. A
+worker must not call a candidate publishable merely because a source frame
+exists.
 
 For a retained screenshot-derived frame, preserve the original frame, make a
 native bounded crop, and pass both the original and crop to imagegen when the
