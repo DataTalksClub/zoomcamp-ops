@@ -737,6 +737,15 @@ source/crop/output hashes plus C2PA and native/608px semantic checks pass.
 | --- | ---: | ---: | ---: |
 | Evaluation final provenance review `2de31ca` | 2 | 0 | 0 |
 
+Boyle independently reviewed all 15 evaluation assets repaired in the later
+batches. Twelve passed immediately; the final three provenance-only items
+passed after `31d8a71` retained their crops and reproducible script. The
+complete formerly unresolved evaluation queue is now accepted.
+
+| Batch | Accepted | Needs repair | Remove |
+| --- | ---: | ---: | ---: |
+| Evaluation complete strict review | 15 | 0 | 0 |
+
 The accepted asset in the initial eight-file checkpoint was the RDD DAG image.
 Subsequent focused work restored the `1TB` mapPartitions annotation, rebuilt
 the Dataproc submit form, and removed the BigQuery error embed. The current
