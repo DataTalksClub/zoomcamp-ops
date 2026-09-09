@@ -984,3 +984,10 @@ and bounded crops:
 
 These commits remain provisional until their separate reviewers reopen the
 published bytes.
+
+Gauss independently accepted the Pipenv repair `15e50a1`, and James
+independently accepted the XGBoost repair `5660c17`. Kubernetes required an
+additional correction: the follow-up `41259ff` changed the scaling picture to
+4 gateway/3 TensorFlow-Serving pods, but the source lesson's concrete example
+is 5 gateway/2 TensorFlow-Serving instances. That follow-up is superseded and
+must not be marked accepted; a source-faithful correction is in progress.
