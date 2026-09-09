@@ -12,6 +12,16 @@ opened the retained images at native resolution and at lesson display size.
 > assets are being regenerated or removed/native-rendered and will receive a
 > fresh independent review.
 
+> **Current correction (2026-09-09):** The user rechecked published outputs
+> and found that several images described as crisp are still merely enlarged,
+> softened, or otherwise not publication-ready. Treat every acceptance claim
+> below as historical evidence about the specific bytes and review scope at
+> that time, not as a current repository-wide crispness guarantee. The live
+> status is **audit required** until a fresh reviewer opens the current
+> published pixel, its original non-crisp source, and the lesson-size render.
+> A filename, dimensions, interpolation, or prior agent PASS cannot close
+> that gate.
+
 ## Decision framework
 
 Choose the output style from the teaching point:
