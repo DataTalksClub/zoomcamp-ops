@@ -162,26 +162,24 @@ illustrations.
 
 ### DE module 07 audit
 
-`YDUgFeHQzJU` has a cached transcript, but no bitmap references remain. The
-two native Mermaid diagrams in unit 10 are source-backed and retained. The
-unsupported generated visuals `06-why-flink` and
-`10-tumbling-window-watermark` have already been removed.
+The complete source/frame audit is under
+`.tmp/workshop-processing/de-2027-m07/STATUS.md`, with machine-readable
+candidate evidence under `.tmp/workshop-processing/de-2027-m07/`. All 13
+canonical sources passed acquisition, ffprobe, and transcript checks. The
+primary register contains 66 targeted moments; the supplemental QA pass adds
+two source-backed candidates. At source level, 7 recordings have durable
+concepts suitable for imagegen redraw, while 6 are rejected because their
+useful material is exact code, UI, runtime output, or unsuitable sketches.
+At candidate level, 12 primary concepts plus 2 supplemental concepts need
+imagegen, 36 exact/native candidates remain native, and 18 are marked for
+removal. No bitmap has been published. The two native Mermaid diagrams in
+unit 10 remain; unsupported historical visuals such as `06-why-flink` and
+`10-tumbling-window-watermark` stay removed.
 
-The prioritized transcript-backed candidates below remain **UNPROCESSED**
-until their original frames are fetched and inspected. Scores prioritize
-review; they do not indicate acceptance.
-
-| Unit | Timestamp | Score | Status |
-| --- | --- | ---: | --- |
-| 02 | 13:18–13:49 | 9 | **UNPROCESSED** — frame fetch/inspection pending |
-| 05 | 47:57–48:33 | 9 | **UNPROCESSED** — frame fetch/inspection pending |
-| 07 | 1:03:03–1:03:21 | 10 | **UNPROCESSED** — frame fetch/inspection pending |
-| 08 | 1:09:31–1:10:57 | 9 | **UNPROCESSED** — frame fetch/inspection pending |
-| 11 | 1:17:29–1:17:41 | 10 | **UNPROCESSED** — frame fetch/inspection pending |
-
-Exact UI or terminal candidates must use a deterministic native crop after the
-original frame is inspected; imagegen is not permitted for those candidates.
-No invented assets were added, and nothing is published yet.
+Exact UI, terminal, code, table, and list candidates must use deterministic
+native Markdown/HTML/code treatment after the source frame is inspected;
+imagegen is not permitted for those candidates. Every future redraw must carry
+the original frame, focused crop, source hash, and independent visual review.
 
 ### Module 03 deployment screenshot closure
 
