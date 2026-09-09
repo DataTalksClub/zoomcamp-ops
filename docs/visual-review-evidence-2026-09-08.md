@@ -910,3 +910,10 @@ imagegen.png`: the failed search must say `Olama`, while the corrected retry
 must say `Ollama`. The remaining 30 outputs are not being called accepted until
 their current published hashes and source/reference-to-crop-to-output records
 are durable.
+
+The focused LLM repair `7f32e2d` regenerated that flow from the original JPG
+and retained crop. Galileo independently accepted the corrected sequence
+(`Olama` failure → typo detected → `Ollama` retry), with native/608px checks,
+non-upscale comparison, matching hashes, and C2PA metadata. The LLM repair
+queue is closed for this asset; the other 30 provenance-blocked assets remain
+open.
