@@ -861,3 +861,18 @@ The ML intro repair `fb9e15b` likewise used the original JPGs plus bounded
 crops and recorded output hashes in the course provenance ledger. It remains
 pending its separate whole-module reviewer; the repair worker's own visual
 check is not an acceptance decision.
+
+The independent whole-scope ML intro review is now complete: at `fb9e15b`, all
+29 outputs were visually crisp at native and simulated 608px size, and none
+was a simple enlargement or retained capture artifact. The bounded result is
+**6 ACCEPT, 3 REPAIR, 0 REMOVE, and 20 PROVENANCE-BLOCKED**. The three content
+repairs are the two `BWM` labels that should read `BMW`, plus a blank suggested-
+price field. The 20 visually good outputs remain blocked until their durable
+source-to-bounded-crop-to-output ledgers are recorded; they are not silently
+promoted to accepted.
+
+The independent MLOps re-audit did not confirm the earlier 45/45 result. It
+accepted 44 of 45 unique files and found one repair: `02-experiment-tracking/
+images/db_password.png` still exposes password glyphs through its redaction.
+That asset is queued for opaque deterministic redaction or removal; imagegen
+must not be used to recreate secret-bearing text.
