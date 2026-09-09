@@ -847,3 +847,17 @@ PROVENANCE-BLOCKED**: the reviewer found the concept illustrations, diagrams,
 and AWS screenshots crisp, useful, source-backed, and free of camera/face/play
 button artifacts. The AWS password redaction is intentional. This is a bounded
 MLOps result, not evidence about the other repositories.
+
+## Independent review of the repair batch
+
+Lovelace independently reopened the six changed DE items after `0825b7a` and
+`580bcda`. All six passed: the five regenerated images were materially
+different from resized crops, the exact SQL/JSON/prediction values matched the
+lessons, C2PA metadata was present, and the removed homework screenshot was
+replaced by a useful native Markdown table. This is the first repair batch in
+this round that has both a worker report and a separate reviewer report.
+
+The ML intro repair `fb9e15b` likewise used the original JPGs plus bounded
+crops and recorded output hashes in the course provenance ledger. It remains
+pending its separate whole-module reviewer; the repair worker's own visual
+check is not an acceptance decision.
