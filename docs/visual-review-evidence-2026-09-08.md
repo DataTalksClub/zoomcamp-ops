@@ -968,3 +968,19 @@ sharp; the repair queue is semantic, not an interpolation claim:
 
 The seven remaining assets are visually useful but provenance-blocked pending
 durable source/crop/output records.
+
+## ML semantic repair commits awaiting review
+
+The focused workers produced three pushed repair commits from original sources
+and bounded crops:
+
+- `15e50a1` repaired the Pipenv conflict illustration, restoring the exact
+  `INSTALLS THE LATEST` annotation and removing the unexplained mark/face.
+- `5660c17` regenerated the XGBoost eta plot with lesson-consistent labels and
+  documented deterministic/provenance evidence.
+- `765c9f5` repaired all five Kubernetes semantic illustrations: `5 CPU`,
+  preprocessing, pre-Compose isolation, complete service routing, and three
+  gateway plus three TensorFlow-Serving replicas.
+
+These commits remain provisional until their separate reviewers reopen the
+published bytes.
