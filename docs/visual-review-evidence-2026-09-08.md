@@ -1102,4 +1102,16 @@ from the `640×360` original byte-for-byte, confirmed the published
 the expected C2PA/gpt-image metadata. Native and simulated `608×253` checks
 confirmed the left-pointing `MODEL → SPARK APPLY ML` arrow, faithful labels,
 and no face, webcam, browser, editor, cursor, or capture overlays. The repair
-is closed; the six provenance-blocked assets from lessons 08–10 remain open.
+is closed; the six assets from lessons 08–10 are covered by `556029f` and
+independently accepted above.
+
+## Fresh strict review: DE 06-batch lessons 11–15
+
+Focused commit `4503275` regenerated four lesson 11–15 outputs from original
+JPGs plus native crops and retained four already-proven imagegen outputs. The
+independent reviewer accepted all eight live refs: exact RDD/DAG relationships,
+Spark UI states, Dataproc form values, arrows, labels, and bucket paths were
+legible at native and simulated 608px size; hashes, crop geometry, output
+equality, C2PA, and active Markdown references matched the ledger. No face,
+camera, browser/editor chrome, cursor, play button, selection overlay, or
+resize/sharpen-only derivative was found. The DE 11–15 queue is closed.
