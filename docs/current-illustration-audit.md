@@ -10,10 +10,10 @@ This is a committed snapshot of the four current Zoomcamp scopes. The script rea
 
 | Scope | Repository | HEAD | Worktree | Active selection |
 | --- | --- | --- | --- | --- |
-| ML | `/home/alexey/git/machine-learning-zoomcamp` | `fb9e15b536b341159b6ad4a9358cef8d0e6172a0` | clean | the published 2026 cohort flow and its module manifests |
+| ML | `/home/alexey/git/machine-learning-zoomcamp` | `65d5619359d7955862695d115c47f0574750dcb2` | clean | the published 2026 cohort flow and its module manifests |
 | LLM | `/home/alexey/git/llm-zoomcamp` | `24c46cab0221e2aee93f17f532454683042ab3a7` | clean | the published 2026 cohort flow and its module manifests |
-| MLOps | `/home/alexey/git/mlops-zoomcamp` | `65c76a37c240ce88e4b459a7f8f440808a3b102a` | clean | numbered root module/project README pages; no published cohort manifest exists |
-| DE | `/home/alexey/git/data-engineering-zoomcamp` | `580bcda0ff1e89cec7db28562cc4a0d2c24e0a71` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
+| MLOps | `/home/alexey/git/mlops-zoomcamp` | `8bf083a1914495aa041ad9d1d54c0d80be23f8fd` | clean | numbered root module/project README pages; no published cohort manifest exists |
+| DE | `/home/alexey/git/data-engineering-zoomcamp` | `3a861c37b5c4d5c7cdd150d01a004f903c7515bb` | dirty (snapshot still read-only) | the current 2027 draft cohort and its module manifests; historical cohorts excluded |
 
 ## Status contract
 
@@ -319,9 +319,9 @@ This is the complete image-reference occurrence list for the selected unit files
 | --- | --- | ---: | --- | --- | --- | --- | --- |
 | ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 14 | `images/01-what-is-ml-01-price-field-imagegen-pilot.png` | instructional illustration | PRESENT | 1645×956 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 33 | `images/01-what-is-ml-03-expert-or-model-imagegen-pilot.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 49 | `images/01-what-is-ml-05-model-training-imagegen-pilot.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 57 | `images/01-what-is-ml-06-using-model-imagegen-pilot.png` | instructional illustration | PRESENT | 1751×898 | review required: crisp/generated asset |
-| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 65 | `images/01-what-is-ml-07-suggest-price-imagegen-pilot.png` | instructional illustration | PRESENT | 1145×1374 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 49 | `images/01-what-is-ml-05-model-training-imagegen-pilot.png` | instructional illustration | PRESENT | 1756×896 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 57 | `images/01-what-is-ml-06-using-model-imagegen-pilot.png` | instructional illustration | PRESENT | 1756×896 | review required: crisp/generated asset |
+| ML | `cohorts/2026/01-intro/01-what-is-ml.md` | 65 | `images/01-what-is-ml-07-suggest-price-imagegen-pilot.png` | instructional illustration | PRESENT | 1102×1428 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 14 | `images/02-ml-vs-rules-01-spam-examples-imagegen-pilot.png` | instructional illustration | PRESENT | 1626×967 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 28 | `images/02-ml-vs-rules-03-more-spam-imagegen-pilot.png` | instructional illustration | PRESENT | 1629×965 | review required: crisp/generated asset |
 | ML | `cohorts/2026/01-intro/02-ml-vs-rules.md` | 64 | `images/02-ml-vs-rules-05-encode-email-imagegen-pilot.png` | instructional illustration | PRESENT | 1628×966 | review required: crisp/generated asset |
@@ -617,13 +617,13 @@ This is the complete image-reference occurrence list for the selected unit files
 | DE | `cohorts/2027/06-batch/03-installing-spark.md` | 71 | `images/03-installing-spark-03-spark-download-page-crisp.png` | instructional illustration | PRESENT | 1590×989 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/03-installing-spark.md` | 80 | `images/03-installing-spark-04-spark-home-crisp.png` | instructional illustration | PRESENT | 1586×992 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/03-installing-spark.md` | 107 | `images/03-installing-spark-05-spark-shell-crisp.png` | instructional illustration | PRESENT | 1586×992 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 38 | `images/04-first-look-at-spark-01-spark-ui-crisp.png` | instructional illustration | PRESENT | 1844×853 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 79 | `images/04-first-look-at-spark-02-schema-problem-pandas-crisp.png` | instructional illustration | PRESENT | 1797×875 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 38 | `images/04-first-look-at-spark-01-spark-ui-crisp.png` | instructional illustration | PRESENT | 2170×725 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 79 | `images/04-first-look-at-spark-02-schema-problem-pandas-crisp.png` | instructional illustration | PRESENT | 2098×750 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 123 | `images/04-first-look-at-spark-03-schema-structtype-crisp.png` | instructional illustration | PRESENT | 1833×858 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 149 | `images/04-first-look-at-spark-04-partitions-slides-imagegen.png` | instructional illustration | PRESENT | 1402×1122 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/04-first-look-at-spark.md` | 149 | `images/04-first-look-at-spark-04-partitions-slides-imagegen.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 26 | `images/05-spark-dataframes-01-print-schema-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 43 | `images/05-spark-dataframes-02-select-crisp.png` | instructional illustration | PRESENT | 2007×784 | review required: crisp/generated asset |
-| DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 108 | `images/05-spark-dataframes-03-built-in-functions-crisp.png` | instructional illustration | PRESENT | 1671×941 | review required: crisp/generated asset |
+| DE | `cohorts/2027/06-batch/05-spark-dataframes.md` | 108 | `images/05-spark-dataframes-03-built-in-functions-crisp.png` | instructional illustration | PRESENT | 1672×941 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 82 | `images/06-preparing-taxi-data-04-zcat-crisp.png` | instructional illustration | PRESENT | 2109×745 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 87 | `images/06-preparing-taxi-data-05-tree-raw-crisp.png` | instructional illustration | PRESENT | 1562×1007 | review required: crisp/generated asset |
 | DE | `cohorts/2027/06-batch/06-preparing-taxi-data.md` | 107 | `images/06-preparing-taxi-data-06-schema-strings-crisp.png` | instructional illustration | PRESENT | 1536×1024 | review required: crisp/generated asset |
