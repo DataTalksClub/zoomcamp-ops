@@ -816,3 +816,34 @@ browser artifacts. The open findings are semantic or provenance gates:
 
 The outputs contain image-generation metadata, but that alone is not accepted
 provenance. The partition crop is also not tracked.
+
+## Additional strict DE audit: 17 active references
+
+The next DE reviewer did not stay limited to the requested early module
+boundary; the report is therefore recorded by exact path rather than being
+presented as a module-wide result. It inspected 17 active references and found
+**11 ACCEPT, 5 REPAIR, and 1 REMOVE**. The accepted files were crisp and
+video-backed. The concrete repair/remove queue is:
+
+| File | Decision | Required action |
+| --- | --- | --- |
+| `02-workflow-orchestration/images/homework-cropped.png` | REMOVE | Replace the screenshot table with Markdown; retain the video/text link. |
+| `01-data-warehouse-and-bigquery-06-partition-pruning-crisp.png` | REPAIR | Replace the `CREATE TABLE` result with the SELECT/query-cost evidence described by the lesson. |
+| `04-internals-of-bigquery-03-dremel-tree-imagegen.png` | REPAIR | Restore the missing table name in the SQL header. |
+| `06-deploying-a-machine-learning-model-04-model-status-crisp.png` | REPAIR | Regenerate the UI with exact line numbering and JSON. |
+| `06-deploying-a-machine-learning-model-05-predict-crisp.png` | REPAIR | Reconcile the `22.2` image value with the lesson's `12.2` example. |
+| `06-deploying-a-machine-learning-model-06-predict-payment-type-2-crisp.png` | REPAIR | Reconcile the trip-distance value and fix corrupted line numbering. |
+
+The reviewer traced the accepted topics to the corresponding DE video
+transcripts. No imagegen repair should proceed from a resized derivative; the
+original source and a bounded crop must be retained first.
+
+## Supplemental strict audit: MLOps
+
+Pascal inspected 48 current references representing 45 unique files, including
+the 11 AWS/cloud-console screenshots previously outside the smaller scanner
+selection. The bounded result was **45 ACCEPT, 0 REPAIR, 0 REMOVE, and 0
+PROVENANCE-BLOCKED**: the reviewer found the concept illustrations, diagrams,
+and AWS screenshots crisp, useful, source-backed, and free of camera/face/play
+button artifacts. The AWS password redaction is intentional. This is a bounded
+MLOps result, not evidence about the other repositories.
