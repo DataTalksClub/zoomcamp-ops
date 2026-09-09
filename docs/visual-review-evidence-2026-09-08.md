@@ -969,7 +969,7 @@ sharp; the repair queue is semantic, not an interpolation claim:
 The seven remaining assets are visually useful but provenance-blocked pending
 durable source/crop/output records.
 
-## ML semantic repair commits awaiting review
+## ML semantic repair commits and independent review
 
 The focused workers produced three pushed repair commits from original sources
 and bounded crops:
@@ -982,8 +982,9 @@ and bounded crops:
   output was later superseded by `b2c970d` after the source-of-truth review
   corrected the example to five Gateway plus two TensorFlow-Serving replicas.
 
-These commits remain provisional until their separate reviewers reopen the
-published bytes.
+The Pipenv and XGBoost outputs were independently reopened and accepted. The
+Kubernetes scaling output required a source-of-truth correction before it was
+accepted; the final accepted output is `b2c970d`.
 
 Gauss independently accepted the Pipenv repair `15e50a1`, and James
 independently accepted the XGBoost repair `5660c17`. Kubernetes required an
