@@ -73,9 +73,10 @@ The current audit found:
 - Module 06: source/frame audit is complete; 13 conceptual redraws await
   independent review, one needs a new crop/redraw, 26 exact/native candidates
   should remain native, and one warning-heavy screenshot should be removed.
-- Module 07: source/frame audit is complete; 7 sources have redraw-worthy
-  concepts, while exact/native and unsuitable candidates remain documented. No
-  bitmap was published.
+- Module 07: source/frame audit is complete; 6 source-backed conceptual
+  redraws passed independent review and are published, while 8 additional
+  candidates are in a second redraw/review batch. Exact/native and unsuitable
+  candidates remain documented.
 - Module 05: source/frame audit is still in progress.
 
 This inventory does not claim that every lesson should receive an image. Each
@@ -170,10 +171,11 @@ primary register contains 66 targeted moments; the supplemental QA pass adds
 two source-backed candidates. At source level, 7 recordings have durable
 concepts suitable for imagegen redraw, while 6 are rejected because their
 useful material is exact code, UI, runtime output, or unsuitable sketches.
-At candidate level, 12 primary concepts plus 2 supplemental concepts need
-imagegen, 36 exact/native candidates remain native, and 18 are marked for
-removal. No bitmap has been published. The two native Mermaid diagrams in
-unit 10 remain; unsupported historical visuals such as `06-why-flink` and
+Six batch-1 concepts have passed independent review and are published in the
+theory README; eight additional source-backed concepts are in the batch-2
+generation/review queue. The exact/native candidates remain native and the
+unsuitable candidates remain removed. The two native Mermaid diagrams in unit
+10 remain; unsupported historical visuals such as `06-why-flink` and
 `10-tumbling-window-watermark` stay removed.
 
 Exact UI, terminal, code, table, and list candidates must use deterministic
