@@ -1,5 +1,28 @@
 # Zoomcamp Structure Spec
 
+## Version boundary
+
+This document records the v1 cohort-owned layout and its existing checker
+phases. The owner's 2026-09-07 direction replaces the yearly-copy policy for
+the new shared-root workflow: current numbered modules live at repository root;
+live and self-paced cohorts reference them; different outgoing curricula are
+archived in GitHub under `cohorts/<identifier>/`. Creating another cohort does
+not itself create an archive or duplicate teaching material.
+
+See the [new cohort workflow](README.md#shared-curriculum-and-new-cohorts).
+Keep v1 sources on their existing contract until the new producer, checker and
+website consumer have been verified together. In particular, the v1 `L002` and
+`L004` root-module prohibitions below are not rules for the new layout.
+
+`machine-learning-zoomcamp` is the first repository migrated to this layout,
+in its local working tree only (not pushed): the 2026 cohort's modules moved
+to the repository root, `cohorts/2026/` now carries only `cohort.yaml`
+(`curriculum: current`) and per-module homework, and every manifest is on
+schema v2 with canonical UUID `content_id`s. See
+[`docs/shared-curriculum-v2.md`](docs/shared-curriculum-v2.md) for the full
+contract. This is a rearrangement only — the website's importer does not yet
+consume schema v2, so this working tree cannot be pushed until that ships.
+
 The canonical layout every DataTalks.Club zoomcamp follows. This file owns
 structure: where files live, what they are called, and what the website's
 ingestion pipeline requires of them.
@@ -334,7 +357,7 @@ file does not say, that is a bug in the checker.
 Run it locally:
 
 ```bash
-uv run https://raw.githubusercontent.com/DataTalksClub/zoomcamp-template/main/scripts/check-zoomcamp/check_zoomcamp.py .
+uv run https://raw.githubusercontent.com/DataTalksClub/zoomcamp-ops/main/scripts/check-zoomcamp/check_zoomcamp.py .
 ```
 
 Wire it into a course repo by copying
