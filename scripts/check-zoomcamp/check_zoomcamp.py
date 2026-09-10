@@ -1775,7 +1775,13 @@ class SharedCurriculumChecker(Checker):
         base = slug
         rel = f"{base}/module.yaml"
         if not self.repo.exists(rel):
-            self._v2_report("numbered_module_required", rel, "numbered root module needs module.yaml")
+            # Not an error: the parser's own discovery (_root_module_dirs in
+            # content_sync/course_repository_v2.py) only considers a
+            # directory a module when it has a module.yaml -- a validly
+            # numbered directory without one is silently excluded from the
+            # current curriculum, exactly like shared-curriculum-v2.md's
+            # "modules are discovered, never listed" documents. It is a
+            # legitimate draft, not a defect, so the checker reports nothing.
             return
         mapping = self._load_v2_yaml(rel)
         if mapping is None:
