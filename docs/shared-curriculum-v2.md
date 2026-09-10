@@ -45,12 +45,20 @@ What each file becomes once it is pushed, not just where it sits:
   Its frontmatter (`video_url`, `code`) is parsed and stripped; the remaining
   body becomes the unit's page. The filename stem is the unit's URL slug,
   never a declared `slug` field.
-- **`images/` is never imported.** A unit's `![alt](images/foo.png)` reference
-  is resolved at render time to
-  `raw.githubusercontent.com/<org>/<repo>/<commit-sha>/<module>/images/foo.png`
-  — no image bytes are copied into the website's database or storage. The
-  same holds for `code:` frontmatter entries pointing into a module's
-  `code/`/`notebooks/` directory.
+- **`images/` is imported, not resolved live.** A unit's
+  `![alt](images/foo.png)` reference is resolved against the module directory
+  at import time, the byte content is read from the pushed commit, checksummed,
+  and stored (content-addressed: `shared-lesson/<lesson-id>/<commit-sha>/<checksum>/<filename>`),
+  and the Markdown is rewritten to a stable served path
+  (`/course-assets/lessons/<lesson-id>/<checksum>/<filename>`) before the
+  lesson is rendered. Nothing links out to `raw.githubusercontent.com` for a
+  current lesson's images — that would make a published page's images subject
+  to force-pushes and branch deletions on the source repository, exactly the
+  kind of drift a published page is supposed to be immune to. A `code:`
+  frontmatter entry's file is imported the same way. (Verified directly
+  against the importer, `courses/services/curriculum_import.py`'s
+  `_import_shared_assets`, this session — an earlier draft of this doc got
+  this backwards.)
 - **`README.md` is GitHub-facing decoration, with one exception.** The root
   `README.md`, every module `README.md`, and a *current* cohort's
   `README.md` are never read by the website's importer — they exist only for
