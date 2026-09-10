@@ -70,8 +70,7 @@ see [§7](#7-who-is-the-authority).
 ├── projects/                    # (optional) project instructions + gallery
 ├── archive/                     # (optional) unmaintained material, un-numbered
 ├── scripts/                     # camp-specific helper scripts
-├── learning-in-public.md        # shared root docs, same filenames in every camp
-├── awesome-<topic>.md           # (optional) curated resource list
+├── awesome-<topic>.md           # (optional) shared root doc, same filename in every camp
 └── .github/
     ├── FUNDING.yml
     └── workflows/curriculum-check.yml   # calls the shared checker (§7)
@@ -112,11 +111,11 @@ Naming conventions that survive from the old spec unchanged:
   two-digit zero-padded, so they sort correctly. Prefix gaps are legal
   (ml-zoomcamp has no `07-*` module); order is sort order of the prefix, and the
   prefix is not required to be dense.
-- Shared helper docs live at the repo root with the same filenames across all
-  camps (`learning-in-public.md`). `after-sign-up.md` and `certificate.md` are
-  retired: their content (community actions right after registering; sharing
-  a certificate on LinkedIn) moves into the live application instead of a
-  static, unlinked per-repo file — see DataTalksClub/website#373 and #374.
+- `after-sign-up.md`, `certificate.md` and `learning-in-public.md` are
+  retired as shared root docs. The first two moved into the live application
+  instead of a static, unlinked per-repo file — see DataTalksClub/website#373
+  and #374. `learning-in-public.md` was dropped outright: root README's own
+  "Learning in Public" section already carries the message inline.
 - Reusable cross-camp scripts live in [this template's `scripts/`](scripts/);
   copy what you need rather than re-writing.
 
