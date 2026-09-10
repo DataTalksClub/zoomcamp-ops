@@ -13,7 +13,7 @@ almost never happens -- a contributor should hear "your unit has no H1" on the
 pull request, minutes after pushing, not from a rejected production import.
 
 Where the two disagree, the parser wins and this script has a bug: report it
-against DataTalksClub/zoomcamp-template.
+against DataTalksClub/zoomcamp-ops.
 
 Usage:
 
@@ -25,7 +25,7 @@ Usage:
 
 Run it straight from the template repo without cloning (pin the ref):
 
-    uv run https://raw.githubusercontent.com/DataTalksClub/zoomcamp-template/<SHA>/scripts/check-zoomcamp/check_zoomcamp.py .
+    uv run https://raw.githubusercontent.com/DataTalksClub/zoomcamp-ops/<SHA>/scripts/check-zoomcamp/check_zoomcamp.py .
 
 Exit codes: 0 = no errors, 1 = at least one error, 2 = the checker could not run.
 """
@@ -38,6 +38,7 @@ import posixpath
 import re
 import sys
 from dataclasses import dataclass, field
+from datetime import date
 from pathlib import Path, PurePosixPath
 from typing import Any, Iterable, Iterator
 from uuid import UUID
@@ -137,6 +138,38 @@ RULES: dict[str, tuple[str, str]] = {
     "C002": (ADVISORY, "every declared allowance is still needed"),
 }
 
+# The v2 catalogue is intentionally separate from RULES.  The v1 self-test
+# asserts the exact historical catalogue and its phase classes; adding the
+# shared-curriculum rules there would make a v1 fixture appear to have changed
+# even though the v1 checker is untouched.  Finding.rule_class and allowance
+# validation consult both catalogues.  Keep these IDs stable: they are part of
+# the machine-readable CI output and are referenced by course repositories.
+V2_RULES: dict[str, tuple[str, str]] = {
+    "v2_schema": (LAYOUT, "v2 YAML has bounded types, required fields and no duplicate keys"),
+    "v2_mixed_version": (LAYOUT, "a v2 source cannot mix v1 cohort/module manifests"),
+    "v2_path_unsafe": (LAYOUT, "v2 paths stay relative, contained and free of symlinks"),
+    "current_module_missing": (LAYOUT, "a current curriculum must have discovered root modules"),
+    "module_path_not_root": (LAYOUT, "module.yaml files are direct root NN-kebab/module.yaml paths"),
+    "archive_module_reference": (LAYOUT, "archive descendants never become current module references"),
+    "archive_manifest_ignored": (ADVISORY, "historical archive module manifests are opaque to website import"),
+    "invalid_curriculum_kind": (LAYOUT, "curriculum is current or github_archive"),
+    "invalid_delivery": (LAYOUT, "delivery is live or self-paced"),
+    "self_paced_homework_rejected": (
+        LAYOUT,
+        "self-paced phase one requires an explicit homework: []",
+    ),
+    "curriculum_source_mismatch": (LAYOUT, "cohort curriculum uses the shared root graph"),
+    "homework_mapping_missing": (LAYOUT, "mapped homework has a module, source and existing pair"),
+    "homework_path_outside_cohort": (LAYOUT, "homework source is contained by its declaring cohort"),
+    "homework_unreferenced": (LAYOUT, "current homework is reachable only through an explicit mapping"),
+    "archive_notice_missing": (LAYOUT, "github archives have a checked-in notice README"),
+    "archive_url_invalid": (LAYOUT, "archive notice paths are safe repository-relative paths"),
+    "numbered_module_required": (LAYOUT, "root curriculum directories are numbered and have module.yaml"),
+    "numbered_lesson_required": (LAYOUT, "root module lessons are numbered Markdown siblings"),
+    "duplicate_number_prefix": (LAYOUT, "module and lesson numeric prefixes are unique"),
+    "content_id_duplicate": (LAYOUT, "registered v2 content IDs are canonical and unique"),
+}
+
 # U007 (companion files declared in frontmatter `code:`) is authoring guidance
 # that no script can verify -- a unit that walks through no files is correct
 # with no `code:` key. The checkable half of U007 lives in U001: a declared
@@ -171,7 +204,8 @@ class Finding:
 
     @property
     def rule_class(self) -> str:
-        return RULES[self.rule][0]
+        catalogue = RULES if self.rule in RULES else V2_RULES
+        return catalogue[self.rule][0]
 
 
 @dataclass
@@ -338,7 +372,7 @@ class Checker:
     def check_keys(
         self, rel: str, mapping: dict[str, Any], allowed: set[str], required: set[str]
     ) -> None:
-        for key in sorted(set(mapping) - allowed):
+        for key in sorted(set(mapping) - allowed, key=repr):
             self.report("M001", rel, 1, f"unknown key {key!r} -- the parser rejects it")
         for key in sorted(required - set(mapping)):
             self.report("M001", rel, 1, f"required key {key!r} is missing")
@@ -408,7 +442,7 @@ class Checker:
                     "C001", rel, 1, f"allow[{index}] needs exactly rule, path and reason"
                 )
                 continue
-            if raw["rule"] not in RULES:
+            if raw["rule"] not in RULES and raw["rule"] not in V2_RULES:
                 self.report("C001", rel, 1, f"allow[{index}] names unknown rule {raw['rule']!r}")
                 continue
             self.allowances.append(
@@ -644,7 +678,7 @@ class Checker:
         for entry in sorted(base.iterdir()):
             if not entry.is_dir() or entry.name in modules or entry.name in IGNORED_DIRS:
                 continue
-            if NUMBERED_DIR.match(entry.name):
+            if re.match(r"^\d{2,}", entry.name):
                 self.report(
                     "L005",
                     f"cohorts/{cohort}/{entry.name}",
@@ -1282,6 +1316,901 @@ class Checker:
 
 
 # --------------------------------------------------------------------------
+# Shared-curriculum v2 checker
+# --------------------------------------------------------------------------
+
+# v2 is deliberately implemented beside (rather than on top of) the v1
+# cohort walker.  The old walker treats a cohort-owned module as importable;
+# reusing it for an archive would make a historical module silently reappear
+# in the website graph.  The dispatcher below selects one checker before any
+# module discovery happens.
+V2_MODULE_DIR = re.compile(r"^\d{2,}-[a-z0-9]+(?:-[a-z0-9]+)*$")
+V2_LESSON_FILE = re.compile(r"^\d{2,}-[a-z0-9]+(?:-[a-z0-9]+)*\.md$")
+V2_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+V2_SCHEME = re.compile(r"^[A-Za-z][A-Za-z0-9+.-]*:")
+V2_PATH_ESCAPE = re.compile(r"%(?:2f|2F|5c|5C)")
+V2_DELIVERIES = {"live", "self_paced"}
+V2_CURRICULUM_KINDS = {"current", "github_archive"}
+V2_HOMEWORK_V1_KEYS = {
+    "schema_version",
+    "content_id",
+    "slug",
+    "title",
+    "instructions_path",
+    "due_at",
+    "initial_state",
+    "form",
+    "questions",
+}
+
+
+class SharedCurriculumChecker(Checker):
+    """Strict checker for the root-shared curriculum contract (schema 2).
+
+    It intentionally does not call :meth:`Checker.run`: v1's discovery rules
+    are the opposite of the v2 layout.  The class still reuses the bounded
+    Finding/Allowance transport so the standalone CLI and JSON output remain
+    compatible with existing course workflows.
+    """
+
+    def __init__(self, repo: Repo, phase: int) -> None:
+        super().__init__(repo=repo, phase=phase)
+        self.root_modules: dict[str, str] = {}
+        self.current_cohorts: set[str] = set()
+        self.archive_cohorts: set[str] = set()
+        self.mapped_homework: dict[str, set[str]] = {}
+        self._reported_paths: set[str] = set()
+        self.declared_cohorts: dict[str, str] = {}
+        self.declared_current_cohort: str | None = None
+
+    # -- bounded YAML and path helpers ------------------------------------
+
+    def _v2_report(self, rule: str, rel: str, message: str, line: int = 1) -> None:
+        self.report(rule, rel, line, message)
+
+    def _bounded(self, value: Any, rel: str, depth: int = 0, active: set[int] | None = None) -> None:
+        """Reject pathological YAML before any recursive validation.
+
+        PyYAML's safe loader already blocks Python object construction.  The
+        explicit bounds keep aliases and very large authoring mistakes from
+        consuming unbounded checker memory, and make the source contract match
+        the website snapshot admission ceiling.
+        """
+
+        if active is None:
+            active = set()
+        if depth > 32:
+            self._v2_report("v2_schema", rel, "YAML nesting exceeds the maximum depth of 32")
+            return
+        if isinstance(value, str):
+            if len(value) > 100_000:
+                self._v2_report("v2_schema", rel, "YAML string exceeds the 100000-character bound")
+            return
+        if isinstance(value, (list, tuple)):
+            if len(value) > 1_000:
+                self._v2_report("v2_schema", rel, "YAML list exceeds the 1000-item bound")
+            marker = id(value)
+            if marker in active:
+                self._v2_report("v2_schema", rel, "YAML aliases form a recursive value")
+                return
+            active.add(marker)
+            for item in value:
+                self._bounded(item, rel, depth + 1, active)
+            active.remove(marker)
+            return
+        if isinstance(value, dict):
+            if len(value) > 1_000:
+                self._v2_report("v2_schema", rel, "YAML mapping exceeds the 1000-item bound")
+            marker = id(value)
+            if marker in active:
+                self._v2_report("v2_schema", rel, "YAML aliases form a recursive value")
+                return
+            active.add(marker)
+            for key, item in value.items():
+                if not isinstance(key, str):
+                    self._v2_report("v2_schema", rel, "YAML mapping keys must be strings")
+                self._bounded(item, rel, depth + 1, active)
+            active.remove(marker)
+
+    def _load_v2_yaml(self, rel: str) -> dict[str, Any] | None:
+        if not self.repo.exists(rel):
+            self._v2_report("v2_schema", rel, "required YAML file does not exist")
+            return None
+        try:
+            loaded = yaml.load(self.repo.read(rel), Loader=DuplicateKeyLoader)
+        except (yaml.YAMLError, TypeError, ValueError) as error:
+            line = getattr(getattr(error, "problem_mark", None), "line", 0) + 1
+            self._v2_report("v2_schema", rel, f"YAML is invalid or has duplicate keys: {error}", line)
+            return None
+        if not isinstance(loaded, dict):
+            self._v2_report("v2_schema", rel, "top-level YAML value must be a mapping")
+            return None
+        self._bounded(loaded, rel)
+        return loaded
+
+    def _keys(
+        self,
+        rel: str,
+        mapping: dict[str, Any],
+        allowed: set[str],
+        required: set[str],
+    ) -> None:
+        for key in sorted(set(mapping) - allowed, key=repr):
+            self._v2_report("v2_schema", rel, f"unknown key {key!r}")
+        for key in sorted(required - set(mapping)):
+            self._v2_report("v2_schema", rel, f"required key {key!r} is missing")
+
+    def _schema(self, rel: str, mapping: dict[str, Any], expected: int = 2) -> bool:
+        value = mapping.get("schema_version")
+        if type(value) is not int or value != expected:
+            self._v2_report(
+                "v2_mixed_version" if value == 1 else "v2_schema",
+                rel,
+                f"schema_version must be the integer {expected} for this v2 source",
+            )
+            return False
+        return True
+
+    def _string(
+        self,
+        rel: str,
+        mapping: dict[str, Any],
+        key: str,
+        *,
+        required: bool = False,
+        maximum: int = 100_000,
+        nonempty: bool = False,
+    ) -> str | None:
+        if key not in mapping:
+            if required:
+                self._v2_report("v2_schema", rel, f"{key} must be a string")
+            return None
+        value = mapping[key]
+        if type(value) is not str:
+            self._v2_report("v2_schema", rel, f"{key} must be a native YAML string")
+            return None
+        if len(value) > maximum:
+            self._v2_report("v2_schema", rel, f"{key} exceeds the {maximum}-character bound")
+        if nonempty and not value.strip():
+            self._v2_report("v2_schema", rel, f"{key} must not be empty")
+        return value
+
+    def _safe_path(self, rel: str, value: Any, *, rule: str = "v2_path_unsafe") -> str | None:
+        """Mirror the website parser's actual path-safety checks
+        (content_sync/course_repository.py's _validate_repository_path and
+        _relative_source_reference): relative, contained, no traversal, no
+        URL scheme -- but the parser never demands canonical PurePosixPath
+        form. A trailing slash ("code/") or a leading "./" ("./terraform")
+        names an ordinary directory reference and the parser accepts it; only
+        ".." components, absolute paths, control characters and schemes make
+        a path genuinely unsafe.
+        """
+        if type(value) is not str:
+            self._v2_report(rule, rel, "path must be a repository-relative POSIX string")
+            return None
+        if (
+            not value
+            or len(value) > 512
+            or value != value.strip()
+            or value.startswith(("/", "\\"))
+            or "\\" in value
+            or "\x00" in value
+            or any(ord(character) < 32 or ord(character) == 127 for character in value)
+            or V2_SCHEME.match(value)
+            or V2_PATH_ESCAPE.search(value)
+        ):
+            self._v2_report(rule, rel, f"unsafe repository-relative path {value!r}")
+            return None
+        parts = PurePosixPath(value).parts
+        if not parts or ".." in parts:
+            self._v2_report(rule, rel, f"unsafe repository-relative path {value!r}")
+            return None
+        return value
+
+    def _inside(self, path: str, prefix: str) -> bool:
+        return path == prefix or path.startswith(prefix.rstrip("/") + "/")
+
+    def _register_id(self, rel: str, value: Any, pointer: str = "content_id") -> None:
+        if type(value) is not str:
+            self._v2_report("content_id_duplicate", rel, f"{pointer} must be a canonical UUID string")
+            return
+        try:
+            parsed = UUID(value)
+        except (ValueError, AttributeError):
+            self._v2_report("content_id_duplicate", rel, f"{pointer} {value!r} is not a UUID")
+            return
+        if str(parsed) != value:
+            self._v2_report(
+                "content_id_duplicate",
+                rel,
+                f"{pointer} must use canonical lowercase UUID form {parsed}",
+            )
+            return
+        previous = self.content_ids.get(value)
+        if previous is not None:
+            self._v2_report(
+                "content_id_duplicate",
+                rel,
+                f"{pointer} {value} is already registered at {previous}",
+            )
+            return
+        self.content_ids[value] = rel
+
+    def _check_symlinks(self) -> None:
+        """Walk without following links and reject every source-tree link."""
+
+        def visit(directory: Path, prefix: str) -> None:
+            try:
+                entries = sorted(directory.iterdir(), key=lambda item: item.name)
+            except OSError as error:
+                self._v2_report("v2_path_unsafe", prefix or ".", f"cannot inspect source tree: {error}")
+                return
+            for entry in entries:
+                if entry.name in IGNORED_DIRS:
+                    continue
+                path = f"{prefix}/{entry.name}" if prefix else entry.name
+                if entry.is_symlink():
+                    if path not in self._reported_paths:
+                        self._reported_paths.add(path)
+                        self._v2_report("v2_path_unsafe", path, "symlinks are not admitted in a v2 source tree")
+                    continue
+                if entry.is_dir():
+                    visit(entry, path)
+
+        visit(self.repo.root, "")
+
+    # -- v2 entry point ----------------------------------------------------
+
+    def run(self) -> None:
+        self.load_config()
+        self._check_symlinks()
+        course = self._check_course()
+        if course is None:
+            self._check_allowances()
+            return
+        self._discover_root_modules()
+        cohorts = self._discover_v2_cohorts()
+        for cohort in cohorts:
+            self._check_v2_cohort(cohort)
+        self._check_declared_cohorts_against_reality()
+        self._check_allowances()
+
+    def _check_allowances(self) -> None:
+        for allowance in self.allowances:
+            if not allowance.used:
+                self.report(
+                    "C002",
+                    ".zoomcamp-check.yaml",
+                    1,
+                    f"allowance {allowance.rule} for {allowance.path} matched nothing -- delete it",
+                )
+
+    # -- course and root curriculum --------------------------------------
+
+    def _check_course(self) -> dict[str, Any] | None:
+        rel = "course.yaml"
+        mapping = self._load_v2_yaml(rel)
+        if mapping is None:
+            return None
+        self._keys(
+            rel,
+            mapping,
+            {
+                "schema_version",
+                "content_id",
+                "slug",
+                "title",
+                "current_cohort",
+                "cohorts",
+                "description",
+                "outcome",
+                "urls",
+                "hashtag",
+                "published",
+            },
+            {
+                "schema_version",
+                "content_id",
+                "slug",
+                "title",
+                "current_cohort",
+                "cohorts",
+                "description",
+                "outcome",
+                "urls",
+                "hashtag",
+                "published",
+            },
+        )
+        if not self._schema(rel, mapping):
+            return None
+        self._register_id(rel, mapping.get("content_id"))
+        slug = self._string(rel, mapping, "slug", required=True, maximum=100, nonempty=True)
+        self.course_slug = slug or ""
+        if slug is not None and SLUG.fullmatch(slug) is None:
+            self._v2_report("v2_schema", rel, f"slug {slug!r} is not kebab-case")
+        for key in ("title", "outcome", "hashtag", "description", "current_cohort"):
+            self._string(rel, mapping, key, required=True, nonempty=True)
+        current_cohort = mapping.get("current_cohort")
+        self.declared_current_cohort = current_cohort if type(current_cohort) is str else None
+        self._check_declared_cohorts_list(rel, mapping.get("cohorts"))
+        urls = mapping.get("urls")
+        if not isinstance(urls, dict):
+            self._v2_report("v2_schema", rel, "urls must be a mapping")
+        else:
+            urls_rel = f"{rel}:urls"
+            self._keys(urls_rel, urls, {"repository", "docs", "faq"}, {"repository", "docs", "faq"})
+            for key in ("repository", "docs", "faq"):
+                value = self._string(urls_rel, urls, key, required=True, maximum=2048, nonempty=True)
+                if value is not None and not value.startswith("https://"):
+                    self._v2_report("v2_schema", rel, f"urls.{key} must be an https URL")
+        if type(mapping.get("published")) is not bool:
+            self._v2_report("v2_schema", rel, "published must be a boolean")
+        if not self.repo.exists("cohorts/README.md"):
+            self._v2_report("v2_schema", "cohorts/README.md", "cohorts/README.md is required")
+        return mapping
+
+    def _check_declared_cohorts_list(self, rel: str, raw: Any) -> None:
+        """course.yaml:cohorts is the explicit index of every cohort and
+        where its content lives -- 'root' for the current one, its own
+        cohorts/<id> path for every other one. An archive entry may add
+        legacy: true to mark a cohort.yaml retrofitted onto pre-v2 content
+        (dates inferred after the fact, not authored at the time) rather
+        than one a v2-native archive-then-bootstrap cycle produced. This
+        method only checks the list is well-formed;
+        _check_declared_cohorts_against_reality (run at the end, once every
+        cohort.yaml has actually been read) checks it against what is
+        really on disk.
+        """
+        if not isinstance(raw, list) or not raw:
+            self._v2_report("v2_schema", rel, "cohorts must be a non-empty list")
+            return
+        seen_root = None
+        for index, entry in enumerate(raw):
+            pointer = f"{rel}:cohorts[{index}]"
+            if not isinstance(entry, dict):
+                self._v2_report("v2_schema", pointer, "each cohorts[] entry must be a mapping")
+                continue
+            self._keys(pointer, entry, {"identifier", "content", "legacy"}, {"identifier", "content"})
+            identifier = self._string(pointer, entry, "identifier", required=True, maximum=80, nonempty=True)
+            content = self._string(pointer, entry, "content", required=True, nonempty=True)
+            legacy = entry.get("legacy", False)
+            if "legacy" in entry and type(legacy) is not bool:
+                self._v2_report("v2_schema", pointer, "legacy must be a boolean")
+            if identifier is None or content is None:
+                continue
+            if identifier in self.declared_cohorts:
+                self._v2_report("v2_schema", pointer, f"identifier {identifier!r} is already listed")
+                continue
+            expected_archive_content = f"cohorts/{identifier}"
+            if content == "root":
+                if seen_root is not None:
+                    self._v2_report(
+                        "v2_schema", pointer, f"only one cohort may declare content: root (already {seen_root!r})"
+                    )
+                else:
+                    seen_root = identifier
+                if legacy is True:
+                    self._v2_report("v2_schema", pointer, "the current cohort (content: root) cannot be legacy: true")
+            elif content != expected_archive_content:
+                self._v2_report(
+                    "v2_schema",
+                    pointer,
+                    f"content must be 'root' or its own {expected_archive_content!r}, not {content!r}",
+                )
+            self.declared_cohorts[identifier] = content
+        if seen_root is None:
+            self._v2_report("v2_schema", rel, "exactly one cohorts[] entry must declare content: root")
+        elif self.declared_current_cohort is not None and seen_root != self.declared_current_cohort:
+            self._v2_report(
+                "v2_schema",
+                rel,
+                f"current_cohort {self.declared_current_cohort!r} disagrees with the cohorts[] entry "
+                f"declaring content: root ({seen_root!r})",
+            )
+
+    def _check_declared_cohorts_against_reality(self) -> None:
+        actual = self.current_cohorts | self.archive_cohorts
+        declared = set(self.declared_cohorts)
+        for missing in sorted(actual - declared):
+            self._v2_report(
+                "v2_schema", "course.yaml", f"cohorts/{missing}/cohort.yaml exists but is not listed in cohorts[]"
+            )
+        for stale in sorted(declared - actual):
+            self._v2_report(
+                "v2_schema", "course.yaml", f"cohorts[] lists {stale!r} but cohorts/{stale}/cohort.yaml was not found"
+            )
+        for identifier in sorted(declared & actual):
+            content = self.declared_cohorts[identifier]
+            is_current = identifier in self.current_cohorts
+            if is_current and content != "root":
+                self._v2_report(
+                    "v2_schema", "course.yaml", f"cohorts[{identifier!r}] is curriculum: current but content != root"
+                )
+            elif not is_current and content == "root":
+                self._v2_report(
+                    "v2_schema",
+                    "course.yaml",
+                    f"cohorts[{identifier!r}] is curriculum: github_archive but content: root",
+                )
+
+    def _discover_root_modules(self) -> None:
+        if not self.repo.exists("module.yaml"):
+            pass
+        else:
+            self._v2_report("module_path_not_root", "module.yaml", "module.yaml must be inside a numbered root module")
+        try:
+            entries = sorted(self.repo.root.iterdir(), key=lambda item: item.name)
+        except OSError:
+            return
+        candidates: list[str] = []
+        for entry in entries:
+            if entry.name in IGNORED_DIRS or entry.is_symlink() or not entry.is_dir():
+                continue
+            if NUMBERED_DIR.match(entry.name):
+                if V2_MODULE_DIR.fullmatch(entry.name) is None:
+                    self._v2_report(
+                        "numbered_module_required",
+                        entry.name,
+                        "root numbered directory must be NN-kebab-case",
+                    )
+                else:
+                    candidates.append(entry.name)
+        if not candidates:
+            self._v2_report("current_module_missing", ".", "no numbered root modules were found")
+        prefixes: dict[str, str] = {}
+        for slug in candidates:
+            prefix = slug.split("-", 1)[0].lstrip("0") or "0"
+            if prefix in prefixes:
+                self._v2_report(
+                    "duplicate_number_prefix",
+                    slug,
+                    f"module prefix {prefix} is already used by {prefixes[prefix]}",
+                )
+            else:
+                prefixes[prefix] = slug
+            self._check_root_module(slug)
+
+    def _check_root_module(self, slug: str) -> None:
+        base = slug
+        rel = f"{base}/module.yaml"
+        if not self.repo.exists(rel):
+            self._v2_report("numbered_module_required", rel, "numbered root module needs module.yaml")
+            return
+        mapping = self._load_v2_yaml(rel)
+        if mapping is None:
+            return
+        self._keys(rel, mapping, {"schema_version", "content_id", "title", "units"}, {"schema_version", "content_id", "title", "units"})
+        if not self._schema(rel, mapping):
+            return
+        self._register_id(rel, mapping.get("content_id"))
+        title = self._string(rel, mapping, "title", required=True, nonempty=True)
+        units = mapping.get("units")
+        if not isinstance(units, list) or not units:
+            self._v2_report("v2_schema", rel, "units must be a non-empty list")
+            units = []
+        self.root_modules[slug] = rel
+        declared_paths: set[str] = set()
+        prefixes: dict[str, str] = {}
+        for index, raw in enumerate(units):
+            pointer = f"units[{index}]"
+            if not isinstance(raw, dict):
+                self._v2_report("v2_schema", rel, f"{pointer} must be a mapping")
+                continue
+            self._keys(rel, raw, {"content_id", "title", "path"}, {"content_id", "title", "path"})
+            self._register_id(rel, raw.get("content_id"), f"{pointer}.content_id")
+            unit_title = self._string(rel, raw, "title", nonempty=True)
+            raw_path = self._safe_path(rel, raw.get("path"))
+            if raw_path is None:
+                continue
+            if "/" in raw_path or not V2_LESSON_FILE.fullmatch(raw_path):
+                self._v2_report(
+                    "numbered_lesson_required",
+                    f"{base}/{raw_path}",
+                    "lesson path must be a direct NN-kebab.md sibling of module.yaml",
+                )
+                continue
+            unit_rel = f"{base}/{raw_path}"
+            if not self.repo.exists(unit_rel):
+                self._v2_report("numbered_lesson_required", unit_rel, "declared lesson does not exist")
+                continue
+            declared_paths.add(raw_path)
+            prefix = raw_path.split("-", 1)[0].lstrip("0") or "0"
+            if prefix in prefixes:
+                self._v2_report(
+                    "duplicate_number_prefix",
+                    unit_rel,
+                    f"lesson prefix {prefix} is already used by {prefixes[prefix]}",
+                )
+            else:
+                prefixes[prefix] = raw_path
+            if unit_title is not None:
+                self._check_lesson(unit_rel, unit_title)
+        module_dir = self.repo.root / base
+        on_disk: set[str] = set()
+        if module_dir.is_dir() and not module_dir.is_symlink():
+            for entry in sorted(module_dir.iterdir(), key=lambda item: item.name):
+                if entry.name in IGNORED_DIRS or entry.is_symlink():
+                    continue
+                if entry.is_dir():
+                    if entry.name == "lessons":
+                        self._v2_report("numbered_lesson_required", f"{base}/lessons", "lessons/ is not part of v2")
+                    continue
+                if entry.name in {"homework.yaml", "homework.md"}:
+                    self._v2_report(
+                        "homework_path_outside_cohort",
+                        f"{base}/{entry.name}",
+                        "homework belongs under cohorts/<id>/, never inside a root module",
+                    )
+                    continue
+                if entry.name in {"module.yaml", "README.md"}:
+                    continue
+                if entry.suffix == ".md":
+                    if V2_LESSON_FILE.fullmatch(entry.name) is None:
+                        self._v2_report("numbered_lesson_required", f"{base}/{entry.name}", "lesson filename must be NN-kebab.md")
+                    else:
+                        on_disk.add(entry.name)
+        for orphan in sorted(on_disk - declared_paths):
+            self._v2_report("curriculum_source_mismatch", f"{base}/{orphan}", "lesson exists but is absent from module.yaml units")
+        if not self.repo.exists(f"{base}/README.md"):
+            self._v2_report("numbered_module_required", f"{base}/README.md", "each module needs a README.md index")
+        elif self.repo.exists(f"{base}/README.md"):
+            self._check_local_links(f"{base}/README.md", self.repo.read(f"{base}/README.md"), base, image_inside=False)
+
+    def _check_frontmatter(self, rel: str, frontmatter: str, module_base: str) -> None:
+        try:
+            mapping = yaml.load(frontmatter, Loader=DuplicateKeyLoader) or {}
+        except (yaml.YAMLError, TypeError, ValueError) as error:
+            self._v2_report("v2_schema", rel, f"unit frontmatter is invalid: {error}")
+            return
+        if not isinstance(mapping, dict):
+            self._v2_report("v2_schema", rel, "unit frontmatter must be a mapping")
+            return
+        self._bounded(mapping, rel)
+        self._keys(rel, mapping, {"video_url", "code"}, set())
+        video = mapping.get("video_url")
+        if video is not None and (type(video) is not str or not video.startswith("https://")):
+            self._v2_report("v2_schema", rel, "video_url must be an https string")
+        code = mapping.get("code")
+        if code is None:
+            return
+        if not isinstance(code, list):
+            self._v2_report("v2_schema", rel, "code must be a list of label/path mappings")
+            return
+        for index, entry in enumerate(code):
+            if not isinstance(entry, dict) or set(entry) != {"label", "path"}:
+                self._v2_report("v2_schema", rel, f"code[{index}] needs exactly label and path")
+                continue
+            target = self._safe_path(rel, entry.get("path"))
+            if target is None:
+                continue
+            resolved = posixpath.normpath(posixpath.join(module_base, target))
+            if not self._inside(resolved, module_base) or not self.repo.exists(resolved):
+                self._v2_report("v2_path_unsafe", rel, f"code[{index}].path {target!r} is not inside the module")
+
+    def _check_lesson(self, rel: str, title: str) -> None:
+        text = self.repo.read(rel)
+        frontmatter, offset, body = split_frontmatter(text)
+        if text.startswith("---") and frontmatter is None:
+            self._v2_report("v2_schema", rel, "lesson frontmatter is not closed")
+        if frontmatter is not None:
+            self._check_frontmatter(rel, frontmatter, posixpath.dirname(rel))
+        first = first_content_line(body, offset)
+        if first is None or not first[1].startswith("# ") or first[1].startswith("## "):
+            self._v2_report("numbered_lesson_required", rel, "lesson must begin with exactly one '# Title' H1")
+        else:
+            heading = first[1][2:].strip()
+            if NUMERIC_TITLE_PREFIX.match(heading):
+                self._v2_report("numbered_lesson_required", rel, "lesson H1 must be unnumbered; numbering belongs to its filename")
+            if _collapse(heading) != _collapse(title):
+                self._v2_report("curriculum_source_mismatch", rel, f"lesson H1 {heading!r} disagrees with module title {title!r}")
+            for line_number, line in iter_prose_lines(body):
+                if line_number + offset - 1 != first[0] and line.startswith("# "):
+                    self._v2_report("numbered_lesson_required", rel, "lesson has a second H1")
+        self._check_local_links(rel, text, posixpath.dirname(rel), image_inside=True)
+
+    def _check_local_links(self, rel: str, text: str, base: str, *, image_inside: bool) -> None:
+        for line, is_image, raw in iter_targets(text):
+            target = raw.split("#", 1)[0].split("?", 1)[0].strip()
+            if not target or is_external(raw):
+                continue
+            # A prose link may intentionally point at a sibling root module
+            # (for example ../02-agents/01-loops.md).  That is not an asset
+            # escape: normalize it below and require the result to be another
+            # numbered root module.  Images and code remain module-local.
+            if ".." in PurePosixPath(target).parts:
+                if (
+                    len(target) > 512
+                    or target.startswith(("/", "\\"))
+                    or "\\" in target
+                    or "\x00" in target
+                    or V2_SCHEME.match(target)
+                    or V2_PATH_ESCAPE.search(target)
+                    or target != PurePosixPath(target).as_posix()
+                    or not target.startswith("../")
+                    or target.count("..") != 1
+                ):
+                    safe = self._safe_path(rel, target)
+                else:
+                    safe = target
+            else:
+                safe = self._safe_path(rel, target)
+            if safe is None:
+                continue
+            resolved = posixpath.normpath(posixpath.join(posixpath.dirname(rel), safe))
+            if resolved.startswith("../") or resolved == ".." or resolved.startswith("cohorts/"):
+                self._v2_report("v2_path_unsafe", rel, f"local link {raw!r} leaves current curriculum", line)
+                continue
+            first = PurePosixPath(resolved).parts[0] if PurePosixPath(resolved).parts else ""
+            if ".." in PurePosixPath(target).parts and V2_MODULE_DIR.fullmatch(first) is None:
+                self._v2_report("v2_path_unsafe", rel, f"local link {raw!r} must target a root module", line)
+                continue
+            if is_image and image_inside and not self._inside(resolved, base):
+                self._v2_report("v2_path_unsafe", rel, f"image {raw!r} leaves its module", line)
+                continue
+            if not self.repo.exists(resolved) and not (self.repo.root / resolved).is_dir():
+                self._v2_report("v2_path_unsafe", rel, f"local link {raw!r} does not exist", line)
+
+    # -- cohort and homework bindings -------------------------------------
+
+    def _discover_v2_cohorts(self) -> list[str]:
+        base = self.repo.root / "cohorts"
+        if not base.is_dir() or base.is_symlink():
+            self._v2_report("v2_schema", "cohorts", "cohorts/ must be a directory")
+            return []
+        found: list[str] = []
+        for entry in sorted(base.iterdir(), key=lambda item: item.name):
+            if entry.name in IGNORED_DIRS or entry.is_symlink() or not entry.is_dir():
+                continue
+            manifest = f"cohorts/{entry.name}/cohort.yaml"
+            if self.repo.exists(manifest):
+                found.append(entry.name)
+            elif (entry / "archive.yaml").is_file():
+                # bootstrap's additive archive plan can exist briefly before
+                # its v2 cohort notice manifest is authored.  Its descendants
+                # remain opaque; they are never sent to the current walker.
+                continue
+            elif any(item.name != "README.md" for item in entry.iterdir()):
+                self._v2_report("v2_schema", f"cohorts/{entry.name}", "cohort directory needs cohort.yaml")
+        return found
+
+    def _check_v2_cohort(self, cohort: str) -> None:
+        rel = f"cohorts/{cohort}/cohort.yaml"
+        mapping = self._load_v2_yaml(rel)
+        if mapping is None:
+            return
+        self._keys(
+            rel,
+            mapping,
+            {
+                "schema_version",
+                "content_id",
+                "identifier",
+                "course",
+                "delivery",
+                "published",
+                "start_date",
+                "end_date",
+                "title",
+                "description",
+                "curriculum",
+                "homework",
+                "archive",
+            },
+            {"schema_version", "content_id", "identifier", "course", "delivery", "published", "curriculum", "homework"},
+        )
+        if not self._schema(rel, mapping):
+            return
+        self._register_id(rel, mapping.get("content_id"))
+        identifier = self._string(rel, mapping, "identifier", required=True, maximum=80, nonempty=True)
+        if identifier != cohort:
+            self._v2_report("v2_schema", rel, f"identifier {identifier!r} must equal cohort directory {cohort!r}")
+        course = self._string(rel, mapping, "course", required=True, maximum=100, nonempty=True)
+        if self.course_slug and course != self.course_slug:
+            self._v2_report("v2_schema", rel, f"course {course!r} disagrees with course.yaml slug {self.course_slug!r}")
+        delivery = self._string(rel, mapping, "delivery", required=True, maximum=20, nonempty=True)
+        if delivery not in V2_DELIVERIES:
+            self._v2_report("invalid_delivery", rel, "delivery must be live or self-paced")
+        published = mapping.get("published")
+        if type(published) is not bool:
+            self._v2_report("v2_schema", rel, "published must be a boolean")
+            published = False
+        start = self._date_value(rel, mapping, "start_date")
+        end = self._date_value(rel, mapping, "end_date")
+        if start and end and end < start:
+            self._v2_report("v2_schema", rel, "end_date must not precede start_date")
+        if published and delivery == "live" and (start is None or end is None):
+            self._v2_report("v2_schema", rel, "published live cohorts require start_date and end_date")
+        if not self.repo.exists(f"cohorts/{cohort}/README.md"):
+            self._v2_report("archive_notice_missing" if mapping.get("archive") else "v2_schema", f"cohorts/{cohort}/README.md", "cohort README.md is required")
+        curriculum = mapping.get("curriculum")
+        if type(curriculum) is not str:
+            self._v2_report("v2_schema", rel, "curriculum must be the scalar current or github_archive")
+            return
+        kind = curriculum
+        if kind not in V2_CURRICULUM_KINDS:
+            self._v2_report("invalid_curriculum_kind", rel, "curriculum must be current or github_archive")
+            return
+        if kind == "current":
+            self.current_cohorts.add(cohort)
+        else:
+            self.archive_cohorts.add(cohort)
+        if kind == "current" and not self.root_modules:
+            self._v2_report("current_module_missing", rel, "current curriculum has no discovered root modules")
+        if kind == "github_archive":
+            self._check_archive_block(cohort, mapping.get("archive"), rel)
+        elif "archive" in mapping:
+            self._v2_report("v2_schema", rel, "current cohorts cannot declare archive metadata")
+        self._check_homework_mappings(cohort, kind, mapping.get("homework", []), rel, delivery)
+
+    def _date_value(self, rel: str, mapping: dict[str, Any], key: str) -> date | None:
+        if key not in mapping or mapping[key] is None:
+            return None
+        value = mapping[key]
+        if type(value) is not str or V2_DATE.fullmatch(value) is None:
+            self._v2_report("v2_schema", rel, f"{key} must be a quoted YYYY-MM-DD string or null")
+            return None
+        try:
+            return date.fromisoformat(value)
+        except ValueError:
+            self._v2_report("v2_schema", rel, f"{key} is not a calendar date")
+            return None
+
+    def _check_archive_block(self, cohort: str, raw: Any, rel: str) -> None:
+        if not isinstance(raw, dict) or set(raw) != {"notice_path"}:
+            self._v2_report("archive_notice_missing", rel, "github_archive requires archive.notice_path")
+            return
+        notice = self._safe_path(rel, raw.get("notice_path"), rule="archive_url_invalid")
+        if notice is None:
+            return
+        if not self._inside(notice, f"cohorts/{cohort}/") or not notice.endswith(".md"):
+            self._v2_report("archive_url_invalid", rel, "archive.notice_path must be Markdown inside its cohort")
+        elif not self.repo.exists(notice):
+            self._v2_report("archive_notice_missing", notice, "archive notice file does not exist")
+
+    def _check_homework_mappings(
+        self, cohort: str, kind: str, raw: Any, rel: str, delivery: str = "live"
+    ) -> None:
+        if raw is None:
+            raw = []
+        if not isinstance(raw, list):
+            self._v2_report("homework_mapping_missing", rel, "homework must be a list (use [] when there are none)")
+            return
+        if delivery == "self_paced" and raw:
+            # The bootstrap producer refuses to author self-paced assignments
+            # (self_paced_homework_unsupported).  The checker refuses a
+            # hand-authored attempt for the same reason: self-paced phase one
+            # is reading, shared progress and ungraded practice only, so a
+            # graded assignment and its deadline cannot sneak in through a
+            # manifest the producer never wrote.
+            self._v2_report(
+                "self_paced_homework_rejected",
+                rel,
+                "self-paced requires homework: [] in this slice; graded assignments are a live-cohort capability",
+            )
+        mapped: set[str] = set()
+        modules_seen: set[str | None] = set()
+        for index, item in enumerate(raw):
+            pointer = f"homework[{index}]"
+            if not isinstance(item, dict) or set(item) != {"module", "source"}:
+                self._v2_report("homework_mapping_missing", rel, f"{pointer} needs exactly module and source")
+                continue
+            module = item.get("module")
+            if kind == "github_archive":
+                if module is not None:
+                    self._v2_report("archive_module_reference", rel, f"{pointer}.module must be null for archive homework")
+            elif type(module) is not str:
+                self._v2_report("homework_mapping_missing", rel, f"{pointer}.module must be a root module slug")
+            elif module not in self.root_modules:
+                self._v2_report("curriculum_source_mismatch", rel, f"{pointer}.module {module!r} is not a current root module")
+            module_key: str | None = module if type(module) is str or module is None else repr(module)
+            if kind == "current" and module_key in modules_seen:
+                self._v2_report("homework_mapping_missing", rel, f"{pointer}.module is mapped more than once")
+            if kind == "current":
+                modules_seen.add(module_key)
+            source = self._safe_path(rel, item.get("source"))
+            if source is None:
+                continue
+            cohort_prefix = f"cohorts/{cohort}/"
+            if not self._inside(source, cohort_prefix):
+                self._v2_report("homework_path_outside_cohort", rel, f"{pointer}.source leaves {cohort_prefix}")
+                continue
+            if not source.endswith("/homework.yaml"):
+                self._v2_report("homework_mapping_missing", rel, f"{pointer}.source must end in homework.yaml")
+                continue
+            if kind == "current" and source != f"cohorts/{cohort}/homework/{module}/homework.yaml":
+                self._v2_report("homework_mapping_missing", rel, "current homework uses cohorts/<id>/homework/<module>/homework.yaml")
+            if source in mapped:
+                self._v2_report("homework_mapping_missing", rel, f"{pointer}.source is mapped more than once")
+            mapped.add(source)
+            if not self.repo.exists(source):
+                self._v2_report("homework_mapping_missing", source, "mapped homework.yaml does not exist")
+                continue
+            md = f"{posixpath.dirname(source)}/homework.md"
+            if not self.repo.exists(md):
+                self._v2_report("homework_mapping_missing", md, "mapped homework needs a co-located homework.md")
+            self._check_homework_manifest(cohort, kind, source)
+        self.mapped_homework[cohort] = mapped
+        if kind == "current":
+            base = f"cohorts/{cohort}"
+            for path in sorted(self.repo.files):
+                if not path.startswith(base + "/") or not path.endswith("/homework.yaml"):
+                    continue
+                if path not in mapped:
+                    self._v2_report("homework_unreferenced", path, "homework.yaml is not reachable from cohort.yaml")
+
+    def _check_homework_manifest(self, cohort: str, kind: str, rel: str) -> None:
+        mapping = self._load_v2_yaml(rel)
+        if mapping is None:
+            return
+        allowed = set(V2_HOMEWORK_V1_KEYS)
+        self._keys(rel, mapping, allowed, {"schema_version", "content_id"})
+        version = mapping.get("schema_version")
+        if kind == "current" and not self._schema(rel, mapping):
+            return
+        if kind == "github_archive" and (type(version) is not int or version not in {1, 2}):
+            self._v2_report("v2_mixed_version", rel, "archive homework may be schema 1 or 2 during migration")
+        self._register_id(rel, mapping.get("content_id"))
+        for key in ("slug", "title"):
+            if key in mapping:
+                self._string(rel, mapping, key, nonempty=True)
+        instructions = mapping.get("instructions_path")
+        if instructions is not None and instructions != "homework.md":
+            self._v2_report("homework_path_outside_cohort", rel, "instructions_path must be the co-located homework.md")
+        due = mapping.get("due_at")
+        if due is not None and type(due) is not str and not (kind == "github_archive" and isinstance(due, date)):
+            self._v2_report("v2_schema", rel, "due_at must be a quoted timestamp or null")
+        if kind == "current" and self.repo.exists(f"{posixpath.dirname(rel)}/homework.md") and due is None:
+            self._v2_report("v2_schema", rel, "a mapped current/live homework needs a real due_at")
+        questions = mapping.get("questions")
+        if questions is not None:
+            if not isinstance(questions, list):
+                self._v2_report("v2_schema", rel, "questions must be a list")
+            else:
+                for index, question in enumerate(questions):
+                    if not isinstance(question, dict):
+                        self._v2_report("v2_schema", rel, f"questions[{index}] must be a mapping")
+                        continue
+                    self._keys(
+                        rel,
+                        question,
+                        {"content_id", "id", "type", "prompt", "options", "points", "answer_type", "answer"},
+                        set(),
+                    )
+                    if "content_id" in question:
+                        self._register_id(rel, question["content_id"], f"questions[{index}].content_id")
+
+
+# Short compatibility name for callers that treat the checker as a schema
+# version rather than a layout description.
+V2Checker = SharedCurriculumChecker
+
+
+def checker_for_repo(repo: Repo, phase: int) -> Checker:
+    """Choose v1 or v2 before any cohort/module discovery takes place."""
+
+    if not repo.exists("course.yaml"):
+        return Checker(repo=repo, phase=phase)
+    raw_manifest = repo.read("course.yaml")
+    try:
+        root_manifest = yaml.load(raw_manifest, Loader=DuplicateKeyLoader)
+    except (yaml.YAMLError, TypeError, ValueError):
+        # A malformed v2 manifest still needs the v2 diagnostic and must not
+        # fall back to the old cohort walker.  BaseLoader is used only for
+        # dispatch; the v2 checker reparses with DuplicateKeyLoader and emits
+        # the actionable duplicate/schema finding.
+        try:
+            root_manifest = yaml.load(raw_manifest, Loader=yaml.BaseLoader)
+        except (yaml.YAMLError, TypeError, ValueError):
+            root_manifest = None
+    if isinstance(root_manifest, dict) and type(root_manifest.get("schema_version")) is int and root_manifest.get("schema_version") == 2:
+        return SharedCurriculumChecker(repo=repo, phase=phase)
+    if isinstance(root_manifest, dict) and root_manifest.get("schema_version") == "2":
+        return SharedCurriculumChecker(repo=repo, phase=phase)
+    return Checker(repo=repo, phase=phase)
+
+
+# --------------------------------------------------------------------------
 # Driver
 # --------------------------------------------------------------------------
 
@@ -1343,7 +2272,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.rules:
-        for rule, (rule_class, description) in sorted(RULES.items()):
+        for rule, (rule_class, description) in sorted({**RULES, **V2_RULES}.items()):
             print(f"{rule}  [{rule_class:8}] {description}")
         return 0
 
@@ -1367,7 +2296,7 @@ def main(argv: list[str] | None = None) -> int:
             if declared in (1, 2, 3):
                 phase = int(declared)
 
-    checker = Checker(repo=repo, phase=phase)
+    checker = checker_for_repo(repo, phase)
     checker.run()
 
     errors = [f for f in checker.findings if checker.severity(f) == ERROR]
@@ -1404,7 +2333,7 @@ def main(argv: list[str] | None = None) -> int:
             f"{len(warnings)} warning(s) in {root}"
         )
         if checker.findings:
-            print("Rules: STRUCTURE.md and docs/curriculum-contract.md in DataTalksClub/zoomcamp-template")
+            print("Rules: STRUCTURE.md and docs/curriculum-contract.md in DataTalksClub/zoomcamp-ops")
 
     if args.warn_only:
         return 0
