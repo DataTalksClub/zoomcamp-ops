@@ -48,9 +48,6 @@ Step-by-step to spin up a new camp from this template.
 
 ## 6. Shared docs
 
-- [ ] Copy `templates/after-sign-up.md` and adapt.
-- [ ] Copy `templates/learning-in-public.md` and adapt.
-- [ ] Add `certificate.md`.
 - [ ] Optionally add `awesome-<topic>.md`.
 
 ## 7. Tooling

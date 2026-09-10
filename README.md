@@ -41,8 +41,6 @@ cp templates/cohorts-README.md     <new-camp>/cohorts/README.md
 cp templates/cohort-README.md      <new-camp>/cohorts/2026/README.md
 cp templates/module-README.md      <new-camp>/cohorts/2026/01-intro/README.md
 cp templates/unit.md               <new-camp>/cohorts/2026/01-intro/01-what-is-it.md
-cp templates/after-sign-up.md      <new-camp>/
-cp templates/learning-in-public.md <new-camp>/
 cp templates/workflows/curriculum-check.yml <new-camp>/.github/workflows/
 
 # 2. fill in the {{PLACEHOLDERS}}, then follow:
