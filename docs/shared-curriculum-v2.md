@@ -61,13 +61,14 @@ What each file becomes once it is pushed, not just where it sits:
 
 ## Course and cohort manifests
 
-The v2 course manifest keeps the existing course identity fields:
+The v2 course manifest keeps the existing course identity fields and adds one:
 
 ```yaml
 schema_version: 2
 content_id: "7736c1e6-5d66-4286-8180-b1eef3f83a84"
 slug: llm-zoomcamp
 title: LLM Zoomcamp
+current_cohort: "2027"
 outcome: Build and operate production-style LLM applications.
 repository_url: https://github.com/DataTalksClub/llm-zoomcamp
 docs_url: https://datatalks.club/docs/courses/llm-zoomcamp/
@@ -75,6 +76,15 @@ faq_url: https://datatalks.club/faq/llm-zoomcamp.html
 hashtag: llmzoomcamp
 published: true
 ```
+
+`current_cohort` is new in v2: it names which cohort directory the root
+curriculum currently belongs to — the answer to "who is this content live
+for right now" that used to be implicit in editing `cohorts/<year>/` directly.
+It must equal the `identifier` of the one cohort whose `cohort.yaml` declares
+`curriculum: current`; exactly one such cohort exists at a time. Bootstrapping
+a new cohort and archiving the outgoing one (§ the bootstrap-cohort tool)
+updates this field as part of the same change that switches which cohort is
+current.
 
 Every cohort manifest has an explicit delivery and curriculum discriminator:
 
