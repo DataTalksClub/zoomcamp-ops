@@ -111,6 +111,44 @@ a new cohort and archiving the outgoing one (§ the bootstrap-cohort tool)
 updates this field as part of the same change that switches which cohort is
 current.
 
+`cohorts` is the explicit index this decision landed on, over relying purely
+on scanning `cohorts/*/cohort.yaml`: a required, non-empty list, one entry
+per cohort, `{identifier, content}` plus an optional `legacy: true`:
+
+```yaml
+cohorts:
+  - identifier: "2027"
+    content: root
+  - identifier: "2026"
+    content: cohorts/2026
+  - identifier: "2021"
+    content: cohorts/2021
+    legacy: true
+```
+
+- `content` is `root` for the one current cohort, or that cohort's own
+  `cohorts/<identifier>` path for every other one — never a path to a
+  *different* cohort's directory. That restriction is deliberate: it keeps
+  this list a locator, not a reintroduction of the shared/pointed-at content
+  `STRUCTURE.md` §6 already rejected (a cohort's tree staying immutable once
+  published is why archiving copies rather than references).
+- Exactly one entry has `content: root`, and its `identifier` must equal
+  `current_cohort` — restated in two places inside one file on purpose, so a
+  consumer that only needs "what's current" doesn't have to parse the list,
+  while the checker cross-validates the two never drift apart.
+- The checker cross-validates this list against reality: every
+  `cohorts/<id>/cohort.yaml` that actually exists must appear here, and
+  vice versa, and each entry's `content` must agree with that cohort's own
+  `curriculum: current | github_archive`.
+- `legacy: true` marks an archive `cohort.yaml` that was retrofitted onto
+  content predating this contract — dates inferred after the fact from
+  whatever evidence existed (a homework deadline, a certificate's PDF
+  metadata, the external course platform), not authored at the time. A
+  future archive produced by the bootstrap tool's `archive` command against
+  already-v2 content is not legacy. Every archive cohort in
+  machine-learning-zoomcamp (2021-2025) and ai-dev-tools-zoomcamp (2025) is
+  `legacy: true` today; there are no non-legacy archives yet.
+
 Every cohort manifest has an explicit delivery and curriculum discriminator:
 
 ```yaml
