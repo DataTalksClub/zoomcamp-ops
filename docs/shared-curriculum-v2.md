@@ -203,3 +203,60 @@ atomic at import time: the website keeps the last successful projection and
 does not fall back to another cohort, a README projection, or the newest
 curriculum. Consumer projection and shared routes must be deployed and tested
 before source repositories opt into schema v2.
+
+## Retrofitting an already-frozen cohort as `github_archive`
+
+A cohort that predates this contract entirely (no `cohort.yaml` of any
+schema) gets the minimal v2 shape, added without touching anything else
+inside it:
+
+```yaml
+schema_version: 2
+content_id: "<fresh UUID>"
+identifier: "2021"
+course: ml-zoomcamp
+delivery: live
+published: true
+start_date: "2021-09-13"
+end_date: "2021-12-13"
+curriculum: github_archive
+archive:
+  notice_path: cohorts/2021/README.md
+homework: []
+```
+
+`homework: []` is deliberate, not a placeholder: a frozen archive has no
+operational homework to map, and the archive's own per-module `homework.yaml`
+files stay exactly where they are, unreferenced — the contract already states
+archive module files are "deliberately not loaded or ID-registered." Dates
+come from the cohort's own `README.md`; nothing else inside the cohort
+directory is touched or re-shaped to fit v1's original interior conventions
+(see [`shared-curriculum-rollout.md`](shared-curriculum-rollout.md) on
+unifying location, not interior).
+
+## Known gap: the checker's v2 path is not yet on `main`
+
+`scripts/check-zoomcamp/check_zoomcamp.py`'s v2 dispatch (the whole
+`schema_version: 2` checking path, including `_check_course`) exists only in
+local working trees so far — `origin/main` has none of it. The
+`templates/workflows/curriculum-check.yml` CI template pins a commit SHA on
+the real GitHub repo, so wiring it into a v2 repository today would run the
+*v1-only* pushed checker against v2 sources and fail meaninglessly. Do not
+wire CI into a v2 repository until the v2 checker path is reviewed, committed
+and pushed to `origin/main` here.
+
+`course.yaml`'s `_check_course` schema in the local working copy has been
+updated to match this doc: `current_cohort` (required string) and
+`description` (required, replaces `description_path`/`SITE.md`) are now
+allowed/required keys, and `repository_url`/`docs_url`/`faq_url` are nested
+under `urls: {repository, docs, faq}` instead of three flat keys.
+
+## Known gap: a numbered root directory without `module.yaml` is a hard error
+
+The checker treats *any* `NN-kebab-name/` directory at the repository root
+that lacks a `module.yaml` as an error (`numbered_module_required`), not a
+silently-ignored draft. A repository with such a directory (e.g.
+ml-zoomcamp's `11-kserve/`, real lesson content with no manifest yet, left
+unresolved for now) needs `warn-only: true` in its CI workflow, or a
+`.zoomcamp-check.yaml` allowance, until the directory is either wired in or
+moved out of the numbered-module namespace.
