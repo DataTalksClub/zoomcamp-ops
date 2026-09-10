@@ -25,6 +25,18 @@ siblings of `module.yaml`; `README.md` is a GitHub index and `images/` and
 The module and every unit have a canonical, quoted UUID `content_id` which is
 never reused or silently rebound.
 
+**Modules are discovered, never listed.** `course.yaml` does not enumerate
+its modules. The current module set is every `NN-kebab-name/` directory at
+the repository root that contains a `module.yaml`, ordered by its numeric
+prefix; a root directory without one (a draft, or content not yet wired in,
+like ml-zoomcamp's `11-kserve` today) is simply not part of the curriculum
+yet. This is deliberate, not an omission: a declared list in `course.yaml`
+would duplicate what the filesystem already states unambiguously and could
+drift from it the moment someone adds a module directory and forgets to
+update the list, with nothing to catch the mismatch. It is the same reasoning
+that retires `cohort.yaml`'s old `flow` list, `slug`/`title` restatement on
+units, and `SITE.md`'s pointer — one fact, one place.
+
 ## File placement and website treatment
 
 What each file becomes once it is pushed, not just where it sits:
