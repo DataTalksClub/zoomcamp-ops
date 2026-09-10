@@ -2027,8 +2027,15 @@ class SharedCurriculumChecker(Checker):
             self._v2_report("v2_schema", rel, "end_date must not precede start_date")
         if published and delivery == "live" and (start is None or end is None):
             self._v2_report("v2_schema", rel, "published live cohorts require start_date and end_date")
-        if not self.repo.exists(f"cohorts/{cohort}/README.md"):
-            self._v2_report("archive_notice_missing" if mapping.get("archive") else "v2_schema", f"cohorts/{cohort}/README.md", "cohort README.md is required")
+        # An archive cohort's required notice file is whatever archive.notice_path
+        # names (checked in _check_archive_block below) -- the parser's
+        # _parse_archive_block in content_sync/course_repository_v2.py never
+        # requires that file to be specifically README.md, and
+        # machine-learning-zoomcamp's cohorts/2021 and mlops-zoomcamp's
+        # cohorts/2022 both point notice_path at leaderboard.md instead. Only
+        # a non-archive (current) cohort needs cohorts/<id>/README.md itself.
+        if mapping.get("curriculum") != "github_archive" and not self.repo.exists(f"cohorts/{cohort}/README.md"):
+            self._v2_report("v2_schema", f"cohorts/{cohort}/README.md", "cohort README.md is required")
         curriculum = mapping.get("curriculum")
         if type(curriculum) is not str:
             self._v2_report("v2_schema", rel, "curriculum must be the scalar current or github_archive")
