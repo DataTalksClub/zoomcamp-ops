@@ -1854,8 +1854,11 @@ class SharedCurriculumChecker(Checker):
             self._v2_report("curriculum_source_mismatch", f"{base}/{orphan}", "lesson exists but is absent from module.yaml units")
         if not self.repo.exists(f"{base}/README.md"):
             self._v2_report("numbered_module_required", f"{base}/README.md", "each module needs a README.md index")
-        elif self.repo.exists(f"{base}/README.md"):
-            self._check_local_links(f"{base}/README.md", self.repo.read(f"{base}/README.md"), base, image_inside=False)
+        # A module README is GitHub-facing decoration only: the website
+        # parser (_parse_module in content_sync/course_repository_v2.py)
+        # decodes it into overview_markdown and never scans its body for
+        # links, so the checker must not link-check its content either --
+        # existence above is the whole contract.
 
     def _check_frontmatter(self, rel: str, frontmatter: str, module_base: str) -> None:
         try:
@@ -1914,25 +1917,32 @@ class SharedCurriculumChecker(Checker):
             target = raw.split("#", 1)[0].split("?", 1)[0].strip()
             if not target or is_external(raw):
                 continue
-            # A prose link may intentionally point at a sibling root module
-            # (for example ../02-agents/01-loops.md).  That is not an asset
-            # escape: normalize it below and require the result to be another
-            # numbered root module.  Images and code remain module-local.
+            # A prose link may intentionally climb one level, to a sibling
+            # root module or to a root-level file (for example
+            # ../02-agents/01-loops.md or ../project.md).  cohorts/README.md
+            # documents both as legitimate relative-link targets, and the
+            # website parser's own reference resolver
+            # (_relative_source_reference in content_sync/course_repository.py)
+            # imposes no narrower restriction on where such a link may land:
+            # any existing repository path that does not escape the
+            # repository root is fine.  Images and code remain module-local
+            # (checked separately, below and in _check_frontmatter).
             if ".." in PurePosixPath(target).parts:
                 if (
                     len(target) > 512
+                    or target != target.strip()
                     or target.startswith(("/", "\\"))
                     or "\\" in target
                     or "\x00" in target
+                    or any(ord(character) < 32 or ord(character) == 127 for character in target)
                     or V2_SCHEME.match(target)
                     or V2_PATH_ESCAPE.search(target)
-                    or target != PurePosixPath(target).as_posix()
                     or not target.startswith("../")
                     or target.count("..") != 1
                 ):
-                    safe = self._safe_path(rel, target)
-                else:
-                    safe = target
+                    self._v2_report("v2_path_unsafe", rel, f"unsafe repository-relative path {target!r}", line)
+                    continue
+                safe = target
             else:
                 safe = self._safe_path(rel, target)
             if safe is None:
@@ -1940,10 +1950,6 @@ class SharedCurriculumChecker(Checker):
             resolved = posixpath.normpath(posixpath.join(posixpath.dirname(rel), safe))
             if resolved.startswith("../") or resolved == ".." or resolved.startswith("cohorts/"):
                 self._v2_report("v2_path_unsafe", rel, f"local link {raw!r} leaves current curriculum", line)
-                continue
-            first = PurePosixPath(resolved).parts[0] if PurePosixPath(resolved).parts else ""
-            if ".." in PurePosixPath(target).parts and V2_MODULE_DIR.fullmatch(first) is None:
-                self._v2_report("v2_path_unsafe", rel, f"local link {raw!r} must target a root module", line)
                 continue
             if is_image and image_inside and not self._inside(resolved, base):
                 self._v2_report("v2_path_unsafe", rel, f"image {raw!r} leaves its module", line)
