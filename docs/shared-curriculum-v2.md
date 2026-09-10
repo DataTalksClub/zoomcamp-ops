@@ -9,7 +9,6 @@ reviewed.
 
 ```text
 course.yaml
-SITE.md
 NN-module/module.yaml
 NN-module/NN-lesson.md
 cohorts/README.md
@@ -48,10 +47,11 @@ What each file becomes once it is pushed, not just where it sits:
   address: `cohort.yaml`'s `archive.notice_path` points at it so the site can
   render a "view the original material on GitHub" link. It is never parsed
   for content.
-- **`SITE.md` at the repository root is the sole description source**,
-  fixed name, no pointer field (`course.yaml:description_path` is retired
-  once a repository is fully on v2). Never point a description at
-  `README.md`.
+- **The course description lives inline in `course.yaml:description`**,
+  not in a separate file. v1's `SITE.md` + `description_path` pointer is
+  retired in v2: one course-identity fact belongs in the one manifest that
+  already carries the rest of the course's identity, not split across a
+  manifest and a fixed-name file. Never point a description at `README.md`.
 - **Homework stays paired but separate from curriculum.** `homework.yaml` and
   its sibling `homework.md` live under `cohorts/<id>/homework/<module>/`,
   one pair per module with an assignment — never folded into `cohort.yaml`
@@ -69,6 +69,12 @@ content_id: "7736c1e6-5d66-4286-8180-b1eef3f83a84"
 slug: llm-zoomcamp
 title: LLM Zoomcamp
 current_cohort: "2027"
+description: |
+  LLM Zoomcamp is a free, hands-on course on building and operating
+  production-style LLM applications.
+
+  Across its modules you work through retrieval, agentic workflows,
+  evaluation, and monitoring, then deploy what you build.
 outcome: Build and operate production-style LLM applications.
 repository_url: https://github.com/DataTalksClub/llm-zoomcamp
 docs_url: https://datatalks.club/docs/courses/llm-zoomcamp/
