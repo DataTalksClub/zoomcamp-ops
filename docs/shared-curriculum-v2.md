@@ -88,12 +88,19 @@ description: |
   Across its modules you work through retrieval, agentic workflows,
   evaluation, and monitoring, then deploy what you build.
 outcome: Build and operate production-style LLM applications.
-repository_url: https://github.com/DataTalksClub/llm-zoomcamp
-docs_url: https://datatalks.club/docs/courses/llm-zoomcamp/
-faq_url: https://datatalks.club/faq/llm-zoomcamp.html
+urls:
+  repository: https://github.com/DataTalksClub/llm-zoomcamp
+  docs: https://datatalks.club/docs/courses/llm-zoomcamp/
+  faq: https://datatalks.club/faq/llm-zoomcamp.html
 hashtag: llmzoomcamp
 published: true
 ```
+
+`urls` groups the three external links (`repository_url`, `docs_url`, `faq_url`
+in v1) under one mapping instead of three separately-suffixed top-level keys —
+they are one kind of fact (where to find things about this course), so they
+sit together. Same three required sub-keys as before: `repository`, `docs`,
+`faq`.
 
 `current_cohort` is new in v2: it names which cohort directory the root
 curriculum currently belongs to — the answer to "who is this content live
