@@ -1665,7 +1665,13 @@ class SharedCurriculumChecker(Checker):
         if not isinstance(raw, list) or not raw:
             self._v2_report("v2_schema", rel, "cohorts must be a non-empty list")
             return
-        seen_root = None
+        # More than one cohort may declare content: root -- a live delivery
+        # and a permanent self-paced cohort commonly reference the identical
+        # current module graph side by side. The parser's own
+        # _parse_cohorts_index (content_sync/course_repository_v2.py)
+        # collects every "root" identifier into a set and only requires
+        # current_cohort to name one of them, not the only one.
+        root_identifiers: set[str] = set()
         for index, entry in enumerate(raw):
             pointer = f"{rel}:cohorts[{index}]"
             if not isinstance(entry, dict):
@@ -1684,12 +1690,7 @@ class SharedCurriculumChecker(Checker):
                 continue
             expected_archive_content = f"cohorts/{identifier}"
             if content == "root":
-                if seen_root is not None:
-                    self._v2_report(
-                        "v2_schema", pointer, f"only one cohort may declare content: root (already {seen_root!r})"
-                    )
-                else:
-                    seen_root = identifier
+                root_identifiers.add(identifier)
                 if legacy is True:
                     self._v2_report("v2_schema", pointer, "the current cohort (content: root) cannot be legacy: true")
             elif content != expected_archive_content:
@@ -1699,14 +1700,17 @@ class SharedCurriculumChecker(Checker):
                     f"content must be 'root' or its own {expected_archive_content!r}, not {content!r}",
                 )
             self.declared_cohorts[identifier] = content
-        if seen_root is None:
-            self._v2_report("v2_schema", rel, "exactly one cohorts[] entry must declare content: root")
-        elif self.declared_current_cohort is not None and seen_root != self.declared_current_cohort:
+        if not root_identifiers:
+            self._v2_report("v2_schema", rel, "at least one cohorts[] entry must declare content: root")
+        elif (
+            self.declared_current_cohort is not None
+            and self.declared_current_cohort not in root_identifiers
+        ):
             self._v2_report(
                 "v2_schema",
                 rel,
-                f"current_cohort {self.declared_current_cohort!r} disagrees with the cohorts[] entry "
-                f"declaring content: root ({seen_root!r})",
+                f"current_cohort {self.declared_current_cohort!r} must be one of the cohorts[] entries "
+                f"declaring content: root ({sorted(root_identifiers)!r})",
             )
 
     def _check_declared_cohorts_against_reality(self) -> None:
