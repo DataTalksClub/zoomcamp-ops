@@ -16,7 +16,7 @@ is right and this script has a bug.
 
 ```bash
 # from a course repository checkout, without cloning this repo
-uv run https://raw.githubusercontent.com/DataTalksClub/zoomcamp-template/main/scripts/check-zoomcamp/check_zoomcamp.py .
+uv run https://raw.githubusercontent.com/DataTalksClub/zoomcamp-ops/main/scripts/check-zoomcamp/check_zoomcamp.py .
 
 # or from a local clone of zoomcamp-template
 uv run check_zoomcamp.py ~/git/llm-zoomcamp

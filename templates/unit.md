@@ -16,7 +16,7 @@
   in the same commit.
 
   Delete this comment and the frontmatter keys you do not need. Full rules:
-  STRUCTURE.md §5 in DataTalksClub/zoomcamp-template.
+  STRUCTURE.md §5 in DataTalksClub/zoomcamp-ops.
 
   On video_url: this is where the recording belongs and where the site will
   read it. It is not read yet — today the deployed unit page picks the video up

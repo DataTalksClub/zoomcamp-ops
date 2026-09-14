@@ -1,4 +1,4 @@
-# The template repository's own CI: the rules must not land broken.
+# The operations repository's own CI: the rules must not land broken.
 #
 # check-zoomcamp is run against two fixture repositories under
 # scripts/check-zoomcamp/fixtures/ and asserted finding by finding, and the
@@ -29,6 +29,14 @@ jobs:
       - name: Fixture assertions
         working-directory: scripts/check-zoomcamp
         run: uv run test_check_zoomcamp.py
+
+      - name: Shared curriculum and cohort bootstrap
+        run: >-
+          uv run --with pytest --with pyyaml pytest
+          scripts/check-zoomcamp/test_shared_curriculum.py
+          scripts/bootstrap-cohort/test_bootstrap_cohort.py
+          scripts/bootstrap-cohort/test_contract_integration.py
+          --basetemp .tmp/ci-cohort-tests
 
       - name: Conformant fixture must be clean
         run: uv run scripts/check-zoomcamp/check_zoomcamp.py scripts/check-zoomcamp/fixtures/conformant

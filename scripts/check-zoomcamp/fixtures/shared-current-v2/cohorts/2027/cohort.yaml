@@ -1,0 +1,12 @@
+schema_version: 2
+content_id: 77777777-7777-4777-8777-777777777777
+identifier: "2027"
+course: llm-zoomcamp
+delivery: live
+published: true
+start_date: "2027-06-07"
+end_date: "2027-10-11"
+curriculum: current
+homework:
+  - module: 01-agentic-rag
+    source: cohorts/2027/homework/01-agentic-rag/homework.yaml

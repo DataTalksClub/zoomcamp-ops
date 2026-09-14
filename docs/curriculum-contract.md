@@ -1,5 +1,12 @@
 # The Curriculum Contract
 
+This page describes the existing v1 consumer. The [shared-root cohort
+workflow](../README.md#shared-curriculum-and-new-cohorts) introduces a separate
+versioned contract; do not mix proposed v2 fields into a v1 manifest. Its
+producer and checker must be validated against the new website consumer before
+publishing converted sources. The yearly-copy and per-cohort lesson-identity
+rules below remain compatibility documentation, not the new authoring policy.
+
 What the website's ingestion pipeline requires of a course repository, field by
 field. Until now this contract existed only as parser code and as the handful of
 repos that happened to satisfy it, so the only way to discover a rule was to have

@@ -6,6 +6,7 @@ directory when it is needed.
 
 | Skill | Purpose |
 | --- | --- |
+| [`bootstrap-zoomcamp-cohort/`](bootstrap-zoomcamp-cohort/) | Bootstrap a delivery using shared root lessons, or archive outgoing material before replacement |
 | [`create-zoomcamp-homework/`](create-zoomcamp-homework/) | Create reproducible module homework |
 | [`fetch-youtube-video/`](fetch-youtube-video/) | Download workshop recordings into a gitignored working area |
 | [`extract-youtube-illustrations/`](extract-youtube-illustrations/) | Extract candidate frames and score them with the template illustration rubric |

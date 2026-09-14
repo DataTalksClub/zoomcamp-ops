@@ -5,7 +5,7 @@
 # repository's CI until someone bumps the pin on purpose.
 #
 # Find the current SHA with:
-#   gh api repos/DataTalksClub/zoomcamp-template/commits/main --jq .sha
+#   gh api repos/DataTalksClub/zoomcamp-ops/commits/main --jq .sha
 
 name: Curriculum check
 
@@ -19,7 +19,7 @@ permissions:
 
 jobs:
   curriculum:
-    uses: DataTalksClub/zoomcamp-template/.github/workflows/check-zoomcamp.yml@{{PINNED_SHA}}
+    uses: DataTalksClub/zoomcamp-ops/.github/workflows/check-zoomcamp.yml@{{PINNED_SHA}}
     with:
       # 1 = layout (default), 2 = unit shape, 3 = derived contract.
       # Or drop this line and declare `phase:` in .zoomcamp-check.yaml instead.

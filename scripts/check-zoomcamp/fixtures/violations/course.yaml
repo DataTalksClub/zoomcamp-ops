@@ -4,7 +4,7 @@ slug: broken-zoomcamp
 title: Broken Zoomcamp
 description: An inline description that should live in SITE.md.
 outcome: Demonstrate every failure mode the checker is meant to catch.
-repository_url: https://github.com/DataTalksClub/zoomcamp-template
+repository_url: https://github.com/DataTalksClub/zoomcamp-ops
 docs_url: https://datatalks.club/docs/courses/broken-zoomcamp/
 faq_url: https://datatalks.club/faq/broken-zoomcamp.html
 hashtag: brokenzoomcamp

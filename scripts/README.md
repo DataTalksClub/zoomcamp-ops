@@ -6,6 +6,7 @@ Python scripts use `uv` (`uv run <script>.py`).
 
 | Script | From | What it does |
 |--------|------|--------------|
+| [`bootstrap-cohort/`](bootstrap-cohort/) | this repo | Preview and apply cohort creation or outgoing-curriculum archival without copying unchanged lessons into each delivery. See its README for source-schema prerequisites. |
 | [`check-zoomcamp/`](check-zoomcamp/) | this repo | Checks a course repository against the curriculum conventions in [`../STRUCTURE.md`](../STRUCTURE.md): layout, manifests, unit page shape, link and image containment. Run it locally before pushing; every course repo also runs it on pull requests through a pinned reusable workflow. |
 | [`generate-thumbnails/`](generate-thumbnails/) | Data Engineering | Self-hosts YouTube thumbnails: downloads the raw frame, overlays a play button, commits it under `images/`, and rewrites the markdown link. Idempotent. Replaces the flaky external thumbnail service. |
 | [`youtube-upload/`](youtube-upload/) | LLM | Video publishing pipeline: rename clips, clip transcripts, add chapters, and upload to YouTube from a manifest. |

@@ -55,7 +55,7 @@ Step-by-step to spin up a new camp from this template.
 - [ ] Copy `templates/workflows/curriculum-check.yml` to
       `.github/workflows/curriculum-check.yml` and pin the zoomcamp-template SHA.
 - [ ] Run `check-zoomcamp` locally until it is clean:
-      `uv run https://raw.githubusercontent.com/DataTalksClub/zoomcamp-template/main/scripts/check-zoomcamp/check_zoomcamp.py .`
+      `uv run https://raw.githubusercontent.com/DataTalksClub/zoomcamp-ops/main/scripts/check-zoomcamp/check_zoomcamp.py .`
 - [ ] Copy `scripts/generate-thumbnails` if the camp uses self-hosted thumbnails.
 - [ ] Copy `scripts/youtube-upload` + `scripts/chop-specs` if you run the video
       pipeline.

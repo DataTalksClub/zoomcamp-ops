@@ -32,7 +32,28 @@ Use it two ways:
 | [`skills/`](skills/) | Reusable skills for homework, video, and illustration workflows |
 | [`docs/`](docs/) | Operational guides (video pipeline, workshop best practices) |
 
+## Shared curriculum and new cohorts
+
+The new cohort workflow keeps the current numbered module folders at the
+repository root. Live and self-paced cohorts reference those lessons; different
+historical curricula are archived under `cohorts/<identifier>/` for reading on
+GitHub. Creating a cohort does not copy unchanged lessons.
+
+Use [`bootstrap-zoomcamp-cohort`](skills/bootstrap-zoomcamp-cohort/SKILL.md) and
+[`scripts/bootstrap-cohort/`](scripts/bootstrap-cohort/) for local preview and
+apply. The command README identifies its schema prerequisites. The older
+cohort-copy conventions and templates below describe the v1 migration baseline;
+they must not be applied to the new shared-root workflow. Website consumer and
+checker support must be verified before publishing converted course sources.
+
+The [rollout plan](docs/shared-curriculum-rollout.md) records ownership and
+cutover gates. Its [website task breakdown](docs/website-shared-curriculum-implementation.md)
+provides the staged files, interfaces, tests and browser scenarios for implementation.
+
 ## Quick start for a new camp
+
+This is the existing v1 layout. Use it only for sources that still target the
+v1 website contract; the shared-root workflow above has a separate rollout.
 
 ```bash
 # 1. copy the templates into your new repo
@@ -47,7 +68,7 @@ cp templates/workflows/curriculum-check.yml <new-camp>/.github/workflows/
 #    docs/new-zoomcamp-checklist.md
 
 # 3. check it before pushing
-uv run https://raw.githubusercontent.com/DataTalksClub/zoomcamp-template/main/scripts/check-zoomcamp/check_zoomcamp.py <new-camp>
+uv run https://raw.githubusercontent.com/DataTalksClub/zoomcamp-ops/main/scripts/check-zoomcamp/check_zoomcamp.py <new-camp>
 ```
 
 ## Why this exists

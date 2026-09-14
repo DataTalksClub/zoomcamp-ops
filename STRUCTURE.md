@@ -285,6 +285,14 @@ by filename (`[the next unit](02-rules-vs-ml.md)`), to the homework as
 | U9 | *(Target state — do not migrate yet.)* `homework.md` follows the same title rule: one leading H1 equal to the homework's title. **Not yet**: the homework page renders the declared title as its own `h1` and has no strip for a leading heading in the instructions, so an H1 equal to the title prints it twice. This activates when the homework page gains the strip the unit page has. | `U009` (never an error) |
 | U10 | *(from Phase 3 on)* frontmatter carries the unit's `content_id`, minted once per unit and never copied. Identity then travels with the file, so a rename preserves read-state and provenance. | `U010` |
 
+**Schema v2 (shared-root) lessons extend this table.** U1's allowed-key list
+and U8's "navigation is derived data" stance are the v1 contract. A repository
+whose `course.yaml` says `schema_version: 2` follows
+[`docs/shared-curriculum-v2.md`](docs/shared-curriculum-v2.md) instead: lesson
+frontmatter may also declare `prev_url`/`next_url` links to the neighbouring
+lessons, and the checker pins those declarations to the derived course
+sequence. U8 still bans body navigation furniture in both layouts.
+
 Two things that are **not** rules: how long a unit is, and whether it has a
 video. Twenty of today's units have no video; under U6 that is an absent key,
 not an error.

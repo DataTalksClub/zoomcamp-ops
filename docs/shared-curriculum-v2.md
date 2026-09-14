@@ -42,7 +42,7 @@ units, and `SITE.md`'s pointer — one fact, one place.
 What each file becomes once it is pushed, not just where it sits:
 
 - **A lesson `NN-lesson.md`** is the only file that becomes rendered content.
-  Its frontmatter (`video_url`, `code`) is parsed and stripped; the remaining
+  Its frontmatter (`video_url`, `code`, `prev_url`, `next_url`) is parsed and stripped; the remaining
   body becomes the unit's page. The filename stem is the unit's URL slug,
   never a declared `slug` field.
 - **`images/` is imported, not resolved live.** A unit's
@@ -78,6 +78,37 @@ What each file becomes once it is pushed, not just where it sits:
   (homework is authored and reviewed per module, so a shared file would be a
   standing merge-conflict hotspot) and never sitting inside the shared root
   module directory (homework is per-delivery, the module content is not).
+
+## Declared lesson navigation
+
+Every current lesson declares its neighbours in frontmatter, next to the video:
+
+```yaml
+---
+video_url: https://www.youtube.com/watch?v=XXXXXXXXXXX
+prev_url: 06-building-prompt.md
+next_url: ../02-vector-search/01-embeddings.md
+---
+```
+
+`prev_url` and `next_url` name the previous and next lesson of the course
+sequence. They are optional only at the edges: the first lesson of the current
+graph has no `prev_url` and the last has no `next_url`, and those keys are
+dropped there. Everywhere else a lesson declares both.
+
+The value is written exactly like a body link — the bare sibling filename, or
+`../<module>/<lesson>.md` when the sequence crosses a module boundary. Both
+keys must name the actual neighbour. The sequence itself is derived data —
+modules in sorted directory order, lessons in each `module.yaml` `units:` list
+order, the same walk the website's importer performs — and one fact stays in
+one place: the filesystem owns the order, the frontmatter mirrors it, and the
+checker (`lesson_navigation_mismatch`) rejects a lesson whose declared links
+disagree with the derived neighbours, so inserting, removing or reordering a
+lesson updates the neighbours' frontmatter in the same commit.
+
+Declared navigation keeps the rendered page's prev/next links reviewable in
+the pull request that changes them. It does not reintroduce body navigation
+furniture: `## Navigation` blocks and `← prev | next →` lines stay retired.
 
 ## Course and cohort manifests
 
@@ -238,7 +269,9 @@ The checker dispatches on the root schema before discovery. V2 rejects
 duplicate YAML keys, implicit numeric identifiers, unknown fields, unbounded
 values, traversal/absolute/URL-encoded paths, symlinks, missing module or
 lesson pairs, duplicate numeric prefixes, missing archive notices, mixed
-current/archive sources, and unreferenced current homework. Archive module
+current/archive sources, unreferenced current homework, and lesson
+`prev_url`/`next_url` declarations that disagree with the derived course
+sequence. Archive module
 files are deliberately not loaded or ID-registered; only an explicitly mapped
 archive homework manifest is admitted. Diagnostics contain repository paths and
 YAML pointers, not lesson prose, answer material, tokens, registration data or

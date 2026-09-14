@@ -168,6 +168,10 @@ V2_RULES: dict[str, tuple[str, str]] = {
     "numbered_lesson_required": (LAYOUT, "root module lessons are numbered Markdown siblings"),
     "duplicate_number_prefix": (LAYOUT, "module and lesson numeric prefixes are unique"),
     "content_id_duplicate": (LAYOUT, "registered v2 content IDs are canonical and unique"),
+    "lesson_navigation_mismatch": (
+        LAYOUT,
+        "lesson prev_url/next_url name the derived current lesson sequence neighbours",
+    ),
 }
 
 # U007 (companion files declared in frontmatter `code:`) is authoring guidance
@@ -1356,6 +1360,10 @@ class SharedCurriculumChecker(Checker):
     def __init__(self, repo: Repo, phase: int) -> None:
         super().__init__(repo=repo, phase=phase)
         self.root_modules: dict[str, str] = {}
+        # Declared current lessons in derived course order: modules sorted by
+        # directory name, units in module.yaml list order -- the same order
+        # the website's importer produces.
+        self.current_lessons: list[str] = []
         self.current_cohorts: set[str] = set()
         self.archive_cohorts: set[str] = set()
         self.mapped_homework: dict[str, set[str]] = {}
@@ -1569,6 +1577,7 @@ class SharedCurriculumChecker(Checker):
             self._check_allowances()
             return
         self._discover_root_modules()
+        self._check_lesson_navigation()
         cohorts = self._discover_v2_cohorts()
         for cohort in cohorts:
             self._check_v2_cohort(cohort)
@@ -1801,6 +1810,7 @@ class SharedCurriculumChecker(Checker):
             units = []
         self.root_modules[slug] = rel
         declared_paths: set[str] = set()
+        registered: set[str] = set()
         prefixes: dict[str, str] = {}
         for index, raw in enumerate(units):
             pointer = f"units[{index}]"
@@ -1825,6 +1835,9 @@ class SharedCurriculumChecker(Checker):
                 self._v2_report("numbered_lesson_required", unit_rel, "declared lesson does not exist")
                 continue
             declared_paths.add(raw_path)
+            if raw_path not in registered:
+                registered.add(raw_path)
+                self.current_lessons.append(unit_rel)
             prefix = raw_path.split("-", 1)[0].lstrip("0") or "0"
             if prefix in prefixes:
                 self._v2_report(
@@ -1880,7 +1893,7 @@ class SharedCurriculumChecker(Checker):
             self._v2_report("v2_schema", rel, "unit frontmatter must be a mapping")
             return
         self._bounded(mapping, rel)
-        self._keys(rel, mapping, {"video_url", "code"}, set())
+        self._keys(rel, mapping, {"video_url", "code", "prev_url", "next_url"}, set())
         video = mapping.get("video_url")
         if video is not None and (type(video) is not str or not video.startswith("https://")):
             self._v2_report("v2_schema", rel, "video_url must be an https string")
@@ -1921,6 +1934,126 @@ class SharedCurriculumChecker(Checker):
                 if line_number + offset - 1 != first[0] and line.startswith("# "):
                     self._v2_report("numbered_lesson_required", rel, "lesson has a second H1")
         self._check_local_links(rel, text, posixpath.dirname(rel), image_inside=True)
+
+    # -- declared lesson navigation ---------------------------------------
+
+    def _check_lesson_navigation(self) -> None:
+        """Pin each lesson's declared prev_url/next_url to the derived sequence.
+
+        A current lesson declares its neighbours in frontmatter so the
+        published page can render navigation from declared, reviewable links
+        instead of silently derived ones. The declared value must name the
+        actual neighbour -- the previous/next lesson in module.yaml list
+        order across modules sorted by directory name, exactly what the
+        website's importer walks -- and the first and last current lesson
+        must not declare a side they do not have. Anything else is drift
+        between two statements of one fact, reported here.
+        """
+
+        declared_lessons = set(self.current_lessons)
+        for index, rel in enumerate(self.current_lessons):
+            neighbours = {
+                "prev_url": (self.current_lessons[index - 1] if index > 0 else None, "previous"),
+                "next_url": (
+                    self.current_lessons[index + 1] if index + 1 < len(self.current_lessons) else None,
+                    "next",
+                ),
+            }
+            declared = self._lesson_navigation_keys(rel)
+            for key, (neighbour, side) in neighbours.items():
+                if neighbour is None:
+                    if key in declared:
+                        self._v2_report(
+                            "lesson_navigation_mismatch",
+                            rel,
+                            f"{key} must be dropped: the lesson has no {side} current lesson",
+                        )
+                    continue
+                if key not in declared:
+                    self._v2_report(
+                        "lesson_navigation_mismatch",
+                        rel,
+                        f"missing {key}: it must name the {side} current lesson",
+                    )
+                    continue
+                resolved = self._resolve_navigation_target(rel, key, declared[key], declared_lessons)
+                if resolved is not None and resolved != neighbour:
+                    self._v2_report(
+                        "lesson_navigation_mismatch",
+                        rel,
+                        f"{key} {declared[key]!r} does not name the {side} current lesson",
+                    )
+
+    def _lesson_navigation_keys(self, rel: str) -> dict[str, Any]:
+        """Return the raw prev_url/next_url values declared by a lesson."""
+
+        frontmatter, _, _ = split_frontmatter(self.repo.read(rel))
+        if frontmatter is None:
+            return {}
+        try:
+            mapping = yaml.load(frontmatter, Loader=DuplicateKeyLoader) or {}
+        except (yaml.YAMLError, TypeError, ValueError):
+            # Invalid or duplicate-key frontmatter is reported by
+            # _check_frontmatter; navigation has nothing trustworthy to read.
+            return {}
+        if not isinstance(mapping, dict):
+            return {}
+        return {key: mapping[key] for key in ("prev_url", "next_url") if key in mapping}
+
+    def _resolve_navigation_target(
+        self,
+        rel: str,
+        key: str,
+        value: Any,
+        declared_lessons: set[str],
+    ) -> str | None:
+        """Resolve a declared navigation value to a declared current lesson.
+
+        The value is written like a body link -- a bare sibling filename, or
+        ../<module>/<lesson>.md when the sequence crosses a module boundary
+        -- and may climb exactly one level, mirroring the prose-link rule in
+        _check_local_links.
+        """
+
+        if type(value) is not str:
+            self._v2_report("v2_path_unsafe", rel, f"{key} must be a repository-relative POSIX string")
+            return None
+        parts = PurePosixPath(value).parts
+        climbs = ".." in parts
+        if (
+            not value
+            or len(value) > 512
+            or value != value.strip()
+            or value.startswith(("/", "\\"))
+            or "\\" in value
+            or "\x00" in value
+            or any(ord(character) < 32 or ord(character) == 127 for character in value)
+            or V2_SCHEME.match(value)
+            or V2_PATH_ESCAPE.search(value)
+            or (climbs and (not value.startswith("../") or value.count("..") != 1))
+        ):
+            self._v2_report(
+                "v2_path_unsafe",
+                rel,
+                f"{key} {value!r} must be a lesson-relative link to a sibling lesson",
+            )
+            return None
+        resolved = posixpath.normpath(posixpath.join(posixpath.dirname(rel), value))
+        if resolved.startswith("../") or resolved.startswith("cohorts/"):
+            self._v2_report(
+                "v2_path_unsafe",
+                rel,
+                f"{key} {value!r} leaves the current lesson graph",
+            )
+            return None
+        if resolved not in declared_lessons:
+            self._v2_report(
+                "lesson_navigation_mismatch",
+                rel,
+                f"{key} {value!r} does not name a declared current lesson",
+            )
+            return None
+        return resolved
 
     def _check_local_links(self, rel: str, text: str, base: str, *, image_inside: bool) -> None:
         for line, is_image, raw in iter_targets(text):

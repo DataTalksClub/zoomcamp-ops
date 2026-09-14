@@ -4,7 +4,7 @@ slug: fixture-zoomcamp
 title: Fixture Zoomcamp
 description_path: SITE.md
 outcome: Prove that the conformance checker agrees with the convention.
-repository_url: https://github.com/DataTalksClub/zoomcamp-template
+repository_url: https://github.com/DataTalksClub/zoomcamp-ops
 docs_url: https://datatalks.club/docs/courses/fixture-zoomcamp/
 faq_url: https://datatalks.club/faq/fixture-zoomcamp.html
 hashtag: fixturezoomcamp

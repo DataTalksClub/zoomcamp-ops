@@ -44,8 +44,8 @@ at the same cohort-relative path in every year and `grep -rl` finds them all.
   a live link, so we do not rename them.
 
 New unit? Start from
-[`templates/unit.md`](https://github.com/DataTalksClub/zoomcamp-template/blob/main/templates/unit.md).
+[`templates/unit.md`](https://github.com/DataTalksClub/zoomcamp-ops/blob/main/templates/unit.md).
 Full spec:
-[`STRUCTURE.md`](https://github.com/DataTalksClub/zoomcamp-template/blob/main/STRUCTURE.md).
+[`STRUCTURE.md`](https://github.com/DataTalksClub/zoomcamp-ops/blob/main/STRUCTURE.md).
 A check runs on every pull request and reports what is wrong before a reviewer
 has to.

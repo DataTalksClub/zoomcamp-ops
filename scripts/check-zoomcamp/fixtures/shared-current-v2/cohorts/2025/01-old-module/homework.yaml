@@ -1,0 +1,20 @@
+schema_version: 1
+content_id: cccccccc-cccc-4ccc-8ccc-cccccccccccc
+slug: hw01
+title: Historical Homework
+instructions_path: homework.md
+due_at: "2025-06-01T21:59:00Z"
+initial_state: scored
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: dddddddd-dddd-4ddd-8ddd-dddddddddddd
+    id: q1
+    type: free_form_long
+    prompt: What did you learn?
+    answer_type: any
+    points: 0
