@@ -10,5 +10,6 @@ directory when it is needed.
 | [`create-zoomcamp-homework/`](create-zoomcamp-homework/) | Create reproducible module homework |
 | [`fetch-youtube-video/`](fetch-youtube-video/) | Download workshop recordings into a gitignored working area |
 | [`extract-youtube-illustrations/`](extract-youtube-illustrations/) | Extract candidate frames and score them with the template illustration rubric |
+| [`process-course-video/`](process-course-video/) | Turn workshop recordings into lesson text, clips, and reviewed illustrations |
 
 The skills do not commit downloaded videos or unreviewed image candidates.

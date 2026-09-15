@@ -1,0 +1,4 @@
+interface:
+  display_name: "Process Course Video"
+  short_description: "Turn workshop video into lesson text"
+  default_prompt: "Use $process-course-video to turn this workshop recording into lesson text, clips, and reviewed illustrations."
