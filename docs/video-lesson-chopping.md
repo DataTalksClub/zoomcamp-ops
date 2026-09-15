@@ -1,158 +1,94 @@
-# Chopping workshop recordings into lesson videos
+# Chopping workshop recordings into lesson clips
 
-This documents the process used to turn the LLM Zoomcamp live-workshop
-recordings into per-lesson video clips for the course, and logs the manual
-trim fixes made during review.
+The complete `video → transcript → lesson map → clip → review` workflow is
+[`process-course-video`](../skills/process-course-video/SKILL.md). This page
+defines the stable clip contract used by the repository. It does not contain a
+course-specific module map or a one-off review log.
 
-Working files live in the repo's gitignored `.tmp/` directory:
+## Working area
 
+Keep source masters, transcripts, plans, and generated clips in a gitignored
+run directory:
+
+```text
+.tmp/course-processing/<course>/<run>/
+├── videos/       # source masters
+├── transcripts/  # normalized source-relative captions
+├── plans/        # human chop plans and machine specs
+└── clips/        # reviewable per-lesson output
 ```
-.tmp/
-  videos/                       # source masters + chopped clips
-    module1-rag-720p.mkv        # best-quality source (downloaded from YouTube)
-    ...
-    clips/                      # output: one mp4 per lesson
-  transcripts/                  # timestamped transcripts (per module)
-  chop.sh                       # generic chopper (spec -> clips)
-  chop-all.sh                   # driver: chop every module from its spec
-  <module>.spec                 # machine-readable cut list per module
-  <module>-chop-plan.md         # human-readable plan per module
-```
 
-## Module ↔ video map
+Do not commit the source recording or generated clips unless the course
+maintainer explicitly requests a published media change.
 
-Playlist: `https://www.youtube.com/playlist?list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv`
+## Build the plan
 
-| Module | Video | YouTube ID |
-|--------|-------|-----------|
-| 1 — Part 1 (RAG) | Build Your First RAG Application | `KSItlTAsMsk` |
-| 1 — Part 2 (Agents) | From RAG to AI Agents | `RAqLWJsLZb4` |
-| 2 — Vector Search | Vector Databases | `BC3NsRUNEIg` |
-| 3 — Orchestration | *(no video)* | — |
-| 4 — Evaluation | RAG and Agents Evaluation | `WUGtDveIe7A` |
-| 5 — Monitoring | Monitoring LLM Applications | `ImY5-Q97sRw` |
+Read the lesson pages and timestamped transcript side by side. Map each lesson
+to source ranges at clean sentence boundaries. Keep the topic's explanation,
+demo, result, and useful subject-matter Q&A. Remove promotion, logistics, dead
+air, repeated filler, and irrelevant tangents. A useful failure stays when it
+teaches debugging or a limitation.
 
-## Illustration-source audit status
+Write two synchronized files per module:
 
-As of 2026-09-09, all five current live-workshop masters were acquired through
-the documented DataImpulse route, validated with `ffprobe`, and audited for
-source-backed illustrations. The first pass covered `KSItlTAsMsk`,
-`RAqLWJsLZb4`, and `ImY5-Q97sRw`; the retry pass recovered and audited
-`BC3NsRUNEIg` and `WUGtDveIe7A`. Source hashes, frame candidates, crops, and
-per-video decisions are preserved in the ignored scratch reports:
+1. A human-readable `<module>-chop-plan.md` with the lesson, source range(s),
+   opening and closing words, removed material, and review notes.
+2. A machine-readable `<module>.spec` with one non-comment line per clip:
 
-- `/home/alexey/git/.tmp/workshop-processing/llm-2026-live/`
-- `/home/alexey/git/.tmp/workshop-processing/llm-2026-live-retry/`
+   ```text
+   clipname|start1-end1[,start2-end2,...]
+   ```
 
-No new bitmap illustration was accepted. Raw webcam/Zoom/browser/editor
-screenshots, exact code, tables, URLs, and transient dashboards were rejected;
-the few useful results remain native lesson material. The first-pass
-independent review is recorded in
-`llm-2026-live/independent-review.md`; the retry report records
-`SOURCE_OK / AUDITED_NO_PUBLISH` for both recovered masters. This audit does
-not alter the chopped-video source-of-truth or invent visuals for lessons that
-do not have a defensible source frame.
+Times are source seconds. Multiple comma-separated ranges are concatenated in
+order, which removes the gap between them. Fractional seconds are allowed by
+the format; use integer seconds when a downstream helper requires them. Lines
+starting with `#` are comments.
 
-## The pipeline
+The spec and the human plan are the source of truth for reruns. If a boundary
+is wrong, edit the spec and regenerate the affected clip.
 
-### 1. Fetch the transcript
-Pulled from YouTube (free, accurate) rather than transcribing the local files:
+## Render and normalize
+
+Use [`scripts/chop-specs/chop.sh`](../scripts/chop-specs/chop.sh), or an adapted
+copy when its local `ffmpeg` path does not exist:
 
 ```bash
-python ~/.claude/skills/fetch-youtube/youtube.py <video-id> > .tmp/transcripts/<module>.txt
+bash scripts/chop-specs/chop.sh \
+  '<source-video>' '<run-dir>/clips' '<module>.spec' '<filename-prefix>'
 ```
 
-Transcripts are timestamped (`M:SS text` / `H:MM:SS text`), which is what the
-chop plan is built from.
+The established output settings are:
 
-### 2. Get the best-quality source
-YouTube tops out at 720p for these uploads — there is no 1080p. A casual
-download often grabs the *lowest*-bitrate 720p (avc1 ~194 kb/s). Grab the best
-stream instead (vp9 720p ~336 kb/s + best audio):
+- H.264 video, `libx264 -preset faster -crf 23 -pix_fmt yuv420p`;
+- AAC audio at 192 kb/s;
+- YouTube-oriented loudness normalization:
+  `loudnorm=I=-14:TP=-1.5:LRA=11`.
 
-```bash
-uvx yt-dlp -f "bv*[height<=720]+ba/b[height<=720]" -S "res:720,br" \
-  --merge-output-format mkv -o "<module>-720p.%(ext)s" \
-  "https://www.youtube.com/watch?v=<id>"
+Keep source resolution; re-encoding cannot restore source detail. Validate each
+clip with `ffprobe`, then inspect the first and last seconds for clipped speech,
+missing context, abrupt audio, or an unintended overlap/gap. Do not edit the
+chop script while a batch is running. Edit the spec after the batch finishes,
+then rerun the affected output.
+
+## Captions for chopped clips
+
+Source transcript cues are source-relative. For a kept range `[start, end)` and
+cue time `t`, map the cue to:
+
+```text
+clip time = duration of earlier kept ranges + (t - start)
 ```
 
-(The true high-res master is the original screen recording, not on YouTube.)
+[`scripts/youtube-upload/clip_transcript.py`](../scripts/youtube-upload/clip_transcript.py)
+implements this mapping for its integer-second spec format. Review captions
+against the rendered clip, especially at multi-range joins.
 
-### 3. Build the chop plan
-Read the module's lessons (`<NN>-*.md`) and the transcript, then map each
-lesson to transcript timestamp ranges at clean verbal boundaries (start of
-a sentence, not mid-word). Two outputs per module:
+## Acceptance checklist
 
-- `<module>-chop-plan.md` — human-readable table + trim/discard notes.
-- `<module>.spec` — machine-readable, one line per clip:
-  ```
-  clipname|start1-end1[,start2-end2,...]      # integer seconds
-  ```
-  Multiple comma-separated ranges are concatenated into one clip (used to
-  drop interruptions inside a lesson). Lines starting with `#` are comments.
-
-What gets trimmed: opening course promo ("star the repo / like the video"),
-course-logistics Q&A, "I'll answer that later" filler, dead air, and failed/
-irrelevant tangents. Q&A that is genuinely lesson content is kept. Clips do not
-have to be contiguous, and a lesson's clip may come from a different position in
-the video than its course order (e.g. Module 1 Part 2 films the RAG revision
-before the agents concept).
-
-### 4. Chop + normalize
-`chop.sh` re-encodes each clip (frame-accurate) and applies YouTube loudness
-normalization in the same pass:
-
-```bash
-bash .tmp/chop.sh <source.mkv> .tmp/videos/clips <module>.spec <filename-prefix>
-```
-
-Encoder settings: `libx264 -preset faster -crf 23 -pix_fmt yuv420p`,
-audio `aac -b:a 192k`, loudness `loudnorm=I=-14:TP=-1.5:LRA=11` (YouTube target).
-`chop-all.sh` runs this for every module.
-
-### 5. Reproduce / iterate
-To re-cut a lesson, edit its line in the `.spec` and re-run `chop.sh` for that
-module (or regenerate the single clip with a direct `ffmpeg` command). The spec
-+ plan are the source of truth.
-
-## Conventions
-
-- Resolution: 720p (source ceiling). Clips keep source resolution.
-- Loudness: −14 LUFS, true peak −1.5 dBTP (YouTube normalization target).
-- Naming: `<module-prefix>-l<NN>-<slug>.mp4`, e.g.
-  `module1-rag-l05-search.mp4`, derived from the lesson filename.
-- Output: `.tmp/videos/clips/` (gitignored).
-
-## Gotchas
-
-- Never edit the chop script while its batch is running. Bash re-reads the
-  script file by byte offset as it executes; an edit shifts the offsets and
-  corrupts the run, which can clobber already-finished clips. Either let the
-  batch finish, or regenerate individual clips with standalone `ffmpeg` calls.
-- 720p is the max on YouTube for these videos; re-encoding can't recover
-  detail the source never had. For higher quality, use the original recording.
-- Editing a spec is safe any time (the running chopper already parsed it); just
-  re-run afterwards.
-
-## Manual fixes made during review
-
-Module 1 Part 1, after watching the first cut:
-
-- Source quality — replaced the low-bitrate 720p (avc1 ~194 kb/s) with the
-  best 720p (vp9 ~336 kb/s) and re-chopped.
-- L02 (Environment) — dropped the "I'll answer those later / everything's
-  ready" filler and the trailing RAG segue; now two segments
-  (08:15–20:31 + 21:03–21:50) ending on the provider-alternatives Q&A.
-- L07 (RAG Pipeline) — moved the end from 1:14:11 to 1:14:09 so it lands on
-  "...all the three functions." instead of a clipped "and uh".
-- L08 / L09 boundary — moved the "I just want to show you one last thing"
-  teaser off the end of L08 (now ends "...rag client." at 1:30:51) and onto the
-  start of L09.
-- L09 (Data Ingestion) — first ended at 1:44:02 (felt abrupt), then changed
-  to include the full failed live demo, ending at 1:46:46 on "...you can
-  check the notes."
-
-Repo:
-
-- `01-agentic-rag/README.md` — it only linked the Part 1 (RAG) video; added
-  the missing Part 2 (Agents) video link.
+- [ ] Every lesson has a source range and opening/closing words.
+- [ ] Boundaries do not cut sentences or remove required context.
+- [ ] The spec and human plan agree.
+- [ ] Every output parses with `ffprobe` and has usable audio.
+- [ ] Every clip's start and end were visually or audibly reviewed.
+- [ ] Source files and generated clips remain in the run's gitignored area.
+- [ ] The run record identifies the source URL/ID and the exact spec used.
