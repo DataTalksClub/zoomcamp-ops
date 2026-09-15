@@ -1,5 +1,10 @@
 # Image regeneration workflow
 
+The end-to-end recording-to-lesson workflow is
+[`process-course-video`](../skills/process-course-video/SKILL.md). This page
+owns the visual-fidelity rules used when a selected illustration needs a crop,
+deterministic replacement, or conceptual redraw.
+
 Use this workflow when a useful Zoomcamp illustration is a blurry workshop
 frame, includes a presenter or camera tile, or is difficult to read at the
 size used on the lesson page.
@@ -443,10 +448,9 @@ if it:
 - makes important text less readable than the source;
 - changes the visual meaning while looking more polished.
 
-Make one targeted prompt correction at a time. In the ML pilot, the first
-cross-validation generation hallucinated `ND` labels and changed the diagram;
-it was rejected. The second prompt listed every required label and explicitly
-forbade extra labels and numeric results, and it passed review.
+Make one targeted prompt correction at a time. List every required label and
+explicitly forbid extra labels, components, and numeric results that are not in
+the source.
 
 ### 7. Integrate non-destructively
 
@@ -466,19 +470,6 @@ correction gets a new focused commit. Keep crops, prompts, and rejected
 variants in `.tmp/` unless a review record is intentionally being preserved.
 Run `git diff --check` and a missing-image-reference scan before every commit.
 Push only when explicitly requested.
-
-## Pilot results
-
-The first ML Zoomcamp pilot validated the approach on three diagram types:
-
-- one-hot encoding matrix in `02-regression`;
-- K-fold cross-validation flow in `04-evaluation`;
-- model deployment architecture in `05-deployment`.
-
-All three retained their instructional relationships and removed the
-webcam/recording frame. The K-fold example demonstrated the most important
-debugging rule: a polished image is still invalid if generation changes a
-label or invents a value.
 
 ## Acceptance checklist
 

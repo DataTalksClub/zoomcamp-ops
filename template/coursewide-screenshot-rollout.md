@@ -1,17 +1,16 @@
 # Course-wide screenshot rollout
 
-Use this plan when cleaning every screenshot referenced by a course, rather
-than only a small pilot set. The current ML Zoomcamp scope is every image
-reference under `cohorts/2026/**` whose source is a screenshot, recording
-frame, screen capture, or workshop slide. A screenshot with a useful teaching
-point is still in scope even when it is not a diagram.
+Use this plan when cleaning every screenshot referenced by an active course
+scope, rather than only a small pilot set. A screenshot with a useful teaching
+point is in scope even when it is not a diagram. For the end-to-end recording
+workflow, use [`process-course-video`](../skills/process-course-video/SKILL.md).
 
 ## Scope and inventory
 
 Build an inventory from lesson references, not from the image directory alone:
 
 ```bash
-rg -n -o 'images/[^) ]+\.(png|jpe?g|webp|gif)' cohorts/2026 --glob '*.md'
+rg -n -o 'images/[^) ]+\.(png|jpe?g|webp|gif)' <active-scope> --glob '*.md'
 ```
 
 For each reference, record the unit, lesson, caption, source dimensions, file
@@ -125,14 +124,9 @@ The batch is not accepted on the implementation worker's assertion alone.
 
 ## Rollout order
 
-Process modules in dependency order so the visual conventions stabilize early:
-
-1. `01-intro` through `04-evaluation`;
-2. `05-deployment` through `06-trees`;
-3. `08-deep-learning`;
-4. `09-serverless` and `10-kubernetes`.
-
-After each module group, review a contact sheet and record exceptions before
-starting the next group. A clean commit is a checkpoint; do not squash away a
-rejected-generation correction because the history explains why the final
-asset was accepted.
+Partition the chosen active scope into disjoint module batches. Start with a
+small representative batch to settle naming and review conventions, then work
+through the remaining modules. After each batch, review a contact sheet or
+equivalent evidence and record exceptions before starting the next batch. A
+focused commit is a checkpoint; keep a rejected-generation correction in
+history when it explains why the final asset was accepted.
