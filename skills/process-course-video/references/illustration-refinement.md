@@ -249,10 +249,12 @@ stay under `.tmp/`. Before copying an asset:
 5. embed it on its own line immediately after the paragraph it illustrates;
 6. keep the critical code, command, value, or conclusion in text as well.
 
-Example reference:
+Example reference (replace the placeholder path with the accepted asset in the
+target module):
 
-```markdown
-![The retriever combines keyword and vector results before reranking](images/02-search-01-hybrid-retrieval-crisp.png)
+```text
+alt text: The retriever combines keyword and vector results before reranking
+asset path: <module>/images/02-search-01-hybrid-retrieval-crisp.png
 ```
 
 Do not commit a candidate directory, contact sheet, crop, prompt, rejected

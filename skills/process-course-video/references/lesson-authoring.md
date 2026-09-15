@@ -194,7 +194,7 @@ after every boundary for:
 - a lesson that starts with context missing from the prior clip.
 
 The repository's format is documented in
-[`scripts/chop-specs/README.md`](../../scripts/chop-specs/README.md).
+[`scripts/chop-specs/README.md`](../../../scripts/chop-specs/README.md).
 
 ## 8. Render and review clips
 
@@ -239,7 +239,7 @@ clip_time = cumulative_duration_of_prior_ranges + (t - start)
 ```
 
 The repository helper
-[`scripts/youtube-upload/clip_transcript.py`](../../scripts/youtube-upload/clip_transcript.py)
+[`scripts/youtube-upload/clip_transcript.py`](../../../scripts/youtube-upload/clip_transcript.py)
 implements this mapping for its integer-second spec format. Review its output
 against the rendered clip, especially when a cue starts just before a cut or a
 multi-range clip has a short join.
