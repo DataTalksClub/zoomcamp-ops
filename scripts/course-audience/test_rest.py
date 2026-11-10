@@ -3,7 +3,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from rest import improve, role_claim, safe, redact, apply_reviewed, merge
+from rest import improve, role_claim, safe, redact, apply_reviewed, merge, declared_links
 import csv
 from unittest.mock import patch
 from employers import analyze
@@ -62,6 +62,14 @@ class PublicAuditTests(unittest.TestCase):
                 rows=list(csv.DictReader(f))
             self.assertEqual('Original',rows[0]['company']);self.assertEqual('',rows[0]['title'])
             self.assertEqual('Data Engineer',rows[1]['title']);self.assertEqual('',rows[2]['enriched'])
+
+    def test_declared_links_preserve_accents_and_reject_templates(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d);(p/'cache/rest').mkdir(parents=True)
+            (p/'rest-baseline.json').write_text(json.dumps({'targets':['cmp-1']}))
+            (p/'cache/authors.json').write_text(json.dumps([{'student_id':1,'github':'author','github_profile':{'social':['https://linkedin.com/in/ousmane-ciss%C3%A9/','https://linkedin.com/in/YOUR-LINKEDIN','https://linkedin.com/in/https://example.com']}}]))
+            result=declared_links(p)
+            self.assertEqual(['ousmane-ciss%c3%a9'],result[0]['slugs'])
 
     def test_no_email_leaves_source_redaction(self):
         self.assertEqual('Contact [address removed]',safe('Contact name@example.com'))
