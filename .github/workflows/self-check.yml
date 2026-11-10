@@ -33,6 +33,9 @@ jobs:
         working-directory: scripts/check-zoomcamp
         run: uv run test_check_zoomcamp.py
 
+      - name: Prepare test temporary directory
+        run: mkdir -p .tmp
+
       - name: Shared curriculum and cohort bootstrap
         run: >-
           uv run --with pytest --with pyyaml pytest
