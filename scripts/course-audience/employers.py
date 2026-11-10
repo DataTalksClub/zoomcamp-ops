@@ -22,7 +22,10 @@ def analyze(output, rows):
             domain_only+=1
             continue
         title=r.get('title','')
-        student_affiliation=(r.get('seniority')=='student' and not re.search(r'working.?student|research|assistant|intern|engineer|analyst|developer',title,re.I))
+        student_job=re.search(r'working.?student|\bresearch(?:er)?\b|\bassistant\b|\bintern(?:ship)?\b',title,re.I)
+        job=student_job or re.search(r'\b(?:engineer|analyst|developer)\b',title,re.I)
+        study_title=re.search(r'\bstudent\b|\bundergrad',title,re.I)
+        student_affiliation=(r.get('seniority')=='student' and (not job or (study_title and not student_job)))
         if student_affiliation or not company or NOT_COMPANY.match(company) or company.lower() in {'nda','dream job','tbd','seeking opportunities','no','self','personal project','personal development','engineer','data engineering student','data engineering zoomcamp','zoomcamp / self-directed project'} or r['freelance'] in ('freelance','self-employed'):
             missing+=1
             continue

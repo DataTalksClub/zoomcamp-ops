@@ -79,7 +79,9 @@ class EmployerTests(unittest.TestCase):
     def test_working_student_job_counts_but_study_only_affiliation_does_not(self):
         with tempfile.TemporaryDirectory() as d:
             rows=[dict(company='BMW',evidence_type='github_declared_linkedin',notes='',freelance='',seniority='student',title='Data Analyst / Working Student'),
-                  dict(company='University',evidence_type='github_declared_linkedin',notes='',freelance='',seniority='student',title='MSc Student')]
+                  dict(company='University',evidence_type='github_declared_linkedin',notes='',freelance='',seniority='student',title='MSc Student'),
+                  dict(company='University Two',evidence_type='github_profile',notes='',freelance='',seniority='student',title='Software Engineering student'),
+                  dict(company='University Three',evidence_type='github_profile',notes='',freelance='',seniority='student',title='Data Engineer currently undergraduate student')]
             result=analyze(Path(d),rows)
             self.assertEqual(1,result['authors_with_named_employer'])
             self.assertEqual('BMW',result['top_employers'][0]['company'])
