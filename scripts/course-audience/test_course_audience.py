@@ -16,6 +16,7 @@ from cmp_fetch import email_domain  # noqa: E402
 from treg_budget import Ledger, BudgetExceeded  # noqa: E402
 from aggregate import aggregate  # noqa: E402
 from classify import FIELDS  # noqa: E402
+from treg_enrich import candidate_slugs, profile_slug  # noqa: E402
 
 TOOLS = HERE / 'tools'
 
@@ -95,6 +96,25 @@ class ClassifyTests(unittest.TestCase):
         author = {'github_profile': {'location': 'Berlin, Germany', 'company': ''}, 'email_domain': ''}
         self.assertEqual('low', corroborate(author, {'headline': 'Baker', 'location': 'Paris, France'})[0])
         self.assertEqual('medium', corroborate(author, {'headline': 'Data Engineer', 'location': 'Berlin, Germany'})[0])
+
+
+class CandidateTests(unittest.TestCase):
+    def test_language_suffixes_deduplicate_before_candidate_limit(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d)
+            (p / 'cache').mkdir()
+            (p / 'cache' / 'li-search-jane-doe.json').write_text(json.dumps({'rows': [
+                {'name': 'Jane Doe', 'profile_id': s}
+                for s in ['jane-doe/en', '../bad', 'jane-doe/fr', 'jane-doe-2']
+            ]}))
+            author = {'self_submitted_linkedin': [], 'github_declared_linkedin': [],
+                      'github_profile': {'name': 'Jane Doe'}}
+            self.assertEqual(['jane-doe', 'jane-doe-2'], candidate_slugs(p, author))
+
+    def test_encoded_identifiers_remain_safe_cache_names(self):
+        self.assertEqual('%c5%82ukasz-doe', profile_slug('%C5%82ukasz-doe/en'))
+        self.assertEqual('', profile_slug('../escape'))
+        self.assertEqual('', profile_slug('bad%zz'))
 
 
 class AggregateTests(unittest.TestCase):
