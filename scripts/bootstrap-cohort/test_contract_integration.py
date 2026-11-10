@@ -39,6 +39,15 @@ def tree_digest(root: Path) -> dict[str, str]:
     }
 
 
+def register_cohort(repository: Path, identifier: str, content: str) -> None:
+    """Model the explicit repository-manifest registration after generation."""
+    path = repository / "course.yaml"
+    course = yaml.safe_load(path.read_text())
+    course["cohorts"] = [row for row in course["cohorts"] if row["identifier"] != identifier]
+    course["cohorts"].append({"identifier": identifier, "content": content})
+    path.write_text(yaml.safe_dump(course, sort_keys=False))
+
+
 def test_bootstrap_and_archive_output_passes_shared_checker(tmp_path: Path) -> None:
     repository = tmp_path / "course"
     shutil.copytree(FIXTURE, repository)
@@ -50,6 +59,7 @@ def test_bootstrap_and_archive_output_passes_shared_checker(tmp_path: Path) -> N
     assert tree_digest(repository) == original
     assert_success(run_command(BOOTSTRAP, *live_args, "--apply"))
     live = yaml.safe_load((repository / "cohorts/2028/cohort.yaml").read_text())
+    register_cohort(repository, "2028", "root")
     assert live["identifier"] == "2028"
     assert live["delivery"] == "live"
     assert live["curriculum"] == "current"
@@ -70,6 +80,7 @@ def test_bootstrap_and_archive_output_passes_shared_checker(tmp_path: Path) -> N
     self_paced = yaml.safe_load(
         (repository / "cohorts/self-paced-new/cohort.yaml").read_text()
     )
+    register_cohort(repository, "self-paced-new", "root")
     assert self_paced["delivery"] == "self_paced"
     assert self_paced["curriculum"] == "current"
     assert self_paced["homework"] == []
@@ -84,6 +95,7 @@ def test_bootstrap_and_archive_output_passes_shared_checker(tmp_path: Path) -> N
     assert tree_digest(repository) == before_archive
     assert_success(run_command(BOOTSTRAP, *archive_args, "--apply"))
     archived = yaml.safe_load((repository / "cohorts/2028/cohort.yaml").read_text())
+    register_cohort(repository, "2028", "cohorts/2028")
     assert archived["content_id"] == live["content_id"]
     assert archived["curriculum"] == "github_archive"
     assert archived["homework"] == []
@@ -92,7 +104,8 @@ def test_bootstrap_and_archive_output_passes_shared_checker(tmp_path: Path) -> N
     assert_success(run_command(CHECKER, str(repository)))
     after_archive = tree_digest(repository)
     for path, digest in original.items():
-        assert after_archive[path] == digest
+        if path != "course.yaml":  # Explicit registration is outside the generator.
+            assert after_archive[path] == digest
 
     assert_success(run_command(BOOTSTRAP, *archive_args, "--apply"))
     assert tree_digest(repository) == after_archive

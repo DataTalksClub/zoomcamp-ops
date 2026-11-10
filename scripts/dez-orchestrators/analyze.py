@@ -18,6 +18,12 @@ from urllib.parse import urlparse, unquote
 
 BASE = 'https://courses.datatalks.club/api'
 TOOLS = {
+ 'Google Cloud Scheduler': r'google_cloud_scheduler_job|gcloud scheduler jobs create',
+ 'Google Cloud Workflows': r'google_workflows_workflow|gcloud workflows deploy',
+ 'AWS EventBridge': r'aws_cloudwatch_event_rule|aws_scheduler_schedule|AWS::Events::Rule',
+ 'dbt Cloud': r'dbt_cloud_job|dbtcloud_job|cloud.getdbt.com/api/v2/accounts/.*/jobs/.*/run',
+ 'Bruin': r'(?m)^\s*#\s*@bruin|bruin run|bruin validate|ghcr.io/bruin-data|getbruin/bruin',
+ 'Apache NiFi': r'org\.apache\.nifi|apache/nifi|nifi/nifi',
  'Kestra': r'io\.kestra\.|kestra/(?:kestra|kestra-ee)|image:\s*kestra',
  'Airflow': r'\bfrom\s+airflow\b|\bimport\s+airflow\b|apache-airflow|apache/airflow|airflow standalone',
  'Astronomer': r'astrocrpublic\.azurecr\.io|quay\.io/astronomer|astronomer/astro-runtime|FROM\s+astro',
@@ -99,11 +105,17 @@ def detect(files):
             for line in content.splitlines():
                 if MENTIONS.search(line) and len(weak)<15: weak.append(path+': '+safe(line))
             continue
+        if path.startswith('.github/workflows/') and re.search(r'^\s+schedule:',content,re.M) and re.search(r'\b(?:dbt|bruin|ingest|pipeline|etl|elt)\b',content,re.I):
+            evidence['GitHub Actions'].append(path+': scheduled data pipeline workflow')
+        if 'crontab' in Path(path).name.lower() and re.search(r'^(?:[0-9*/,-]+\s+){5}.*(?:python|bash|sh|docker|pipeline)',content,re.M):
+            evidence['cron'].append(path+': executable cron schedule')
         for tool,pattern in TOOLS.items():
             m=re.search(pattern,content,re.I)
             if m and len(evidence[tool])<4:
                 line=content[:m.start()].count('\n')+1
                 evidence[tool].append(f'{path}:{line}: '+safe(m.group(0)))
+        if Path(path).name in ('.bruin.yml','.bruin.yaml') or (Path(path).name in ('pipeline.yml','pipeline.yaml') and re.search(r'^schedule:',content,re.M) and re.search(r'^name:',content,re.M)):
+            evidence['Bruin'].append(path+': Bruin pipeline/connection config')
         if Path(path).name in ('prefect.yaml','prefect.yml') and re.search(r'^deployments:',content,re.M): evidence['Prefect'].append(path+': deployments config')
         if Path(path).name=='dagster.yaml': evidence['Dagster'].append(path+': instance config')
         if Path(path).name=='metadata.yaml' and 'blocks:' in content and 'executor_type:' in content: evidence['Mage'].append(path+': pipeline blocks/executor config')
@@ -163,6 +175,7 @@ def scan_one(output,items):
     result=json.loads(json.dumps(result))
     parts=urlparse(last['github_link']).path.strip('/').split('/')
     scope=unquote('/'.join(parts[4:])).rstrip('/') if len(parts)>4 and parts[2] in ('tree','blob') else ''
+    if len(parts)>4 and parts[2]=='blob': scope=str(Path(scope).parent) if '/' in scope else ''
     def relevant(item):
         path=item.split(':',1)[0]
         if item=='Astronomer runtime implies Airflow': return True
