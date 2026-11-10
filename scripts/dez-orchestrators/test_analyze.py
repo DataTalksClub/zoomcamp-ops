@@ -20,6 +20,10 @@ class DetectionTests(unittest.TestCase):
         ev,_,_=detect([('pipeline.py','from prefect import flow\nfrom dagster import asset\nimport luigi'),('mage/metadata.yaml','blocks: []\nexecutor_type: local_python')])
         self.assertEqual(set(ev),{'Prefect','Dagster','Luigi','Mage'})
 
+    def test_bruin_and_scheduled_pipeline(self):
+        ev,_,_=detect([('pipelines/final/pipeline.yml','name: final\nschedule: daily'),('.github/workflows/data.yml','on:\n  schedule:\n    - cron: 0 0 * * *\njobs:\n  ingest:\n    run: bruin run .')])
+        self.assertEqual(set(ev),{'Bruin','GitHub Actions'})
+
     def test_tools_not_orchestrators(self):
         ev,_,_=detect([('requirements.txt','dbt-core\ndlt\npyspark\n'),('analysis.py','import pandas\n')])
         self.assertFalse(ev)
