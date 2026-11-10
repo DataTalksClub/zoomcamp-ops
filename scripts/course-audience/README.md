@@ -166,3 +166,47 @@ Astronomer pitch, Airflow usage numbers stay in the raw CSVs only).
 - No email address in any output, report, commit or message (the classifier asserts this).
 - Outputs, caches, ledger and recheck inputs stay in the private report directory.
 - Delete `/tmp/treg-api-key` after the paid steps.
+
+## Remaining-author audit and employer analysis
+
+Preserve the target set before a concurrent enrichment run updates it:
+
+```bash
+python3 scripts/course-audience/rest.py baseline --output "$D" --baseline-enriched 538
+python3 scripts/course-audience/rest.py gather --output "$D" --workers 8
+# Wait for the existing enrichment owner to exit before any new paid calls.
+python3 scripts/course-audience/rest.py search --output "$D" --workers 8
+# Review exact own-source quotes in private rest-reviewed.json, then rerun gather.
+python3 scripts/course-audience/rest.py gather --output "$D" --workers 8
+python3 scripts/course-audience/rest.py merge --output "$D" --predecessor-pid ORIGINAL_PID
+```
+
+`gather` writes `enrichment-rest.csv` and redacted evidence under `cache/rest/`.
+It checks profile bios, profile READMEs, six pinned repositories, submitted project
+READMEs, directly linked public sites and attributable commit domains. Technical
+project topics do not establish an occupation. Commit domains remain historical
+signals and never establish current employment. Failed or unavailable sources stay
+in the audit. No Slack lookup runs without an existing display-name dataset.
+
+`search` uses the shared ledger lock, a $0.005 ceiling per routed web search and the
+$9 stop line under the shared $10 cap. Search results alone do not confirm identity;
+review a linking fact before accepting an external profile. Review quoted facts
+in `rest-reviewed.json` using the `apply_reviewed` schema in `rest.py`; only exact
+quotes from the author's own profile, profile README or directly linked site can
+replace an unconfirmed candidate. The candidate itself remains unconfirmed.
+
+Employer metadata belongs in private `company-metadata.json`, keyed by
+`aggregate.company_key(name)`. Each entry has `industry`, `segment`, `size` and
+`sources` (primary-source URLs). Unsupported metadata stays unknown. Employer
+counts exclude domain-only affiliations, educational/student affiliations,
+independent practitioners and placeholders. Business-model segments are exclusive:
+agency/consultancy takes precedence over enterprise size. State the enterprise
+and startup definitions used in the report. A small unfamiliar firm is not assumed
+to be a startup. The report includes top employers, industry and segment shares,
+explicit denominators, and named companies relevant to sponsor pitches.
+
+`merge` preserves accepted predecessor rows and merges only high/medium,
+unflagged findings. It regenerates the summary and stats, then adds employer
+analysis and the before/after coverage and shared spend. Run it again after a
+later `classify` or `aggregate` to restore these additions. Keep all audit inputs,
+metadata and outputs outside git.
