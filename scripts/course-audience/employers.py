@@ -70,6 +70,7 @@ def append(output):
     marker='\n## Employers\n'
     if marker in text:text=text.split(marker)[0]+'\n'
     baseline=json.loads((output/'rest-baseline.json').read_text())['baseline_enriched']
+    text=text.replace('Everyone else is employed or self-employed.', 'Other role labels describe public positioning; they do not independently verify employment.')
     text+=f'\nCoverage before/after: **{baseline} -> {len(good)} enriched** authors.\n\n'+section(stats)
     summary.write_text(text)
     dest=output/'audience-stats.json';d=json.loads(dest.read_text());d['coverage_before_after']={'before':baseline,'after':len(good)};d['employers']=stats
