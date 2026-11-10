@@ -6,6 +6,9 @@ startup from an unfamiliar name, or current employment from an email domain.
 """
 from collections import Counter
 import json
+import re
+
+GROUP_ALIASES = {'devoteam i google cloud partner':'devoteam', 'accenture colombia':'accenture'}
 
 
 def analyze(output, rows):
@@ -22,6 +25,7 @@ def analyze(output, rows):
             missing+=1
             continue
         key=company_key(company)
+        key=GROUP_ALIASES.get(key,key)
         companies[key]+=1;display.setdefault(key,company)
     industry=Counter();segment=Counter();covered=0
     for key,count in companies.items():
@@ -50,7 +54,7 @@ def section(stats):
     top=sorted(stats['top_employers'],key=lambda r:(-r['authors'],r['company'].lower()))[:30]
     lines+=[table(['Employer','Authors','Industry','Segment','Size (public description)'],[[r['company'],r['authors'],r['industry'],r['segment'],r['size']] for r in top]),'',
     f'Industry breakdown among {n} authors with a named employer. Metadata has sourced coverage for {stats["metadata_covered_authors"]} authors; the rest stay unknown.','',table(['Industry','Authors','Share of named employers'],[[k,v,f'{100*v/n:.1f}%' if n else '-'] for k,v in sorted(stats['industry'].items(),key=lambda x:-x[1])]),'',
-    'Business-model segments (denominators shown explicitly):','',table(['Segment','Authors','Share of named employers','Share of enriched authors'],[[k,stats['segment'].get(k,0),f'{stats["segment_share_of_named_employer_pct"].get(k,0):.1f}%',f'{stats["segment_share_of_enriched_pct"].get(k,0):.1f}%'] for k in ['enterprise','startup','agency/consultancy','other','unknown']]),'',
+    'Business-model segments (denominators shown explicitly). Enterprise means an established public company, a documented large organization (1,000+ employees), or its operating subsidiary. Startup means a company publicly described as an independent startup or early-stage venture-backed business. Agency/consultancy takes precedence; public-sector and research institutions are other. Unsupported classifications stay unknown:','',table(['Segment','Authors','Share of named employers','Share of enriched authors'],[[k,stats['segment'].get(k,0),f'{stats["segment_share_of_named_employer_pct"].get(k,0):.1f}%',f'{stats["segment_share_of_enriched_pct"].get(k,0):.1f}%'] for k in ['enterprise','startup','agency/consultancy','other','unknown']]),'',
     '### Named companies relevant to sponsor pitches','',
     'The following are audience affiliations, not evidence of adoption, purchase intent, or permission to contact. Pitch relevance is an editorial inference from the industry.','']
     known=[r for r in stats['top_employers'] if r['sources']]
@@ -70,6 +74,7 @@ def append(output):
     marker='\n## Employers\n'
     if marker in text:text=text.split(marker)[0]+'\n'
     baseline=json.loads((output/'rest-baseline.json').read_text())['baseline_enriched']
+    text=re.sub(r'## Notable companies\n.*?(?=## Current role vs course timing)', '', text, flags=re.S)
     text=text.replace('Everyone else is employed or self-employed.', 'Other role labels describe public positioning; they do not independently verify employment.')
     text+=f'\nCoverage before/after: **{baseline} -> {len(good)} enriched** authors.\n\n'+section(stats)
     summary.write_text(text)

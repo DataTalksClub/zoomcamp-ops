@@ -17,7 +17,7 @@ import subprocess
 import urllib.request
 from urllib.parse import urlparse
 
-from classify import FIELDS, FREELANCE_RE, STUDENT_RE, SEEKER_RE, country_of, role_family, seniority, clean_company
+from classify import FIELDS, FREELANCE_RE, STUDENT_RE, SEEKER_RE, country_of, role_family, seniority, clean_company, li_data, apply_linkedin
 from identities import domain_kind
 
 EMAIL = re.compile(r'[\w.+-]+@[\w-]+(?:\.[\w-]+)+')
@@ -189,6 +189,26 @@ def apply_reviewed(row, evidence, fact):
     return row
 
 
+def declared_links(output):
+    """Preserve URL path encoding, including non-ASCII LinkedIn identifiers."""
+    targets=set(json.loads((output/'rest-baseline.json').read_text())['targets'])
+    result=[]
+    for author in json.loads((output/'cache/authors.json').read_text()):
+        key=f"cmp-{author['student_id']}"
+        if key not in targets:
+            continue
+        prof=author.get('github_profile') or {}
+        texts=list(prof.get('social') or [])+[prof.get('blog') or '',prof.get('bio') or '']
+        path=output/'cache/rest'/f"{author['student_id']}.json"
+        if path.exists():
+            texts += [s.get('text','') for s in json.loads(path.read_text())['sources'] if s['kind'] in ('profile_readme','linked_public_site')]
+        slugs=sorted({slug.lower() for slug in re.findall(r'linkedin\.com/in/([\w%.-]+)', '\n'.join(texts),re.I)}-{'https','your-linkedin','your-name','username'})
+        if slugs:
+            result.append({'github':author['github'],'student_key':key,'slugs':slugs,'uncached':[] if any(li_data(output/'cache',slug) for slug in slugs) else [slug for slug in slugs if not (output/'cache'/f'li-full-{slug}.json').exists()]})
+    (output/'rest-new-linkedin.json').write_text(json.dumps(result,indent=1))
+    return result
+
+
 def gather(output,workers):
     baseline=json.loads((output/'rest-baseline.json').read_text())
     targets=set(baseline['targets']); authors=json.loads((output/'cache/authors.json').read_text())
@@ -196,6 +216,7 @@ def gather(output,workers):
     selected=[a for a in authors if 'cmp-'+str(a['student_id']) in targets]
     with ThreadPoolExecutor(max_workers=workers) as pool:
         records=list(pool.map(lambda a:audit(a,cache),selected))
+    declared_links(output)
     bykey={e['student_key']:e for e in records}
     facts_path=output/'rest-reviewed.json'
     facts=json.loads(facts_path.read_text()) if facts_path.exists() else {}
@@ -206,7 +227,6 @@ def gather(output,workers):
         if original['student_key'] not in targets: continue
         row=improve(original,bykey[original['student_key']])
         row=apply_reviewed(row,bykey[original['student_key']],facts.get(original['github']))
-        from classify import li_data, apply_linkedin
         for slug in links.get(original['github'],{}).get('slugs',[]):
             if slug in ('https','your-linkedin','your-name','username'):
                 continue
@@ -214,8 +234,9 @@ def gather(output,workers):
             if profile:
                 row=dict(row)
                 apply_linkedin(row,profile,int(max(row['years'].split(';'))))
-                row.update(confidence='high',flag='',enriched='yes',evidence_type='github_declared_linkedin',source='own_profile_readme_link',linkedin_url='https://www.linkedin.com/in/'+slug,source_url='https://www.linkedin.com/in/'+slug)
-                row['notes']+='; LinkedIn explicitly declared in own profile README; third-party candidate not used'
+                row.update(confidence='high',flag='',enriched='yes',evidence_type='github_declared_linkedin',source='own_public_declared_link',linkedin_url='https://www.linkedin.com/in/'+slug,source_url='https://www.linkedin.com/in/'+slug)
+                row['enriched']='yes' if row['company'] or row['title'] or row['seniority']!='unknown' else ''
+                row['notes']+='; LinkedIn explicitly declared in own public profile/README/site; third-party candidate not used'
                 break
         row['confidence']='flagged' if row['flag'] else row['confidence']
         row['audit_sources']=str(len(bykey[row['student_key']]['sources']))
