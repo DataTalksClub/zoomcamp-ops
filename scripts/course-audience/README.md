@@ -174,6 +174,7 @@ Preserve the target set before a concurrent enrichment run updates it:
 ```bash
 python3 scripts/course-audience/rest.py baseline --output "$D" --baseline-enriched 538
 python3 scripts/course-audience/rest.py gather --output "$D" --workers 8
+python3 scripts/course-audience/rest.py follow --output "$D" --workers 8
 # Wait for the existing enrichment owner to exit before any new paid calls.
 python3 scripts/course-audience/rest.py search --output "$D" --workers 8
 # Review exact own-source quotes in private rest-reviewed.json, then rerun gather.
@@ -192,7 +193,7 @@ in the audit. No Slack lookup runs without an existing display-name dataset.
 $9 stop line under the shared $10 cap. Search results alone do not confirm identity;
 review a linking fact before accepting an external profile. Review quoted facts
 in `rest-reviewed.json` using the `apply_reviewed` schema in `rest.py`; only exact
-quotes from the author's own profile, profile README or directly linked site can
+quotes from the author's own profile, profile README or directly linked site/social account can
 replace an unconfirmed candidate. The candidate itself remains unconfirmed.
 
 Employer metadata belongs in private `company-metadata.json`, keyed by

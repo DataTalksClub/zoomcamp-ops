@@ -116,6 +116,25 @@ def audit(a, cache):
     return out
 
 
+def follow(output, workers):
+    """Check social profiles and personal GitHub Pages sites linked in profile READMEs."""
+    def one(path):
+        evidence=json.loads(path.read_text())
+        existing={s.get('url') for s in evidence['sources']}
+        texts=[s.get('text','') for s in evidence['sources'] if s['kind']=='profile_readme']
+        urls=set(re.findall(r'https?://[^\s<>\[\]()"\']+', '\n'.join(texts)))
+        for url in sorted(urls):
+            host=(urlparse(url).hostname or '').lower()
+            social=host.removeprefix('www.') in {'kaggle.com','medium.com','dev.to','x.com','twitter.com'}
+            personal=host==evidence['github'].lower()+'.github.io'
+            if not (social or personal) or url in existing or urlparse(url).path in ('','/'):
+                continue
+            evidence['sources'].append(dict(site(url),kind='readme_linked_social'))
+        path.write_text(json.dumps(redact(evidence),ensure_ascii=False,indent=1))
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        list(pool.map(one,(output/'cache/rest').glob('[0-9]*.json')))
+
+
 def role_claim(text, profile=False):
     """Require a self-description; technical project prose is never an occupation."""
     if profile:
@@ -159,7 +178,7 @@ def apply_reviewed(row, evidence, fact):
     if not fact or row['enriched']=='yes' and not row['flag']:
         return row
     sources=[s for s in evidence['sources'] if s['kind']==fact['kind'] and fact['quote'] in s.get('text','')]
-    assert sources and fact['kind'] in ('github_profile','profile_readme','linked_public_site'), 'Missing own-source quote'
+    assert sources and fact['kind'] in ('github_profile','profile_readme','linked_public_site','readme_linked_social'), 'Missing own-source quote'
     row=dict(row)
     row.update(title=fact['title'], company=fact.get('company',''), confidence='high',enriched='yes',flag='',
                source='reviewed_public_rest_audit',source_url=sources[0].get('url',''),evidence_type=fact['kind'],
@@ -181,10 +200,23 @@ def gather(output,workers):
     facts_path=output/'rest-reviewed.json'
     facts=json.loads(facts_path.read_text()) if facts_path.exists() else {}
     rows=[]
+    links_path=output/'rest-new-linkedin.json'
+    links={x['github']:x for x in json.loads(links_path.read_text())} if links_path.exists() else {}
     for original in baseline['rows']:
         if original['student_key'] not in targets: continue
         row=improve(original,bykey[original['student_key']])
         row=apply_reviewed(row,bykey[original['student_key']],facts.get(original['github']))
+        from classify import li_data, apply_linkedin
+        for slug in links.get(original['github'],{}).get('slugs',[]):
+            if slug in ('https','your-linkedin','your-name','username'):
+                continue
+            profile=li_data(output/'cache',slug)
+            if profile:
+                row=dict(row)
+                apply_linkedin(row,profile,int(max(row['years'].split(';'))))
+                row.update(confidence='high',flag='',enriched='yes',evidence_type='github_declared_linkedin',source='own_profile_readme_link',linkedin_url='https://www.linkedin.com/in/'+slug,source_url='https://www.linkedin.com/in/'+slug)
+                row['notes']+='; LinkedIn explicitly declared in own profile README; third-party candidate not used'
+                break
         row['confidence']='flagged' if row['flag'] else row['confidence']
         row['audit_sources']=str(len(bykey[row['student_key']]['sources']))
         row['audit_checks']='; '.join(bykey[row['student_key']]['checks'])
@@ -212,11 +244,16 @@ def search(output,workers):
     print(json.dumps({'spent_usd':ledger.spent()/1e6}))
 
 
+def read_rows(path):
+    with path.open() as f:
+        return list(csv.DictReader(f))
+
+
 def baseline(output, baseline_enriched=None):
     dest=output/'rest-baseline.json'
     if dest.exists():
         raise ValueError('Baseline already exists; preserve the original target set')
-    rows=list(csv.DictReader((output/'enrichment-all.csv').open()))
+    rows=read_rows(output/'enrichment-all.csv')
     targets=[r['student_key'] for r in rows if not r['evidence_type'] or r['evidence_type']=='none' or r['confidence']=='none']
     n=sum(r['enriched']=='yes' and not r['flag'] for r in rows)
     dest.write_text(json.dumps({'baseline_enriched':n if baseline_enriched is None else baseline_enriched,'targets':targets,'rows':rows},indent=1))
@@ -227,13 +264,41 @@ def baseline(output, baseline_enriched=None):
 def merge(output, predecessor_pid):
     if not predecessor_pid or Path(f'/proc/{predecessor_pid}').exists():
         raise ValueError('Supply the original predecessor PID and wait for it to exit')
-    current=list(csv.DictReader((output/'enrichment-all.csv').open()))
-    audited={r['student_key']:r for r in csv.DictReader((output/'enrichment-rest.csv').open())}
+    current=read_rows(output/'enrichment-all.csv')
+    audited={r['student_key']:r for r in read_rows(output/'enrichment-rest.csv')}
     before=sum(r['enriched']=='yes' and not r['flag'] for r in current)
     for index,row in enumerate(current):
         rest=audited.get(row['student_key'])
         if rest and rest['confidence'] in ('high','medium') and rest['enriched']=='yes' and not rest['flag'] and not (row['enriched']=='yes' and not row['flag']):
             current[index]={k:rest[k] for k in FIELDS}
+    authors={f"cmp-{a['student_id']}":a for a in json.loads((output/'cache/authors.json').read_text())}
+    for row in current:
+        if row['enriched']!='yes' or row['flag']:
+            continue
+        author=authors[row['student_key']]
+        prof=author.get('github_profile') or {}
+        if not row['company'] and prof.get('type')=='User':
+            company=clean_company(prof.get('company') or '')
+            if not company:
+                m=re.search(r'\b(?:engineer|analyst|scientist|developer)\s+@\s*([\w][\w &.-]{1,60})',prof.get('bio') or '',re.I)
+                company=clean_company(m.group(1).split(',')[0]) if m else ''
+            if company:
+                row['company']=company
+                row['notes']+='; Employer self-declared on https://github.com/'+row['github']+' (snapshot; currentness unverified)'
+        match=re.match(r'^(?:Founder & CTO|Founder|CTO) at (.+)$',row['company'],re.I)
+        if match:
+            row['company']=match.group(1)
+            row['notes']+='; Employer extracted from own company field role statement'
+    employer_facts_path=output/'rest-employer-reviewed.json'
+    employer_facts=json.loads(employer_facts_path.read_text()) if employer_facts_path.exists() else {}
+    for row in current:
+        fact=employer_facts.get(row['github'])
+        if not fact or row['company'] or row['enriched']!='yes' or row['flag']:
+            continue
+        audit_path=output/'cache/rest'/f"{row['student_key'].removeprefix('cmp-')}.json"
+        evidence=json.loads(audit_path.read_text())
+        source=next(s for s in evidence['sources'] if s.get('url')==fact['url'] and fact['quote'] in s.get('text',''))
+        row['company']=fact['company'];row['notes']+='; Employer from linked public staff page: '+source['url']
     # Preserve the final accepted outcome in the audit CSV, including rows enriched
     # by the predecessor after the original baseline was taken.
     latest={r['student_key']:r for r in current}
@@ -262,7 +327,7 @@ def merge(output, predecessor_pid):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('action',choices=['baseline','gather','search','merge'])
+    p.add_argument('action',choices=['baseline','gather','follow','search','merge'])
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--workers',type=int,default=8)
     p.add_argument('--baseline-enriched',type=int)
