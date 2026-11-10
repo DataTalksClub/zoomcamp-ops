@@ -89,7 +89,7 @@ def aggregate(output, hide_labels=()):
     known_sen = sum(v for k, v in sen.items() if k != 'unknown')
     fam = Counter(r['role_family'] for r in good)
     known_fam = sum(v for k, v in fam.items() if k != 'unknown')
-    ctry = Counter(r['country'] for r in rows if r['country'] and r['flag'] == '')
+    ctry = Counter(r['country'] for r in good if r['country'])
     known_ctry = sum(ctry.values())
     free = [r for r in good if r['freelance']]
     free_kind = Counter(r['freelance'] for r in free)
@@ -135,7 +135,7 @@ def aggregate(output, hide_labels=()):
                       for r in sorted(notable, key=lambda r: (r['seniority'] not in ('lead+', 'senior'), r['name'].lower()))[:40]]), '']
     md += ['## Role family', '', f'Share of the {known_fam} enriched authors with a known role.', '',
            table(['Role family', 'Authors', 'Share'], [[k, fam[k], pct(fam[k], known_fam)] for k in ['DE', 'analytics eng', 'DA', 'DS/ML', 'SWE', 'other']]), '',
-           '## Country', '', f'Top countries among {known_ctry} authors with a known location (LinkedIn country, else GitHub location).', '',
+           '## Country', '', f'Top countries among {known_ctry} enriched authors with a known location (LinkedIn country, else GitHub location).', '',
            table(['Country', 'Authors', 'Share'], [[k, v, pct(v, known_ctry)] for k, v in ctry.most_common(20)]), '',
            f'{len(ctry)} countries in total.', '',
            '## Notable companies', '', 'Current employers that are well-known brands (author count per company):', '',
