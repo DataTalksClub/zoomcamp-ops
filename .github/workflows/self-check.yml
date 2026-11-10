@@ -27,6 +27,9 @@ jobs:
       - name: Orchestrator audit unit tests
         run: python3 -m unittest discover -s scripts/dez-orchestrators -p 'test_*.py'
 
+      - name: Course audience pipeline unit tests
+        run: python3 -m unittest discover -s scripts/course-audience -p 'test_*.py'
+
       - name: Rule catalogue
         run: uv run scripts/check-zoomcamp/check_zoomcamp.py --rules
 

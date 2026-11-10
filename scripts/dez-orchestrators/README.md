@@ -73,3 +73,5 @@ The renderer verifies that CSV submission row counts reconcile with all exports.
 Review all reports manually, including private/public identity conflicts, before
 using them in a pitch. Emit the Treg usage narrative from the actual ledger,
 never from quoted provider prices alone.
+
+> Superseded for new research by the course-agnostic pipeline in [scripts/course-audience](../course-audience/README.md) (configurable tool sets, identity linking, budget-guarded enrichment, audience aggregates).
