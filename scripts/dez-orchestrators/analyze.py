@@ -5,7 +5,6 @@ from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import csv
 import hashlib
-import io
 import json
 import os
 from pathlib import Path
@@ -187,7 +186,10 @@ def scan_one(output,items):
     result['evidence']={tool:entries for tool,entries in filtered.items() if entries}
     if 'Astronomer' not in result['evidence'] and result['evidence'].get('Airflow')==['Astronomer runtime implies Airflow']:
         del result['evidence']['Airflow']
-    if scope: result['notes']+=' Submitted project scope: '+scope
+    if scope:
+        result['notes']+=' Submitted project scope: '+scope
+        if result['status']=='scanned' and not any(p==scope or p.startswith(scope+'/') for p in result['files']):
+            result.update(status='unknown',evidence={},notes=result['notes']+'; submitted directory has no scanned files at this commit')
     tools=sorted(result['evidence'])
     return dict(repo=repo,year=last['year'],course_slug=last['course_slug'],project_slug=';'.join(sorted({r['project_slug'] for r in rows})),github_link=last['github_link'],**{'orchestrator(s)':';'.join(tools) if tools else ('none' if result['status']=='scanned' else 'unknown')},evidence=json.dumps(result['evidence'],ensure_ascii=False),notes=result['notes'],weak_mentions=json.dumps(result['weak'],ensure_ascii=False),commit_id=ref,submission_rows=len(rows),project_score=max((r.get('project_score') or 0 for r in rows)),scan_cache=key,status=result['status'])
 
