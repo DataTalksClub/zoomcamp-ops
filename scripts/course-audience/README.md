@@ -191,7 +191,12 @@ in the audit. No Slack lookup runs without an existing display-name dataset.
 
 `search` uses the shared ledger lock, a $0.005 ceiling per routed web search and the
 $9 stop line under the shared $10 cap. Search results alone do not confirm identity;
-review a linking fact before accepting an external profile. Review quoted facts
+review a linking fact before accepting an external profile. `gather` preserves
+newly declared profile links in private `rest-new-linkedin.json`, including encoded
+identifiers. Fetch only uncached valid URLs through the existing ledger before
+rerunning `gather`. Project-author declarations require a reviewed source URL and
+quote in `rest-declared-reviewed.json`; project topic mentions do not qualify.
+Review quoted facts
 in `rest-reviewed.json` using the `apply_reviewed` schema in `rest.py`; only exact
 quotes from the author's own profile, profile README or directly linked site/social account can
 replace an unconfirmed candidate. The candidate itself remains unconfirmed.

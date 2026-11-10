@@ -193,6 +193,8 @@ def declared_links(output):
     """Preserve URL path encoding, including non-ASCII LinkedIn identifiers."""
     targets=set(json.loads((output/'rest-baseline.json').read_text())['targets'])
     result=[]
+    reviewed_path=output/'rest-declared-reviewed.json'
+    reviewed=json.loads(reviewed_path.read_text()) if reviewed_path.exists() else {}
     for author in json.loads((output/'cache/authors.json').read_text()):
         key=f"cmp-{author['student_id']}"
         if key not in targets:
@@ -203,6 +205,11 @@ def declared_links(output):
         if path.exists():
             texts += [s.get('text','') for s in json.loads(path.read_text())['sources'] if s['kind'] in ('profile_readme','linked_public_site')]
         slugs=sorted({slug.lower() for slug in re.findall(r'linkedin\.com/in/([\w%.-]+)', '\n'.join(texts),re.I)}-{'https','your-linkedin','your-name','username'})
+        fact=reviewed.get(author['github'])
+        if fact:
+            evidence=json.loads(path.read_text())
+            assert any(s.get('url')==fact['source_url'] and fact['quote'] in s.get('text','') for s in evidence['sources']), 'Missing reviewed declaration quote'
+            slugs=sorted(set(slugs+[fact['slug']]))
         if slugs:
             result.append({'github':author['github'],'student_key':key,'slugs':slugs,'uncached':[] if any(li_data(output/'cache',slug) for slug in slugs) else [slug for slug in slugs if not (output/'cache'/f'li-full-{slug}.json').exists()]})
     (output/'rest-new-linkedin.json').write_text(json.dumps(result,indent=1))
