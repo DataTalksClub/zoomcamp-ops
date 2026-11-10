@@ -1,8 +1,10 @@
+import csv
 import json
 from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
@@ -12,6 +14,8 @@ from identities import domain_kind, linkedin_ids, x_ids  # noqa: E402
 from classify import seniority, role_family, role_timing, parse_date, country_of, corroborate, FREELANCE_RE  # noqa: E402
 from cmp_fetch import email_domain  # noqa: E402
 from treg_budget import Ledger, BudgetExceeded  # noqa: E402
+from aggregate import aggregate  # noqa: E402
+from classify import FIELDS  # noqa: E402
 
 TOOLS = HERE / 'tools'
 
@@ -91,6 +95,30 @@ class ClassifyTests(unittest.TestCase):
         author = {'github_profile': {'location': 'Berlin, Germany', 'company': ''}, 'email_domain': ''}
         self.assertEqual('low', corroborate(author, {'headline': 'Baker', 'location': 'Paris, France'})[0])
         self.assertEqual('medium', corroborate(author, {'headline': 'Data Engineer', 'location': 'Berlin, Germany'})[0])
+
+
+class AggregateTests(unittest.TestCase):
+    def test_country_uses_only_enriched_unflagged_authors(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d)
+            with (p / 'enrichment-all.csv').open('w', newline='') as f:
+                writer = csv.DictWriter(f, fieldnames=FIELDS)
+                writer.writeheader()
+                for confidence, enriched, flag, country in [
+                    ('high', 'yes', '', 'Germany'),
+                    ('none', '', '', 'France'),
+                    ('low', '', 'low-confidence', 'Spain'),
+                    ('rejected', '', 'rejected', 'Italy'),
+                ]:
+                    row = dict.fromkeys(FIELDS, '')
+                    row.update(confidence=confidence, enriched=enriched, flag=flag,
+                               country=country, years='2025', seniority='unknown', role_family='unknown')
+                    writer.writerow(row)
+            with patch('aggregate.warehouse_summary', return_value=([], {}, {})):
+                aggregate(p, ['Airflow', 'Astronomer'])
+            stats = json.loads((p / 'audience-stats.json').read_text())
+            self.assertEqual([['Germany', 1]], stats['countries_top'])
+            self.assertEqual(1, stats['enriched'])
 
 
 class BudgetTests(unittest.TestCase):
