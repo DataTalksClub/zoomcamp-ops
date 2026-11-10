@@ -112,6 +112,12 @@ def search_rows(result):
     return [r for r in rows if isinstance(r, dict)] if isinstance(rows, list) else []
 
 
+def profile_slug(value):
+    """Keep the public identifier, dropping search-provider language suffixes."""
+    slug = str(value or '').strip('/').split('/', 1)[0].lower()
+    return slug if re.fullmatch(r'(?:[\w-]|%[0-9a-f]{2})+', slug) else ''
+
+
 def candidate_slugs(output, a, max_per_author=2):
     """Name-matching candidates from the name search, location-matching first."""
     from classify import name_tokens, country_of
@@ -125,7 +131,8 @@ def candidate_slugs(output, a, max_per_author=2):
     gh_country = country_of((a.get('github_profile') or {}).get('location') or '')
     rows = [r for r in search_rows(json.loads(p.read_text() or 'null')) if r.get('profile_id') and want <= name_tokens(r.get('name') or '')]
     rows.sort(key=lambda r: (not (gh_country and country_of(r.get('location') or '') == gh_country),))
-    return [r['profile_id'].lower() for r in rows[:max_per_author]]
+    slugs = dict.fromkeys(profile_slug(r['profile_id']) for r in rows)
+    return [s for s in slugs if s][:max_per_author]
 
 
 def candidate_profiles(output, cap_usd, stop_usd, limit=0, dry_run=False, workers=6):
