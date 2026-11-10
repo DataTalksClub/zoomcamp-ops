@@ -22,6 +22,7 @@ TOOLS = {
  'Google Cloud Workflows': r'google_workflows_workflow|gcloud workflows deploy',
  'AWS EventBridge': r'aws_cloudwatch_event_rule|aws_scheduler_schedule|AWS::Events::Rule',
  'dbt Cloud': r'dbt_cloud_job|dbtcloud_job|cloud.getdbt.com/api/v2/accounts/.*/jobs/.*/run',
+ 'Microsoft Fabric Data Factory': r'Microsoft\.Fabric|fabric.*datafactory|"type"\s*:\s*"TridentNotebook"',
  'Bruin': r'(?m)^\s*#\s*@bruin|bruin run|bruin validate|ghcr.io/bruin-data|getbruin/bruin',
  'Apache NiFi': r'org\.apache\.nifi|apache/nifi|nifi/nifi',
  'Kestra': r'io\.kestra\.|kestra/(?:kestra|kestra-ee)|image:\s*kestra',
@@ -105,8 +106,8 @@ def detect(files):
             for line in content.splitlines():
                 if MENTIONS.search(line) and len(weak)<15: weak.append(path+': '+safe(line))
             continue
-        if path.startswith('.github/workflows/') and re.search(r'^\s+schedule:',content,re.M) and re.search(r'\b(?:dbt|bruin|ingest|pipeline|etl|elt)\b',content,re.I):
-            evidence['GitHub Actions'].append(path+': scheduled data pipeline workflow')
+        if path.startswith('.github/workflows/') and (re.search(r'^\s+schedule:',content,re.M) or re.search(r'run:[^\n]*(?:bruin run|dbt (?:run|build)|python[^\n]*(?:ingest|etl|pipeline|loader|extract))',content,re.I)) and re.search(r'\b(?:dbt|bruin|ingest|pipeline|etl|elt|loader)\b',content,re.I):
+            evidence['GitHub Actions'].append(path+': data pipeline workflow (scheduled or explicit run)' )
         if 'crontab' in Path(path).name.lower() and re.search(r'^(?:[0-9*/,-]+\s+){5}.*(?:python|bash|sh|docker|pipeline)',content,re.M):
             evidence['cron'].append(path+': executable cron schedule')
         for tool,pattern in TOOLS.items():
@@ -180,6 +181,7 @@ def scan_one(output,items):
         path=item.split(':',1)[0]
         if item=='Astronomer runtime implies Airflow': return True
         if scope: return path==scope or path.startswith(scope+'/')
+        if any(path.startswith(prefix) for prefix in result.get('manual_allow_paths',[])): return True
         return not re.search(r'(?:^|/)(?:hw(?:[0-9_-]|/)|homeworks?(?:/|[-_0-9])|(?:0[1-9]|[1-9])[ _-](?:docker|workflow|orchestrat|data|analytics|batch|stream|terraform)|cohorts/|tutorials/)',path,re.I)
     filtered={tool:[e for e in entries if relevant(e)] for tool,entries in result['evidence'].items()}
     result['evidence']={tool:entries for tool,entries in filtered.items() if entries}
