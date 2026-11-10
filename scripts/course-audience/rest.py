@@ -342,6 +342,8 @@ def merge(output, predecessor_pid):
             row['audit_checks']+=f'; name+handle web search: {count} results; unconfirmed identities excluded'
         else:
             row['audit_checks']+='; no usable GitHub handle for corroborated search'
+    if any(EMAIL.search(' '.join(map(str,row.values()))) for row in current+list(audited.values())):
+        raise ValueError('Email address detected; refusing report writes')
     with (output/'enrichment-all.csv').open('w',newline='') as f:
         w=csv.DictWriter(f,fieldnames=FIELDS);w.writeheader();w.writerows(current)
     with (output/'enrichment-rest.csv').open('w',newline='') as f:
