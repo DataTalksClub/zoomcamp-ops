@@ -55,3 +55,21 @@ per-call reservation header, a persistent micro-USD ledger and idempotency keys;
 an unsettled charge blocks further spending until reconciled. Catalog discovery
 is separate and must precede calls. Never use private CMP emails for enrichment.
 Store result files, employer data, reports, cache, and ledger outside git.
+
+After scanning, use `review.py --output DIR` to fetch candidate configuration
+files for additional frameworks and scheduled pipelines, and `recover.py --output
+DIR` to inspect source/configuration through the tree API when an archive exceeds
+limits. Rerun `analyze.py scan` after these helpers finish to rebuild the scoped
+CSV. These helpers modify only the external cache. Scheduler labels (GitHub
+Actions, Google Cloud Scheduler and AWS EventBridge) are reported separately from
+workflow frameworks; normal CI without a scheduled data job does not count.
+Bruin pipeline definitions follow https://getbruin.com/docs/bruin/pipelines/definition.html.
+
+Curate `shortlist.json` outside git with 10–20 objects containing `repo`, `year`
+and `why`. Write `enrichment.csv` with `author`, `GitHub`, `employer`, `source`
+(public or treg), `source_url`, `bio` and `notes`. Render reconciled summary and
+shortlist reports with `python3 scripts/dez-orchestrators/report.py --output DIR`.
+The renderer verifies that CSV submission row counts reconcile with all exports.
+Review all reports manually, including private/public identity conflicts, before
+using them in a pitch. Emit the Treg usage narrative from the actual ledger,
+never from quoted provider prices alone.
