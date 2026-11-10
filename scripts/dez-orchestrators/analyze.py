@@ -12,6 +12,7 @@ from pathlib import Path
 import re
 import subprocess
 import tarfile
+import tempfile
 import urllib.request
 from urllib.parse import urlparse, unquote
 
@@ -134,13 +135,16 @@ def scan_one(output,items):
         else:
             try:
                 # gh handles host auth and follows the archive redirect. No untrusted files extracted.
-                proc=gh(['api',f'repos/{repo}/tarball'+('/'+ref if re.fullmatch('[0-9a-fA-F]{7,40}',ref) else '')])
+                archive=tempfile.TemporaryFile()
+                proc=subprocess.run(['gh','api',f'repos/{repo}/tarball'+('/'+ref if re.fullmatch('[0-9a-fA-F]{7,40}',ref) else '')], stdout=archive, stderr=subprocess.PIPE, timeout=150)
+                archive_size=archive.tell()
+                archive.seek(0)
                 if proc.returncode:
                     result['notes']='GitHub archive inaccessible: '+safe(proc.stderr.decode(errors='replace'))[:240]
-                elif len(proc.stdout)>150_000_000: result['notes']='Archive exceeds 150 MB scan limit'
+                elif archive_size>150_000_000: result['notes']='Archive exceeds 150 MB scan limit'
                 else:
                     files=[];total=0
-                    with tarfile.open(fileobj=io.BytesIO(proc.stdout),mode='r:gz') as tar:
+                    with tarfile.open(fileobj=archive,mode='r|gz') as tar:
                         for member in tar:
                             if not member.isfile(): continue
                             path=member.name.split('/',1)[-1]
@@ -152,6 +156,7 @@ def scan_one(output,items):
                             if b'\0' not in data: files.append((path,data.decode('utf-8',errors='replace')))
                     ev,weak,inventory=detect(files)
                     result.update(status='scanned',evidence=ev,weak=weak,files=inventory,notes='',readme='\n'.join(t[:18000] for p,t in files if Path(p).name.lower()=='readme.md')[:35000])
+                archive.close()
             except (subprocess.TimeoutExpired,tarfile.TarError,ValueError,OSError) as e: result['notes']=type(e).__name__+': '+safe(str(e))
         dest.write_text(json.dumps(result))
     # Ignore teaching modules and respect a submitted tree/blob project directory.
