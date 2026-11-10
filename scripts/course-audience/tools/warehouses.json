@@ -1,0 +1,131 @@
+{
+ "name": "warehouses",
+ "version": 1,
+ "mention_regex": "\\b(bigquery|snowflake|redshift|databricks|duckdb|motherduck|postgres\\w*|synapse|clickhouse|athena|trino|fabric|data ?warehouse)\\b",
+ "tools": {
+  "BigQuery": {
+   "patterns": [
+    "from\\s+google\\.cloud\\s+import\\s+bigquery|google\\.cloud\\.bigquery|bigquery\\.Client\\(|google_bigquery_(?:dataset|table|job)|^\\s*type:\\s*['\\\"]?bigquery\\b|BigQuery\\w*Operator|io\\.kestra\\.plugin\\.gcp\\.bigquery|destination\\s*=\\s*['\\\"]bigquery|pandas_gbq|to_gbq\\(|bigquery://"
+   ],
+   "packages": [
+    "google-cloud-bigquery",
+    "dbt-bigquery",
+    "pandas-gbq",
+    "sqlalchemy-bigquery",
+    "dlt[bigquery]"
+   ]
+  },
+  "Snowflake": {
+   "patterns": [
+    "snowflake\\.connector|(?-i:\\bfrom\\s+snowflake\\b)|(?-i:\\bimport\\s+snowflake\\b)|^\\s*type:\\s*['\\\"]?snowflake\\b|snowflake://|io\\.kestra\\.plugin\\.jdbc\\.snowflake|Snowflake\\w*Operator|destination\\s*=\\s*['\\\"]snowflake|resource\\s+\\\"snowflake_\\w+\\\"|(?-i:os\\.(?:environ|getenv)\\S*SNOWFLAKE_)|\\.snowflakecomputing\\.com|snowflake_conn_id"
+   ],
+   "packages": [
+    "snowflake-connector-python",
+    "dbt-snowflake",
+    "snowflake-sqlalchemy",
+    "snowflake-snowpark-python",
+    "apache-airflow-providers-snowflake",
+    "dlt[snowflake]"
+   ]
+  },
+  "Redshift": {
+   "patterns": [
+    "redshift_connector|^\\s*type:\\s*['\\\"]?redshift\\b|aws_redshift(?:serverless)?_\\w+|redshift\\+psycopg2|Redshift\\w*Operator|destination\\s*=\\s*['\\\"]redshift|\\.redshift\\.amazonaws\\.com|redshift-data"
+   ],
+   "packages": [
+    "redshift-connector",
+    "dbt-redshift",
+    "sqlalchemy-redshift",
+    "dlt[redshift]"
+   ]
+  },
+  "Databricks": {
+   "patterns": [
+    "(?-i:\\bfrom\\s+databricks\\b)|(?-i:\\bimport\\s+databricks\\b)|^\\s*type:\\s*['\\\"]?databricks\\b|resource\\s+\\\"databricks_\\w+\\\"|azurerm_databricks_workspace|Databricks\\w*Operator|destination\\s*=\\s*['\\\"]databricks|\\.cloud\\.databricks\\.com|\\.azuredatabricks\\.net|dbutils\\.|databricks\\.yml"
+   ],
+   "packages": [
+    "databricks-sql-connector",
+    "dbt-databricks",
+    "databricks-sdk",
+    "databricks-connect",
+    "dlt[databricks]"
+   ]
+  },
+  "DuckDB": {
+   "patterns": [
+    "(?-i:\\bimport\\s+duckdb\\b)|(?-i:\\bfrom\\s+duckdb\\b)|duckdb\\.connect\\(|^\\s*type:\\s*['\\\"]?duckdb\\b|destination\\s*=\\s*['\\\"]duckdb|io\\.kestra\\.plugin\\.jdbc\\.duckdb"
+   ],
+   "packages": [
+    "duckdb",
+    "dbt-duckdb",
+    "dlt[duckdb]"
+   ]
+  },
+  "MotherDuck": {
+   "patterns": [
+    "['\\\"]md:[\\w$]|motherduck_token|destination\\s*=\\s*['\\\"]motherduck|^\\s*type:\\s*['\\\"]?motherduck\\b"
+   ],
+   "packages": [
+    "dlt[motherduck]"
+   ]
+  },
+  "Postgres": {
+   "patterns": [
+    "\\bimport\\s+psycopg2?\\b|\\bfrom\\s+psycopg2?\\b|postgresql(?:\\+\\w+)?://|^\\s*image:\\s*['\\\"]?postgres(?::|\\s|$|['\\\"])|^\\s*type:\\s*['\\\"]?postgres\\b|destination\\s*=\\s*['\\\"]postgres|io\\.kestra\\.plugin\\.jdbc\\.postgresql|database_version\\s*=\\s*['\\\"]POSTGRES|engine\\s*=\\s*['\\\"]postgres|FROM\\s+postgres"
+   ],
+   "packages": [
+    "psycopg2",
+    "psycopg2-binary",
+    "psycopg",
+    "dbt-postgres",
+    "asyncpg",
+    "dlt[postgres]"
+   ]
+  },
+  "Azure Synapse": {
+   "patterns": [
+    "azurerm_synapse_\\w+|^\\s*type:\\s*['\\\"]?synapse\\b|\\.sql\\.azuresynapse\\.net|Microsoft\\.Synapse/workspaces"
+   ],
+   "packages": [
+    "dbt-synapse"
+   ]
+  },
+  "Microsoft Fabric Warehouse": {
+   "patterns": [
+    "^\\s*type:\\s*['\\\"]?fabric\\b|datawarehouse\\.fabric\\.microsoft\\.com|Microsoft\\.Fabric"
+   ],
+   "packages": [
+    "dbt-fabric"
+   ]
+  },
+  "ClickHouse": {
+   "patterns": [
+    "(?-i:\\bimport\\s+clickhouse_connect\\b)|\\bfrom\\s+clickhouse_(?:connect|driver)\\b|clickhouse/clickhouse-server|^\\s*type:\\s*['\\\"]?clickhouse\\b|clickhouse://|destination\\s*=\\s*['\\\"]clickhouse"
+   ],
+   "packages": [
+    "clickhouse-connect",
+    "clickhouse-driver",
+    "dbt-clickhouse"
+   ]
+  },
+  "Amazon Athena": {
+   "patterns": [
+    "aws_athena_\\w+|(?-i:\\bimport\\s+pyathena\\b)|(?-i:\\bfrom\\s+pyathena\\b)|wr\\.athena\\.|^\\s*type:\\s*['\\\"]?athena\\b|athena\\.start_query_execution|boto3\\.client\\(\\s*['\\\"]athena"
+   ],
+   "packages": [
+    "pyathena",
+    "dbt-athena-community",
+    "dbt-athena"
+   ]
+  },
+  "Trino": {
+   "patterns": [
+    "(?-i:\\bimport\\s+trino\\b)|(?-i:\\bfrom\\s+trino\\b)|trinodb/trino|^\\s*type:\\s*['\\\"]?trino\\b|trino://"
+   ],
+   "packages": [
+    "trino",
+    "dbt-trino"
+   ]
+  }
+ }
+}

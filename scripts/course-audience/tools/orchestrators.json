@@ -1,0 +1,194 @@
+{
+ "name": "orchestrators",
+ "version": 1,
+ "mention_regex": "\\b(kestra|airflow|astronomer|dagster|prefect|mage|luigi|orchestrat\\w*|cron|nifi|windmill|azkaban|oozie|step functions|data factory|bruin)\\b",
+ "implies": {
+  "Astronomer": [
+   "Airflow"
+  ]
+ },
+ "tools": {
+  "Google Cloud Scheduler": {
+   "patterns": [
+    "google_cloud_scheduler_job|gcloud scheduler jobs create"
+   ]
+  },
+  "Google Cloud Workflows": {
+   "patterns": [
+    "google_workflows_workflow|gcloud workflows deploy"
+   ]
+  },
+  "AWS EventBridge": {
+   "patterns": [
+    "aws_cloudwatch_event_rule|aws_scheduler_schedule|AWS::Events::Rule"
+   ]
+  },
+  "dbt Cloud": {
+   "patterns": [
+    "dbt_cloud_job|dbtcloud_job|cloud.getdbt.com/api/v2/accounts/.*/jobs/.*/run"
+   ]
+  },
+  "Microsoft Fabric Data Factory": {
+   "patterns": [
+    "Microsoft\\.Fabric|fabric.*datafactory|\\\"type\\\"\\s*:\\s*\\\"TridentNotebook\\\""
+   ]
+  },
+  "Bruin": {
+   "patterns": [
+    "^\\s*#\\s*@bruin|bruin run|bruin validate|ghcr.io/bruin-data|getbruin/bruin"
+   ],
+   "file_rules": [
+    {
+     "path": "(^|/)\\.bruin\\.ya?ml$",
+     "label": "Bruin pipeline/connection config"
+    },
+    {
+     "path": "(^|/)pipeline\\.ya?ml$",
+     "content_all": [
+      "^schedule:",
+      "^name:"
+     ],
+     "label": "Bruin pipeline definition"
+    }
+   ]
+  },
+  "Apache NiFi": {
+   "patterns": [
+    "org\\.apache\\.nifi|apache/nifi|nifi/nifi"
+   ]
+  },
+  "Kestra": {
+   "patterns": [
+    "io\\.kestra\\.|kestra/(?:kestra|kestra-ee)|image:\\s*kestra"
+   ]
+  },
+  "Airflow": {
+   "patterns": [
+    "\\bfrom\\s+airflow\\b|\\bimport\\s+airflow\\b|apache-airflow|apache/airflow|airflow standalone"
+   ],
+   "packages": [
+    "apache-airflow"
+   ]
+  },
+  "Astronomer": {
+   "patterns": [
+    "astrocrpublic\\.azurecr\\.io|quay\\.io/astronomer|astronomer/astro-runtime|FROM\\s+astro"
+   ]
+  },
+  "Dagster": {
+   "patterns": [
+    "\\bfrom\\s+dagster\\b|\\bimport\\s+dagster\\b|dagster-webserver|dagster dev|dagster/api"
+   ],
+   "packages": [
+    "dagster"
+   ],
+   "file_rules": [
+    {
+     "path": "(^|/)dagster\\.yaml$",
+     "label": "instance config"
+    }
+   ]
+  },
+  "Prefect": {
+   "patterns": [
+    "\\bfrom\\s+prefect\\b|\\bimport\\s+prefect\\b|prefecthq/prefect|prefect deploy|prefect server"
+   ],
+   "packages": [
+    "prefect"
+   ],
+   "file_rules": [
+    {
+     "path": "(^|/)prefect\\.ya?ml$",
+     "content_all": [
+      "^deployments:"
+     ],
+     "label": "deployments config"
+    }
+   ]
+  },
+  "Mage": {
+   "patterns": [
+    "\\bfrom\\s+mage_ai\\b|\\bimport\\s+mage_ai\\b|mageai/mageai|mage_ai start"
+   ],
+   "packages": [
+    "mage-ai"
+   ],
+   "file_rules": [
+    {
+     "path": "(^|/)metadata\\.yaml$",
+     "content_all": [
+      "blocks:",
+      "executor_type:"
+     ],
+     "label": "pipeline blocks/executor config"
+    }
+   ]
+  },
+  "Luigi": {
+   "patterns": [
+    "\\bimport\\s+luigi\\b|\\bfrom\\s+luigi\\b"
+   ],
+   "packages": [
+    "luigi"
+   ]
+  },
+  "Argo Workflows": {
+   "patterns": [
+    "argoproj.io/v1alpha1[\\s\\S]*?kind:\\s*(?:Workflow|CronWorkflow)"
+   ]
+  },
+  "AWS Step Functions": {
+   "patterns": [
+    "aws_sfn_state_machine|aws-stepfunctions|aws_stepfunctions|\\\"StartAt\\\"\\s*:"
+   ]
+  },
+  "Azure Data Factory": {
+   "patterns": [
+    "Microsoft.DataFactory/factories|azurerm_data_factory_pipeline"
+   ]
+  },
+  "Flyte": {
+   "patterns": [
+    "\\bfrom\\s+flytekit\\b|\\bimport\\s+flytekit\\b"
+   ]
+  },
+  "Temporal": {
+   "patterns": [
+    "\\bfrom\\s+temporalio\\b|\\bimport\\s+temporalio\\b"
+   ]
+  },
+  "Hamilton": {
+   "patterns": [
+    "\\bfrom\\s+hamilton\\b|\\bimport\\s+hamilton\\b"
+   ]
+  },
+  "Databricks Workflows": {
+   "patterns": [
+    "databricks_job|\\bjob_clusters:"
+   ]
+  },
+  "GitHub Actions": {
+   "file_rules": [
+    {
+     "path": "^\\.github/workflows/",
+     "content_all": [
+      "^\\s+schedule:|run:[^\\n]*(?:bruin run|dbt (?:run|build)|python[^\\n]*(?:ingest|etl|pipeline|loader|extract))",
+      "\\b(?:dbt|bruin|ingest|pipeline|etl|elt|loader)\\b"
+     ],
+     "label": "data pipeline workflow (scheduled or explicit run)"
+    }
+   ]
+  },
+  "cron": {
+   "file_rules": [
+    {
+     "path": "crontab[^/]*$",
+     "content_all": [
+      "^(?:[0-9*/,-]+\\s+){5}.*(?:python|bash|sh|docker|pipeline)"
+     ],
+     "label": "executable cron schedule"
+    }
+   ]
+  }
+ }
+}

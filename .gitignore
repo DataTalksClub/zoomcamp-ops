@@ -3,3 +3,18 @@ __pycache__/
 *.pyc
 .tmp/
 .DS_Store
+
+# Course audience / project research outputs are private student data: never commit them.
+scripts/course-audience/output/
+scripts/dez-orchestrators/output/
+**/cache/scans*/
+enrichment*.csv
+*-unique-submitters.csv
+*-all-attempts.csv
+audience-summary.md
+audience-stats.json
+identity-stats.json
+rechecks.json
+recheck-candidates.json
+treg-ledger.json
+treg-ledger.lock
