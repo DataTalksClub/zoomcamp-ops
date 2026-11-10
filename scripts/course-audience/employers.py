@@ -21,7 +21,9 @@ def analyze(output, rows):
         if r['evidence_type']=='domain_signal' or 'Company from corporate email domain only' in r['notes']:
             domain_only+=1
             continue
-        if r.get('seniority')=='student' or not company or NOT_COMPANY.match(company) or company.lower() in {'nda','dream job','tbd','seeking opportunities','no','self','personal project','personal development','engineer','data engineering student','data engineering zoomcamp','zoomcamp / self-directed project'} or r['freelance'] in ('freelance','self-employed'):
+        title=r.get('title','')
+        student_affiliation=(r.get('seniority')=='student' and not re.search(r'working.?student|research|assistant|intern|engineer|analyst|developer',title,re.I))
+        if student_affiliation or not company or NOT_COMPANY.match(company) or company.lower() in {'nda','dream job','tbd','seeking opportunities','no','self','personal project','personal development','engineer','data engineering student','data engineering zoomcamp','zoomcamp / self-directed project'} or r['freelance'] in ('freelance','self-employed'):
             missing+=1
             continue
         key=company_key(company)

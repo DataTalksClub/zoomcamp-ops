@@ -76,6 +76,14 @@ class PublicAuditTests(unittest.TestCase):
 
 
 class EmployerTests(unittest.TestCase):
+    def test_working_student_job_counts_but_study_only_affiliation_does_not(self):
+        with tempfile.TemporaryDirectory() as d:
+            rows=[dict(company='BMW',evidence_type='github_declared_linkedin',notes='',freelance='',seniority='student',title='Data Analyst / Working Student'),
+                  dict(company='University',evidence_type='github_declared_linkedin',notes='',freelance='',seniority='student',title='MSc Student')]
+            result=analyze(Path(d),rows)
+            self.assertEqual(1,result['authors_with_named_employer'])
+            self.assertEqual('BMW',result['top_employers'][0]['company'])
+
     def test_unknowns_and_domain_only_do_not_inflate_enterprise_share(self):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)
