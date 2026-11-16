@@ -186,6 +186,8 @@ NUMBERED_DIR = re.compile(r"^\d{2,}-")
 NUMERIC_TITLE_PREFIX = re.compile(r"^(?:\d+(?:\.\d+)+[.):]?|\d+[.):])\s+")
 YOUTUBE_HOSTS = {"youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be"}
 YOUTUBE_IN_TEXT = re.compile(r"https?://(?:www\.|m\.)?(?:youtube\.com|youtu\.be)/\S+")
+NAV_BLOCK_START = "<!-- nav:start -->"
+NAV_BLOCK_END = "<!-- nav:end -->"
 NAV_HEADING = re.compile(r"^#{1,6}\s+navigation\s*$", re.IGNORECASE)
 NAV_LINE = re.compile(
     r"(\[\s*(?:&larr;|<-|←|«)\s*|←\s*prev|prev\s*(?:ious)?\s*(?:lesson|unit)?\s*:"
@@ -1199,9 +1201,14 @@ class Checker:
                     )
 
     def check_navigation(self, rel: str, body: str, offset: int) -> None:
+        in_block = False  # the generated GitHub nav block (scripts/lesson-nav/)
         for number, line in iter_prose_lines(body):
             stripped = line.strip()
-            if not stripped:
+            if stripped == NAV_BLOCK_START:
+                in_block = True
+            elif stripped == NAV_BLOCK_END:
+                in_block = False
+            if not stripped or in_block:
                 continue
             if NAV_HEADING.match(stripped) or (NAV_LINE.search(stripped) and "](" in stripped):
                 self.report(

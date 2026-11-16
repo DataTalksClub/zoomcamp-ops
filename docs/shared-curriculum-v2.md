@@ -108,7 +108,12 @@ lesson updates the neighbours' frontmatter in the same commit.
 
 Declared navigation keeps the rendered page's prev/next links reviewable in
 the pull request that changes them. It does not reintroduce body navigation
-furniture: `## Navigation` blocks and `← prev | next →` lines stay retired.
+furniture: `## Navigation` blocks and hand-written `← prev | next →` lines stay
+retired. GitHub readers get a generated block instead, written from the
+frontmatter by `scripts/lesson-nav/sync_lesson_nav.py` between
+`<!-- nav:start -->` and `<!-- nav:end -->`. Frontmatter stays the source, the
+website strips the block, and it is never hand-edited. Re-run the script after
+changing links; `--check` exits 1 when a block is stale.
 
 ## Course and cohort manifests
 

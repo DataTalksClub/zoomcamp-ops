@@ -68,7 +68,13 @@ The same argument applies to per-unit prev/next links, "back to the course"
 lines and `## Navigation` blocks: the site renders navigation from the unit
 order, GitHub navigates by the module README and the numbered directory listing,
 and the hand-written copies have already drifted in wording between neighbouring
-files. Don't write them (`U8`).
+files. Don't hand-write them (`U8`).
+
+The one exception is the GitHub nav block at the end of each lesson, between
+`<!-- nav:start -->` and `<!-- nav:end -->`. Frontmatter `prev_url`/`next_url`
+is the source; `python scripts/lesson-nav/sync_lesson_nav.py <course-repo>`
+writes the block, and `--check` exits 1 when one is stale. The website strips
+it. Never hand-edit it.
 
 ## Writing a unit
 

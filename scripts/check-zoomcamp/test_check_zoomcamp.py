@@ -209,6 +209,33 @@ with tempfile.TemporaryDirectory() as raw:
     expect("allowance suppresses one L007", allowed.get(("error", "L007")), 1)
     expect("stale allowance is reported", allowed.get(("warning", "C002")), 1)
 
+# U008 exempts the block that scripts/lesson-nav/sync_lesson_nav.py generates
+# between the nav markers, and nothing else: a hand-written prev/next line
+# outside the markers is still navigation furniture.
+GENERATED_NAV = (
+    "<!-- nav:start -->\n"
+    "[← Previous: What Is Machine Learning](01-what-is-ml.md) · "
+    "[Next: Rules vs ML →](02-rules-vs-ml.md)\n"
+    "<!-- nav:end -->\n"
+)
+with tempfile.TemporaryDirectory() as raw:
+    tmp = Path(raw) / "repo"
+    shutil.copytree(HERE / "fixtures" / "conformant", tmp)
+    unit = tmp / "cohorts" / "2026" / "01-intro"
+    # The generated block goes in 01-what-is-ml.md; a hand-written line goes in
+    # 02-rules-vs-ml.md. Both are listed in module.yaml, so both are checked.
+    with (unit / "01-what-is-ml.md").open("a", encoding="utf-8") as handle:
+        handle.write("\n" + GENERATED_NAV)
+    with (unit / "02-rules-vs-ml.md").open("a", encoding="utf-8") as handle:
+        handle.write("\n[← Previous](01-what-is-ml.md)\n")
+    nav_flags = sorted(
+        Path(path).name
+        for _severity, rule, path in raw_findings(tmp)
+        if rule == "U008"
+    )
+    expect("U008 passes the generated nav block and flags a hand-written one",
+           nav_flags, ["02-rules-vs-ml.md"])
+
 # Every rule the checker can emit must be in the catalogue, and every rule in
 # the catalogue must be documented in STRUCTURE.md.
 structure = (HERE.parent.parent / "STRUCTURE.md").read_text(encoding="utf-8")

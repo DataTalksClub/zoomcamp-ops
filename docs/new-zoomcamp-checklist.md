@@ -65,7 +65,7 @@ Step-by-step to spin up a new camp from this template.
 
 - [ ] `check-zoomcamp` reports zero errors.
 - [ ] No emoji in `##`/`###` headings; no bold formatting.
-- [ ] No hand-maintained table of contents, and no per-unit prev/next lines.
+- [ ] No hand-maintained table of contents, and no hand-written per-unit prev/next lines (the generated nav block is fine).
 - [ ] Standardized heading names (see `docs/conventions.md`).
 - [ ] Every syllabus entry links into the current cohort's module directory.
 - [ ] Ask the website team to register the repository's webhook, and confirm the

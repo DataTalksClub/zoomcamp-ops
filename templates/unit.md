@@ -49,8 +49,9 @@ Anything outside this cohort — a past cohort, another repository — is an
 absolute GitHub URL, not a relative path.
 
 No video links in the body: the recording goes in video_url above.
-No prev/next lines and no "## Navigation" block: the site renders navigation
-and the module README is the index.}}
+No hand-written prev/next lines and no "## Navigation" block: the site renders
+navigation and the module README is the index. The GitHub nav block at the
+end of the file is generated from frontmatter; never write it by hand.}}
 
 ## {{Section Heading}}
 
