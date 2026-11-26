@@ -195,9 +195,14 @@ Template: [`templates/root-README.md`](templates/root-README.md).
 
 ## 3. Module `cohorts/<year>/NN-name/README.md` — canonical template
 
-The module README is a GitHub index page. It is **not ingested by the website**
-and it is not where lesson content lives: the units are sibling files, and this
-page links them.
+The module README is the GitHub index page, and it is not where lesson content
+lives: the units are sibling files, and this page links them. For a schema-2
+repository the website parses it at import time into the module page's fields
+(intro, lesson groups, workshop recordings, code link, community notes; see
+[`docs/shared-curriculum-v2.md`](docs/shared-curriculum-v2.md)), and **each
+unit's one-line blurb becomes that lesson's summary on the site**. Give every
+index entry a blurb: the heading form below, or a list item
+`N. [<Unit Title>](NN-unit-slug.md) - <blurb>`.
 
 ```
 # Module N: <Title>

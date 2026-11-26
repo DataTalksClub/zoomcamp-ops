@@ -42,7 +42,8 @@ units, and `SITE.md`'s pointer — one fact, one place.
 What each file becomes once it is pushed, not just where it sits:
 
 - **A lesson `NN-lesson.md`** is the only file that becomes rendered content.
-  Its frontmatter (`video_url`, `code`, `prev_url`, `next_url`) is parsed and stripped; the remaining
+  Its frontmatter (`video_url`, `video_duration_seconds`, `code`, `prev_url`,
+  `next_url`) is parsed and stripped; the remaining
   body becomes the unit's page. The filename stem is the unit's URL slug,
   never a declared `slug` field.
 - **`images/` is imported, not resolved live.** A unit's
@@ -59,14 +60,22 @@ What each file becomes once it is pushed, not just where it sits:
   against the importer, `courses/services/curriculum_import.py`'s
   `_import_shared_assets`, this session — an earlier draft of this doc got
   this backwards.)
-- **`README.md` is GitHub-facing decoration, with one exception.** The root
-  `README.md`, every module `README.md`, and a *current* cohort's
-  `README.md` are never read by the website's importer — they exist only for
-  someone browsing the repository on GitHub. The **one** exception is an
-  archived cohort's `README.md`, which the website does read, but only as an
-  address: `cohort.yaml`'s `archive.notice_path` points at it so the site can
-  render a "view the original material on GitHub" link. It is never parsed
-  for content.
+- **A module `README.md` is parsed at import time.** The importer reads each
+  root module's README into the module page's fields: the intro (text after
+  the title, up to the first section), the lesson groups with each lesson's
+  one-line description, the original workshop recordings (a section whose
+  heading mentions *recording*), the community notes (a heading mentioning
+  *notes*), the module code link (a `Code: [code/](code/)` line, else a
+  `code/` directory in the module) and any other section as Markdown. A
+  lesson's description is the text after its index entry:
+  `1. [Search](05-search.md) - Building a search engine with minsearch`, or the
+  first paragraph under `## 1.1 [Search](05-search.md)`. That description is
+  the lesson summary the site shows, so every index entry should carry one.
+  The parser invents nothing: a README without a section leaves that field
+  empty. The root `README.md` and a *current* cohort's `README.md` are still
+  never read. An archived cohort's `README.md` is read only as an address:
+  `cohort.yaml`'s `archive.notice_path` points at it so the site can render a
+  "view the original material on GitHub" link.
 - **The course description lives inline in `course.yaml:description`**,
   not in a separate file. v1's `SITE.md` + `description_path` pointer is
   retired in v2: one course-identity fact belongs in the one manifest that
@@ -78,6 +87,22 @@ What each file becomes once it is pushed, not just where it sits:
   (homework is authored and reviewed per module, so a shared file would be a
   standing merge-conflict hotspot) and never sitting inside the shared root
   module directory (homework is per-delivery, the module content is not).
+
+## Lesson video length
+
+A lesson with a `video_url` also records the video's length in whole seconds:
+
+```yaml
+---
+video_url: https://www.youtube.com/watch?v=rQYyFxf1FWw
+video_duration_seconds: 208
+---
+```
+
+The value is fetched from YouTube, never typed by hand:
+`uv run scripts/lesson-metadata/fill_video_durations.py <repo>` fills every
+lesson that lacks one (`--refresh` refetches all, `--check` exits 1 when one
+is missing). Re-run it after adding or replacing a lesson video.
 
 ## Declared lesson navigation
 
@@ -139,6 +164,19 @@ urls:
 hashtag: llmzoomcamp
 published: true
 ```
+
+Two optional keys carry facts for the course landing page; the importer
+keeps the stored value when a key is absent:
+
+```yaml
+instructors:            # display order; url is optional
+  - name: Alexey Grigorev
+    url: https://linkedin.com/in/agrigorev
+weekly_commitment: Free. Plan for 10 to 15 hours a week during the cohort.
+```
+
+List only instructors the README or the course docs name, and take the weekly
+time from the course docs or FAQ. Leave a key out rather than guess.
 
 `urls` groups the three external links (`repository_url`, `docs_url`, `faq_url`
 in v1) under one mapping instead of three separately-suffixed top-level keys —

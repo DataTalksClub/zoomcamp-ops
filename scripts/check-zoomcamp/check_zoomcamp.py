@@ -1623,6 +1623,15 @@ class SharedCurriculumChecker(Checker):
                 "urls",
                 "hashtag",
                 "published",
+                # Optional site copy the website importer reads.
+                "catalog",
+                "starting_point",
+                "project_summary",
+                "prerequisites",
+                "progression",
+                "homework_summaries",
+                "instructors",
+                "weekly_commitment",
             },
             {
                 "schema_version",
@@ -1806,7 +1815,12 @@ class SharedCurriculumChecker(Checker):
         mapping = self._load_v2_yaml(rel)
         if mapping is None:
             return
-        self._keys(rel, mapping, {"schema_version", "content_id", "title", "units"}, {"schema_version", "content_id", "title", "units"})
+        self._keys(
+            rel,
+            mapping,
+            {"schema_version", "content_id", "slug", "title", "summary", "overview_path", "units"},
+            {"schema_version", "content_id", "title", "units"},
+        )
         if not self._schema(rel, mapping):
             return
         self._register_id(rel, mapping.get("content_id"))
@@ -1900,10 +1914,25 @@ class SharedCurriculumChecker(Checker):
             self._v2_report("v2_schema", rel, "unit frontmatter must be a mapping")
             return
         self._bounded(mapping, rel)
-        self._keys(rel, mapping, {"video_url", "code", "prev_url", "next_url"}, set())
+        self._keys(
+            rel,
+            mapping,
+            {"video_url", "video_duration_seconds", "code", "prev_url", "next_url"},
+            set(),
+        )
         video = mapping.get("video_url")
         if video is not None and (type(video) is not str or not video.startswith("https://")):
             self._v2_report("v2_schema", rel, "video_url must be an https string")
+        duration = mapping.get("video_duration_seconds")
+        if duration is not None and (
+            type(duration) is not int or not 0 < duration <= 86_400 or video is None
+        ):
+            self._v2_report(
+                "v2_schema",
+                rel,
+                "video_duration_seconds must be a positive whole number of seconds "
+                "next to a video_url (write it with scripts/lesson-metadata/)",
+            )
         code = mapping.get("code")
         if code is None:
             return
@@ -2152,6 +2181,10 @@ class SharedCurriculumChecker(Checker):
                 "curriculum",
                 "homework",
                 "archive",
+                # Project attempts and their review criteria; the website
+                # importer validates their shape.
+                "review_criteria",
+                "projects",
             },
             {"schema_version", "content_id", "identifier", "course", "delivery", "published", "curriculum", "homework"},
         )
